@@ -1,0 +1,512 @@
+<!doctype html><html><head><!-- frame-runtime --><base href="/_f/1787777634-a981/"><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.YODCk0yK.js","assets":"assets.DBUJcvq_.js","comments":"comments.GLuHR3zP.js","db":"db.CRhVHzSt.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CxGAyc-v.js","mcp":"mcp.Bvma3qD7.js","network":"network.B5UA9Su4.js","permissions":"permissions.BNySkLV5.js","room":"room.BMMoe2BY.js","sample":"sample.BW2Uysoh.js","self":"artifact.YODCk0yK.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.CQm3TZ9K.js","comments":"_comments.PBVy184F.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var J=["light","dark","system"],Q=/^[A-Za-z0-9_-]{1,64}$/,H=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,ee=new Set(["class","hidden","value","checked"]);function te(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||ee.has(t)}var Me="http://www.w3.org/1999/xhtml",re="http://www.w3.org/2000/svg",ne=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),oe=new Set(["script","style"]);function se(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!ne.has(t):e.namespaceURI===re?!oe.has(t):!1}var ae=new Set(["html","head","body","frameset"]);function ie(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&ae.has(e.localName)}function ce(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!Q.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[r,n]of Object.entries(t.attrsSet))if(!H.test(r)||typeof n!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const r of t.attrsRemoved)if(typeof r!="string"||!H.test(r))return!1}return!0}function le(e,t){if(e===null||typeof e!="object")return!1;const{seq:r,elements:n}=e;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let s=0;s<n.length;s++)if(!t(n[s]))return!1;return!0}function ue(e){return e===null||typeof e!="object"?!1:le(e.__frame_patch,ce)}function fe(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function pe(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function de(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&J.includes(r)}var A=/^[\w.-]+\.js$/;function me(e,t,r){return r?"inert":typeof t=="string"&&A.test(t)?e?[t]:"inert":e?"inert":"framed"}function he(){return{post(e,t){parent.postMessage(e,t)},on(e){const t=r=>{r.source===parent&&e(r.data,r.origin)};return addEventListener("message",t),()=>removeEventListener("message",t)}}}function _e(){return{post:()=>{},on:()=>()=>{}}}var O="__frame_scroll",ve=150,ye=310,we=160,be=3e4;function Ee(){let e=0,t=!1,r=!1,n=!1,s=0,a=null;const l=i=>{try{sessionStorage.setItem(O,JSON.stringify({y:i}))}catch{}},d=()=>{if(clearTimeout(e),a===null)return;const i=a;a=null,l(i)},v=()=>{if(t){t=!1;return}r=!0,a=scrollY,clearTimeout(e),e=setTimeout(d,ve)};try{addEventListener("scroll",v,{passive:!0}),addEventListener("pagehide",d)}catch{}const y=()=>{let i;try{i=sessionStorage.getItem(O)}catch{return null}if(i===null)return null;let m;try{m=JSON.parse(i)}catch{m=null}const u=m?.y;if(!(typeof u=="number"&&Number.isFinite(u)&&u>=0)){try{sessionStorage.removeItem(O)}catch{}return null}return u};let S=!1;const h=i=>{try{const m=scrollY;scrollTo({top:i,left:0,behavior:"instant"}),s=i,n=!0,clearTimeout(e),a=null,l(i);const u=scrollY;u!==m&&(t=!0),u!==i&&!S&&(S=!0,addEventListener("load",()=>{try{if(scrollY===u){const k=y();h(k!==null?k:s)}}catch{}},{once:!0}))}catch{}},w=()=>{try{return!!location.hash}catch{return!0}};let o=!1;const f=()=>{try{if(o||innerWidth>ye||innerHeight>we)return;o=!0;const i=Date.now(),m=()=>{try{removeEventListener("resize",m)}catch{}if(Date.now()-i>be||r||w())return;const u=y();h(u!==null?u:s)};addEventListener("resize",m)}catch{}};let _=!1,b=!1;return{restore(){if(_||(_=!0,w()))return;const i=y();i!==null&&(h(i),f())},promoted(){if(b||(b=!0,w()))return;const i=y();i!==null?(h(i),f()):n&&h(s)}}}function ge(e,t,r,n){let s=null;try{s=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:v=>v})??null}catch{}const a=window.Worker,l=a?.prototype,d=Object.freeze({Worker:a,workerOn:l?.addEventListener,workerPost:l?.postMessage,workerTerminate:l?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,policy:s,origins:t});r(e).then(v=>v?.bootTopLevel?v.bootTopLevel(d,n):n.settle()).catch(()=>n.settle())}var Oe="modulepreload",Ce=function(e){return"/"+e},je={},Ae=function(t,r,n){let s=Promise.resolve();function a(l){const d=new Event("vite:preloadError",{cancelable:!0});if(d.payload=l,window.dispatchEvent(d),!d.defaultPrevented)throw l}return s.then(l=>{for(const d of l||[])d.status==="rejected"&&a(d.reason);return t().catch(a)})},Re=window===top,q=Object.getOwnPropertyDescriptor(window,"claude"),T=me(Re,window.__FRAME_PREAMBLE?.topLevel,q?.writable===!1),C=typeof T=="object"&&T[0],p=C?_e():he();(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let s=0;s<r.length;s++){const a=r[s];try{e(t,a,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[a]}catch{}try{e(t,a,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[a]=="function"&&n++}if(n&&T==="framed")try{p.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Se=1e4,W=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function $(e){for(const t of W)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var L=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),j=window.__FRAME_PREAMBLE?.transforms,N=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate;function R(e){return Ae(()=>import("/_runtime/"+e),void 0)}function K(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:D,pipe:()=>({wrap:(r,n)=>(...s)=>{try{return n(...s)}catch(a){return Promise.reject(a)}}})}}var P=null,E=null;function Y(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var B=!1;function ke(e,t){const r=[];for(const n of e.elements){const s=document.querySelector(`[data-id="${n.target}"]`);if(!s){p.post({__frame_patch_miss:{seq:e.seq}},t);return}if([...Object.keys(n.attrsSet??{}),...n.attrsRemoved??[]].some(a=>!te(a))){p.post({__frame_patch_miss:{seq:e.seq}},t);return}if(n.text!==void 0&&(!se(s)||ie(s))){p.post({__frame_patch_miss:{seq:e.seq}},t);return}for(const[a,l]of Object.entries(n.attrsSet??{}))if(!G(s,a)){try{s.setAttribute(a,l)}catch{}X(s,a,l)}for(const a of n.attrsRemoved??[])G(s,a)||(s.removeAttribute(a),X(s,a,null));typeof n.text=="string"&&(s.textContent=n.text),r.push(n.target)}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:r}}))}catch{}}function X(e,t,r){if(!(e instanceof HTMLInputElement))return;const n=t.toLowerCase();n==="checked"?e.checked=r!==null:n==="value"&&e.type!=="file"&&(e.value=r??"")}function G(e,t){const r=t.toLowerCase(),n=e;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function V(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,B=!0):B&&(delete t.dataset.theme,t.style.colorScheme="",B=!1)}var M=new Map;function Te(){let e;const t={u:new Promise(r=>{e=r}),r:r=>{t.done=!0,e(r)},done:!1,nulled:!1};return t}function U(){for(const e of M.values())e.done||(e.nulled=!0,e.r(null))}var Le=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),D=(e,t)=>{const r=M.get(e);if(!r||r.done){r?.nulled&&E&&p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},E);return}const n=typeof t=="function"?Object.setPrototypeOf(t,Le):Object.assign(Object.create(null),t);typeof n.then=="function"&&delete n.then,r.r(Object.freeze(n))};function Z(){const e=q?.value??{};Y(window,"claude",e);for(const t of Object.keys(L)){if(e[t]!==void 0){Y(e,t,e[t]);continue}M.set(t,Te())}if(e.use===void 0){const t=r=>{if(typeof r!="string"||!Object.hasOwn(L,r))return Promise.resolve(null);const n=M.get(r);return n?n.u:Promise.resolve(e[r]??null)};try{Object.defineProperty(e,"use",{value:t,writable:!0,configurable:!0,enumerable:!1})}catch{}}}if(T==="framed"){const e=j&&A.test(j)?R(j).catch(()=>{}):Promise.resolve(void 0),t=o=>{if(o.type==="auxclick"&&o.button!==1)return;const f=o.target,_=f&&f.closest?f.closest("a[href],area[href]"):null;if(!_)return;const b=_.getAttribute("href");if(!b)return;let i;try{i=new URL(b,document.baseURI)}catch{return}if((i.protocol==="http:"||i.protocol==="https:")&&i.origin!==location.origin){o.preventDefault();const m=(_.getAttribute("target")??"").toLowerCase(),u=o.type==="auxclick"||o.metaKey||o.ctrlKey||o.shiftKey||o.altKey||!["","_self","_top","_parent"].includes(m);p.post({__frame_nav:!0,url:i.href,newTab:u},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const r={},n=o=>{o.isTrusted&&(r.pointer=!0)},s=o=>{o.isTrusted&&(r.click=!0)};addEventListener("pointermove",n,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0}),e.then(o=>{o?.wireNav&&(o.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",n,!0),removeEventListener("click",s,!0),o.wireEngagement?.(r))});let a=null;try{a=Ee()}catch{}Z();let l=null,d=null,v=0;const y=p.on((o,f)=>{$(f)&&fe(o)&&(l=o.__frame_init,E=f,y(),clearTimeout(v),d?.())});p.post({__frame_connect:!0},"*");const S=new Promise(o=>{d=o,v=setTimeout(()=>{y(),o()},Se)}),h=document.readyState==="loading"?new Promise(o=>document.addEventListener("DOMContentLoaded",()=>o(),{once:!0})):Promise.resolve();h.then(()=>{try{a?.restore()}catch{}});const w={cb:null};p.on((o,f)=>{if($(f)&&pe(o)){try{a?.promoted()}catch{}w.cb?.()}}),S.then(async()=>{if(!l||!E){U();return}V(l.theme);const o=E;let f=!1,_=!1;p.on((c,x)=>{if(x!==o)return;de(c)&&V(c.__frame_theme.theme),ue(c)&&ke(c.__frame_patch,o);const g=c?.__fc_mode;g&&typeof g=="object"&&!f&&N&&A.test(N)&&(f=!0,R(N).then(z=>z.install?.(o,g.on===!0)).catch(()=>{}));const F=c?.__ft_cmd;F&&typeof F=="object"&&!_&&I&&A.test(I)&&(_=!0,R(I).then(z=>z.install?.(o,F)).catch(()=>{}))});const b=Object.keys(l.capabilities??{}).filter(c=>Object.hasOwn(L,c)).map(c=>[c,L[c]]).filter(c=>typeof c[1]=="string"&&A.test(c[1])),i=await Promise.allSettled(b.map(([,c])=>R(c))),m=await e,u=E;if(m?.buildBoot||p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},u),m?.buildBoot)try{P=m.buildBoot(l,m.TRANSFORMS??{},{shellOrigin:u,mount:D},c=>p.post({__frame_cap_telemetry:c},u))}catch{p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},u),P=K(l,u)}else P=K(l,u);const k=c=>p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:c}},u),Pe=P;i.forEach((c,x)=>{const g=b[x][0];if(c.status!=="fulfilled"){k(g);return}try{c.value?.install?.(Pe)}catch{k(g)}}),U(),await h,p.post({__frame_ready:!0},E),e.then(c=>c?.installSizeReporter?.(u,w))})}else C&&(Z(),ge(C,W,R,{settle:U,mount:D}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Reading the Tape</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6f3ec;
+  --surface:#ffffff;
+  --surface-2:#ece6d6;
+  --ink:#201f1a;
+  --ink-soft:#59564a;
+  --ink-faint:#8d8879;
+  --line:#ddd5bf;
+  --line-soft:#e8e1cd;
+  --accent:#1f5f6b;
+  --accent-ink:#154650;
+  --accent-soft:#dbe7e8;
+  --adam:#1f5f6b;
+  --adam-soft:#dbe7e8;
+  --nathan:#b8823a;
+  --nathan-soft:#f2e4cc;
+  --flag:#a4530f;
+  --flag-soft:#f5e2cf;
+  --good:#3c7a52;
+  --good-soft:#e0ecdf;
+  --shadow: 0 1px 2px rgba(32,31,26,0.06), 0 10px 28px -16px rgba(32,31,26,0.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#181613;
+    --surface:#221f1a;
+    --surface-2:#2a2620;
+    --ink:#f1ede2;
+    --ink-soft:#b7b09e;
+    --ink-faint:#847d6b;
+    --line:#3a3529;
+    --line-soft:#302c22;
+    --accent:#6fb8c4;
+    --accent-ink:#9ad3dc;
+    --accent-soft:rgba(111,184,196,0.14);
+    --adam:#6fb8c4;
+    --adam-soft:rgba(111,184,196,0.15);
+    --nathan:#e0aa5f;
+    --nathan-soft:rgba(224,170,95,0.15);
+    --flag:#e2a15f;
+    --flag-soft:rgba(226,161,95,0.15);
+    --good:#8dc79a;
+    --good-soft:rgba(141,199,154,0.14);
+    --shadow: 0 1px 2px rgba(0,0,0,0.35), 0 10px 28px -16px rgba(0,0,0,0.5);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#181613;
+  --surface:#221f1a;
+  --surface-2:#2a2620;
+  --ink:#f1ede2;
+  --ink-soft:#b7b09e;
+  --ink-faint:#847d6b;
+  --line:#3a3529;
+  --line-soft:#302c22;
+  --accent:#6fb8c4;
+  --accent-ink:#9ad3dc;
+  --accent-soft:rgba(111,184,196,0.14);
+  --adam:#6fb8c4;
+  --adam-soft:rgba(111,184,196,0.15);
+  --nathan:#e0aa5f;
+  --nathan-soft:rgba(224,170,95,0.15);
+  --flag:#e2a15f;
+  --flag-soft:rgba(226,161,95,0.15);
+  --good:#8dc79a;
+  --good-soft:rgba(141,199,154,0.14);
+  --shadow: 0 1px 2px rgba(0,0,0,0.35), 0 10px 28px -16px rgba(0,0,0,0.5);
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:'Work Sans', ui-sans-serif, system-ui, sans-serif;
+  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--accent-soft); }
+.wrap{ max-width:840px; margin:0 auto; padding:2.75rem 1.5rem 6rem; }
+
+.backlink{
+  display:inline-flex; align-items:center; gap:.4rem;
+  font-family:'IBM Plex Mono', ui-monospace, monospace; font-size:.8rem;
+  color:var(--ink-soft); text-decoration:none; margin-bottom:1.75rem;
+}
+.backlink:hover{ color:var(--accent-ink); }
+.backlink svg{ width:13px; height:13px; }
+
+header.top{ border-bottom:1px solid var(--line); padding-bottom:1.6rem; }
+.eyebrow{
+  font-family:'IBM Plex Mono', monospace; font-size:.72rem; letter-spacing:.08em;
+  text-transform:uppercase; color:var(--ink-faint); margin:0 0 .5rem;
+}
+h1{
+  font-family:'Fraunces', serif; font-weight:500; font-size:2.3rem; line-height:1.1;
+  margin:0 0 .55rem; text-wrap:balance; color:var(--ink);
+}
+.meta{
+  display:flex; flex-wrap:wrap; gap:.5rem 1.3rem; margin-top:1rem;
+  font-family:'IBM Plex Mono', monospace; font-size:.8rem; color:var(--ink-soft);
+}
+.meta b{ color:var(--ink); font-weight:600; }
+
+.callout{
+  margin-top:1.5rem; background:var(--flag-soft); border:1px solid color-mix(in srgb, var(--flag) 35%, transparent);
+  border-radius:10px; padding:1rem 1.2rem; font-size:.95rem; color:var(--ink);
+}
+.callout .lbl{
+  font-family:'IBM Plex Mono',monospace; font-size:.7rem; text-transform:uppercase; letter-spacing:.06em;
+  color:var(--flag); font-weight:600; margin-bottom:.4rem; display:block;
+}
+
+section{ margin-top:2.9rem; }
+.sec-head{
+  display:flex; align-items:baseline; gap:.7rem; border-left:3px solid var(--accent);
+  padding-left:.85rem; margin-bottom:1.15rem;
+}
+.sec-head h2{ font-family:'Fraunces', serif; font-weight:500; font-size:1.45rem; margin:0; color:var(--ink); }
+.sec-head .sub{ font-family:'IBM Plex Mono',monospace; font-size:.76rem; color:var(--ink-faint); }
+p{ margin:.8rem 0; }
+p.lead{ font-size:1.02rem; color:var(--ink); }
+
+/* metric tiles */
+.tiles{ display:grid; grid-template-columns:repeat(4,1fr); gap:.7rem; margin-top:1.4rem; }
+.tile{
+  background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:.95rem 1rem; box-shadow:var(--shadow);
+}
+.tile .k{ font-family:'IBM Plex Mono',monospace; font-size:.68rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); }
+.tile .v{ font-family:'Fraunces',serif; font-size:1.55rem; font-weight:500; margin:.25rem 0 .15rem; color:var(--ink); font-variant-numeric:tabular-nums; }
+.tile .n{ font-size:.78rem; color:var(--ink-soft); }
+@media (max-width:640px){ .tiles{ grid-template-columns:1fr 1fr; } }
+
+/* talk-time timeline */
+.timeline-wrap{ margin-top:1.6rem; }
+.timeline{
+  position:relative; height:34px; border-radius:6px; overflow:hidden; display:flex;
+  border:1px solid var(--line);
+}
+.timeline .seg{ height:100%; }
+.timeline .mono-mark{
+  position:absolute; top:-6px; height:calc(100% + 12px); width:2px; background:var(--ink);
+}
+.timeline-axis{ display:flex; justify-content:space-between; margin-top:.4rem; font-family:'IBM Plex Mono',monospace; font-size:.68rem; color:var(--ink-faint); }
+.timeline-legend{ display:flex; gap:1.3rem; margin-top:.75rem; font-size:.82rem; color:var(--ink-soft); flex-wrap:wrap; }
+.timeline-legend .dot{ display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:.4rem; }
+
+/* observation cards */
+.obs{ display:flex; flex-direction:column; gap:.7rem; margin-top:1.2rem; }
+.obscard{
+  background:var(--surface); border:1px solid var(--line); border-radius:10px;
+  padding:.9rem 1.05rem; display:flex; gap:.9rem; box-shadow:var(--shadow);
+}
+.obscard .t{
+  flex:none; width:52px; font-family:'IBM Plex Mono',monospace; font-size:.74rem;
+  color:var(--accent-ink); font-weight:600; padding-top:.1rem; font-variant-numeric:tabular-nums;
+}
+.obscard .body b{ color:var(--ink); }
+.obscard .body .note{ display:block; margin-top:.25rem; font-size:.86rem; color:var(--ink-soft); }
+
+blockquote{
+  margin:0; padding:.9rem 1.1rem; background:var(--surface-2); border-left:3px solid var(--nathan);
+  border-radius:0 8px 8px 0; font-family:'Fraunces', serif; font-style:italic; font-size:1.03rem; color:var(--ink);
+}
+blockquote cite{ display:block; margin-top:.4rem; font-family:'IBM Plex Mono',monospace; font-style:normal; font-size:.73rem; color:var(--ink-faint); }
+.qgrid{ display:flex; flex-direction:column; gap:.8rem; margin-top:1.1rem; }
+
+ol.reco{ margin:1.1rem 0 0; padding:0; list-style:none; counter-reset:reco; display:flex; flex-direction:column; gap:.75rem; }
+ol.reco li{
+  counter-increment:reco; position:relative; padding-left:2.5rem;
+  background:var(--surface); border:1px solid var(--line); border-radius:10px; padding-top:.85rem; padding-bottom:.85rem; padding-right:1.05rem;
+  box-shadow:var(--shadow);
+}
+ol.reco li::before{
+  content:counter(reco); position:absolute; left:.95rem; top:.8rem;
+  font-family:'Fraunces',serif; font-weight:500; font-size:1.1rem; color:var(--accent);
+}
+ol.reco li b{ display:block; margin-bottom:.2rem; color:var(--ink); }
+ol.reco li span{ font-size:.92rem; color:var(--ink-soft); }
+
+.limits{
+  background:var(--surface-2); border:1px solid var(--line); border-radius:10px;
+  padding:1.1rem 1.25rem; font-size:.9rem; color:var(--ink-soft);
+}
+.limits h3{ margin:0 0 .5rem; font-family:'IBM Plex Mono',monospace; font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; color:var(--ink-faint); }
+.limits ul{ margin:.3rem 0 0; padding-left:1.1rem; }
+.limits li{ margin-bottom:.5rem; }
+.limits li:last-child{ margin-bottom:0; }
+
+.decision{
+  margin-top:1.6rem; background:var(--accent-soft); border-radius:10px; padding:1.15rem 1.3rem;
+  color:var(--ink);
+}
+.decision .lbl{ font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--accent-ink); margin-bottom:.4rem; display:block; }
+
+footer{ margin-top:3.2rem; padding-top:1.5rem; border-top:1px solid var(--line); font-size:.82rem; color:var(--ink-faint); line-height:1.7; }
+footer a{ color:var(--accent-ink); }
+
+@media (max-width:560px){ h1{ font-size:1.85rem; } .tiles{ grid-template-columns:1fr 1fr; } }
+</style>
+
+<div class="wrap">
+
+  <a class="backlink" href="https://claude.ai/code/artifact/0f4cad15-00f0-4120-b68d-0dece99f5687">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3 5 8l5 5"/></svg>
+    Nathan Moser's contact brief
+  </a>
+  <p style="margin:-1.2rem 0 1.75rem; font-family:'IBM Plex Mono',monospace; font-size:.78rem; color:var(--ink-faint);">
+    <a href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3" style="color:var(--accent-ink); font-weight:600;">Next Touch dashboard &rarr;</a>
+    &nbsp;&middot;&nbsp;
+    <a href="https://claude.ai/code/artifact/c683bd30-99e5-4085-9208-433136744f20" style="color:var(--accent-ink); font-weight:600;">Daily Priorities &rarr;</a>
+    &nbsp;&middot;&nbsp;
+    <a href="https://claude.ai/code/artifact/19d06ea7-3178-46ff-bf4d-13f1dca37906" style="color:var(--accent-ink); font-weight:600;">Call Verbiage Field Guide &rarr;</a>
+  </p>
+
+  <header class="top">
+    <p class="eyebrow">Call coaching · pilot</p>
+    <h1>Reading the tape: Nathan Moser, Aug 25</h1>
+    <div class="meta">
+      <span><b>Source</b> Apollo Conversations, Google Meet recording</span>
+      <span><b>Duration</b> 19:27</span>
+      <span><b>Host</b> Adam Russo</span>
+    </div>
+    <div class="callout">
+      <span class="lbl">Read this before the findings below</span>
+      Video coaching on <em>you</em> works well — Adam is on camera the whole call. Video coaching on the <em>client</em> doesn't, here or in general: Nathan never turned his camera on, so there's no face to read. The client-side findings below come from what he said and how he said it, not his expression. Full explanation in Methodology &amp; limits at the bottom — worth reading before treating any of this as gospel.
+    </div>
+  </header>
+
+  <!-- ============ HEADLINE METRICS ============ -->
+  <section>
+    <div class="sec-head"><h2>The four numbers that matter</h2></div>
+    <div class="tiles">
+      <div class="tile">
+        <div class="k">Talk-time split</div>
+        <div class="v">80 / 20</div>
+        <div class="n">you / Nathan</div>
+      </div>
+      <div class="tile">
+        <div class="k">Your pace</div>
+        <div class="v">189<span style="font-size:.85rem;font-weight:400;"> wpm</span></div>
+        <div class="n">fast — 140&ndash;160 is conversational</div>
+      </div>
+      <div class="tile">
+        <div class="k">Longest unbroken run</div>
+        <div class="v">3:38</div>
+        <div class="n">during the platform demo</div>
+      </div>
+      <div class="tile">
+        <div class="k">Vocal pitch range</div>
+        <div class="v">102&ndash;160<span style="font-size:.75rem;font-weight:400;"> Hz</span></div>
+        <div class="n">moderate variety, not flat</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TALK TIME TIMELINE ============ -->
+  <section>
+    <div class="sec-head"><h2>Who was talking, when</h2><span class="sub">0:00 &ndash; 19:27</span></div>
+    <p>Every one of Nathan's 41 turns plotted against yours across the full call. The long solid teal stretch from about 6:00 to 9:40 is the 3:38 platform walkthrough — the single longest anyone spoke without the other person saying a word.</p>
+    <div class="timeline-wrap">
+      <div class="timeline" id="ttTimeline" role="img" aria-label="Talk time across the call, Adam in teal, Nathan in amber">
+        <div class="seg" style="flex-basis:0.151%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:1.809%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.075%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.145%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:1.515%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:1.159%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.199%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.274%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.192%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.329%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.254%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.062%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.185%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.302%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.233%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.089%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.226%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.164%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.151%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.110%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.370%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.219%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:1.169%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.123%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.480%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.356%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.377%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:1.029%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.055%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.226%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.055%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.171%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.158%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.411%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.055%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.233%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.089%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.564%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.401%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.487%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.096%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.096%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.308%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:2.164%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.404%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:2.570%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.082%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:2.751%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.241%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.158%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.267%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:5.290%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.384%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.260%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.164%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:5.824%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.082%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:18.645%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.110%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.117%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.133%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.521%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.123%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.973%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.082%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.178%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:3.177%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.144%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.925%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.069%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:6.818%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.192%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.219%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.089%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:1.153%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.398%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.391%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.171%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:1.082%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.062%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:1.665%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.069%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.110%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.069%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:6.321%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.384%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.500%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.069%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.158%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.062%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.466%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.212%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.363%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.130%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:2.324%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.055%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:2.932%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.122%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.117%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.062%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.161%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.127%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.158%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.199%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.754%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.096%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:1.039%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:2.095%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.185%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.171%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.199%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.117%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.192%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.302%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.164%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.219%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.460%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.082%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.069%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.161%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:1.261%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.062%;background:var(--line-soft);" title="silence"></div>
+        <div class="seg" style="flex-basis:0.094%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:2.205%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.096%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.206%;background:var(--adam);" title="adam"></div>
+        <div class="seg" style="flex-basis:0.082%;background:var(--nathan);" title="nathan"></div>
+        <div class="seg" style="flex-basis:0.347%;background:var(--line-soft);" title="silence"></div>
+      </div>
+      <div class="timeline-axis"><span>0:00</span><span>4:52</span><span>9:44</span><span>14:35</span><span>19:27</span></div>
+      <div class="timeline-legend">
+        <span><i class="dot" style="background:var(--adam)"></i>Adam speaking (80%, 14:06 total)</span>
+        <span><i class="dot" style="background:var(--nathan)"></i>Nathan speaking (20%, 3:30 total)</span>
+        <span><i class="dot" style="background:var(--line)"></i>silence / dead air (10%)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ON CAMERA ============ -->
+  <section>
+    <div class="sec-head"><h2>On camera</h2><span class="sub">you, only — see the callout above</span></div>
+    <p class="lead">Reviewed frames sampled roughly every 30&ndash;90 seconds across the call, plus close-ups around the rapport open, the demo, and the pricing conversation.</p>
+    <div class="obs">
+      <div class="obscard">
+        <div class="t">0:15&ndash;2:00</div>
+        <div class="body"><b>Gaze drops early.</b> In the opening minute your eyes are down and to the side more than on the lens — reads as checking notes or the CRM while you ask discovery questions.<span class="note">Minor — most callers do this during intake. Worth noticing because it's the one stretch where you're not visibly engaged with him.</span></div>
+      </div>
+      <div class="obscard">
+        <div class="t">2:00&ndash;5:00</div>
+        <div class="body"><b>Direct eye contact returns and holds.</b> Once you're past intake and into rapport-building, you're consistently looking at the camera, animated, leaning slightly in.</div>
+      </div>
+      <div class="obscard">
+        <div class="t">5:45</div>
+        <div class="body"><b>Thinking gesture right before the platform pitch</b> — hand near chin, brief pause. Reads as a natural, unforced transition rather than hesitation.</div>
+      </div>
+      <div class="obscard">
+        <div class="t">9:05</div>
+        <div class="body"><b>Genuine positive reaction</b> — thumbs-up and a smile land right as Nathan confirms "unlimited expenses" is included. That's a real, spontaneous moment, not scripted enthusiasm — it reads well.</div>
+      </div>
+      <div class="obscard">
+        <div class="t">6:00&ndash;16:00</div>
+        <div class="body"><b>Webcam tile shrinks to a corner during screen share</b> and your face is smaller/less central for the demo and pricing walkthrough — structurally unavoidable while presenting, but it does mean the highest-stakes part of the call (the price) is also the part where you're least visually present to him.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VOCAL DELIVERY ============ -->
+  <section>
+    <div class="sec-head"><h2>Vocal delivery</h2><span class="sub">computed from the audio track, not a transcript</span></div>
+    <p>These come from pitch-tracking (F0) and loudness (RMS energy) run against your speaking segments only, isolated using the call's own speaker timestamps.</p>
+    <div class="obs">
+      <div class="obscard">
+        <div class="t">Pace</div>
+        <div class="body"><b>189 words/minute average</b>, against roughly 176 for Nathan. Both of you talk quickly, but you're the faster one, and 189 is toward the top end of what a listener can comfortably absorb — especially for numbers. Notably, the pricing section (9:20 onward, "so 23, 24, 25, and then I'm including all of 26...") is dense with figures delivered at full pace with few pauses.<span class="note">This is the one place slowing down would likely pay for itself: dollar figures said fast are the ones people ask you to repeat.</span></div>
+      </div>
+      <div class="obscard">
+        <div class="t">Pitch</div>
+        <div class="body"><b>102&ndash;160 Hz range</b> (5th&ndash;95th percentile), noticeably wider than Nathan's 86&ndash;126 Hz. You're not monotone — there's real vocal variety, which is a genuine strength, not a coaching gap.</div>
+      </div>
+      <div class="obscard">
+        <div class="t">Energy</div>
+        <div class="body"><b>Loudness varies naturally</b> through the call (no flat, one-volume delivery) — consistent with the pitch finding. Nothing here suggests low energy or disengagement at any point.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TALK BALANCE ============ -->
+  <section>
+    <div class="sec-head"><h2>Talk-time &amp; the 3:38 run</h2></div>
+    <p class="lead">This is the most actionable finding in the whole review. An 80/20 split is heavy for a discovery-and-demo call — most consultative-sales benchmarks put the rep closer to 50&ndash;60% for calls where the prospect still needs to be understood, not just sold to.</p>
+    <p>The clearest single example is the platform walkthrough starting around <b>6:00</b>: you talk for 3 minutes 38 seconds straight — through the overview page, P&amp;Ls, top expenses, the hybrid software/bookkeeper pitch, and monthly reporting — before Nathan says another word ("Mhm" at 8:50, his first sound in over three minutes). He's not disengaged — he's just not being given an opening.</p>
+    <div class="qgrid">
+      <blockquote>Um, I don't know like if your software can look at my stuff and figure out what is going on because a lot of money gets moved around between accounts<cite>Nathan, 13:38 — a real, specific concern he raises the moment he gets a turn</cite></blockquote>
+    </div>
+    <p>That question — a real "will this actually work for my situation" objection — only surfaces because he finally got a long-enough gap to ask it. Building 2&ndash;3 short check-in questions into the demo itself ("does that match what you're picturing?") would likely surface concerns like this earlier, while there's more time left in the call to address them.</p>
+  </section>
+
+  <!-- ============ CLIENT SIGNALS ============ -->
+  <section>
+    <div class="sec-head"><h2>What Nathan's words show</h2><span class="sub">content and tone, not his face — his camera was never on</span></div>
+    <div class="qgrid">
+      <blockquote>It's just I don't want to do it in QuickBooks anymore.<cite>Nathan, 3:58</cite></blockquote>
+      <blockquote>I mean, it seems like QuickBooks have been really laggy for me lately and annoying to work around. So this definitely seems like 21st century.<cite>Nathan, 10:40 — the clearest buying signal in the call</cite></blockquote>
+    </div>
+    <p>Both read as genuine, unprompted reactions rather than polite filler — the language is specific and a little informal ("laggy," "annoying to work around"), which tends to track with real opinions rather than performed enthusiasm. His questions cluster around implementation mechanics (bookkeeper location, how transaction-matching actually works, the non-Plaid account) rather than price or trust — consistent with someone leaning toward yes and stress-testing the details, not someone shopping on price.</p>
+  </section>
+
+  <!-- ============ RECOMMENDATIONS ============ -->
+  <section>
+    <div class="sec-head"><h2>For the next call</h2></div>
+    <ol class="reco">
+      <li><b>Break the demo into checkpoints.</b> Instead of one continuous walkthrough, pause every 60&ndash;90 seconds with a direct question — turns a 3:38 monologue into a conversation and surfaces objections while there's still time on the clock to handle them.</li>
+      <li><b>Slow down specifically for numbers.</b> Your general pace is fine; the pricing recap is where 189 wpm works against you. A deliberate half-beat before each dollar figure would make the $9,110 number land clearer the first time.</li>
+      <li><b>Reclaim eye contact during the first 60&ndash;90 seconds.</b> You're fully present once rapport-building starts — worth carrying that into the very opening, since that's the one stretch where your attention visibly reads as elsewhere.</li>
+      <li><b>Nothing to fix on vocal energy or expressiveness</b> — the pitch and thumbs-up-at-9:05 data both point to genuine, well-modulated delivery. Don't over-correct here.</li>
+    </ol>
+  </section>
+
+  <!-- ============ METHODOLOGY ============ -->
+  <section>
+    <div class="sec-head"><h2>Methodology &amp; limits</h2></div>
+    <div class="limits">
+      <h3>Read this before treating any finding above as more certain than it is</h3>
+      <ul>
+        <li><b>Two calls were pulled from Apollo Conversations for this pilot.</b> Bernadette Anderson's (Aug 26) was excluded entirely — it was dialed as a phone call through Zoom Phone, and its "video" recording turned out to be a screen capture of the dialer app, not a camera feed. There was nothing to look at. This one, with Nathan, was chosen instead because it's an actual Google Meet recording with your camera on.</li>
+        <li><b>Nathan's camera was off for the entire call</b> — every frame just shows a "NPM Ventures" name card. Across both calls checked for this pilot, the client's camera was never once on. That's a small sample, but it's worth planning around: video-based coaching on this system will likely only ever be able to say something about you, not reliably about the person you're talking to.</li>
+        <li><b>Facial/eye-contact review here was a human-style visual read of sampled frames</b> (roughly one every 30&ndash;90 seconds, plus some chosen around key moments), not an automated emotion-recognition or gaze-tracking model. No such model was used anywhere in this report — that category of tool is unreliable enough that treating its output as fact would be worse than not measuring at all.</li>
+        <li><b>Pitch and energy numbers are computed</b> (via pitch-tracking and loudness analysis on your isolated speaking segments, using the call's own per-speaker timestamps), not a human listening — and pitch-tracking algorithms occasionally jump an octave on quiet or noisy audio, which can inflate variability numbers. The ranges reported (percentiles, not raw averages) are the more robust reading.</li>
+        <li><b>Talk-time, pace, and the 3:38 figure come directly from Apollo's own per-speaker transcript timestamps</b> — these are the most reliable numbers in this report.</li>
+        <li>This was a one-call pilot, at your request, kept as a standalone page rather than added to Nathan's contact brief. Nothing here updates automatically and nothing runs again unless you ask for it.</li>
+      </ul>
+    </div>
+    <div class="decision">
+      <span class="lbl">Worth deciding before this goes further</span>
+      Given that client-side video isn't realistically available, is this still worth building into the ongoing system — running automatically on your own delivery for every recorded call — or was this useful mainly as a one-time check-in? Either is a reasonable call; just didn't want to build the recurring version without you weighing in first, especially since it'd mean pulling and processing a video file for every future call.
+    </div>
+  </section>
+
+  <footer>
+    Built from the Apollo Conversations recording of the Aug 25 Nathan Moser call — audio and video pulled directly via Adam's connected Apollo account, analyzed once for this pilot, not stored or re-processed automatically. Part of the same system as <a href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3">Next Touch</a>.
+  </footer>
+
+</div>
+
+
+</body></html>

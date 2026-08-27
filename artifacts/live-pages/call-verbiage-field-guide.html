@@ -1,0 +1,710 @@
+<!doctype html><html><head><!-- frame-runtime --><base href="/_f/1787777333-db82/"><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.YODCk0yK.js","assets":"assets.DBUJcvq_.js","comments":"comments.GLuHR3zP.js","db":"db.CRhVHzSt.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CxGAyc-v.js","mcp":"mcp.Bvma3qD7.js","network":"network.B5UA9Su4.js","permissions":"permissions.BNySkLV5.js","room":"room.BMMoe2BY.js","sample":"sample.BW2Uysoh.js","self":"artifact.YODCk0yK.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.CQm3TZ9K.js","comments":"_comments.PBVy184F.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var J=["light","dark","system"],Q=/^[A-Za-z0-9_-]{1,64}$/,H=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,ee=new Set(["class","hidden","value","checked"]);function te(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||ee.has(t)}var Me="http://www.w3.org/1999/xhtml",re="http://www.w3.org/2000/svg",ne=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),oe=new Set(["script","style"]);function se(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!ne.has(t):e.namespaceURI===re?!oe.has(t):!1}var ae=new Set(["html","head","body","frameset"]);function ie(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&ae.has(e.localName)}function ce(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!Q.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[r,n]of Object.entries(t.attrsSet))if(!H.test(r)||typeof n!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const r of t.attrsRemoved)if(typeof r!="string"||!H.test(r))return!1}return!0}function le(e,t){if(e===null||typeof e!="object")return!1;const{seq:r,elements:n}=e;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let s=0;s<n.length;s++)if(!t(n[s]))return!1;return!0}function ue(e){return e===null||typeof e!="object"?!1:le(e.__frame_patch,ce)}function fe(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function pe(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function de(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&J.includes(r)}var A=/^[\w.-]+\.js$/;function me(e,t,r){return r?"inert":typeof t=="string"&&A.test(t)?e?[t]:"inert":e?"inert":"framed"}function he(){return{post(e,t){parent.postMessage(e,t)},on(e){const t=r=>{r.source===parent&&e(r.data,r.origin)};return addEventListener("message",t),()=>removeEventListener("message",t)}}}function _e(){return{post:()=>{},on:()=>()=>{}}}var O="__frame_scroll",ve=150,ye=310,we=160,be=3e4;function Ee(){let e=0,t=!1,r=!1,n=!1,s=0,a=null;const l=i=>{try{sessionStorage.setItem(O,JSON.stringify({y:i}))}catch{}},d=()=>{if(clearTimeout(e),a===null)return;const i=a;a=null,l(i)},v=()=>{if(t){t=!1;return}r=!0,a=scrollY,clearTimeout(e),e=setTimeout(d,ve)};try{addEventListener("scroll",v,{passive:!0}),addEventListener("pagehide",d)}catch{}const y=()=>{let i;try{i=sessionStorage.getItem(O)}catch{return null}if(i===null)return null;let m;try{m=JSON.parse(i)}catch{m=null}const u=m?.y;if(!(typeof u=="number"&&Number.isFinite(u)&&u>=0)){try{sessionStorage.removeItem(O)}catch{}return null}return u};let S=!1;const h=i=>{try{const m=scrollY;scrollTo({top:i,left:0,behavior:"instant"}),s=i,n=!0,clearTimeout(e),a=null,l(i);const u=scrollY;u!==m&&(t=!0),u!==i&&!S&&(S=!0,addEventListener("load",()=>{try{if(scrollY===u){const k=y();h(k!==null?k:s)}}catch{}},{once:!0}))}catch{}},w=()=>{try{return!!location.hash}catch{return!0}};let o=!1;const f=()=>{try{if(o||innerWidth>ye||innerHeight>we)return;o=!0;const i=Date.now(),m=()=>{try{removeEventListener("resize",m)}catch{}if(Date.now()-i>be||r||w())return;const u=y();h(u!==null?u:s)};addEventListener("resize",m)}catch{}};let _=!1,b=!1;return{restore(){if(_||(_=!0,w()))return;const i=y();i!==null&&(h(i),f())},promoted(){if(b||(b=!0,w()))return;const i=y();i!==null?(h(i),f()):n&&h(s)}}}function ge(e,t,r,n){let s=null;try{s=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:v=>v})??null}catch{}const a=window.Worker,l=a?.prototype,d=Object.freeze({Worker:a,workerOn:l?.addEventListener,workerPost:l?.postMessage,workerTerminate:l?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,policy:s,origins:t});r(e).then(v=>v?.bootTopLevel?v.bootTopLevel(d,n):n.settle()).catch(()=>n.settle())}var Oe="modulepreload",Ce=function(e){return"/"+e},je={},Ae=function(t,r,n){let s=Promise.resolve();function a(l){const d=new Event("vite:preloadError",{cancelable:!0});if(d.payload=l,window.dispatchEvent(d),!d.defaultPrevented)throw l}return s.then(l=>{for(const d of l||[])d.status==="rejected"&&a(d.reason);return t().catch(a)})},Re=window===top,q=Object.getOwnPropertyDescriptor(window,"claude"),T=me(Re,window.__FRAME_PREAMBLE?.topLevel,q?.writable===!1),C=typeof T=="object"&&T[0],p=C?_e():he();(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let s=0;s<r.length;s++){const a=r[s];try{e(t,a,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[a]}catch{}try{e(t,a,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[a]=="function"&&n++}if(n&&T==="framed")try{p.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Se=1e4,W=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function $(e){for(const t of W)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var L=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),j=window.__FRAME_PREAMBLE?.transforms,N=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate;function R(e){return Ae(()=>import("/_runtime/"+e),void 0)}function K(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:D,pipe:()=>({wrap:(r,n)=>(...s)=>{try{return n(...s)}catch(a){return Promise.reject(a)}}})}}var P=null,E=null;function Y(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var B=!1;function ke(e,t){const r=[];for(const n of e.elements){const s=document.querySelector(`[data-id="${n.target}"]`);if(!s){p.post({__frame_patch_miss:{seq:e.seq}},t);return}if([...Object.keys(n.attrsSet??{}),...n.attrsRemoved??[]].some(a=>!te(a))){p.post({__frame_patch_miss:{seq:e.seq}},t);return}if(n.text!==void 0&&(!se(s)||ie(s))){p.post({__frame_patch_miss:{seq:e.seq}},t);return}for(const[a,l]of Object.entries(n.attrsSet??{}))if(!G(s,a)){try{s.setAttribute(a,l)}catch{}X(s,a,l)}for(const a of n.attrsRemoved??[])G(s,a)||(s.removeAttribute(a),X(s,a,null));typeof n.text=="string"&&(s.textContent=n.text),r.push(n.target)}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:r}}))}catch{}}function X(e,t,r){if(!(e instanceof HTMLInputElement))return;const n=t.toLowerCase();n==="checked"?e.checked=r!==null:n==="value"&&e.type!=="file"&&(e.value=r??"")}function G(e,t){const r=t.toLowerCase(),n=e;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function V(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,B=!0):B&&(delete t.dataset.theme,t.style.colorScheme="",B=!1)}var M=new Map;function Te(){let e;const t={u:new Promise(r=>{e=r}),r:r=>{t.done=!0,e(r)},done:!1,nulled:!1};return t}function U(){for(const e of M.values())e.done||(e.nulled=!0,e.r(null))}var Le=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),D=(e,t)=>{const r=M.get(e);if(!r||r.done){r?.nulled&&E&&p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},E);return}const n=typeof t=="function"?Object.setPrototypeOf(t,Le):Object.assign(Object.create(null),t);typeof n.then=="function"&&delete n.then,r.r(Object.freeze(n))};function Z(){const e=q?.value??{};Y(window,"claude",e);for(const t of Object.keys(L)){if(e[t]!==void 0){Y(e,t,e[t]);continue}M.set(t,Te())}if(e.use===void 0){const t=r=>{if(typeof r!="string"||!Object.hasOwn(L,r))return Promise.resolve(null);const n=M.get(r);return n?n.u:Promise.resolve(e[r]??null)};try{Object.defineProperty(e,"use",{value:t,writable:!0,configurable:!0,enumerable:!1})}catch{}}}if(T==="framed"){const e=j&&A.test(j)?R(j).catch(()=>{}):Promise.resolve(void 0),t=o=>{if(o.type==="auxclick"&&o.button!==1)return;const f=o.target,_=f&&f.closest?f.closest("a[href],area[href]"):null;if(!_)return;const b=_.getAttribute("href");if(!b)return;let i;try{i=new URL(b,document.baseURI)}catch{return}if((i.protocol==="http:"||i.protocol==="https:")&&i.origin!==location.origin){o.preventDefault();const m=(_.getAttribute("target")??"").toLowerCase(),u=o.type==="auxclick"||o.metaKey||o.ctrlKey||o.shiftKey||o.altKey||!["","_self","_top","_parent"].includes(m);p.post({__frame_nav:!0,url:i.href,newTab:u},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const r={},n=o=>{o.isTrusted&&(r.pointer=!0)},s=o=>{o.isTrusted&&(r.click=!0)};addEventListener("pointermove",n,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0}),e.then(o=>{o?.wireNav&&(o.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",n,!0),removeEventListener("click",s,!0),o.wireEngagement?.(r))});let a=null;try{a=Ee()}catch{}Z();let l=null,d=null,v=0;const y=p.on((o,f)=>{$(f)&&fe(o)&&(l=o.__frame_init,E=f,y(),clearTimeout(v),d?.())});p.post({__frame_connect:!0},"*");const S=new Promise(o=>{d=o,v=setTimeout(()=>{y(),o()},Se)}),h=document.readyState==="loading"?new Promise(o=>document.addEventListener("DOMContentLoaded",()=>o(),{once:!0})):Promise.resolve();h.then(()=>{try{a?.restore()}catch{}});const w={cb:null};p.on((o,f)=>{if($(f)&&pe(o)){try{a?.promoted()}catch{}w.cb?.()}}),S.then(async()=>{if(!l||!E){U();return}V(l.theme);const o=E;let f=!1,_=!1;p.on((c,x)=>{if(x!==o)return;de(c)&&V(c.__frame_theme.theme),ue(c)&&ke(c.__frame_patch,o);const g=c?.__fc_mode;g&&typeof g=="object"&&!f&&N&&A.test(N)&&(f=!0,R(N).then(z=>z.install?.(o,g.on===!0)).catch(()=>{}));const F=c?.__ft_cmd;F&&typeof F=="object"&&!_&&I&&A.test(I)&&(_=!0,R(I).then(z=>z.install?.(o,F)).catch(()=>{}))});const b=Object.keys(l.capabilities??{}).filter(c=>Object.hasOwn(L,c)).map(c=>[c,L[c]]).filter(c=>typeof c[1]=="string"&&A.test(c[1])),i=await Promise.allSettled(b.map(([,c])=>R(c))),m=await e,u=E;if(m?.buildBoot||p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},u),m?.buildBoot)try{P=m.buildBoot(l,m.TRANSFORMS??{},{shellOrigin:u,mount:D},c=>p.post({__frame_cap_telemetry:c},u))}catch{p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},u),P=K(l,u)}else P=K(l,u);const k=c=>p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:c}},u),Pe=P;i.forEach((c,x)=>{const g=b[x][0];if(c.status!=="fulfilled"){k(g);return}try{c.value?.install?.(Pe)}catch{k(g)}}),U(),await h,p.post({__frame_ready:!0},E),e.then(c=>c?.installSizeReporter?.(u,w))})}else C&&(Z(),ge(C,W,R,{settle:U,mount:D}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Call Verbiage Field Guide</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Domine:wght@500;600;700&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#EFEAE0;
+    --surface:#FFFFFF;
+    --surface-2:#F7F4EC;
+    --ink:#211E19;
+    --ink-soft:#5B564C;
+    --ink-faint:#8B8577;
+    --rule:#DAD3C4;
+    --rule-strong:#C4BBA5;
+
+    --discovery:#2E5F6B;
+    --discovery-bg:#E4EEEE;
+    --value:#A9752B;
+    --value-bg:#F3E9D6;
+    --objection:#93503B;
+    --objection-bg:#F3E2DB;
+    --close:#2F6B4A;
+    --close-bg:#DEEBE1;
+    --mentor:#5B5490;
+    --mentor-bg:#E7E4F1;
+
+    --focus:#2E5F6B;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#17181A;
+      --surface:#1F2123;
+      --surface-2:#26282A;
+      --ink:#ECE8DE;
+      --ink-soft:#A8A297;
+      --ink-faint:#77726A;
+      --rule:#34363A;
+      --rule-strong:#454850;
+
+      --discovery:#7FB8C4;
+      --discovery-bg:#1E2E33;
+      --value:#D9A752;
+      --value-bg:#332A18;
+      --objection:#D08469;
+      --objection-bg:#332019;
+      --close:#6FC492;
+      --close-bg:#1B2D22;
+      --mentor:#B0A8E0;
+      --mentor-bg:#28243D;
+
+      --focus:#7FB8C4;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#17181A;
+    --surface:#1F2123;
+    --surface-2:#26282A;
+    --ink:#ECE8DE;
+    --ink-soft:#A8A297;
+    --ink-faint:#77726A;
+    --rule:#34363A;
+    --rule-strong:#454850;
+
+    --discovery:#7FB8C4;
+    --discovery-bg:#1E2E33;
+    --value:#D9A752;
+    --value-bg:#332A18;
+    --objection:#D08469;
+    --objection-bg:#332019;
+    --close:#6FC492;
+    --close-bg:#1B2D22;
+    --mentor:#B0A8E0;
+    --mentor-bg:#28243D;
+
+    --focus:#7FB8C4;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Karla', ui-sans-serif, system-ui, sans-serif;
+    line-height:1.5;
+  }
+  h1,h2,h3{
+    font-family:'Domine', Georgia, 'Times New Roman', serif;
+    text-wrap:balance;
+    margin:0;
+  }
+  a{color:var(--discovery);}
+  ::selection{background:var(--value-bg); color:var(--ink);}
+  :focus-visible{outline:2px solid var(--focus); outline-offset:2px;}
+
+  .wrap{max-width:920px; margin:0 auto; padding:2.5rem 1.5rem 5rem;}
+
+  /* header */
+  header.top{padding-bottom:1.75rem; border-bottom:1px solid var(--rule);}
+  .backlink{font-size:0.85rem; color:var(--ink-soft); text-decoration:none; display:inline-flex; align-items:center; gap:0.35rem;}
+  .backlink:hover{color:var(--discovery);}
+  .eyebrow{
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    font-size:0.72rem;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin:1.1rem 0 0.6rem;
+  }
+  h1{font-size:2.1rem; font-weight:600; color:var(--ink);}
+  .dek{
+    font-size:1.02rem;
+    color:var(--ink-soft);
+    max-width:62ch;
+    margin:0.9rem 0 0;
+  }
+  .howto{
+    margin-top:1.25rem;
+    background:var(--surface);
+    border:1px solid var(--rule);
+    border-radius:10px;
+    padding:1rem 1.15rem;
+    font-size:0.92rem;
+    color:var(--ink-soft);
+  }
+  .howto strong{color:var(--ink);}
+
+  /* controls */
+  .controls{
+    position:sticky; top:0; z-index:5;
+    background:var(--bg);
+    padding:1rem 0 0.9rem;
+    margin-top:0.5rem;
+    border-bottom:1px solid var(--rule);
+  }
+  .searchrow{display:flex; gap:0.5rem; align-items:center;}
+  .searchrow input{
+    flex:1;
+    font:inherit;
+    font-size:0.95rem;
+    padding:0.6rem 0.85rem;
+    border-radius:8px;
+    border:1px solid var(--rule-strong);
+    background:var(--surface);
+    color:var(--ink);
+  }
+  .searchrow input::placeholder{color:var(--ink-faint);}
+  .count{font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--ink-faint); white-space:nowrap;}
+  .chips{display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.65rem;}
+  .chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.74rem;
+    letter-spacing:0.02em;
+    padding:0.32rem 0.7rem;
+    border-radius:999px;
+    border:1px solid var(--rule-strong);
+    background:var(--surface);
+    color:var(--ink-soft);
+    cursor:pointer;
+    user-select:none;
+  }
+  .chip[aria-pressed="true"]{background:var(--ink); color:var(--bg); border-color:var(--ink);}
+  .chip:hover{border-color:var(--ink-soft);}
+
+  /* phase sections */
+  .phase{margin-top:2.6rem;}
+  .phase-head{display:flex; align-items:baseline; gap:0.65rem; margin-bottom:0.2rem;}
+  .phase-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--ink-faint);
+  }
+  .phase h2{font-size:1.32rem; font-weight:600;}
+  .phase-note{color:var(--ink-soft); font-size:0.9rem; margin:0.35rem 0 1.1rem; max-width:66ch;}
+
+  .cards{display:flex; flex-direction:column; gap:0.7rem;}
+  .card{
+    background:var(--surface);
+    border:1px solid var(--rule);
+    border-left:3px solid var(--tone, var(--discovery));
+    border-radius:8px;
+    padding:0.95rem 1.1rem 1rem;
+  }
+  .card .tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--tone, var(--discovery));
+    background:var(--tone-bg, var(--discovery-bg));
+    padding:0.14rem 0.5rem;
+    border-radius:4px;
+    margin-bottom:0.5rem;
+  }
+  .phrase{
+    font-family:'IBM Plex Mono', ui-monospace, monospace;
+    font-size:0.93rem;
+    line-height:1.55;
+    color:var(--ink);
+    margin:0 0 0.55rem;
+  }
+  .phrase .blank{color:var(--ink-faint);}
+  .meta{display:flex; flex-direction:column; gap:0.25rem; font-size:0.86rem; color:var(--ink-soft);}
+  .meta b{color:var(--ink); font-weight:600;}
+
+  .card.discovery{--tone:var(--discovery); --tone-bg:var(--discovery-bg);}
+  .card.value{--tone:var(--value); --tone-bg:var(--value-bg);}
+  .card.objection{--tone:var(--objection); --tone-bg:var(--objection-bg);}
+  .card.close{--tone:var(--close); --tone-bg:var(--close-bg);}
+  .card.mentor{--tone:var(--mentor); --tone-bg:var(--mentor-bg);}
+
+  .hidden{display:none !important;}
+  .empty{
+    color:var(--ink-faint);
+    font-size:0.9rem;
+    padding:2rem 0;
+    text-align:center;
+    display:none;
+  }
+  .empty.show{display:block;}
+
+  /* sources */
+  .sources{
+    margin-top:3rem;
+    padding-top:1.5rem;
+    border-top:1px solid var(--rule);
+  }
+  .sources h2{font-size:1.15rem; font-weight:600; margin-bottom:0.7rem;}
+  .sources p, .sources li{font-size:0.9rem; color:var(--ink-soft); line-height:1.6;}
+  .sources ul{margin:0.4rem 0 1rem; padding-left:1.2rem;}
+  .gap{
+    background:var(--surface-2);
+    border:1px solid var(--rule);
+    border-radius:8px;
+    padding:0.9rem 1.05rem;
+    margin-bottom:1rem;
+  }
+  .gap b{color:var(--ink);}
+
+  footer.foot{margin-top:3rem; font-size:0.82rem; color:var(--ink-faint);}
+
+  @media (max-width:560px){
+    h1{font-size:1.6rem;}
+    .wrap{padding:1.5rem 1rem 4rem;}
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="top">
+    <a class="backlink" href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3">&larr; Next Touch dashboard</a>
+    <span style="margin:0 .5rem; color:var(--ink-faint);">&middot;</span>
+    <a class="backlink" href="https://claude.ai/code/artifact/c683bd30-99e5-4085-9208-433136744f20">Daily Priorities &rarr;</a>
+    <p class="eyebrow">Live-call reference &middot; Bench Accounting</p>
+    <h1>Call Verbiage Field Guide</h1>
+    <p class="dek">Short, natural phrases pulled from Bench's own sales training material &mdash; organized by where you are in the call, so you can find the line you need in a few seconds, not a few minutes.</p>
+    <div class="howto">
+      <strong>How to use this on a live call:</strong> these are starting points, not a script &mdash; say them in your own words. Every card names <b>when</b> to reach for it and <b>why</b> it works, so you can adapt on the fly instead of reciting. The goal throughout is the same one Bench trains to: help the prospect make a well-informed decision, not "sell" them one.
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="searchrow">
+      <input type="text" id="q" placeholder="Search phrases (e.g. &quot;price&quot;, &quot;think about it&quot;, &quot;CPA&quot;)&hellip;" autocomplete="off">
+      <span class="count" id="count"></span>
+    </div>
+    <div class="chips" id="chips">
+      <span class="chip" data-phase="all" aria-pressed="true">All</span>
+      <span class="chip" data-phase="open">Open &amp; frame</span>
+      <span class="chip" data-phase="discovery">Discovery</span>
+      <span class="chip" data-phase="value">Value &amp; consequence</span>
+      <span class="chip" data-phase="demo">Demo</span>
+      <span class="chip" data-phase="pitch">The pitch</span>
+      <span class="chip" data-phase="objections">Objections</span>
+      <span class="chip" data-phase="type">By client type</span>
+      <span class="chip" data-phase="transitions">Transitions</span>
+      <span class="chip" data-phase="closing">Closing</span>
+      <span class="chip" data-phase="mentors">From Iris &amp; Ross</span>
+    </div>
+  </div>
+
+  <!-- 1. OPEN -->
+  <section class="phase" data-phase="open">
+    <div class="phase-head"><span class="phase-num">01</span><h2>Open &amp; set the frame</h2></div>
+    <p class="phase-note">First 60&ndash;90 seconds. Goal: warm, confident, and get a verbal yes to the agenda before you ask anything real.</p>
+    <div class="cards">
+      <div class="card discovery">
+        <span class="tag">Opener</span>
+        <p class="phrase">"Hey <span class="blank">[name]</span>, this is Adam calling on a recorded line from Bench Accounting. How's your day going so far?"</p>
+        <div class="meta"><span><b>When:</b> the first line of any booked call.</span><span><b>Why:</b> the recorded-line disclosure plus a genuine personal question sets a confident, expert tone in the first 10 seconds &mdash; tone matters as much as words here.</span></div>
+      </div>
+      <div class="card discovery">
+        <span class="tag">Agenda</span>
+        <p class="phrase">"I'm going to ask you some questions about your business and your bookkeeping and tax needs, we'll talk through the top things you're looking for, and then I'll walk you through what working with Bench looks like so we can get this off your plate today. How's that sound?"</p>
+        <div class="meta"><span><b>When:</b> right after pleasantries, before any real question.</span><span><b>Why:</b> gets an explicit yes to the shape of the call, so everything that follows feels agreed-to instead of imposed on them.</span></div>
+      </div>
+      <div class="card discovery">
+        <span class="tag">First question</span>
+        <p class="phrase">"Can you start off by telling me a bit about what your business does?"</p>
+        <div class="meta"><span><b>When:</b> the literal first discovery question.</span><span><b>Why:</b> open-ended, easy to answer &mdash; they're the expert on their own business, so it builds momentum before you ask anything harder.</span></div>
+      </div>
+      <div class="card discovery">
+        <span class="tag">Your own agenda framing</span>
+        <p class="phrase">"My goal for today's call is to get a better understanding of where you're at today &mdash; and more importantly, where you'd like to be in the next 90 days. I'm going to tackle: what our strategy's going to be to help you, the investment that goes with it, and get you onboarded on today's call &mdash; and if not, send you on your way. Okay?"</p>
+        <div class="meta"><span><b>When:</b> setting the agenda, right after the opener.</span><span><b>Why:</b> from your own notes &mdash; naming "and if not, send you on your way" up front takes the pressure off and makes the eventual ask for the sale feel like something you already agreed to, not a surprise.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. DISCOVERY -->
+  <section class="phase" data-phase="discovery">
+    <div class="phase-head"><span class="phase-num">02</span><h2>Discovery &mdash; uncover the pain</h2></div>
+    <p class="phase-note">Move from fact (what they do today) to emotion (how it feels) to future (what they actually want) &mdash; in that order. The emotional and future-state answers are what you'll quote back later in the pitch.</p>
+    <div class="cards">
+      <div class="card discovery">
+        <span class="tag">Bucket question</span>
+        <p class="phrase">"I speak to <span class="blank">[their industry]</span> companies all the time, and they usually run into one of a couple things &mdash; either they're frustrated by how much they're paying in taxes and how hard it is to save money, or they actually have a bookkeeping solution in place and for some reason it isn't working for them anymore. Does that sound like your world, or am I off base?"</p>
+        <div class="meta"><span><b>When:</b> right after they describe their business, before you ask anything specific about pain.</span><span><b>Why:</b> pattern-matches their pain before they've had to say it out loud &mdash; makes them feel understood and lowers the guard for "tell me more."</span></div>
+      </div>
+      <div class="card discovery">
+        <span class="tag">Fact</span>
+        <p class="phrase">"How are you currently managing your bookkeeping &mdash; are you doing it yourself, or do you work with someone?"</p>
+        <div class="meta"><span><b>When:</b> early discovery, right after the bucket question lands.</span><span><b>Why:</b> establishes current-state cleanly before you dig into how it feels &mdash; also tells you which flexible-verbiage track to use (see "By client type" below).</span></div>
+      </div>
+      <div class="card discovery">
+        <span class="tag">Emotion</span>
+        <p class="phrase">"What's your biggest frustration or challenge when it comes to managing your bookkeeping?" &nbsp;&middot;&nbsp; "How has this been affecting your business?" &nbsp;&middot;&nbsp; "What stress is this causing for you?"</p>
+        <div class="meta"><span><b>When:</b> once they've named their current setup.</span><span><b>Why:</b> these are the exact words you'll mirror back in the pitch &mdash; get them in their language, not yours.</span></div>
+      </div>
+      <div class="card discovery">
+        <span class="tag">Future state</span>
+        <p class="phrase">"What does your ideal solution look like?" &nbsp;&middot;&nbsp; "What's going to change for you by having a proper bookkeeping solution in place?" &nbsp;&middot;&nbsp; "What are your business or financial goals for the next 6&ndash;12 months?"</p>
+        <div class="meta"><span><b>When:</b> after pain, before you transition toward the demo.</span><span><b>Why:</b> gives you the "Results/Emotion" language for the pitch, and signals you care about where their business is going, not just what's broken today.</span></div>
+      </div>
+      <div class="card discovery">
+        <span class="tag">Down-tone, not up-tone</span>
+        <p class="phrase">"Ah, so you're doing it manually?" &nbsp;&middot;&nbsp; "Yikes&hellip; so manually&hellip;" &nbsp;&middot;&nbsp; "That's pretty stressful, eh?"</p>
+        <div class="meta"><span><b>When:</b> any time they describe something painful &mdash; behind on books, DIY, a CPA relationship that isn't working.</span><span><b>Why:</b> don't say "great" or "awesome" when they describe a bad situation. Matching their emotional register instead of cheerfully validating it is what makes them feel actually heard, not scripted at.</span></div>
+      </div>
+      <div class="card discovery">
+        <span class="tag">Open-ended stems (use anywhere)</span>
+        <p class="phrase">"Walk me through&hellip;" &nbsp;&middot;&nbsp; "Tell me more about&hellip;" &nbsp;&middot;&nbsp; "Help me understand&hellip;" &nbsp;&middot;&nbsp; "Could you share&hellip;"</p>
+        <div class="meta"><span><b>When:</b> anywhere you'd otherwise ask a closed yes/no question during discovery.</span><span><b>Why:</b> from your own verbiage notes &mdash; these four openers reliably turn a fact-check into a story, which is where the real pain and emotion come out.</span></div>
+      </div>
+      <div class="card discovery">
+        <span class="tag">Urgency</span>
+        <p class="phrase">"What was the moment recently that flipped the switch and made you realize you absolutely need to make the change now?"</p>
+        <div class="meta"><span><b>When:</b> once they've described the pain, to find out why they're on the call <em>today</em> specifically.</span><span><b>Why:</b> the answer to this is usually the single strongest thing to reference later in the pitch and in any stall objection &mdash; it's their own stated reason, not yours.</span></div>
+      </div>
+      <div class="card discovery">
+        <span class="tag">Cost of staying, in their words</span>
+        <p class="phrase">"What's the cost of staying where you are? What does another six months of this actually cost you &mdash; is it time away from your business? Loss of revenue from paying outside your tax bracket?"</p>
+        <div class="meta"><span><b>When:</b> right after the urgency question, before you transition to the demo.</span><span><b>Why:</b> your own phrasing of "cost of staying the same," made concrete with specific consequences (time, revenue) instead of staying abstract.</span></div>
+      </div>
+      <div class="card discovery">
+        <span class="tag">Vision</span>
+        <p class="phrase">"If we could fast-forward 90 days and everything went exactly as planned &mdash; what does that actually look like for you?"</p>
+        <div class="meta"><span><b>When:</b> closing out discovery, right before you move into the demo.</span><span><b>Why:</b> gets a concrete future-state picture in their own words &mdash; this is what you'll reference in the "Results/Emotion" language of the pitch later.</span></div>
+      </div>
+      <div class="card discovery">
+        <span class="tag">Qualifier, softened</span>
+        <p class="phrase">"A majority of the people I talk to are in the same boat. I've got a few more admin-style questions so I can make sure the next conversation is actually worth your time &mdash; that OK?"</p>
+        <div class="meta"><span><b>When:</b> before qualifying questions (entity type, revenue, how far behind).</span><span><b>Why:</b> frames qualifying questions as being in service of their time, not a hoop they have to jump through.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. VALUE -->
+  <section class="phase" data-phase="value">
+    <div class="phase-head"><span class="phase-num">03</span><h2>Value &amp; consequence framing</h2></div>
+    <p class="phase-note">This is the bridge between discovery and the pitch: make the cost of the status quo concrete, then stack the value in their own emotional terms &mdash; not features.</p>
+    <div class="cards">
+      <div class="card value">
+        <span class="tag">Cost of staying the same</span>
+        <p class="phrase">"What's it costing you &mdash; in time, in stress, probably in deductions you're missing &mdash; to keep doing it this way?"</p>
+        <div class="meta"><span><b>When:</b> right after they've described the pain, before you pivot to positioning Bench.</span><span><b>Why:</b> makes inaction concrete and personal instead of abstract. Let them answer it themselves &mdash; a prospect stating their own cost out loud is more persuasive than you stating it for them.</span></div>
+      </div>
+      <div class="card value">
+        <span class="tag">Soft transition</span>
+        <p class="phrase">"Based on everything you've told me, it might make sense to take a look at how we could help with that &mdash; mind if I show you?"</p>
+        <div class="meta"><span><b>When:</b> bridging from discovery into the demo/pitch.</span><span><b>Why:</b> low-pressure framing ("might make sense," asking permission) keeps it feeling like a continuation of the conversation, not a mode-switch into selling.</span></div>
+      </div>
+      <div class="card value">
+        <span class="tag">Returns &rarr; Results &rarr; Emotion</span>
+        <p class="phrase">"I know you mentioned you're currently feeling <span class="blank">[negative emotion they used]</span>. With Bench, our goal is to get you feeling <span class="blank">[positive emotion]</span> instead."</p>
+        <div class="meta"><span><b>When:</b> during the pitch, and again in the recap right before pricing.</span><span><b>Why:</b> Bench's own value framework &mdash; Returns are what you deliver (the deliverables), Results are the impact, Emotion is what actually changes for them. Naming the emotion, not just the deliverable, is what makes it land as solving their problem rather than selling a feature.</span></div>
+      </div>
+      <div class="card value">
+        <span class="tag">Buy-in check (use often)</span>
+        <p class="phrase">"Does that sound like it checks the boxes for you?" &nbsp;&middot;&nbsp; "Do you feel like that would help with the <span class="blank">[emotion]</span> you mentioned?" &nbsp;&middot;&nbsp; "Do you see value in having this on a monthly basis?"</p>
+        <div class="meta"><span><b>When:</b> after every point or two &mdash; not saved up for one big question at the end.</span><span><b>Why:</b> small yeses compound, keep you aligned with what they actually want, and give you real material to recap later instead of guessing.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. DEMO -->
+  <section class="phase" data-phase="demo">
+    <div class="phase-head"><span class="phase-num">04</span><h2>Demo &mdash; connect every feature back to them</h2></div>
+    <p class="phase-note">The EDCB structure, per screen: Educate what it is &rarr; Demonstrate how to use it &rarr; Connect it to their stated pain or goal &rarr; Buy-in check. Skipping the "connect" step is what turns a demo into a generic feature tour.</p>
+    <div class="cards">
+      <div class="card discovery">
+        <span class="tag">Connect (repeat every screen)</span>
+        <p class="phrase">"So bringing this back to <span class="blank">[the pain point they named]</span> &mdash; this is how <span class="blank">[this feature]</span> gets you to <span class="blank">[the future state they described]</span>."</p>
+        <div class="meta"><span><b>When:</b> after showing/explaining any feature, before moving to the next one.</span><span><b>Why:</b> this is a habit, not a single line &mdash; it's what makes the demo feel personal instead of a generic walkthrough anyone could get.</span></div>
+      </div>
+      <div class="card discovery">
+        <span class="tag">Benefit-laden check-in</span>
+        <p class="phrase">"How do you see yourself using this in your business?" &nbsp;&middot;&nbsp; "Given your last experience was <span class="blank">[what they told you in discovery]</span>, how do you see this preparing you differently ahead of next tax season?"</p>
+        <div class="meta"><span><b>When:</b> end of each demo section, in place of "any questions?"</span><span><b>Why:</b> gets them narrating themselves using the product, which is a stronger buy-in signal than you asserting the benefit yourself.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PITCH -->
+  <section class="phase" data-phase="pitch">
+    <div class="phase-head"><span class="phase-num">05</span><h2>The pitch &mdash; recap and "do they want it"</h2></div>
+    <p class="phase-note">One sentence ties the whole call together. Then you find out if they actually want it &mdash; before you say a price, not after.</p>
+    <div class="cards">
+      <div class="card value">
+        <span class="tag">Full recap line</span>
+        <p class="phrase">"Given everything I've just shown you, the reason I'm confident this is the right fit is that having <span class="blank">[Returns]</span> is going to get you <span class="blank">[Results]</span>, which means <span class="blank">[Emotion]</span>."</p>
+        <div class="meta"><span><b>When:</b> right before you ask if they want it &mdash; after the demo, before pricing.</span><span><b>Why:</b> use their exact words from discovery here, not generic benefits. This sentence should sound like it could only be said to this specific prospect.</span></div>
+      </div>
+      <div class="card value">
+        <span class="tag">Do they want it</span>
+        <p class="phrase">"Before we talk about pricing &mdash; what stood out to you as the biggest impact this could have on your business?"</p>
+        <div class="meta"><span><b>When:</b> immediately after the recap, before any number is mentioned.</span><span><b>Why:</b> gets them to sell themselves out loud, and hands you their own language to mirror back in the confirmation &mdash; and again later if they hesitate on price.</span></div>
+      </div>
+      <div class="card value">
+        <span class="tag">Confirm &amp; stack</span>
+        <p class="phrase">"I agree &mdash; that would make a real difference for you. On top of that, you're also going to get <span class="blank">[other things they responded to]</span>, which helps with <span class="blank">[result]</span> and gets you <span class="blank">[impact]</span>."</p>
+        <div class="meta"><span><b>When:</b> right after they answer the "do they want it" question.</span><span><b>Why:</b> validates their answer, then stacks additional value on top &mdash; before price is on the table, not after.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. OBJECTIONS -->
+  <section class="phase" data-phase="objections">
+    <div class="phase-head"><span class="phase-num">06</span><h2>Objections &mdash; LACR</h2></div>
+    <p class="phase-note">Listen &rarr; Acknowledge &rarr; Clarify &rarr; Respond. The step people skip is Clarify &mdash; responding before you know the real objection usually means arguing against the wrong thing.</p>
+    <div class="cards">
+      <div class="card objection">
+        <span class="tag">LACR framework</span>
+        <p class="phrase">Listen (no interrupting) &rarr; "I can totally see how that would be on your mind&hellip; to confirm, it sounds like&hellip;" (Acknowledge) &rarr; "Just so I understand &mdash; is the main thing here <span class="blank">[X]</span> or <span class="blank">[Y]</span>?" (Clarify) &rarr; bring it back to value, or make a new recommendation (Respond).</p>
+        <div class="meta"><span><b>When:</b> any objection, big or small.</span><span><b>Why:</b> always bring it back to value before you discount. Most price pushback is actually a value or trust question wearing a price costume &mdash; Clarify is how you find out which.</span></div>
+      </div>
+      <div class="card objection">
+        <span class="tag">"It's too expensive"</span>
+        <p class="phrase">"What's your baseline?" &nbsp;&middot;&nbsp; "What's expensive to you, compared to what?"</p>
+        <div class="meta"><span><b>When:</b> the instant "too expensive" or "that's a lot" comes up.</span><span><b>Why:</b> "expensive" is relative and vague &mdash; these get you a real number or comparison to respond to instead of guessing what they mean.</span></div>
+      </div>
+      <div class="card objection">
+        <span class="tag">Holding the line on price</span>
+        <p class="phrase">"I want to give you the full, comprehensive service &mdash; the reality is you're not going to find what Bench offers for less. Help me understand what would make this more affordable for you." <span class="blank">(and, if you're genuinely at the floor:)</span> "Transparently, I can't do it for lower than that without breaking even."</p>
+        <div class="meta"><span><b>When:</b> after you've clarified and reinforced value once, and price is still the sticking point.</span><span><b>Why:</b> honest, non-desperate framing &mdash; holds the value line without sounding like you're begging or caving instantly.</span></div>
+      </div>
+      <div class="card objection">
+        <span class="tag">Cash-flow, not value</span>
+        <p class="phrase">"I hear you &mdash; I want to make sure you can manage your cash flow while you're running the business. What I can do is split the total into <span class="blank">[X]</span> monthly payments, no extra fees, just the total divided by <span class="blank">[X]</span> &mdash; does that work better?"</p>
+        <div class="meta"><span><b>When:</b> they want it, but the lump sum (not the value) is the actual blocker &mdash; catch-up work especially.</span><span><b>Why:</b> separates a real cash-flow constraint from a value objection, and offers a concrete path around it without discounting.</span></div>
+      </div>
+      <div class="card objection">
+        <span class="tag">Price, clarify first</span>
+        <p class="phrase">"I'm curious &mdash; when you say it's a bit high, are you comparing this to doing it manually yourself, or to another service?"</p>
+        <div class="meta"><span><b>When:</b> the moment price comes up as a concern, before you respond to it.</span><span><b>Why:</b> from your own notes &mdash; the right response is completely different depending on which one they mean, so find out before you defend anything.</span></div>
+      </div>
+      <div class="card objection">
+        <span class="tag">The "send me an email" stall</span>
+        <p class="phrase">"No worries &mdash; and before you go think about it, what're the one or two things that might be on your mind, just so I can see how I can help?" <span class="blank">then, depending on the answer:</span> "It's a big decision, and you want to make the best one for yourself." &nbsp;&middot;&nbsp; "Just so I understand &mdash; be honest with me, I'm here to help, and if I can't, that's totally okay." &nbsp;&middot;&nbsp; "Let's put the program aside for a second &mdash; what's actually coming up for you?" &nbsp;&middot;&nbsp; "You can take as much time as you need &mdash; but what's that actually going to do?" &nbsp;&middot;&nbsp; "We went over your goals at the start of the call &mdash; you want that financial freedom. Did something change in the last 15 minutes?"</p>
+        <div class="meta"><span><b>When:</b> "just send me some info" / "let me think about it and get back to you" &mdash; the classic soft exit.</span><span><b>Why:</b> your own bank of reframes for this exact moment. Pick the one or two that fit the tone of the call &mdash; don't run all of them, they're options, not a checklist.</span></div>
+      </div>
+      <div class="card objection">
+        <span class="tag">"Let me think about it"</span>
+        <p class="phrase">"Totally fair &mdash; a lot of people want to sit with it. Can I ask what specifically you want to think through?" <span class="blank">(then, if the answer is vague or nothing new:)</span> "Honestly, more time researching from here usually doesn't change the decision, it just delays it. If <span class="blank">[the need they already confirmed]</span> is real, waiting costs you <span class="blank">[the cost of staying the same, from earlier in the call]</span>. What's the actual risk in starting now?"</p>
+        <div class="meta"><span><b>When:</b> a stall after they've already agreed the value is real &mdash; "let me think about it," "I need to talk to my partner" with no new information behind it.</span><span><b>Why:</b> from the Jolt framework in Bench's training &mdash; indecisive prospects who keep "researching" rarely land on a better answer, just a slower no. Naming that gently and directly often surfaces the real objection underneath. Use with care &mdash; this is for genuine stalls, not a real need to consult someone.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. BY CLIENT TYPE -->
+  <section class="phase" data-phase="type">
+    <div class="phase-head"><span class="phase-num">07</span><h2>Common objections, by where they're coming from</h2></div>
+    <p class="phase-note">The same underlying objection sounds different depending on their current setup &mdash; tailor the follow-up to what they actually said.</p>
+    <div class="cards">
+      <div class="card objection">
+        <span class="tag">Currently DIY</span>
+        <p class="phrase">"Ah, so you're doing it yourself? That's pretty stressful, eh &mdash; what's currently standing in the way of things running as smoothly as you'd like?"</p>
+        <div class="meta"><span><b>When:</b> prospect currently does their own books.</span><span><b>Why:</b> DIY objections are usually really "I don't trust anyone else with this" or "I don't think I can afford help" &mdash; both need to be named, not assumed on their behalf.</span></div>
+      </div>
+      <div class="card objection">
+        <span class="tag">Has a local CPA</span>
+        <p class="phrase">"Oh, so you've got someone locally? What's not been working about that for you?"</p>
+        <div class="meta"><span><b>When:</b> prospect already has a bookkeeper or CPA relationship.</span><span><b>Why:</b> don't argue against their CPA directly &mdash; get them to articulate the gap themselves. You're surfacing their own reason for taking the call, not winning a debate.</span></div>
+      </div>
+      <div class="card objection">
+        <span class="tag">Behind on books / minimizing it</span>
+        <p class="phrase">"By not filing, the problem doesn't go away, it grows. If you don't file, the IRS can file for you off your revenue alone &mdash; no deductions counted &mdash; which means you'd pay more than you should, and then have to fight to get it back."</p>
+        <div class="meta"><span><b>When:</b> prospect is behind and downplaying it ("I'll get to it eventually").</span><span><b>Why:</b> specific, factual IRS-consequence framing (not vague fear) reframes catch-up work as cost-avoidance rather than an extra expense.</span></div>
+      </div>
+      <div class="card objection">
+        <span class="tag">Found a cheaper outsourced service</span>
+        <p class="phrase">"I totally hear you &mdash; a standalone software is absolutely going to have a cheaper sticker price, and there are other outsourced services out there that might too. What I hear the most from people who've moved between services is the cheaper option exposes you to 'communication chaos' &mdash; they outsource you to a pool of bookkeepers who don't actually work in your account."</p>
+        <div class="meta"><span><b>When:</b> they mention a cheaper competitor or a lower-cost outsourced bookkeeping service.</span><span><b>Why:</b> don't defend on price &mdash; agree on the sticker price, then unsell the specific failure mode (inconsistent, pooled support) that a lower price usually means.</span></div>
+      </div>
+      <div class="card objection">
+        <span class="tag">"I'll just keep doing it myself a while longer"</span>
+        <p class="phrase">"What's it costing you &mdash; time, stress, probably deductions you're missing &mdash; to keep doing it this way?"</p>
+        <div class="meta"><span><b>When:</b> a soft no rooted in inertia rather than a real objection.</span><span><b>Why:</b> same cost-of-staying-the-same principle as above &mdash; let them state their own cost rather than you stating it for them.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. TRANSITIONS -->
+  <section class="phase" data-phase="transitions">
+    <div class="phase-head"><span class="phase-num">08</span><h2>Transitions between phases</h2></div>
+    <p class="phase-note">The exact wording matters less here than the sequencing &mdash; each transition confirms one thing (value, a "yes") before moving to the next.</p>
+    <div class="cards">
+      <div class="card discovery">
+        <span class="tag">Discovery &rarr; demo</span>
+        <p class="phrase">"OK &mdash; given that you're a <span class="blank">[business type]</span> using <span class="blank">[current solution]</span>, and it's not working because you're feeling <span class="blank">[emotion]</span>, I'm confident Bench is a great fit. Let me show you how it works." &nbsp;&mdash;&nbsp; or, shorter: "I love that &mdash; that gives me a really clear picture of where you're at. Let me show you exactly how we solve for that."</p>
+        <div class="meta"><span><b>When:</b> closing discovery, opening the demo.</span><span><b>Why:</b> recaps fact <em>and</em> emotion, not just fact &mdash; this line is what proves to the prospect you were actually listening.</span></div>
+      </div>
+      <div class="card discovery">
+        <span class="tag">Demo &rarr; pricing (your own wrap-up)</span>
+        <p class="phrase">"So based on what we went over &mdash; does this feel like the thing that finally solves your financial pressures?" <span class="blank">if yes:</span> "Let's talk about getting you started today &mdash; the next big step is just getting you onboarded. Which of these two options feels like the right fit for where you're at right now?"</p>
+        <div class="meta"><span><b>When:</b> right after the demo, moving into pricing/options.</span><span><b>Why:</b> names the destination ("does this solve your pressures") before showing a price, and frames the next step as a choice between two options rather than a yes/no on spending money.</span></div>
+      </div>
+      <div class="card value">
+        <span class="tag">Pitch &rarr; pricing</span>
+        <p class="phrase">"I agree that would make a real difference for you &mdash; so what I'm going to do now is get you into your own Bench account so I can post your pricing right in your messages." &nbsp;&mdash;&nbsp; Iris's version: "Is there anything else you'd like me to dive deeper into, or that I haven't answered that you're curious about? Based on what you've seen, do you feel like this is a good fit? Great &mdash; love to get into pricing if you don't have anything else."</p>
+        <div class="meta"><span><b>When:</b> moving from the value conversation into the money conversation.</span><span><b>Why:</b> price gets introduced only after value is confirmed, never before &mdash; sequencing matters more than the exact words here. Iris's phrasing clears every remaining question first so nothing resurfaces as a stall after price is on the table.</span></div>
+      </div>
+      <div class="card close">
+        <span class="tag">Pricing &rarr; close</span>
+        <p class="phrase">"I'm confident this is the best move you can make for your business &mdash; to save more, make more, and pay less in taxes. Can we get you started today, and put <span class="blank">[the emotional impact they named]</span> behind you for good?"</p>
+        <div class="meta"><span><b>When:</b> right after pricing lands and any objections are resolved.</span><span><b>Why:</b> names the emotional payoff again at the exact moment you ask for the close &mdash; not just the financial one.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. CLOSING -->
+  <section class="phase" data-phase="closing">
+    <div class="phase-head"><span class="phase-num">09</span><h2>Closing, next steps &amp; bringing others in</h2></div>
+    <p class="phase-note">A close is just an agreement to a next action. If it isn't a signed deal today, it should still be a scheduled, specific commitment before you hang up.</p>
+    <div class="cards">
+      <div class="card close">
+        <span class="tag">Ask for the sale, directly</span>
+        <p class="phrase">"I'm confident this is the best investment you can make for your business &mdash; can we get you started today?"</p>
+        <div class="meta"><span><b>When:</b> after value, pricing, and objections are all resolved.</span><span><b>Why:</b> Bench's own scorecard flags this as something reps miss &mdash; asking outright, instead of assuming the prospect will volunteer to move forward.</span></div>
+      </div>
+      <div class="card close">
+        <span class="tag">Confirm they're sold (before multi-threading)</span>
+        <p class="phrase">"Before we talk about next steps &mdash; what do you think, does this solve <span class="blank">[X, Y, Z]</span> better than what you're doing right now?" <span class="blank">(then, on a yes:)</span> "Why? Which part really stood out?"</p>
+        <div class="meta"><span><b>When:</b> before asking them to loop in a partner, boss, or co-owner.</span><span><b>Why:</b> if your contact isn't genuinely sold, no one they bring in will be either &mdash; get a real reason, not a polite yes.</span></div>
+      </div>
+      <div class="card close">
+        <span class="tag">Bringing someone else in</span>
+        <p class="phrase">"Who else should we pull into this with you, to give this the best shot of happening?"</p>
+        <div class="meta"><span><b>When:</b> right after they confirm they're sold and why.</span><span><b>Why:</b> suggest, don't ask permission &mdash; framing it as helping <em>them</em> get internal buy-in keeps it collaborative instead of feeling like an extra hoop.</span></div>
+      </div>
+      <div class="card close">
+        <span class="tag">The magic question</span>
+        <p class="phrase">"How can we get this done by <span class="blank">[Friday / a specific date]</span>? I don't want you dealing with <span class="blank">[their stated pain]</span> any longer than you have to."</p>
+        <div class="meta"><span><b>When:</b> setting a concrete next step or deadline on any call that doesn't close outright.</span><span><b>Why:</b> reframes the deadline as being in service of their pain, not sales pressure &mdash; and it puts the prospect to work helping you close, instead of you chasing them afterward.</span></div>
+      </div>
+      <div class="card close">
+        <span class="tag">Schedule on the call, not after</span>
+        <p class="phrase">"Let's get that on the calendar right now while we're both here &mdash; does [day/time] work?"</p>
+        <div class="meta"><span><b>When:</b> any agreed next step &mdash; a follow-up call, a call with their partner, anything.</span><span><b>Why:</b> everything scheduled live, on the call, avoids the post-call chase entirely.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. MENTORS -->
+  <section class="phase" data-phase="mentors">
+    <div class="phase-head"><span class="phase-num">10</span><h2>From your own call reviews &mdash; Iris &amp; Ross</h2></div>
+    <p class="phase-note">Pulled from your notes on Iris's and Ross's calls &mdash; kept attributed because it's real technique from people on your own team, not generic training copy.</p>
+    <div class="cards">
+      <div class="card mentor">
+        <span class="tag">Iris &middot; Micro-yeses</span>
+        <p class="phrase">"Is the communication better than what you currently have? Is this kind of what you're looking for?"</p>
+        <div class="meta"><span><b>When:</b> throughout the demo, not saved for one big question at the end.</span><span><b>Why:</b> Iris's core habit &mdash; small confirmations along the way instead of waiting to find out at the end whether they liked it.</span></div>
+      </div>
+      <div class="card mentor">
+        <span class="tag">Iris &middot; Assumptive close</span>
+        <p class="phrase">"If everything sounds good to you, I'd love to get you started today so the team can dive in right away. Is there anything stopping us from getting you set up right now?"</p>
+        <div class="meta"><span><b>When:</b> right after a strong "yes" moment in the demo &mdash; don't wait for a natural pause.</span><span><b>Why:</b> speak as if moving forward is already the plan; "is there anything stopping us" surfaces a real objection instead of a vague no.</span></div>
+      </div>
+      <div class="card mentor">
+        <span class="tag">Iris &middot; Timeline, not yes/no</span>
+        <p class="phrase">"What does the timeline look like for you to make this decision &mdash; is this something you're looking to have settled by Friday, or more toward the end of the month?"</p>
+        <div class="meta"><span><b>When:</b> they're hesitating and it's a real "need more time," not a soft no.</span><span><b>Why:</b> asking <em>when</em> instead of <em>if</em> lowers their guard and makes you a partner in their schedule instead of someone chasing a decision.</span></div>
+      </div>
+      <div class="card mentor">
+        <span class="tag">Iris &middot; The 15-minute rule</span>
+        <p class="phrase">Book the follow-up as 15 minutes, not 30.</p>
+        <div class="meta"><span><b>When:</b> any follow-up call after a hesitant first call.</span><span><b>Why:</b> 30 minutes signals "information session"; 15 minutes signals "decision call" &mdash; the shorter window creates natural pressure to actually decide.</span></div>
+      </div>
+      <div class="card mentor">
+        <span class="tag">Iris &middot; Real objection or something else?</span>
+        <p class="phrase">"Is it really the price, or is it something else &mdash; is it the service, is it the product, is there something I didn't show you?"</p>
+        <div class="meta"><span><b>When:</b> "too expensive" comes up.</span><span><b>Why:</b> Iris's version of Clarify &mdash; price is often standing in for a trust or fit concern that needs its own answer.</span></div>
+      </div>
+      <div class="card mentor">
+        <span class="tag">Ross &middot; Challenge the expectation</span>
+        <p class="phrase">"How did you get that expectation? Who told you that &mdash; a friend, a bookkeeper, an accountant?"</p>
+        <div class="meta"><span><b>When:</b> their price or timeline expectation doesn't match reality.</span><span><b>Why:</b> reset the baseline directly instead of quietly trying to force your offer to fit their number &mdash; and find out who's influencing their expectation.</span></div>
+      </div>
+      <div class="card mentor">
+        <span class="tag">Ross &middot; Stay curious, don't over-explain</span>
+        <p class="phrase">"Hm, that sounds too good to be true &mdash; what was wrong with it?"</p>
+        <div class="meta"><span><b>When:</b> any objection, especially a competitor comparison.</span><span><b>Why:</b> ask a question instead of over-explaining your own value away. Tone matters &mdash; aim for curious surprise, not interrogation.</span></div>
+      </div>
+      <div class="card mentor">
+        <span class="tag">Ross &middot; Why here, not there</span>
+        <p class="phrase">"Given <span class="blank">[what they said mattered most]</span> was most important to you &mdash; why didn't we move forward with <span class="blank">[the competitor/option]</span>?"</p>
+        <div class="meta"><span><b>When:</b> they're weighing you against a cheaper or faster alternative.</span><span><b>Why:</b> forces them to name what they didn't like about the other option out loud &mdash; that's usually exactly where your value is.</span></div>
+      </div>
+      <div class="card mentor">
+        <span class="tag">Ross &middot; Real deadlines, not fake urgency</span>
+        <p class="phrase">"We're actually in a great spot on timing &mdash; tax day is coming up in April, and people have to file. That gives us a real window to work with."</p>
+        <div class="meta"><span><b>When:</b> building urgency toward a decision.</span><span><b>Why:</b> lean on a real, external deadline (a tax date, a filing requirement) rather than a manufactured discount deadline &mdash; it holds up better and feels honest.</span></div>
+      </div>
+      <div class="card mentor">
+        <span class="tag">Ross &middot; Proactive objection strike</span>
+        <p class="phrase">"Do you feel like Bench will accomplish what you need?" <span class="blank">(yes)</span> "Great. And do you feel like the price is fair?" <span class="blank">(yes)</span> "Great &mdash; sounds like we're a fit."</p>
+        <div class="meta"><span><b>When:</b> right before the final close.</span><span><b>Why:</b> a fast one-two check that surfaces any lingering hidden objection before you ask for the sale, instead of after.</span></div>
+      </div>
+      <div class="card mentor">
+        <span class="tag">Ross &middot; Same-day micro-follow-up</span>
+        <p class="phrase">"Want to follow up later today once you've had some time to think it over? I can grab 15 minutes this afternoon."</p>
+        <div class="meta"><span><b>When:</b> a client wants time to think, but it's a same-day, easily-resolved hesitation.</span><span><b>Why:</b> keeps momentum alive &mdash; a same-day 15-minute check-in beats a 30-minute meeting next week, where the urgency has already faded.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="empty" id="empty">No phrases match that search. Try a different word, or clear the filter above.</div>
+
+  <section class="sources">
+    <h2>Sources &amp; what's not in here yet</h2>
+    <div class="gap">
+      <p><b>Update, 2026-08-26:</b> the three named documents &mdash; "Verbiage ~ Guide," "Objection ~ Prompts," and "Objection ~ Verbiage 1" &mdash; weren't missing, they're tabs inside your MacBook Remote | Notes doc. Once you pointed to that doc directly, all three (plus "After Demo ~ Verbiage," a June dated verbiage log, and your write-ups on calls with Iris and Ross) were read in full and are now woven into the sections above, especially <b>Open &amp; frame</b>, <b>Discovery</b>, <b>Objections</b>, <b>Transitions</b>, and the new <b>From Iris &amp; Ross</b> section.</p>
+      <p><b>Still not reachable:</b> the three NotebookLM notebooks (Leveld Trainee, Bench Sales Academy AE Enablement Toolkit, AE Sales Call Performance Scorecard) &mdash; there's no NotebookLM connector available, and Google blocks automated fetching of notebook.google.com pages directly. If there's a way to export their content to a Doc or PDF, this guide should get a pass against them too.</p>
+    </div>
+    <p><b>What this guide is built from:</b></p>
+    <ul>
+      <li>Your MacBook Remote | Notes doc &mdash; the "Verbiage ~ Guide," "Objection ~ Prompts," "Objection ~ Verbiage 1," and "After Demo ~ Verbiage" tabs, your dated verbiage logs, and your notes on calls with Iris and Ross.</li>
+      <li>LONG Sales AE Scorecard &mdash; the core call rubric: intro, disco with unselling, selling the demo, EDCB demo script, the pitch, pricing/LACR, ask-for-the-sale, optional catch-up/IRS and objection-handling sections.</li>
+      <li>4 &ndash; Problem Based Disco (Leveld training deck) &mdash; bucket question, cost-of-staying-the-same, and transition language.</li>
+      <li>5a &ndash; Unsell the Status Quo (Leveld training deck) &mdash; status-quo displacement and the Jolt framework used in the "think about it" objection.</li>
+      <li>2026 Inbound Sales &ndash; SDR Script &mdash; discovery down-tones and the DIY/local-CPA flexible verbiage.</li>
+      <li>Champion Selling &amp; Coaching Your Contact (Leveld training deck) &mdash; confirming they're sold, multi-threading, and the magic closing question.</li>
+      <li>A working objection/pricing notes doc &mdash; the "what's your baseline," "what's expensive to you," and price-holding language.</li>
+    </ul>
+  </section>
+
+  <footer class="foot">Built 2026-08-26 for Adam Russo &middot; grounded in Bench sales-training source documents &middot; not a script &mdash; use your own words.</footer>
+
+</div>
+
+<script>
+(function(){
+  var q = document.getElementById('q');
+  var chips = document.getElementById('chips');
+  var count = document.getElementById('count');
+  var empty = document.getElementById('empty');
+  var phases = Array.prototype.slice.call(document.querySelectorAll('.phase'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var activePhase = 'all';
+
+  function apply(){
+    var term = q.value.trim().toLowerCase();
+    var visibleTotal = 0;
+
+    cards.forEach(function(card){
+      var section = card.closest('.phase');
+      var sectionPhase = section.getAttribute('data-phase');
+      var phaseOk = (activePhase === 'all') || (sectionPhase === activePhase);
+      var textOk = !term || card.textContent.toLowerCase().indexOf(term) !== -1;
+      var show = phaseOk && textOk;
+      card.classList.toggle('hidden', !show);
+      if (show) visibleTotal++;
+    });
+
+    phases.forEach(function(section){
+      var anyVisible = section.querySelectorAll('.card:not(.hidden)').length > 0;
+      section.classList.toggle('hidden', !anyVisible);
+    });
+
+    empty.classList.toggle('show', visibleTotal === 0);
+    count.textContent = term || activePhase !== 'all' ? (visibleTotal + ' match' + (visibleTotal === 1 ? '' : 'es')) : '';
+  }
+
+  q.addEventListener('input', apply);
+
+  chips.addEventListener('click', function(e){
+    var chip = e.target.closest('.chip');
+    if (!chip) return;
+    Array.prototype.forEach.call(chips.querySelectorAll('.chip'), function(c){
+      c.setAttribute('aria-pressed', 'false');
+    });
+    chip.setAttribute('aria-pressed', 'true');
+    activePhase = chip.getAttribute('data-phase');
+    apply();
+  });
+
+  apply();
+})();
+</script>
+
+</body></html>

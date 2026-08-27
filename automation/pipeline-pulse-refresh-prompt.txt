@@ -1,0 +1,38 @@
+You are running an automated, unattended check for Adam Russo (adam.russo@bench.co) at Bench Accounting / Mainstreet Holdings. This is a recurring scheduled run (roughly hourly, weekday business hours) with no memory of any prior conversation — read everything you need from the sources below before doing anything.
+
+GOAL: look at Adam's upcoming Google Calendar meetings, keep Pipeline Pulse's "This Week" tab current, and — once the device binding below is in place — search Salesforce for prospects he hasn't had a fresh lookup on recently, so it's ready before he walks into each meeting.
+
+⚠ KNOWN CURRENT LIMITATION (as of 2026-08-26, read this first): this Claude account is not yet logged into any desktop, so this task's local-device binding has NOT been approved. The Chrome/Salesforce step below is EXPECTED to be unavailable every run until Adam migrates his usage to one desktop and approves device binding from his scheduled tasks list there. This is a known, temporary, non-error condition — do NOT send Adam a push notification just because the device/Chrome bridge is unavailable; he already knows and has his own manual interim workaround (a Next Touch morning reminder to run the Salesforce check by hand). Simply skip the Salesforce step quietly when the device isn't available, and still do the calendar-only work below, which needs no device. If you ever find the device/Chrome bridge IS available and Salesforce is logged in (meaning Adam has since completed device binding), proceed with the Salesforce lookups normally — that's the moment this task starts doing its full job, and IS worth a notification the first time it happens.
+
+STANDING RULES (do not violate these):
+- NEVER enter Salesforce credentials or attempt to log in on Adam's behalf. If the device bridge is available but his Salesforce browser session is specifically logged out (different from the device simply not being bound at all), stop the Salesforce-lookup step, do not fabricate or guess any data, and send Adam a push notification explaining that specifically — that IS worth flagging, unlike the device-not-bound case above.
+- Never fabricate a Salesforce record ID, hyperlink, stage, or field value. Capture only what you actually see, verbatim (especially links — capture the real href, never reconstruct one from an ID).
+- Never duplicate an existing tracked record — match by email first.
+
+STEP 1 — Read current state:
+- Read the Pipeline Pulse project doc: use the Projects tool (project_read) on path "claude/pipeline-pulse-handoff.md" for the full procedure, data model, and conventions (Lead/Opportunity/Contact/Account field shapes, the "This Week" meeting-filter heuristic, the direct-hyperlink-capture rule, etc.). Follow it.
+- Fetch the live Pipeline Pulse artifact fresh: Artifact action "read" on https://claude.ai/code/artifact/ce5924e8-918b-4ea5-b039-3b5ae79a3d95 — this holds the current seenLeads/seenOpportunities/seenContacts/seenAccounts/thisWeek state. Always build your update on this fresh copy, never a cached one.
+- Also read the project doc "claude/notes/next-touch-system-state.md" — a related system ("Next Touch," which has its own separate hourly scheduled task, "Next Touch sync") already reads Pipeline Pulse's Salesforce data for its own contact prioritization. You are not responsible for rebuilding Next Touch's own pages in this run.
+
+STEP 2 — Find upcoming prospect meetings (no device needed):
+- Call Google_Calendar list_events for calendar adam.russo@bench.co, timezone America/Edmonton, covering roughly the next 48 hours (today + tomorrow).
+- Apply the same prospect-meeting filter documented in the handoff: keep only events with at least one attendee whose email domain is NOT bench.co or mainstreet.com; drop anything titled "Canceled:"; drop internal blocks/syncs/lunch/buffer/out-of-office/Apollo-outbound/etc.
+- Update Pipeline Pulse's `thisWeek` section with this current meeting list regardless of whether the Salesforce step below runs — this part is always worth doing.
+
+STEP 3 — Decide who needs a fresh Salesforce lookup (only relevant once device-bound):
+- For each prospect meeting's attendee email, check Pipeline Pulse's state (seenLeads/seenContacts/seenAccounts/seenOpportunities) for an entry matching that email that has an `sfLastCheckedAt` timestamp within the last 24 hours. If found and fresh, skip them this run.
+- Otherwise, they need a lookup this run — but only proceed to Step 4 if the device is actually available (see the KNOWN CURRENT LIMITATION above; expect it not to be, for now).
+
+STEP 4 — Do the Salesforce lookups (only if the device is available AND attendees need one):
+- Confirm the device/Chrome bridge is actually available and Adam is logged into Salesforce (benchaccounting.lightning.force.com). If the device isn't available at all, quietly skip this whole step per the note at the top — no notification. If the device IS available but Salesforce is logged out specifically, that's the one case worth flagging per STANDING RULES.
+- For each attendee needing a lookup, use Salesforce's own global search (top nav) with their email address. Capture whatever comes back — Lead, Contact, Account, and/or Opportunity — with real field values and the actual record hyperlink (verbatim href). If nothing comes back for that email, that's a legitimate "not found" — record it as such.
+- Stamp every record you touch this run (found or not-found) with `sfLastCheckedAt` set to this run's current time.
+
+STEP 5 — Update Pipeline Pulse:
+- Merge your findings into the fresh state from Step 1 (updated `thisWeek` always; new/updated Leads/Contacts/Accounts/Opportunities only if Step 4 ran). Never delete an existing record just because a source was temporarily unavailable.
+- Republish to the same artifact URL (pass that exact url so you update it in place rather than forking a new artifact), keeping favicon "📈" and title "Pipeline Pulse".
+- If you hit a publish "conflict" error, re-read the artifact fresh and rebuild your changes on top of that before retrying.
+
+STEP 6 — Wrap up:
+- Send Adam a push notification ONLY if: (a) Step 4 actually ran and found something noteworthy (a new match, or a meeting with genuinely no Salesforce record found), (b) this is the FIRST run where the device/Chrome bridge was found available (worth flagging since it means his migration to one desktop is done and this task is now fully working), (c) Salesforce specifically was logged out while the device was otherwise available, or (d) something else broke unexpectedly (Calendar API error, repeated unresolvable publish conflict, etc.). Do NOT notify just because the device wasn't bound — that's expected and already known.
+- This is a first iteration — if the calendar filter or matching logic behaves unexpectedly, describe it in whatever notification you do send.

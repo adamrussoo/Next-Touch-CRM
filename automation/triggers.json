@@ -1,0 +1,32 @@
+{
+  "_note": "Fetched fresh via mcp__claude-code-remote__list_triggers on 2026-08-26 for the project package export. These are Claude Code Remote scheduled tasks ('Routines') — NOT local cron. To recreate them in a new environment, use the create_trigger tool with the name, cron_expression, and prompt fields below. requires_local_device is inferred from the Pipeline Pulse trigger's prompt text (it drives Chrome via the device bridge) — the raw list_triggers response does not echo that flag back, so confirm it if recreating.",
+  "triggers": [
+    {
+      "id": "trig_01YDk8RyRDVi8JMwLVfbq7Qq",
+      "name": "Next Touch sync",
+      "cron_expression": "52 * * * *",
+      "schedule_description": "Hourly, at :52 past every hour, UTC, every day.",
+      "enabled": true,
+      "created_at": "2026-08-25T19:52:47.613060Z",
+      "updated_at": "2026-08-26T22:32:09.753230Z",
+      "next_run_at": "2026-08-26T22:52:00Z",
+      "notifications": { "push": false, "email": false },
+      "requires_local_device": false,
+      "prompt_file": "next-touch-sync-prompt.txt"
+    },
+    {
+      "id": "trig_01SWnQQaWcLWBX3iq9EKpE7b",
+      "name": "Pipeline Pulse — calendar-triggered Salesforce refresh",
+      "cron_expression": "0 13-23 * * 1-5",
+      "schedule_description": "Hourly on the hour, weekdays only, 13:00-23:00 UTC (roughly 7am-6pm Mountain Time; drifts an hour across DST since cron is UTC-fixed).",
+      "enabled": true,
+      "created_at": "2026-08-26T19:22:33.927533Z",
+      "updated_at": "2026-08-26T19:51:11.763744Z",
+      "next_run_at": "2026-08-26T23:06:35.068892769Z",
+      "notifications": { "push": true, "email": false },
+      "requires_local_device": true,
+      "requires_local_device_status_as_of_2026_08_26": "NOT bound — created with requires_local_device: true but the create call returned not_signed_approval (\"this task will run in the cloud only\"). Adam's account is not currently logged into any desktop, so the device-binding approval flow isn't reachable yet. The trigger still runs its calendar-only half hourly on schedule; the Chrome/Salesforce half silently no-ops until binding is approved. Check list_triggers for current status before assuming this is still the case.",
+      "prompt_file": "pipeline-pulse-refresh-prompt.txt"
+    }
+  ]
+}

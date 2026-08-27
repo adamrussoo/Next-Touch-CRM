@@ -1,0 +1,1260 @@
+<!doctype html><html><head><!-- frame-runtime --><base href="/_f/1787783219-9039/"><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.YODCk0yK.js","assets":"assets.DBUJcvq_.js","comments":"comments.GLuHR3zP.js","db":"db.CRhVHzSt.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CxGAyc-v.js","mcp":"mcp.Bvma3qD7.js","network":"network.B5UA9Su4.js","permissions":"permissions.BNySkLV5.js","room":"room.BMMoe2BY.js","sample":"sample.BW2Uysoh.js","self":"artifact.YODCk0yK.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.CQm3TZ9K.js","comments":"_comments.PBVy184F.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var J=["light","dark","system"],Q=/^[A-Za-z0-9_-]{1,64}$/,H=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,ee=new Set(["class","hidden","value","checked"]);function te(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||ee.has(t)}var Me="http://www.w3.org/1999/xhtml",re="http://www.w3.org/2000/svg",ne=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),oe=new Set(["script","style"]);function se(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!ne.has(t):e.namespaceURI===re?!oe.has(t):!1}var ae=new Set(["html","head","body","frameset"]);function ie(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&ae.has(e.localName)}function ce(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!Q.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[r,n]of Object.entries(t.attrsSet))if(!H.test(r)||typeof n!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const r of t.attrsRemoved)if(typeof r!="string"||!H.test(r))return!1}return!0}function le(e,t){if(e===null||typeof e!="object")return!1;const{seq:r,elements:n}=e;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let s=0;s<n.length;s++)if(!t(n[s]))return!1;return!0}function ue(e){return e===null||typeof e!="object"?!1:le(e.__frame_patch,ce)}function fe(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function pe(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function de(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&J.includes(r)}var A=/^[\w.-]+\.js$/;function me(e,t,r){return r?"inert":typeof t=="string"&&A.test(t)?e?[t]:"inert":e?"inert":"framed"}function he(){return{post(e,t){parent.postMessage(e,t)},on(e){const t=r=>{r.source===parent&&e(r.data,r.origin)};return addEventListener("message",t),()=>removeEventListener("message",t)}}}function _e(){return{post:()=>{},on:()=>()=>{}}}var O="__frame_scroll",ve=150,ye=310,we=160,be=3e4;function Ee(){let e=0,t=!1,r=!1,n=!1,s=0,a=null;const l=i=>{try{sessionStorage.setItem(O,JSON.stringify({y:i}))}catch{}},d=()=>{if(clearTimeout(e),a===null)return;const i=a;a=null,l(i)},v=()=>{if(t){t=!1;return}r=!0,a=scrollY,clearTimeout(e),e=setTimeout(d,ve)};try{addEventListener("scroll",v,{passive:!0}),addEventListener("pagehide",d)}catch{}const y=()=>{let i;try{i=sessionStorage.getItem(O)}catch{return null}if(i===null)return null;let m;try{m=JSON.parse(i)}catch{m=null}const u=m?.y;if(!(typeof u=="number"&&Number.isFinite(u)&&u>=0)){try{sessionStorage.removeItem(O)}catch{}return null}return u};let S=!1;const h=i=>{try{const m=scrollY;scrollTo({top:i,left:0,behavior:"instant"}),s=i,n=!0,clearTimeout(e),a=null,l(i);const u=scrollY;u!==m&&(t=!0),u!==i&&!S&&(S=!0,addEventListener("load",()=>{try{if(scrollY===u){const k=y();h(k!==null?k:s)}}catch{}},{once:!0}))}catch{}},w=()=>{try{return!!location.hash}catch{return!0}};let o=!1;const f=()=>{try{if(o||innerWidth>ye||innerHeight>we)return;o=!0;const i=Date.now(),m=()=>{try{removeEventListener("resize",m)}catch{}if(Date.now()-i>be||r||w())return;const u=y();h(u!==null?u:s)};addEventListener("resize",m)}catch{}};let _=!1,b=!1;return{restore(){if(_||(_=!0,w()))return;const i=y();i!==null&&(h(i),f())},promoted(){if(b||(b=!0,w()))return;const i=y();i!==null?(h(i),f()):n&&h(s)}}}function ge(e,t,r,n){let s=null;try{s=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:v=>v})??null}catch{}const a=window.Worker,l=a?.prototype,d=Object.freeze({Worker:a,workerOn:l?.addEventListener,workerPost:l?.postMessage,workerTerminate:l?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,policy:s,origins:t});r(e).then(v=>v?.bootTopLevel?v.bootTopLevel(d,n):n.settle()).catch(()=>n.settle())}var Oe="modulepreload",Ce=function(e){return"/"+e},je={},Ae=function(t,r,n){let s=Promise.resolve();function a(l){const d=new Event("vite:preloadError",{cancelable:!0});if(d.payload=l,window.dispatchEvent(d),!d.defaultPrevented)throw l}return s.then(l=>{for(const d of l||[])d.status==="rejected"&&a(d.reason);return t().catch(a)})},Re=window===top,q=Object.getOwnPropertyDescriptor(window,"claude"),T=me(Re,window.__FRAME_PREAMBLE?.topLevel,q?.writable===!1),C=typeof T=="object"&&T[0],p=C?_e():he();(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let s=0;s<r.length;s++){const a=r[s];try{e(t,a,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[a]}catch{}try{e(t,a,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[a]=="function"&&n++}if(n&&T==="framed")try{p.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Se=1e4,W=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function $(e){for(const t of W)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var L=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),j=window.__FRAME_PREAMBLE?.transforms,N=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate;function R(e){return Ae(()=>import("/_runtime/"+e),void 0)}function K(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:D,pipe:()=>({wrap:(r,n)=>(...s)=>{try{return n(...s)}catch(a){return Promise.reject(a)}}})}}var P=null,E=null;function Y(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var B=!1;function ke(e,t){const r=[];for(const n of e.elements){const s=document.querySelector(`[data-id="${n.target}"]`);if(!s){p.post({__frame_patch_miss:{seq:e.seq}},t);return}if([...Object.keys(n.attrsSet??{}),...n.attrsRemoved??[]].some(a=>!te(a))){p.post({__frame_patch_miss:{seq:e.seq}},t);return}if(n.text!==void 0&&(!se(s)||ie(s))){p.post({__frame_patch_miss:{seq:e.seq}},t);return}for(const[a,l]of Object.entries(n.attrsSet??{}))if(!G(s,a)){try{s.setAttribute(a,l)}catch{}X(s,a,l)}for(const a of n.attrsRemoved??[])G(s,a)||(s.removeAttribute(a),X(s,a,null));typeof n.text=="string"&&(s.textContent=n.text),r.push(n.target)}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:r}}))}catch{}}function X(e,t,r){if(!(e instanceof HTMLInputElement))return;const n=t.toLowerCase();n==="checked"?e.checked=r!==null:n==="value"&&e.type!=="file"&&(e.value=r??"")}function G(e,t){const r=t.toLowerCase(),n=e;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function V(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,B=!0):B&&(delete t.dataset.theme,t.style.colorScheme="",B=!1)}var M=new Map;function Te(){let e;const t={u:new Promise(r=>{e=r}),r:r=>{t.done=!0,e(r)},done:!1,nulled:!1};return t}function U(){for(const e of M.values())e.done||(e.nulled=!0,e.r(null))}var Le=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),D=(e,t)=>{const r=M.get(e);if(!r||r.done){r?.nulled&&E&&p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},E);return}const n=typeof t=="function"?Object.setPrototypeOf(t,Le):Object.assign(Object.create(null),t);typeof n.then=="function"&&delete n.then,r.r(Object.freeze(n))};function Z(){const e=q?.value??{};Y(window,"claude",e);for(const t of Object.keys(L)){if(e[t]!==void 0){Y(e,t,e[t]);continue}M.set(t,Te())}if(e.use===void 0){const t=r=>{if(typeof r!="string"||!Object.hasOwn(L,r))return Promise.resolve(null);const n=M.get(r);return n?n.u:Promise.resolve(e[r]??null)};try{Object.defineProperty(e,"use",{value:t,writable:!0,configurable:!0,enumerable:!1})}catch{}}}if(T==="framed"){const e=j&&A.test(j)?R(j).catch(()=>{}):Promise.resolve(void 0),t=o=>{if(o.type==="auxclick"&&o.button!==1)return;const f=o.target,_=f&&f.closest?f.closest("a[href],area[href]"):null;if(!_)return;const b=_.getAttribute("href");if(!b)return;let i;try{i=new URL(b,document.baseURI)}catch{return}if((i.protocol==="http:"||i.protocol==="https:")&&i.origin!==location.origin){o.preventDefault();const m=(_.getAttribute("target")??"").toLowerCase(),u=o.type==="auxclick"||o.metaKey||o.ctrlKey||o.shiftKey||o.altKey||!["","_self","_top","_parent"].includes(m);p.post({__frame_nav:!0,url:i.href,newTab:u},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const r={},n=o=>{o.isTrusted&&(r.pointer=!0)},s=o=>{o.isTrusted&&(r.click=!0)};addEventListener("pointermove",n,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0}),e.then(o=>{o?.wireNav&&(o.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",n,!0),removeEventListener("click",s,!0),o.wireEngagement?.(r))});let a=null;try{a=Ee()}catch{}Z();let l=null,d=null,v=0;const y=p.on((o,f)=>{$(f)&&fe(o)&&(l=o.__frame_init,E=f,y(),clearTimeout(v),d?.())});p.post({__frame_connect:!0},"*");const S=new Promise(o=>{d=o,v=setTimeout(()=>{y(),o()},Se)}),h=document.readyState==="loading"?new Promise(o=>document.addEventListener("DOMContentLoaded",()=>o(),{once:!0})):Promise.resolve();h.then(()=>{try{a?.restore()}catch{}});const w={cb:null};p.on((o,f)=>{if($(f)&&pe(o)){try{a?.promoted()}catch{}w.cb?.()}}),S.then(async()=>{if(!l||!E){U();return}V(l.theme);const o=E;let f=!1,_=!1;p.on((c,x)=>{if(x!==o)return;de(c)&&V(c.__frame_theme.theme),ue(c)&&ke(c.__frame_patch,o);const g=c?.__fc_mode;g&&typeof g=="object"&&!f&&N&&A.test(N)&&(f=!0,R(N).then(z=>z.install?.(o,g.on===!0)).catch(()=>{}));const F=c?.__ft_cmd;F&&typeof F=="object"&&!_&&I&&A.test(I)&&(_=!0,R(I).then(z=>z.install?.(o,F)).catch(()=>{}))});const b=Object.keys(l.capabilities??{}).filter(c=>Object.hasOwn(L,c)).map(c=>[c,L[c]]).filter(c=>typeof c[1]=="string"&&A.test(c[1])),i=await Promise.allSettled(b.map(([,c])=>R(c))),m=await e,u=E;if(m?.buildBoot||p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},u),m?.buildBoot)try{P=m.buildBoot(l,m.TRANSFORMS??{},{shellOrigin:u,mount:D},c=>p.post({__frame_cap_telemetry:c},u))}catch{p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},u),P=K(l,u)}else P=K(l,u);const k=c=>p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:c}},u),Pe=P;i.forEach((c,x)=>{const g=b[x][0];if(c.status!=="fulfilled"){k(g);return}try{c.value?.install?.(Pe)}catch{k(g)}}),U(),await h,p.post({__frame_ready:!0},E),e.then(c=>c?.installSizeReporter?.(u,w))})}else C&&(Z(),ge(C,W,R,{settle:U,mount:D}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Andrew Bravo</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --bg:#f7f4ec;
+  --surface:#ffffff;
+  --surface-alt:#efe9db;
+  --ink:#24312b;
+  --ink-soft:#5c6b62;
+  --ink-faint:#8b978d;
+  --accent:#2c6b5c;
+  --accent-ink:#1c463c;
+  --accent-soft:#e2ece7;
+  --border:#ddd3bd;
+  --border-soft:#e9e1cd;
+  --open:#a15a1f;
+  --open-soft:#f5e6d3;
+  --med:#a06a12;
+  --med-soft:#f4e9d3;
+  --done:#3c7a5c;
+  --done-soft:#e1ede4;
+  --quote-bg:#f1ece0;
+  --shadow: 0 1px 2px rgba(36,49,43,0.06), 0 8px 24px -12px rgba(36,49,43,0.12);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141d1a;
+    --surface:#1a2622;
+    --surface-alt:#20302a;
+    --ink:#eef2ee;
+    --ink-soft:#a6b6ac;
+    --ink-faint:#748078;
+    --accent:#7fd0b3;
+    --accent-ink:#bfeadb;
+    --accent-soft:rgba(127,208,179,0.13);
+    --border:#31423a;
+    --border-soft:#293830;
+    --open:#e2a460;
+    --open-soft:rgba(226,164,96,0.14);
+    --med:#d8ab5c;
+    --med-soft:rgba(216,171,92,0.14);
+    --done:#7fc79e;
+    --done-soft:rgba(127,199,158,0.13);
+    --quote-bg:#20302a;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.45);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141d1a;
+  --surface:#1a2622;
+  --surface-alt:#20302a;
+  --ink:#eef2ee;
+  --ink-soft:#a6b6ac;
+  --ink-faint:#748078;
+  --accent:#7fd0b3;
+  --accent-ink:#bfeadb;
+  --accent-soft:rgba(127,208,179,0.13);
+  --border:#31423a;
+  --border-soft:#293830;
+  --open:#e2a460;
+  --open-soft:rgba(226,164,96,0.14);
+  --med:#d8ab5c;
+  --med-soft:rgba(216,171,92,0.14);
+  --done:#7fc79e;
+  --done-soft:rgba(127,199,158,0.13);
+  --quote-bg:#20302a;
+  --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.45);
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Public Sans', ui-sans-serif, system-ui, sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--accent-soft); }
+
+.page{
+  max-width:760px;
+  margin:0 auto;
+  padding:2.5rem 1.5rem 5rem;
+}
+
+.backlink{
+  display:inline-flex; align-items:center; gap:.4rem;
+  font-family:'IBM Plex Mono', ui-monospace, monospace;
+  font-size:.8rem;
+  color:var(--ink-soft);
+  text-decoration:none;
+  margin-bottom:1.5rem;
+  padding:.4rem .1rem;
+}
+.backlink:hover{ color:var(--accent-ink); }
+.backlink svg{ width:13px; height:13px; }
+
+.header{
+  display:flex;
+  gap:1.1rem;
+  align-items:flex-start;
+  padding-bottom:1.5rem;
+  border-bottom:1px solid var(--border);
+}
+.avatar{
+  flex:none;
+  width:52px; height:52px;
+  border-radius:50%;
+  background:var(--accent);
+  color:var(--surface);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Newsreader', serif;
+  font-size:1.35rem;
+  font-weight:500;
+}
+:root[data-theme="dark"] .avatar, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .avatar{ color:#0d1512; } }
+.header-main{flex:1; min-width:0;}
+.eyebrow{
+  font-family:'IBM Plex Mono', ui-monospace, monospace;
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  margin:0 0 .25rem;
+}
+h1{
+  font-family:'Newsreader', serif;
+  font-weight:500;
+  font-size:2.1rem;
+  line-height:1.15;
+  margin:0 0 .3rem;
+  text-wrap:balance;
+  color:var(--ink);
+}
+.subline{
+  color:var(--ink-soft);
+  font-size:.98rem;
+  margin:0;
+}
+.subline a{ color:var(--accent-ink); text-decoration:underline; text-decoration-color:var(--border); text-underline-offset:2px; }
+
+.facts{
+  display:flex; flex-wrap:wrap; gap:.4rem;
+  margin-top:.9rem;
+}
+.fact{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.76rem;
+  color:var(--ink-soft);
+  background:var(--surface-alt);
+  border:1px solid var(--border-soft);
+  border-radius:5px;
+  padding:.28rem .55rem;
+}
+
+.status{
+  display:flex; flex-wrap:wrap; gap:.6rem;
+  margin:1.25rem 0 0;
+}
+.pill{
+  display:inline-flex; align-items:center; gap:.4rem;
+  font-size:.82rem; font-weight:600;
+  padding:.4rem .7rem;
+  border-radius:99px;
+  border:1px solid transparent;
+}
+.pill .dot{ width:7px; height:7px; border-radius:50%; }
+.pill.high{ background:var(--open-soft); color:var(--open); border-color:color-mix(in srgb, var(--open) 30%, transparent); }
+.pill.high .dot{ background:var(--open); }
+.pill.medium{ background:var(--med-soft); color:var(--med); border-color:color-mix(in srgb, var(--med) 30%, transparent); }
+.pill.medium .dot{ background:var(--med); }
+.pill.neutral{ background:var(--surface-alt); color:var(--ink-soft); border-color:var(--border-soft); }
+.pill.neutral .dot{ background:var(--ink-faint); }
+.pill.accent{ background:var(--accent-soft); color:var(--accent-ink); border-color:color-mix(in srgb, var(--accent) 25%, transparent); }
+.pill.accent .dot{ background:var(--accent); }
+
+.section{
+  margin-top:2.75rem;
+}
+.section-head{
+  display:flex; align-items:baseline; gap:.7rem;
+  border-left:3px solid var(--accent);
+  padding-left:.85rem;
+  margin-bottom:1.1rem;
+}
+.section-head h2{
+  font-family:'Newsreader', serif;
+  font-weight:500;
+  font-size:1.5rem;
+  margin:0;
+  color:var(--ink);
+}
+.section-head .when{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.78rem;
+  color:var(--ink-faint);
+}
+
+.tldr{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  box-shadow:var(--shadow);
+  padding:1.1rem 1.25rem;
+  font-size:1rem;
+  color:var(--ink);
+}
+.tldr strong{ color:var(--accent-ink); }
+
+h3{
+  font-family:'Public Sans', sans-serif;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  margin:1.6rem 0 .6rem;
+}
+.block{ margin-top:1.4rem; }
+.block:first-of-type{ margin-top:1.6rem; }
+
+ul.clean{ margin:0; padding:0; list-style:none; }
+ul.clean li{
+  position:relative;
+  padding-left:1.1rem;
+  margin-bottom:.55rem;
+  color:var(--ink);
+}
+ul.clean li::before{
+  content:"";
+  position:absolute; left:0; top:.62em;
+  width:5px; height:5px; border-radius:50%;
+  background:var(--accent);
+  opacity:.65;
+}
+ul.clean li:last-child{ margin-bottom:0; }
+ul.clean.chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
+ul.clean.chips li{
+  padding:.45rem .75rem .45rem 1.6rem;
+  background:var(--surface-alt);
+  border:1px solid var(--border-soft);
+  border-radius:8px;
+  margin:0;
+  font-size:.92rem;
+}
+ul.clean.chips li::before{ left:.7rem; top:.95em; }
+
+.checklist{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.55rem; }
+.checklist li{ display:flex; align-items:flex-start; gap:.6rem; font-size:.98rem; }
+.checkbox{
+  flex:none; width:18px; height:18px; margin-top:.15rem;
+  border-radius:5px; border:1.5px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:.7rem;
+}
+.checklist li.done .checkbox{ background:var(--done); border-color:var(--done); color:var(--surface); }
+.checklist li.done .checkbox::after{ content:"✓"; }
+.checklist li.open .checkbox{ border-color:var(--open); }
+.checklist li.open span{ color:var(--ink); }
+.checklist li.done span{ color:var(--ink-soft); text-decoration:line-through; text-decoration-color:var(--border); }
+
+blockquote{
+  margin:0; padding:.9rem 1.1rem;
+  background:var(--quote-bg);
+  border-left:3px solid var(--accent);
+  border-radius:0 8px 8px 0;
+  font-family:'Newsreader', serif;
+  font-style:italic;
+  font-size:1.05rem;
+  color:var(--ink);
+}
+blockquote cite{
+  display:block; margin-top:.4rem;
+  font-family:'IBM Plex Mono', monospace;
+  font-style:normal; font-size:.74rem;
+  color:var(--ink-faint);
+}
+
+.cardgrid{ display:flex; flex-direction:column; gap:.75rem; }
+.objcard{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:.9rem 1.05rem;
+}
+.objcard .hes{
+  font-weight:600; font-size:.98rem; margin-bottom:.35rem;
+  display:flex; gap:.5rem; align-items:baseline;
+}
+.objcard .hes::before{ content:"“"; font-family:'Newsreader',serif; color:var(--accent); font-size:1.3rem; line-height:0; }
+.objcard dl{ margin:.5rem 0 0; display:grid; grid-template-columns:auto 1fr; gap:.3rem .7rem; }
+.objcard dt{ font-family:'IBM Plex Mono',monospace; font-size:.7rem; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-faint); align-self:baseline; padding-top:.15rem; }
+.objcard dd{ margin:0; font-size:.92rem; color:var(--ink); }
+
+details{
+  margin-top:1.5rem;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--surface);
+  overflow:hidden;
+}
+
+.revised{
+  outline:2px solid var(--open);
+  outline-offset:3px;
+  border-radius:4px;
+  position:relative;
+}
+.revised-tag{
+  display:inline-block;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.66rem;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:var(--open);
+  background:var(--open-soft);
+  border-radius:4px;
+  padding:.12rem .4rem;
+  margin-left:.4rem;
+  vertical-align:middle;
+}
+.was{
+  font-size:.85rem;
+  color:var(--ink-faint);
+  margin-top:.3rem;
+}
+.was s{ text-decoration-color:var(--border); }
+
+.logentry{
+  display:flex; gap:.7rem;
+  padding:.7rem 0;
+  border-bottom:1px solid var(--border-soft);
+  font-size:.88rem;
+}
+.logentry:last-child{ border-bottom:none; }
+.logentry .ts{
+  flex:none; width:118px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;
+  color:var(--ink-faint);
+  padding-top:.1rem;
+}
+.logentry .desc{ color:var(--ink); }
+.logentry .desc b{ color:var(--accent-ink); font-weight:600; }
+
+.callarchive{
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--surface);
+  margin-top:.75rem;
+  overflow:hidden;
+}
+.callarchive summary{ font-size:.88rem; }
+.callarchive summary .when{ font-weight:400; color:var(--ink-faint); margin-left:.5rem; }
+.callarchive .details-body{ font-size:.9rem; }
+.callarchive .details-body ul.clean{ margin-bottom:.7rem; }
+
+.quicksend{ margin-top:1.1rem; }
+.qsbtn{
+  font-family:'Public Sans', sans-serif;
+  font-weight:600; font-size:.9rem;
+  color:var(--surface);
+  background:var(--accent);
+  border:none; border-radius:8px;
+  padding:.65rem 1.1rem;
+  cursor:pointer;
+  transition:opacity .15s;
+}
+:root[data-theme="dark"] .qsbtn, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .qsbtn{ color:#0d1512; } }
+.qsbtn:hover{ opacity:.88; }
+.qsbtn:disabled{ opacity:.55; cursor:default; }
+.qsbtn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+.qsstatus{
+  margin-left:.7rem;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.78rem;
+}
+.qsstatus.ok{ color:var(--done); }
+.qsstatus.err{ color:var(--open); }
+.qshelp{
+  font-size:.82rem; color:var(--ink-faint);
+  margin:.5rem 0 0;
+}
+.qspreview{ margin-top:.6rem; }
+.qspreview summary{ font-size:.82rem; padding:.6rem .85rem; }
+.qsfield{ font-size:.85rem; margin-bottom:.4rem; }
+.qsfield span{ font-family:'IBM Plex Mono',monospace; font-size:.7rem; text-transform:uppercase; color:var(--ink-faint); margin-right:.5rem; }
+.qsbody{
+  white-space:pre-wrap;
+  font-family:'Public Sans', sans-serif;
+  font-size:.88rem;
+  color:var(--ink);
+  background:var(--surface-alt);
+  border-radius:8px;
+  padding:.8rem .9rem;
+  margin-top:.5rem;
+}
+summary{
+  cursor:pointer;
+  padding:.85rem 1.05rem;
+  font-weight:600; font-size:.92rem;
+  color:var(--accent-ink);
+  list-style:none;
+  display:flex; align-items:center; justify-content:space-between;
+}
+summary::-webkit-details-marker{ display:none; }
+summary::after{ content:"+"; font-family:'IBM Plex Mono',monospace; color:var(--ink-faint); font-size:1.1rem; }
+details[open] summary::after{ content:"–"; }
+details[open] summary{ border-bottom:1px solid var(--border-soft); }
+.details-body{ padding:1rem 1.05rem 1.15rem; }
+
+.kv{ width:100%; border-collapse:collapse; font-size:.9rem; }
+.kv td{ padding:.4rem 0; border-bottom:1px solid var(--border-soft); vertical-align:top; }
+.kv td:first-child{ color:var(--ink-faint); font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:.03em; width:44%; padding-right:1rem; }
+.kv tr:last-child td{ border-bottom:none; }
+
+.pricebox{
+  display:grid; grid-template-columns:1fr 1fr; gap:.75rem;
+  margin-top:.5rem;
+}
+.priceopt{
+  border:1px solid var(--border); border-radius:10px; padding:.9rem 1rem;
+  background:var(--surface);
+}
+.priceopt.reco{ border-color:var(--accent); background:var(--accent-soft); }
+.priceopt .label{ font-family:'IBM Plex Mono',monospace; font-size:.7rem; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-faint); }
+.priceopt.reco .label{ color:var(--accent-ink); }
+.priceopt .amount{ font-family:'Newsreader',serif; font-size:1.5rem; font-weight:500; margin:.15rem 0; color:var(--ink); }
+.priceopt .note{ font-size:.82rem; color:var(--ink-soft); }
+
+.opening{
+  margin-top:1.5rem;
+  border-radius:10px;
+  padding:1.1rem 1.25rem;
+  background:var(--accent);
+  color:var(--surface);
+}
+:root[data-theme="dark"] .opening, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .opening{ color:#0d1512; } }
+.opening .label{ font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; opacity:.85; margin-bottom:.4rem; }
+.opening q{ font-family:'Newsreader',serif; font-style:italic; font-size:1.15rem; }
+
+.callcoach-cta{ margin-top:1.1rem; }
+.ccbtn{
+  display:inline-flex; align-items:center; gap:.55rem;
+  font-family:'Public Sans', sans-serif; font-weight:600; font-size:.92rem;
+  color:var(--surface);
+  background:var(--accent);
+  border-radius:9px;
+  padding:.65rem 1.05rem;
+  text-decoration:none;
+  box-shadow:var(--shadow);
+}
+.ccbtn:hover{ opacity:.9; }
+:root[data-theme="dark"] .ccbtn, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .ccbtn{ color:#0d1512; } }
+
+.sharehint{
+  font-size:.8rem; color:var(--ink-faint);
+  margin:-1.1rem 0 1.6rem;
+}
+
+.pagesearch{
+  margin-top:1.4rem;
+  display:flex; align-items:center; gap:.6rem; flex-wrap:wrap;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:.65rem .9rem;
+  box-shadow:var(--shadow);
+}
+.pagesearch svg{ flex:none; width:16px; height:16px; color:var(--ink-faint); }
+.pagesearch input{
+  flex:1; min-width:160px;
+  border:none; outline:none; background:transparent;
+  font-family:'Public Sans', sans-serif; font-size:.94rem; color:var(--ink);
+}
+.pagesearch input::placeholder{ color:var(--ink-faint); }
+.pagesearch .count{
+  font-family:'IBM Plex Mono',monospace; font-size:.76rem; color:var(--ink-faint);
+  white-space:nowrap; min-width:3.2rem; text-align:right;
+}
+.pagesearch .navbtn{
+  flex:none; width:26px; height:26px; border-radius:6px;
+  border:1px solid var(--border-soft); background:var(--surface-alt);
+  color:var(--ink-soft); cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:.8rem; padding:0;
+}
+.pagesearch .navbtn:hover{ background:var(--accent-soft); color:var(--accent-ink); }
+.pagesearch .navbtn:disabled{ opacity:.4; cursor:default; }
+.pagesearch-help{
+  font-size:.8rem; color:var(--ink-faint); margin:.55rem 0 0;
+}
+mark.hit{ background:var(--open-soft); color:var(--ink); border-radius:2px; padding:0 1px; }
+mark.hit.current{ background:var(--accent); color:var(--surface); }
+:root[data-theme="dark"] mark.hit.current, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) mark.hit.current{ color:#0d1512; } }
+
+.transcript{ font-size:.9rem; }
+.transcript-note{ font-size:.82rem; color:var(--ink-faint); margin:0 0 1rem; }
+.transcript .turn{ margin:.15rem 0; }
+.transcript .ts{
+  display:block;
+  font-family:'IBM Plex Mono',monospace; font-size:.68rem; text-transform:uppercase; letter-spacing:.04em;
+  color:var(--ink-faint); margin:1.3rem 0 .55rem;
+}
+.transcript .turn:first-of-type .ts{ margin-top:0; }
+.transcript .who{ color:var(--accent-ink); font-weight:600; }
+.transcript p{ margin:.3rem 0 0; color:var(--ink); }
+
+footer{
+  margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--border);
+  font-size:.82rem; color:var(--ink-faint); line-height:1.7;
+}
+footer a{ color:var(--accent-ink); }
+
+@media (max-width:520px){
+  .pricebox{ grid-template-columns:1fr; }
+  h1{ font-size:1.7rem; }
+}
+</style>
+
+<div class="page">
+
+  <a class="backlink" href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3 5 8l5 5"/></svg>
+    Back to Next Touch
+  </a>
+  <p class="sharehint">Share this page with your team using the share option on this view — anyone with the link can read what happened on this account without needing your Gemini conversations.</p>
+  <p class="sharehint">Prepping for a call with Andrew? Keep the <a href="https://claude.ai/code/artifact/19d06ea7-3178-46ff-bf4d-13f1dca37906" target="_blank" rel="noopener">Call Verbiage Field Guide</a> open alongside this page — it's one general reference for every call, not specific to Andrew.</p>
+  <p class="sharehint"><a href="https://claude.ai/code/artifact/c683bd30-99e5-4085-9208-433136744f20" target="_blank" rel="noopener">Daily Priorities</a></p>
+
+  <div class="header">
+    <div class="avatar">AB</div>
+    <div class="header-main">
+      <p class="eyebrow">Contact brief</p>
+      <h1>Andrew Bravo</h1>
+      <p class="subline">GGB Healthcare · <a href="mailto:andrew@ggbhealthcare.com">andrew@ggbhealthcare.com</a></p>
+      <div class="facts">
+        <span class="fact">Single-member LLC (Delaware)</span>
+        <span class="fact">New York City</span>
+        <span class="fact">Founded Jul 30, 2025</span>
+        <span class="fact">Comparing vs. Collective</span>
+      </div>
+      <div class="status">
+        <span class="pill medium"><span class="dot"></span>Medium priority</span>
+        <span class="pill accent"><span class="dot"></span>Price consideration</span>
+        <span class="pill neutral"><span class="dot"></span>Next call: Mon Aug 31, 11:00 AM MT</span>
+      </div>
+      <div class="callcoach-cta">
+        <a class="ccbtn" href="#callcoach">&#127908; Open Call Coach &mdash; tailored talk track for this call</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagesearch">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="5.2"/><path d="M11 11l3.5 3.5"/></svg>
+    <input type="text" id="pageSearchInput" placeholder="Search these notes &amp; the call transcript — e.g. &quot;Collective&quot;, &quot;pricing&quot;, &quot;Delaware&quot;">
+    <span class="count" id="pageSearchCount"></span>
+    <button class="navbtn" id="pageSearchPrev" type="button" title="Previous match">&uarr;</button>
+    <button class="navbtn" id="pageSearchNext" type="button" title="Next match">&darr;</button>
+  </div>
+  <p class="pagesearch-help">Finds exact words or phrases anywhere on this page, including the full transcript at the bottom of the last call. For open-ended questions — "what's actually driving his hesitation with Collective?" — ask Claude directly in your workspace; it can read this whole page and transcript and answer in context, the same way it would answer about any client.</p>
+
+  <!-- ============ CALL COACH ============ -->
+  <div class="section" id="callcoach">
+    <div class="section-head">
+      <h2>Call Coach</h2>
+      <span class="when">Tailored from the Call Verbiage Field Guide</span>
+    </div>
+
+    <div class="tldr">
+      <strong>Situation:</strong> Head-to-head price comparison vs. Collective&rsquo;s $199/mo flat rate. He&rsquo;s said quality matters too &mdash; don&rsquo;t just defend the number, unsell the cheaper alternative&rsquo;s real failure mode.
+    </div>
+
+    <h3>Talk track for this call</h3>
+    <div class="cardgrid">
+      <div class="objcard">
+        <div class="hes">Don&rsquo;t defend on price &mdash; unsell the alternative</div>
+        <dl>
+          <dt>Say this</dt><dd>&ldquo;I totally hear you &mdash; a flat-rate option is absolutely going to have a cheaper sticker price. What I hear most from people who&rsquo;ve moved between services is the cheaper option exposes you to &lsquo;communication chaos&rsquo; &mdash; they outsource you to a pool of bookkeepers who don&rsquo;t actually work in your account.&rdquo; <span style="color:var(--ink-faint);">(Guide: Found a cheaper outsourced service, verbatim)</span></dd>
+        </dl>
+      </div>
+      <div class="objcard">
+        <div class="hes">Then find out why he&rsquo;s still comparing at all</div>
+        <dl>
+          <dt>Ask</dt><dd>&ldquo;Given quality was what mattered most to you &mdash; what&rsquo;s Collective offering that&rsquo;s giving you pause on Bench?&rdquo; <span style="color:var(--ink-faint);">(Guide: Ross &mdash; why here, not there)</span></dd>
+        </dl>
+      </div>
+      <div class="objcard">
+        <div class="hes">On Monday, confirm he&rsquo;s sold before re-pitching price</div>
+        <dl>
+          <dt>Say this</dt><dd>&ldquo;Does this feel like the thing that finally solves your financial pressures?&rdquo; Then move straight to onboarding options, not back to features.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <p class="pagesearch-help" style="margin-top:1.1rem;">Pulled from your <a href="https://claude.ai/code/artifact/19d06ea7-3178-46ff-bf4d-13f1dca37906" target="_blank" rel="noopener">Call Verbiage Field Guide</a> &mdash; open it for the full reference.</p>
+  </div>
+
+  <!-- ============ PRE-CALL SUMMARY ============ -->
+  <div class="section">
+    <div class="section-head">
+      <h2>Before your next call</h2>
+      <span class="when">Mon, Aug 31 · 11:00 AM MT</span>
+    </div>
+
+    <div class="tldr">
+      He's <strong>comparing Bench's $3,710 total package against Collective's flat $199/mo</strong> (which bundles 2025+2026 tax filing into the base rate). He was clear it's not only about price — he wants quality too — but Collective's all-in number is the thing he has to answer for himself before Monday. Goal for this call: find out exactly what Collective is offering, and get him the recap + trial account first so he isn't starting cold.
+    </div>
+
+    <h3>Since the last call</h3>
+    <ul class="checklist">
+      <li class="open"><span class="checkbox"></span><span>Send Summary — recap of the bookkeeping solutions and pricing options discussed</span></li>
+      <li class="open"><span class="checkbox"></span><span>Send calendar invite for the Monday Aug 31, 11:00 AM follow-up (agreed verbally on the call — invite itself still needs to go out)</span></li>
+      <li class="open"><span class="checkbox"></span><span>Set up a free trial/mock account on the Bench platform for him to explore</span></li>
+    </ul>
+
+    <div class="quicksend">
+      <button id="draftBtn" class="qsbtn" type="button">Draft the pricing recap email</button>
+      <span id="qsStatus" class="qsstatus"></span>
+      <p class="qshelp">Composes the email below as a Gmail draft, addressed to Andrew — you review and send it yourself, nothing goes out automatically.</p>
+      <details class="qspreview">
+        <summary>Preview the draft text</summary>
+        <div class="details-body">
+          <div class="qsfield"><span>To</span> andrew@ggbhealthcare.com</div>
+          <div class="qsfield"><span>Subject</span> Bench pricing recap — GGB Healthcare</div>
+          <pre id="qsBody" class="qsbody">Hi Andrew,
+
+Great chatting yesterday — here's a recap of what we covered so you have it in writing while you compare against Collective.
+
+Total package for 2025 catch-up + 2026 bookkeeping + tax filing: $3,710
+  - 2025 bookkeeping (annual plan, 20% off): $1,910
+  - 2025 catch-up work: $600
+  - Tax filing (2025): $1,200
+On the annual plan, I can also throw in the 2026 historical catch-up at no extra charge.
+
+The Bench platform includes unlimited access to your books, direct communication with a dedicated bookkeeper, and real-time categorization — plus you keep full data portability if you ever want to move platforms later.
+
+I know Collective's flat $199/mo bundles tax filing into the base rate, which is worth weighing — the honest tradeoff is that with Bench you get one dedicated bookkeeper who owns your account end to end, rather than a shared support pool.
+
+I also set up a free trial account so you can poke around the dashboard yourself before we talk — no card needed, nothing gets charged.
+
+Looking forward to hearing what you learned from Collective on Monday at 11 AM. Feel free to reply here or call/text if anything comes up before then.
+
+Best,
+Adam</pre>
+        </div>
+      </details>
+    </div>
+
+    <h3>Where he stands</h3>
+    <ul class="clean">
+      <li>Comparing Bench's $3,710 total (2025 catchup + 2026 bookkeeping + tax filing) against Collective's flat $199/mo, which folds 2025+2026 tax filing into the base price.</li>
+      <li>Said explicitly it's not only about price — quality matters too — but the number is what he's taking back to compare.</li>
+      <li>Reacted well to the Bench platform demo and the dedicated-bookkeeper pitch; no objection to the product itself, only the price gap against Collective's bundle.</li>
+    </ul>
+
+    <h3>Be ready for</h3>
+    <div class="cardgrid">
+      <div class="objcard">
+        <div class="hes">Collective's all-in $199/mo pricing</div>
+        <dl>
+          <dt>Concern</dt><dd>Collective bundles tax filing into a flat, lower monthly rate; Bench bills tax filing separately ($1,200/yr).</dd>
+          <dt>Say this</dt><dd>With Bench he gets one dedicated bookkeeper who owns the account end to end — not a shared pool — and if books are wrong going into tax season, that's on us, not him.</dd>
+          <dt>Ask</dt><dd>"What did Collective tell you about who's actually doing the work month to month?"</dd>
+        </dl>
+      </div>
+      <div class="objcard">
+        <div class="hes">Verifying Collective's real scope</div>
+        <dl>
+          <dt>Concern</dt><dd>He wasn't sure Collective's flat rate actually covers everything Bench does — asked to confirm before deciding.</dd>
+          <dt>Say this</dt><dd>Good instinct to check the fine print — offer to walk through anything he's unsure about together on the call.</dd>
+          <dt>Ask</dt><dd>"Did their $199/mo include catch-up work too, or is that billed separately?"</dd>
+        </dl>
+      </div>
+    </div>
+
+    <h3>This call's goal</h3>
+    <ul class="clean">
+      <li>Learn exactly what Collective quoted him and what's included in their flat rate.</li>
+      <li>Reconfirm the annual-plan structure and the free 2026 historical catch-up that comes with it.</li>
+      <li>Make sure the recap email and trial account landed and answered any early questions.</li>
+      <li>Close on Bench — the differentiation story (dedicated bookkeeper vs. pooled support) landed well the first time.</li>
+    </ul>
+
+    <div class="opening">
+      <div class="label">Open with</div>
+      <q>Now that you've had a chance to compare us to Collective, what's standing between you and moving forward with Bench?</q>
+    </div>
+  </div>
+
+  <!-- ============ LAST CALL ============ -->
+  <div class="section">
+    <div class="section-head">
+      <h2>Last call</h2>
+      <span class="when">Aug 25 · 1:50 PM MT · Discovery &amp; demo</span>
+    </div>
+
+    <div class="tldr">
+      <strong>Good first call.</strong> Single-member Delaware LLC based in NYC, self-managing QuickBooks, behind on 2025 (filed an extension) and needs a new CPA after errors on his 2024 filing. Walked through the Bench dashboard demo, quoted a $3,710 total package, and agreed to compare it against Collective before reconvening Monday Aug 31 at 11 AM.
+    </div>
+
+    <h3>Top pain points</h3>
+    <ul class="clean chips">
+      <li>Managing travel expense reimbursements</li>
+      <li>Home office / partial phone deduction categorization</li>
+      <li>New CPA needed after 2024 filing errors</li>
+      <li>Filed extension for 2025, needs full catch-up</li>
+    </ul>
+
+    <h3>What I learned</h3>
+    <ul class="clean">
+      <li>Single-member LLC registered in Delaware, business based in New York City; founded July 30, 2025.</li>
+      <li>Self-managing bookkeeping in QuickBooks Online ($40/mo) — behind, filed an extension for 2025, will also need Jan–Aug 2026 caught up.</li>
+      <li>2025 revenue ~$5,000 with a ~$3,000 net loss from startup costs; 2026 projected revenue ~$50,000 with $15K–$20K profit.</li>
+      <li>Prior CPA made errors on the 2024 filing — actively looking for a replacement.</li>
+      <li>Wants data portability above all — doesn't want to be locked into a provider as the business scales.</li>
+      <li>Pays most clients via Mercury ACH (no fees); one client pays via Stripe.</li>
+    </ul>
+
+    <h3>Pricing discussed</h3>
+    <div class="pricebox">
+      <div class="priceopt reco">
+        <div class="label">Bench · Annual bundle</div>
+        <div class="amount">$3,710<span style="font-size:.9rem;font-weight:400;"> total</span></div>
+        <div class="note">$1,910 2025 bookkeeping (annual, 20% off) + $600 2025 catch-up + $1,200 tax filing; 2026 historical catch-up thrown in free on the annual plan</div>
+      </div>
+      <div class="priceopt">
+        <div class="label">Collective (competitor)</div>
+        <div class="amount">$199<span style="font-size:.9rem;font-weight:400;">/mo</span></div>
+        <div class="note">Flat rate — per Andrew, bundles 2025 &amp; 2026 tax filing into the base price; he's confirming exact scope before Monday</div>
+      </div>
+    </div>
+    <p style="font-size:.86rem;color:var(--ink-soft);margin-top:.6rem;">Standard Bench rate once caught up: $199/mo (matches the $199 base subscription tier), with tax filing billed separately at $1,200/yr.</p>
+
+    <h3>Objections raised</h3>
+    <div class="cardgrid">
+      <div class="objcard">
+        <div class="hes">Collective bundles tax filing into the base rate</div>
+        <dl>
+          <dt>Concern</dt><dd>Bench bills tax filing separately; Collective's flat monthly fee looks cheaper on paper.</dd>
+          <dt>Response used</dt><dd>Framed the gap as dedicated bookkeeper + accountability vs. a shared support pool — not a pure price match.</dd>
+        </dl>
+      </div>
+      <div class="objcard">
+        <div class="hes">Wants to verify Collective's actual scope</div>
+        <dl>
+          <dt>Concern</dt><dd>Unsure whether Collective's flat rate really covers everything Bench does before deciding.</dd>
+          <dt>Response used</dt><dd>Asked him to confirm the specifics with Collective and bring it back to Monday's call.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <details>
+      <summary>Full business profile</summary>
+      <div class="details-body">
+        <table class="kv">
+          <tr><td>Business name</td><td>GGB Healthcare (GGB Healthcare Partners LLC)</td></tr>
+          <tr><td>Industry</td><td>Healthcare-related services (single-member LLC)</td></tr>
+          <tr><td>Current solution</td><td>Self-managed QuickBooks Online, $40/mo subscription</td></tr>
+          <tr><td>Issues with it</td><td>Time-consuming without expertise; struggles categorizing home office &amp; partial phone deductions and matching travel reimbursements</td></tr>
+          <tr><td>Corporate structure</td><td>Single-member LLC, registered in Delaware, operating out of New York City</td></tr>
+          <tr><td>Gross annual revenue</td><td>2025: ~$5,000 (net ~$3,000 loss, startup costs) · 2026 projected: ~$50,000 revenue, $15K–$20K profit</td></tr>
+          <tr><td>State of registry</td><td>Delaware</td></tr>
+          <tr><td>Years in business</td><td>Founded July 30, 2025</td></tr>
+          <tr><td>Catch-up required</td><td>Yes — 2025 extension filed, full 2025 catch-up plus Jan–Aug 2026</td></tr>
+          <tr><td>Last year filed</td><td>2024 filed by prior CPA (with errors, prompting the search for a new one); 2025 on extension, not yet filed</td></tr>
+          <tr><td>Payment processing</td><td>Mostly Mercury via ACH (no fees); one client pays via Stripe</td></tr>
+        </table>
+      </div>
+    </details>
+
+    <details>
+      <summary>Action items from the call</summary>
+      <div class="details-body">
+        <ul class="checklist">
+          <li class="open"><span class="checkbox"></span><span>Send follow-up email — Bench recap + pricing breakdown (Adam)</span></li>
+          <li class="open"><span class="checkbox"></span><span>Send calendar invite for Mon Aug 31, 11:00 AM MT (Adam)</span></li>
+          <li class="open"><span class="checkbox"></span><span>Set up a free trial/mock Bench account (Adam)</span></li>
+          <li class="open"><span class="checkbox"></span><span>Confirm Collective's exact pricing &amp; tax-filing inclusions (Andrew)</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Full call transcript — Aug 25, 2026 <span style="font-weight:400;color:var(--ink-faint);margin-left:.5rem;">verbatim, 27:55</span></summary>
+      <div class="details-body transcript">
+        <p class="transcript-note">Computer-generated by Gemini from the call recording. For a stretch near the start of the call, the source doc labels Andrew's turns with his masked caller ID ("+1 413-***-**87") rather than his name — relabeled "Andrew Bravo" below for clarity; wording is otherwise verbatim, filler words and all. Original: <a href="https://docs.google.com/document/d/1NBDi-kyRwE2tZbNhwON1oQI8WBNW7OE-cM9qpL6WFIU/edit" target="_blank" rel="noopener">Gemini transcript doc</a>.</p>
+
+        <span class="ts">00:00:42</span>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Adam, how's it going?</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Hey, I'm good. How are</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Things are good.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> you?</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> One second. Let me get my audios messed up. So, let make sure I can hear this.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah, no worries.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Okay. There's no reason. Let's see if there's a D. Is there a dial in link?</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Uh yeah, there should be in the</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Perfect. Get that up just to speed this</p>
+        <p class="turn"><span class="who">Adam Russo:</span> calendar.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> up. All</p>
+        <p class="turn"><span class="who">Adam Russo:</span> All</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> right, let's see if this works.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> right. Can you hear me?</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yes. Yeah.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yes. See,</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> All good now.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> all good</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> now.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Uh, I do hear you twice. Perfect. Okay, there we go.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yes.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Awesome.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Thank you.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Well, I appreciate you. I'll hop in the call here. Um, I was looking over your account.</p>
+
+        <span class="ts">00:02:26</span>
+        <p class="turn"><span class="who">Adam Russo:</span> It doesn't seem like I have any notes uh before our call, but of course, it seems like you're reaching out regarding a bookkeeping and possible tax solution for your business. Is that</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yes. Yeah. And I can give you the details,</p>
+        <p class="turn"><span class="who">Adam Russo:</span> correct?</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> but um I have a single member Delaware LLC. Um I've done some bookkeeping myself in QuickBooks, but it's not up to date and it's kind of becoming a pain um to manage. as well as um there are things I'm looking for the bookkeeping to help with like how you manage um like the home office deduction and things like that And also um I've been taking calls in a few providers and some of them are also helping with my personal taxes as part of the single member LLC. So just looking to learn a little bit more about that and how it works with you</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah, absolutely.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> guys.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> So, uh, so just to get a a full clarification here, so you're doing your bookkeeping on QuickBooks right now by yourself.</p>
+
+        <span class="ts">00:03:21</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Do you have a CPA? Are they they're already filing your taxes for you? No. Okay. and</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Oh, uh yeah, sorry. I was say I um I did an extension for 25.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> soon.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> I have um a uh CPA who was doing my taxes for 24, but they made a bunch of mistakes. So, I'm in the market for a new CPA as well.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Got it. Okay. Okay. And then so you filed an extension for 2025, so you still need your 2025 caught up. Uh, which means I'm assuming you're going to need your 2026 caught up as well from January to August, correct? Yeah. Okay, cool. And then so with the way that you have your books going on right now,</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yes.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> what um information is your CPA using from 2024 in order to file your taxes? Is it just the reports that you've sent them? Are they doing any double-checking, things like</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yeah.</p>
+
+        <span class="ts">00:04:11</span>
+        <p class="turn"><span class="who">Adam Russo:</span> that?</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> So my I only in for 2024 I just had a W2 job. So they were just taking a W2 and doing it that way. The my company GGB Healthcare didn't exist until the</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> August July 30th of 2025. So that's first</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay. Okay. Perfect. So that that's pretty easy.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> year.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> So not too much of 2025. Um and then so with reaching out to bookkeeping solutions, of course the obvious answer is you just want to make sure that you get your books done and you stay compliant. Um but what are you really looking for when you're reaching out? Um,</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> The main thing is to um get everything set up properly um ahead of the extension for 2025. So categorize all the expenses, get the schedule C set up, combine that with my regular taxes, and then also make sure that I am properly taking advantage of and accounting for any</p>
+        <p class="turn"><span class="who">Adam Russo:</span> cool.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> deductions that I'm eligible for.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Got it.</p>
+
+        <span class="ts">00:05:15</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay, perfect. And where do you find you're struggling now with you just doing it yourself in</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> I just never makes the time. It's pretty simple in flick books.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> QuickBooks?</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> I think the biggest um my books are really simple where I have maybe in an average month 10 to 15 line items that are mostly software expenses and some the most complex it ever gets is just managing travel expenses and reimbursements where I'll pay for a flight with my personal card and reimburse myself. Um, so that just adds more line items and things to match. Um, in QuickBooks, um, I think the biggest struggle is just figuring out how to best account for and deal with things like home office deduction, partial deduction of personal um, phone. I think I think the deductions are the hardest part and just the general point of I'm running the business so I'm not making the time to actually do bookkeeping each month and I'm getting close to the extension so at some point I have to do</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah.</p>
+
+        <span class="ts">00:06:11</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah. Exactly. And I think a lot of people in your position as well,</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> it</p>
+        <p class="turn"><span class="who">Adam Russo:</span> it's like QuickBook always seems like the seamst like the cheapest option off the bat because you're just paying for like the $20 subscription up front. Um but you know, so I'm a business owner as well. I realized that a lot of the time that I'm learning about bookkeeping just to save like try and save some money, it ends up costing me money when I could just pay someone to do it instead, right? And then now filing for the extension, there's um penalties that are added on to it, right? It just becomes more and more of a pain. Um so realistically where Bench comes into play is we actually can automate the whole service for you. Um so there's there's really two different routes. we can stay on your QuickBooks subscription and just dedicate a bookkeeper to go in and manage your QuickBooks. Um, and then the other route is really um utilizing our bench platform uh which is different than QuickBooks uh but instead of now paying for your subscription with QuickBooks plus an hourly rate to have a bookkeeper go in and manage it.</p>
+
+        <span class="ts">00:07:11</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Um everything's under one roof under the Bench platform and it's all under a simple subscription where we can essentially just automate your books so you can get your monthly reports. uh you can hand them off to either if you wanted your own CPA, you can take the year financial package, hand it off to them, or we do have our own in-house CPAs where we can just conjugate all of your reports and file your taxes for you directly in the house so you can keep everything under one umbrella there.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yeah. Yeah. No,</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> that's helpful to understand those two um options because I'm not married to QuickBooks. long as whatever solution that we would use gives me access to portability and like not lock in where in two years I had been switched to another provider as I get bigger that I would still have my categorized data.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> That'd be helpful. Um and then one thing maybe is helpful to mention because I a lot of bookkeeping services</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah.</p>
+
+        <span class="ts">00:08:02</span>
+        <p class="turn"><span class="who">Andrew Bravo:</span> I speak with ask about this. I'm a Delaware LLC based in New York City. So from what I've read, that means that escorp does not make sense to me until I reach a much higher revenue point than in the average state. Because apparently New York State,</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> you know this cuz it's your world,</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> but apparently New York State or New York State doesn't recognize</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah, that that's totally fine. The amount of Delaware um like companies that I deal with that none of them</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> corpse.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> actually live in Delaware is it's surprising. So, especially a lot of foreign investors and whatnot, they all have Delaware CC Corps, S corps, LLC's. So, um it's a relatively normal thing. Um so, I'm surprised how many questions you get about that because it's it's kind of normal, which is funny. Um but so so that's totally okay. So the business itself, you're uh a single member LLC. So um your personal taxes are all filed under the business itself.</p>
+
+        <span class="ts">00:08:57</span>
+        <p class="turn"><span class="who">Adam Russo:</span> You shouldn't need to file separate taxes being a single member LLC. So, um again, that shouldn't be a concern. We can easily just file everything all in one. Um do you have an idea of the total um revenue the business has brought in uh at least in the past year? Looks like you just you just started 13 months</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yeah, LLC for 2025,</p>
+        <p class="turn"><span class="who">Adam Russo:</span> ago.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> I think the topline revenue was something like $5,000 whenever the net $3,000 loss just because I was investing in startup costs. This year, I think the revenue is going to be something like 50,000 for the total year and that there</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> will be profit of like 15 to 20,000. Um, still in the growth stage</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> there.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah, totally. I mean, you're within your first year, so totally you've growth is all ahead of you. Um, so Okay. So,</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yeah.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> of course, cost, I'm assuming, is a is of a big concern here.</p>
+
+        <span class="ts">00:09:55</span>
+        <p class="turn"><span class="who">Adam Russo:</span> making sure that it's done at the the right price because you don't want more expenses under your belt. Um I will say off the bat, I'm not sure if you looked at benches prices, but um the cheapest subscription we do have starts off on a monthly rate of $1.99. Um and then if you did go on an annual, that rate does change. You get a 20% discount, but uh if you did want to include the the tax solution, our prices can go up to around $5.99. Um I don't think you would be on that high of a a tier. you wouldn't really need it. Um, but I just want to make sure that you are aware of our pricing so that you know going into this conversation it's not surprised when it's like, oh, it's going to be $2,000 to do your books. And you're like, well, this was a waste of time. Does that seem to fit within your budget, especially if we can make sure that we hit all the markers to make sure that this gets done for you properly.</p>
+
+        <span class="ts">00:10:43</span>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yeah, I think the 199 is where I'm targeting this. Um, QuickBooks is already 40 $40 a month.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Totally.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> So, uh, I don't know if the 199 plan replaces QuickBooks or Works Audit,</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah,</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> but um, that's about what I'm able to do.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> it would replace. Okay. Yeah. So that's So you're paying Sorry, you said 49 right now for QuickBooks.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> 40 a month for</p>
+        <p class="turn"><span class="who">Adam Russo:</span> 40 per month. Yeah. And they're not doing any categorizations for you.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> QuickBooks.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> So that's that's truly just for the software. So um if we did, let me pull up my calculator here. So, realistically, if we did if I'm going to give you both routes here. So, if we took the QuickBooks route, you maintain your QuickBooks subscription. Um, our QuickBooks bookkeepers charge at an hourly rate. So, they're our own in-house bookkeepers and they would work in your QuickBooks account. Um, so it's a rate of $55 an hour.</p>
+
+        <span class="ts">00:11:36</span>
+        <p class="turn"><span class="who">Adam Russo:</span> So realistically, if we break down the $1.99 um minus you said the the $40, it's 159 and then divided by 55, you'd basically get for the same price of to stay on QuickBooks, um you'd get about three hours a month to maintain that 199. Okay. If we put you on the bench subscription, Um, it's $1.99 per month, right? And you get unlimited access to the books, um, open communication with your bookkeeper and then accurate real time data as your business is operating. Everything's automatically being categorized in the account. So, this is really where it depends on which stream you want to go into. If you want to stay into QuickBooks, um, you're more than able to. If we did want to go into, uh, the Bench platform, I can walk you through that and show you exactly what it's like. Um, again, funny enough, a common question is,"I want to make sure that my data isn't stuck." your data isn't stuck in bench. Um I'm not sure how many solutions do do that because so many people bring it up to me, but you can always download your reports um and withdraw them, go to a different solution and things like that.</p>
+
+        <span class="ts">00:12:40</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Um same thing with your year and financial package. Um let me open up the uh a demo and I can actually walk you through this. I'm a visual learner, so I want to be able to show it to you rather than just explain everything.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yes.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> This should make it a lot easier.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yeah. No, that's helpful. I'm totally open to um replacing QuickBooks and we can look at what Bench looks like. I think off the top of my head, the things that I'm looking for are um handling bookkeeping going forward, um the one-time catchup going backwards, making sure that any deductions are properly categorized, handled, um the reconciliation for that schedule C to put it with my personal taxes, and then um you know, the other the other provider I'm choosing between its bench and collective,</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Mhm.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> and Collective said they would do my taxes um as part of sign up. So for 25 and 26 there.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> They're doing your taxes for 25 and 26. Okay. And then you're paying for the ketchup work then.</p>
+
+        <span class="ts">00:13:42</span>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yeah.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> And then once you get the catch-up work, then they're going to file the taxes for you. Is that how it</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Uh yes.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> works?</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> I think they said it's 199 flat like 199 per month and then they'll do forward backward catchup and taxes.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay. Okay. So, off the bat, if if you're solely basing your decision on price-wise, um that's something that I wouldn't be able to compete with. Um, one thing that I can do is if you did want to go on an annual subscription, I can include the historical work for 2026. Um, but if you're really looking for uh a solution that really suits your needs rather than just getting everything done, um, I'd love to really show you what Bench is able to do. If it really does come down to the price, um, I'm not able to compete with that. It's it's outside my realm, unfortunately. Um, but I would suggest of course doing your due diligence between what Collective can offer uh compared to other solutions because I have had clients who go to Collective and then end up coming back.</p>
+
+        <span class="ts">00:14:44</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Um, from my understanding because they you don't get a dedicated bookkeeper. That's where Bench stands out is you do get a dedicated bookkeeper that you work with on a day-to-day basis. from my understanding with um other solutions and I'm not pointing fingers. I I don't like talking down to other people or companies. Um with other solutions, you get a pool and so anytime you have questions, your question goes into a pool and someone eventually grabs it. Um if the books are wrong and they end up filing your taxes, it falls back on you, things like that. Where with bench itself and really where our price comes into play is we handhold through the entire process. So you work with your dedicated bookkeeper through the entire process. when things get handed over to the CPA, um we make sure that we get your stamp of approval that everything is good and we also do advi or offer advisory service at an hourly rate. So, if there's any time that you want to dive deeper into your books and see where you can maximize more of your credits as a business owner, um we offer that into it as well.</p>
+
+        <span class="ts">00:15:43</span>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Okay. Yeah,</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> that that's helpful. And I think price is the important factor, but I' I also want it to be of high enough quality to do it right. So, I'm happy to look at the bench platform and um you know, I'll be choosing between Bench and Collective, but it's not only</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Totally. Yeah.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> price.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay, perfect. Yeah. Um, really the only difference is I would be able to give you the the ketchup work similar to what they're offering. I can give it to you for 2026. Um, we would just need to pay for the ketchup for 25 and then uh the tax filing. So, just to be transparent there, just so you have an idea of really what we're walking into. Um but we can go over the pricing and really determine the difference and really where our cost comes into play from what we can provide um compared to uh each each service. Okay.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Okay,</p>
+        <p class="turn"><span class="who">Adam Russo:</span> So I'll go ahead and share my screen here.</p>
+
+        <span class="ts">00:16:35</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Are you able to see this?</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> perfect.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Cool. So when you first log in,</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yeah.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> this is the dashboard you would see. So it's a timeline showing exactly as your books are being completed month over month. And then as I mentioned before, you'll get monthly reports so you can see exactly how the business is operating. When you scroll down, you can see a chart um showing again your month over month. You can click into each subject line and see exactly how you performed. Um you can even change the date range if you want to see specific monthly performance. Um again on the overview page, you can see your top expenses just breaking down more of your revenue tracking so that you have a clear idea of you know what percentage of your total revenue is being allocated to certain expense lines. But everything starts opening up when either you can click on an expense line. Okay. So this would be of course the broken down article of your cost of goods sold which you can also find in your income statement.</p>
+
+        <span class="ts">00:17:27</span>
+        <p class="turn"><span class="who">Adam Russo:</span> So our whole goal is to make this as simple as possible so that a business owner like you know a mom and pop shop or um a corporation come come in here and see their analytics. So you can see your total net profits, your operating expenses, everything broken down pretty seamlessly. Here's your revenue and then your expense lines. So, these will populate as we see fit for your business. Um if there's ever a transaction that comes up that um our software isn't able to categorize and our bookkeepers don't know what it is, that's where the awaiting categorization expense comes into play. So, where you know maybe a local bookkeeper or other software is if a transaction comes up that they don't know, they just categorize it as unknown. Sorry, it's it's not labeled. Where we stand out is our bookkeeper would actually get a hold of you and we'll see the expense lines that we need your attention on. So, if a check comes in, we can make sure that we reach out to you just like,"Hey, Andrew, notice this transaction came in. Can you give us some insight on it?" So,</p>
+
+        <span class="ts">00:18:22</span>
+        <p class="turn"><span class="who">Adam Russo:</span> like, perfect. So, you can actually click on it and you can leave a comment for your bookkeeper. You can categorize it accordingly. they'll go ahead and pick that up and then generate your reports. Okay? So, we don't want to miss a single transaction. We want to maximize every dollar available to you so that um there's more money in your pocket. The more you can reinvest into the business, the more you reinvest in the business, more we manage, the more we can save you, and it'll just become a revolving door. Okay? And then I'm sure you're aware of your basic balance sheet, but it'll break down your total assets, liabilities, and total equity. Um something as well under the equity line. If you, as you mentioned, um sometimes you're making purchases on your personal card compared to your business card, we want to see when you're refunding yourself, we want to determine what's a revenue and what's a contribution. And that's where we can break it down here. So we can see exactly if you're adding money into the account and what's different from a revenue.</p>
+
+        <span class="ts">00:19:13</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Um maybe different draws, uh things of that nature. Okay, make sense?</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Mhm.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> And then so under the accounts tab, I'll get into the data and request. Uh but under the accounts tab, this is where uh we connect directly to the business bank account. So we can collect all of your your information there.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yeah.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> We can connect to your personal bank account as well. Um I would suggest just separating your personal from your business. Uh if we do connect to both, we wouldn't know the difference of in your personal account what's business related. So, if you do end up making a purchase on your personal account, that's where the data and request tab comes in under bookkeeping documents. This is where you can upload that receipt and then contribute the money so that we can pair it accordingly and then make sure that your books balance. Okay.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yeah.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> So,</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yeah, that that's uh helpful.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> I'll jump back.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> And I I kept all those receipts as</p>
+
+        <span class="ts">00:20:05</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Perfect.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> well.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay. Awesome. And then so back under managing accounts. So once we connect to your bank account, your credit cards, um this is where we can connect to your payment processes as well. Um how are you currently accepting payment?</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> The there are two ways. Um the majority of people I invoice directly through my bank account which is Mercury and there is one customer who I invoice via Stripe who pays with a credit card but he there's only one</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay,</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> person who does</p>
+        <p class="turn"><span class="who">Adam Russo:</span> perfect. So that's fine.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> that.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> So for the customers that you're invoicing through the bank account, we can recognize those transactions and we can actually connect directly to the Stripe account so that we can just pull that directly out of your Stripe account. Um I would suggest getting everyone on Stripe. Um reason being is once we connect to your Stripe account, um Stripe takes 62% commission, right? So on $100, they take two bucks.</p>
+
+        <span class="ts">00:21:03</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay. The thing with that is if we don't connect to your Stripe account, um that $2 just gets lost. So you get $89 in your bank account and that $2 is lost where we can connect to your Stripe account. We can recognize that $2 as an operating expense. So it's another advantage for us to um write it off. It it'll be a tax writeoff for you and we can maximize more and more of those lines. Okay.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Mhm. Yeah. And just confirm the the Stripe guy, the person who cla Stripe is the only person who pays with a credit card. Everyone through Mercury who I invoice um is ATH. So there's no actual transaction fees for the majority of my</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Got it.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> revenue.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay, perfect. Okay, that that's even better. Awesome. Um, okay. Data and requests. So, I showed you where you can upload your documents. Um, your receipts tab. This is where all of your receipts will get housed.</p>
+
+        <span class="ts">00:21:57</span>
+        <p class="turn"><span class="who">Adam Russo:</span> and then we'll be able to go through them all as you upload them. Under your tax folder, this is where you'll find your year and financial package. So, this is a full summary of your entire year, all the categorations that were made, which would be handed off to the CPA in order to file your taxes. So, we essentially do all the heavy lifting so that when it goes to a CPA, um they're just taking the numbers that we categorize for you and then they can file the taxes. Okay? So, everything should be relatively handsoff on your end. You're just reviewing these to make sure that they're good. You can sit down with your bookkeeper, make sure it's okay, and then we'll handle the rest.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yeah, that sounds good. And can you remind me what this um you can do it at the end of this there's more show demo,</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> but what the cost lines are for like monthly with you guys, catchups, how much it costs to do the taxes, things like that.</p>
+
+        <span class="ts">00:22:47</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah. Yeah. So, we could do that now. Um, so what it would be is if if we broke everything down. So, in order to do the catchup, um, you would have to sign up on an annual subscription, um, which means we can give you the 20% discount anyway. So, instead of the 199, uh, you would be paying it comes out to 159. Okay? So, you'd pay 159 per month. Of course, you'd pay that upfront. So, it'd be 1910 upfront. And then I would include all of 2026 for you. If you want to do installments, we can break it up into installments, make a little better on you. Um, but it would be the 1910 for the bookkeeping for 2025. Um, typically it's our regular rate. It would be $1.99 per month. Um, but I can bring that down for you. Uh, I can bring it to like $100 per month. So, so you're getting a 50% discount. So, you would need July, August, September, October, November, December.</p>
+
+        <span class="ts">00:23:44</span>
+        <p class="turn"><span class="who">Adam Russo:</span> So, it' be $600 for the catchup. And then being a uh a single member LLC. Um, let me go ahead and pull up the taxes here and see exactly what I do for you. So, if you wanted to do the tax filing alone without any advisory off the bat, it would be $1,200 for the year. So, your total allining cost would be the 1910 plus the $600 and then plus the $1,200. So, you'd be looking at uh 3710 to get uh 2025 caught up and filed, 2026 bookkeeping caught up, and then ongoing bookkeeping going forward from uh August 2026 straight until uh July 2027. So, with this, you're getting, let me do the math here, 12 20 plus 6. So you're getting 26 months of books. So your monthly cost comes out to 14270, right? So instead of the 199, you're getting 14270 um for all the catch-up months. And then uh that's also included in your taxes.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Okay, that's that's</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> helpful.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Does that seem in line with what you're expecting or does that at least make it feel a little more comfortable?</p>
+
+        <span class="ts">00:25:15</span>
+        <p class="turn"><span class="who">Andrew Bravo:</span> It's helpful to have the numbers. I need to I need to triple check what the quote from Collective was because I seem to think that if I go 199 monthtomonth with them, they were going to throw in the um the 2025 and or 2026 taxes um versus charging the 1,200 for it. Um so I'll confirm that. I like the bench platform. I think that's an interesting idea. Um, so I'm just going to go compare notes from the call with that and maybe give their rep a call or an</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah, absolutely. I'll send you a little summary just of everything we went over so at least you can reference it when you're chatting with them.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> email.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Um and then from there, would it make sense for us to schedule a call um afterwards? Do you want to maybe schedule something for maybe later this week? Give you some time to think about it and really compare the</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Um,</p>
+        <p class="turn"><span class="who">Adam Russo:</span> solutions.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> let's schedule for how does next Monday anytime before noon?</p>
+
+        <span class="ts">00:26:19</span>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Did that</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Uh yeah, let me take a look.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> work?</p>
+        <p class="turn"><span class="who">Adam Russo:</span> So, we're looking at Monday the 31st and you're in New York. So before noon, I do have 11. You want to do 11?</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yeah, that works.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Cool. Okay, awesome. I'll send you um a calendar invitation for uh for that day and then also send you a summary like I said, just going over everything. Um if you wanted, I can put together a free trial account for you if you want to play around on the platform. You it won't you won't charge your card. You don't have to add your card to anything. It's truly just like a little mock thing that you could play around on and see the reports set are available. If you don't use it, don't worry about it. It'll just sit there, but at least it'll give you something to play on. Same thing I showed you today.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yeah.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Cool.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Yeah, that'd be</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Awesome. Okay, I'll get everything sent over to now. If any questions come up um while you're speaking with Collective,</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> helpful.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> feel free to shoot me an email. Just respond back to the summary. Um if you want to get a hold of me faster, I do leave my business line in my signature. Shoot me a text, give me a call. Um I'm usually quicker to respond there and I'd be happy to lend a hand.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Awesome.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Thank you. appreciate this is uh helpful and I uh appreciate the guidance you've given us. So I will uh be in touch on Monday.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah, absolutely. Andrew, it was great meeting you. We'll talk soon.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Likewise.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay,</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Talk to you later.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> have a good one. Byebye.</p>
+        <p class="turn"><span class="who">Andrew Bravo:</span> Bye.</p>
+
+        <span class="ts">Transcription ended after 00:27:55</span>
+      </div>
+    </details>
+
+  </div>
+
+  <!-- ============ PREVIOUS CALLS ============ -->
+  <!--
+    CALL HISTORY CONVENTION (for automated edits — Next Touch sync job):
+    This page holds ONE consolidated record per contact — never create a second page or a
+    separate note set when a new transcript comes in for a contact who already has a brief.
+    When a NEW call happens for Andrew:
+      1. Move the current contents of the "LAST CALL" section above (everything from its
+         <div class="tldr"> through its action-items <details>) down into a new entry inside
+         "Previous calls" below — collapsed, dated, condensed to a few lines (TL;DR + top
+         pain points + action items is enough; keep that call's own full transcript <details>
+         block with it, moved down, not deleted).
+      2. Replace the "LAST CALL" section's contents with the new call's notes, generated the
+         same way (TL;DR, pain points, what I learned, pricing, objections, business profile,
+         action items).
+      3. Merge "Full business profile" forward — update fields the new call changed or added,
+         don't duplicate the table. If a new call contradicts an earlier stated fact, follow
+         the Update Log convention below: flag it inline with class="revised" and log why.
+      4. Regenerate "Before your next call" (the pre-call summary section above) from the NEW
+         most recent call's open items and objections — not the older ones.
+      5. Update the header's status pills (priority, sequence step, next meeting) to match
+         current reality.
+    The goal: opening this one page always shows the complete, current relationship — never
+    a fragment of it.
+  -->
+  <div class="section">
+    <div class="section-head">
+      <h2>Previous calls</h2>
+    </div>
+    <p style="font-size:.88rem;color:var(--ink-faint);">Only one call so far — this fills in once there's history to show.</p>
+  </div>
+
+  <!--
+    UPDATE LOG CONVENTION (for automated edits — Next Touch sync job):
+    Whenever a run changes existing content above (not just appends a new call section),
+    add a .logentry here with a timestamp + one-line reason, and mark the changed content
+    itself with class="revised" plus a <span class="revised-tag">Updated</span> next to it.
+    If the change replaced a specific stated fact, show what it replaced with:
+      <div class="was">Was: <s>old value</s></div>
+    directly under the new value. Never delete the log — only append above the oldest entry.
+  -->
+  <details>
+    <summary>Update log</summary>
+    <div class="details-body">
+      <div class="logentry">
+        <div class="ts">Aug 26, 2026 (2nd edit)</div>
+        <div class="desc">Added a "Call Coach" section (with a jump-to button under the status pills) &mdash; a talk track built specifically for Andrew's Collective price comparison from the Call Verbiage Field Guide, not generic script. This feature was trialed on Nathan Moser's brief first and is now standard on every contact brief. Also added the Call Verbiage Field Guide and Daily Priorities links under the share hint, matching the standard pattern.</div>
+      </div>
+      <div class="logentry">
+        <div class="ts">Aug 26, 2026</div>
+        <div class="desc">Page built from scratch by the Next Touch hourly sync, triggered by the Aug 25 call completing with Gemini notes attached. Includes on-page search and the full verbatim transcript per the team-access pattern. No prior page existed for Andrew.</div>
+      </div>
+    </div>
+  </details>
+
+  <footer>
+    Notes generated from the <a href="https://docs.google.com/document/d/1NBDi-kyRwE2tZbNhwON1oQI8WBNW7OE-cM9qpL6WFIU/edit" target="_blank" rel="noopener">Gemini transcript</a> of the Aug 25 call. Gemini's notes may contain transcription errors — worth a skim before the call if anything above looks off.<br>
+    This page updates after every call with Andrew and keeps prior calls further down. Any change to existing notes is flagged inline and logged above, never made silently. The full verbatim transcript of every call is kept below its call's notes, and the search bar above finds anything on this page in seconds. Share this link with your team so they can get client answers here directly — part of <strong>Next Touch</strong>, your prospect tracker.
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('draftBtn');
+  var status = document.getElementById('qsStatus');
+  var bodyEl = document.getElementById('qsBody');
+
+  function setStatus(text, cls){
+    status.textContent = text;
+    status.className = 'qsstatus' + (cls ? ' ' + cls : '');
+  }
+
+  claude.use('mcp').then(function(mcp){
+    if(!mcp){
+      btn.disabled = true;
+      setStatus('Gmail actions unavailable in this view', 'err');
+      return;
+    }
+    btn.addEventListener('click', function(){
+      btn.disabled = true;
+      setStatus('Drafting…');
+      mcp.callTool('Gmail', 'create_draft', {
+        to: ['andrew@ggbhealthcare.com'],
+        subject: 'Bench pricing recap — GGB Healthcare',
+        body: bodyEl.textContent
+      }).then(function(){
+        setStatus('Draft ready — check Gmail Drafts to review and send', 'ok');
+      }).catch(function(err){
+        btn.disabled = false;
+        var code = err && err.code;
+        if(code === 'needs_reauth'){
+          setStatus('Reconnect Gmail in claude.ai Settings → Connectors', 'err');
+        } else if(code === 'server_not_connected'){
+          setStatus('Add Gmail in claude.ai Settings → Connectors', 'err');
+        } else if(code === 'selection_required'){
+          setStatus('Choose a Gmail account in the prompt, then try again', 'err');
+        } else if(code === 'blocked_by_policy' || code === 'approval_required'){
+          setStatus('Blocked by your org\'s connector policy', 'err');
+        } else if(code === 'server_unavailable'){
+          setStatus('Gmail is temporarily unavailable — try again shortly', 'err');
+        } else if(code === 'cancelled'){
+          setStatus('Cancelled', 'err');
+        } else {
+          setStatus((err && err.message) || 'Could not create the draft — try again', 'err');
+        }
+      });
+    });
+  }).catch(function(){
+    btn.disabled = true;
+    setStatus('Gmail actions unavailable in this view', 'err');
+  });
+})();
+
+/* ---- on-page search: notes + full transcript, no external calls ---- */
+(function(){
+  var input = document.getElementById('pageSearchInput');
+  var countEl = document.getElementById('pageSearchCount');
+  var prevBtn = document.getElementById('pageSearchPrev');
+  var nextBtn = document.getElementById('pageSearchNext');
+  var page = document.querySelector('.page');
+  if(!input || !page) return;
+
+  var marks = [];
+  var current = -1;
+  var debounceTimer = null;
+
+  function clearMarks(){
+    var existing = page.querySelectorAll('mark.hit');
+    existing.forEach(function(m){
+      var parent = m.parentNode;
+      parent.replaceChild(document.createTextNode(m.textContent), m);
+      parent.normalize();
+    });
+    marks = [];
+    current = -1;
+  }
+
+  function openAncestorDetails(node){
+    var el = node.nodeType === 1 ? node : node.parentElement;
+    while(el){
+      if(el.tagName === 'DETAILS' && !el.open){ el.open = true; }
+      el = el.parentElement;
+    }
+  }
+
+  function highlight(term){
+    clearMarks();
+    if(!term){ updateCount(); return; }
+    var lower = term.toLowerCase();
+    var walker = document.createTreeWalker(page, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(node){
+        if(!node.nodeValue || !node.nodeValue.toLowerCase().includes(lower)) return NodeFilter.FILTER_REJECT;
+        var p = node.parentElement;
+        if(p && (p.closest('.pagesearch') || p.closest('script') || p.closest('style'))) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var textNodes = [];
+    var n;
+    while((n = walker.nextNode())) textNodes.push(n);
+
+    textNodes.forEach(function(node){
+      var text = node.nodeValue;
+      var lowerText = text.toLowerCase();
+      var frag = document.createDocumentFragment();
+      var i = 0;
+      var idx;
+      while((idx = lowerText.indexOf(lower, i)) !== -1){
+        if(idx > i) frag.appendChild(document.createTextNode(text.slice(i, idx)));
+        var mark = document.createElement('mark');
+        mark.className = 'hit';
+        mark.textContent = text.slice(idx, idx + term.length);
+        frag.appendChild(mark);
+        marks.push(mark);
+        i = idx + term.length;
+      }
+      if(i < text.length) frag.appendChild(document.createTextNode(text.slice(i)));
+      if(frag.childNodes.length) node.parentNode.replaceChild(frag, node);
+    });
+
+    updateCount();
+    if(marks.length){ goTo(0); }
+  }
+
+  function updateCount(){
+    if(!marks.length){
+      countEl.textContent = input.value ? '0 found' : '';
+    } else {
+      countEl.textContent = (current + 1) + ' of ' + marks.length;
+    }
+    prevBtn.disabled = marks.length === 0;
+    nextBtn.disabled = marks.length === 0;
+  }
+
+  function goTo(i){
+    if(!marks.length) return;
+    if(current >= 0 && marks[current]) marks[current].classList.remove('current');
+    current = (i + marks.length) % marks.length;
+    var m = marks[current];
+    m.classList.add('current');
+    openAncestorDetails(m);
+    m.scrollIntoView({behavior:'smooth', block:'center'});
+    updateCount();
+  }
+
+  input.addEventListener('input', function(){
+    clearTimeout(debounceTimer);
+    var val = input.value.trim();
+    debounceTimer = setTimeout(function(){ highlight(val); }, 180);
+  });
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); goTo(current + (e.shiftKey ? -1 : 1)); }
+  });
+  prevBtn.addEventListener('click', function(){ goTo(current - 1); });
+  nextBtn.addEventListener('click', function(){ goTo(current + 1); });
+})();
+</script>
+
+</body></html>
+</body></html>

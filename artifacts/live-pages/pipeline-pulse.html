@@ -1,0 +1,990 @@
+<!doctype html><html><head><!-- frame-runtime --><base href="/_f/1787781918-8658/"><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.YODCk0yK.js","assets":"assets.DBUJcvq_.js","comments":"comments.GLuHR3zP.js","db":"db.CRhVHzSt.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CxGAyc-v.js","mcp":"mcp.Bvma3qD7.js","network":"network.B5UA9Su4.js","permissions":"permissions.BNySkLV5.js","room":"room.BMMoe2BY.js","sample":"sample.BW2Uysoh.js","self":"artifact.YODCk0yK.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.CQm3TZ9K.js","comments":"_comments.PBVy184F.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var J=["light","dark","system"],Q=/^[A-Za-z0-9_-]{1,64}$/,H=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,ee=new Set(["class","hidden","value","checked"]);function te(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||ee.has(t)}var Me="http://www.w3.org/1999/xhtml",re="http://www.w3.org/2000/svg",ne=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),oe=new Set(["script","style"]);function se(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!ne.has(t):e.namespaceURI===re?!oe.has(t):!1}var ae=new Set(["html","head","body","frameset"]);function ie(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&ae.has(e.localName)}function ce(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!Q.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[r,n]of Object.entries(t.attrsSet))if(!H.test(r)||typeof n!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const r of t.attrsRemoved)if(typeof r!="string"||!H.test(r))return!1}return!0}function le(e,t){if(e===null||typeof e!="object")return!1;const{seq:r,elements:n}=e;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let s=0;s<n.length;s++)if(!t(n[s]))return!1;return!0}function ue(e){return e===null||typeof e!="object"?!1:le(e.__frame_patch,ce)}function fe(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function pe(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function de(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&J.includes(r)}var A=/^[\w.-]+\.js$/;function me(e,t,r){return r?"inert":typeof t=="string"&&A.test(t)?e?[t]:"inert":e?"inert":"framed"}function he(){return{post(e,t){parent.postMessage(e,t)},on(e){const t=r=>{r.source===parent&&e(r.data,r.origin)};return addEventListener("message",t),()=>removeEventListener("message",t)}}}function _e(){return{post:()=>{},on:()=>()=>{}}}var O="__frame_scroll",ve=150,ye=310,we=160,be=3e4;function Ee(){let e=0,t=!1,r=!1,n=!1,s=0,a=null;const l=i=>{try{sessionStorage.setItem(O,JSON.stringify({y:i}))}catch{}},d=()=>{if(clearTimeout(e),a===null)return;const i=a;a=null,l(i)},v=()=>{if(t){t=!1;return}r=!0,a=scrollY,clearTimeout(e),e=setTimeout(d,ve)};try{addEventListener("scroll",v,{passive:!0}),addEventListener("pagehide",d)}catch{}const y=()=>{let i;try{i=sessionStorage.getItem(O)}catch{return null}if(i===null)return null;let m;try{m=JSON.parse(i)}catch{m=null}const u=m?.y;if(!(typeof u=="number"&&Number.isFinite(u)&&u>=0)){try{sessionStorage.removeItem(O)}catch{}return null}return u};let S=!1;const h=i=>{try{const m=scrollY;scrollTo({top:i,left:0,behavior:"instant"}),s=i,n=!0,clearTimeout(e),a=null,l(i);const u=scrollY;u!==m&&(t=!0),u!==i&&!S&&(S=!0,addEventListener("load",()=>{try{if(scrollY===u){const k=y();h(k!==null?k:s)}}catch{}},{once:!0}))}catch{}},w=()=>{try{return!!location.hash}catch{return!0}};let o=!1;const f=()=>{try{if(o||innerWidth>ye||innerHeight>we)return;o=!0;const i=Date.now(),m=()=>{try{removeEventListener("resize",m)}catch{}if(Date.now()-i>be||r||w())return;const u=y();h(u!==null?u:s)};addEventListener("resize",m)}catch{}};let _=!1,b=!1;return{restore(){if(_||(_=!0,w()))return;const i=y();i!==null&&(h(i),f())},promoted(){if(b||(b=!0,w()))return;const i=y();i!==null?(h(i),f()):n&&h(s)}}}function ge(e,t,r,n){let s=null;try{s=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:v=>v})??null}catch{}const a=window.Worker,l=a?.prototype,d=Object.freeze({Worker:a,workerOn:l?.addEventListener,workerPost:l?.postMessage,workerTerminate:l?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,policy:s,origins:t});r(e).then(v=>v?.bootTopLevel?v.bootTopLevel(d,n):n.settle()).catch(()=>n.settle())}var Oe="modulepreload",Ce=function(e){return"/"+e},je={},Ae=function(t,r,n){let s=Promise.resolve();function a(l){const d=new Event("vite:preloadError",{cancelable:!0});if(d.payload=l,window.dispatchEvent(d),!d.defaultPrevented)throw l}return s.then(l=>{for(const d of l||[])d.status==="rejected"&&a(d.reason);return t().catch(a)})},Re=window===top,q=Object.getOwnPropertyDescriptor(window,"claude"),T=me(Re,window.__FRAME_PREAMBLE?.topLevel,q?.writable===!1),C=typeof T=="object"&&T[0],p=C?_e():he();(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let s=0;s<r.length;s++){const a=r[s];try{e(t,a,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[a]}catch{}try{e(t,a,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[a]=="function"&&n++}if(n&&T==="framed")try{p.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Se=1e4,W=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function $(e){for(const t of W)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var L=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),j=window.__FRAME_PREAMBLE?.transforms,N=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate;function R(e){return Ae(()=>import("/_runtime/"+e),void 0)}function K(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:D,pipe:()=>({wrap:(r,n)=>(...s)=>{try{return n(...s)}catch(a){return Promise.reject(a)}}})}}var P=null,E=null;function Y(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var B=!1;function ke(e,t){const r=[];for(const n of e.elements){const s=document.querySelector(`[data-id="${n.target}"]`);if(!s){p.post({__frame_patch_miss:{seq:e.seq}},t);return}if([...Object.keys(n.attrsSet??{}),...n.attrsRemoved??[]].some(a=>!te(a))){p.post({__frame_patch_miss:{seq:e.seq}},t);return}if(n.text!==void 0&&(!se(s)||ie(s))){p.post({__frame_patch_miss:{seq:e.seq}},t);return}for(const[a,l]of Object.entries(n.attrsSet??{}))if(!G(s,a)){try{s.setAttribute(a,l)}catch{}X(s,a,l)}for(const a of n.attrsRemoved??[])G(s,a)||(s.removeAttribute(a),X(s,a,null));typeof n.text=="string"&&(s.textContent=n.text),r.push(n.target)}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:r}}))}catch{}}function X(e,t,r){if(!(e instanceof HTMLInputElement))return;const n=t.toLowerCase();n==="checked"?e.checked=r!==null:n==="value"&&e.type!=="file"&&(e.value=r??"")}function G(e,t){const r=t.toLowerCase(),n=e;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function V(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,B=!0):B&&(delete t.dataset.theme,t.style.colorScheme="",B=!1)}var M=new Map;function Te(){let e;const t={u:new Promise(r=>{e=r}),r:r=>{t.done=!0,e(r)},done:!1,nulled:!1};return t}function U(){for(const e of M.values())e.done||(e.nulled=!0,e.r(null))}var Le=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),D=(e,t)=>{const r=M.get(e);if(!r||r.done){r?.nulled&&E&&p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},E);return}const n=typeof t=="function"?Object.setPrototypeOf(t,Le):Object.assign(Object.create(null),t);typeof n.then=="function"&&delete n.then,r.r(Object.freeze(n))};function Z(){const e=q?.value??{};Y(window,"claude",e);for(const t of Object.keys(L)){if(e[t]!==void 0){Y(e,t,e[t]);continue}M.set(t,Te())}if(e.use===void 0){const t=r=>{if(typeof r!="string"||!Object.hasOwn(L,r))return Promise.resolve(null);const n=M.get(r);return n?n.u:Promise.resolve(e[r]??null)};try{Object.defineProperty(e,"use",{value:t,writable:!0,configurable:!0,enumerable:!1})}catch{}}}if(T==="framed"){const e=j&&A.test(j)?R(j).catch(()=>{}):Promise.resolve(void 0),t=o=>{if(o.type==="auxclick"&&o.button!==1)return;const f=o.target,_=f&&f.closest?f.closest("a[href],area[href]"):null;if(!_)return;const b=_.getAttribute("href");if(!b)return;let i;try{i=new URL(b,document.baseURI)}catch{return}if((i.protocol==="http:"||i.protocol==="https:")&&i.origin!==location.origin){o.preventDefault();const m=(_.getAttribute("target")??"").toLowerCase(),u=o.type==="auxclick"||o.metaKey||o.ctrlKey||o.shiftKey||o.altKey||!["","_self","_top","_parent"].includes(m);p.post({__frame_nav:!0,url:i.href,newTab:u},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const r={},n=o=>{o.isTrusted&&(r.pointer=!0)},s=o=>{o.isTrusted&&(r.click=!0)};addEventListener("pointermove",n,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0}),e.then(o=>{o?.wireNav&&(o.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",n,!0),removeEventListener("click",s,!0),o.wireEngagement?.(r))});let a=null;try{a=Ee()}catch{}Z();let l=null,d=null,v=0;const y=p.on((o,f)=>{$(f)&&fe(o)&&(l=o.__frame_init,E=f,y(),clearTimeout(v),d?.())});p.post({__frame_connect:!0},"*");const S=new Promise(o=>{d=o,v=setTimeout(()=>{y(),o()},Se)}),h=document.readyState==="loading"?new Promise(o=>document.addEventListener("DOMContentLoaded",()=>o(),{once:!0})):Promise.resolve();h.then(()=>{try{a?.restore()}catch{}});const w={cb:null};p.on((o,f)=>{if($(f)&&pe(o)){try{a?.promoted()}catch{}w.cb?.()}}),S.then(async()=>{if(!l||!E){U();return}V(l.theme);const o=E;let f=!1,_=!1;p.on((c,x)=>{if(x!==o)return;de(c)&&V(c.__frame_theme.theme),ue(c)&&ke(c.__frame_patch,o);const g=c?.__fc_mode;g&&typeof g=="object"&&!f&&N&&A.test(N)&&(f=!0,R(N).then(z=>z.install?.(o,g.on===!0)).catch(()=>{}));const F=c?.__ft_cmd;F&&typeof F=="object"&&!_&&I&&A.test(I)&&(_=!0,R(I).then(z=>z.install?.(o,F)).catch(()=>{}))});const b=Object.keys(l.capabilities??{}).filter(c=>Object.hasOwn(L,c)).map(c=>[c,L[c]]).filter(c=>typeof c[1]=="string"&&A.test(c[1])),i=await Promise.allSettled(b.map(([,c])=>R(c))),m=await e,u=E;if(m?.buildBoot||p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},u),m?.buildBoot)try{P=m.buildBoot(l,m.TRANSFORMS??{},{shellOrigin:u,mount:D},c=>p.post({__frame_cap_telemetry:c},u))}catch{p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},u),P=K(l,u)}else P=K(l,u);const k=c=>p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:c}},u),Pe=P;i.forEach((c,x)=>{const g=b[x][0];if(c.status!=="fulfilled"){k(g);return}try{c.value?.install?.(Pe)}catch{k(g)}}),U(),await h,p.post({__frame_ready:!0},E),e.then(c=>c?.installSizeReporter?.(u,w))})}else C&&(Z(),ge(C,W,R,{settle:U,mount:D}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Pipeline Pulse</title><style id="pp-style">
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #faf9f6;
+    --surface: #ffffff;
+    --surface-2: #f1efe9;
+    --border: #e4e1d8;
+    --text: #201f1c;
+    --text-muted: #6f6b62;
+    --text-faint: #9d998e;
+    --accent: #4650c9;
+    --accent-soft: #eceafb;
+    --accent-strong: #363da3;
+    --accent-ink: #ffffff;
+    --new: #1f8a5c;
+    --new-soft: #e4f5ec;
+    --updated: #b3760e;
+    --updated-soft: #faf0dc;
+    --stale: #c23f3f;
+    --stale-soft: #fbe9e9;
+    --shadow: 0 1px 2px rgba(32, 31, 28, 0.04), 0 8px 24px -12px rgba(32, 31, 28, 0.12);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16161a;
+      --surface: #1e1e24;
+      --surface-2: #26262e;
+      --border: #34343d;
+      --text: #eeeeef;
+      --text-muted: #a3a2ab;
+      --text-faint: #77767f;
+      --accent: #8b93f5;
+      --accent-soft: #262a4a;
+      --accent-strong: #aeb4f8;
+      --accent-ink: #16161a;
+      --new: #4fbf8c;
+      --new-soft: #163427;
+      --updated: #e0a53d;
+      --updated-soft: #3a2d14;
+      --stale: #e2726f;
+      --stale-soft: #3c2020;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #16161a;
+    --surface: #1e1e24;
+    --surface-2: #26262e;
+    --border: #34343d;
+    --text: #eeeeef;
+    --text-muted: #a3a2ab;
+    --text-faint: #77767f;
+    --accent: #8b93f5;
+    --accent-soft: #262a4a;
+    --accent-strong: #aeb4f8;
+    --accent-ink: #16161a;
+    --new: #4fbf8c;
+    --new-soft: #163427;
+    --updated: #e0a53d;
+    --updated-soft: #3a2d14;
+    --stale: #e2726f;
+    --stale-soft: #3c2020;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 24px 64px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: 'Sora', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.75rem;
+    letter-spacing: -0.01em;
+    margin: 0 0 4px;
+    text-wrap: balance;
+  }
+
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .freshness-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .freshness {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 14px;
+    box-shadow: var(--shadow);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--new);
+    flex-shrink: 0;
+  }
+  .dot.stale { background: var(--stale); }
+
+  .refresh-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    border: none;
+    border-radius: 999px;
+    padding: 9px 16px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    white-space: nowrap;
+    transition: opacity 0.15s ease;
+  }
+  .refresh-btn:hover { opacity: 0.88; }
+  .refresh-btn:disabled { opacity: 0.6; cursor: default; }
+  .refresh-btn svg { width: 14px; height: 14px; }
+
+  .request-note {
+    font-size: 0.78rem;
+    color: var(--text-faint);
+    margin: -10px 0 24px;
+    min-height: 1.2em;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow);
+  }
+
+  .stat .n {
+    font-family: 'IBM Plex Mono', monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.1;
+  }
+
+  .stat .l {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .panels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  @media (max-width: 720px) {
+    .panels { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .panel h2 {
+    font-family: 'Sora', system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .panel h2 .badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    background: var(--surface-2);
+    color: var(--text-muted);
+    border-radius: 999px;
+    padding: 1px 8px;
+  }
+
+  .empty {
+    padding: 28px 18px 32px;
+    color: var(--text-faint);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .item {
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .item:last-child { border-bottom: none; }
+
+  .item .row1 {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: baseline;
+  }
+
+  .item .name {
+    font-weight: 500;
+    font-size: 0.92rem;
+  }
+
+  .item .time {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-faint);
+    white-space: nowrap;
+  }
+
+  .item .meta {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    margin-top: 3px;
+  }
+
+  .pill {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-top: 6px;
+  }
+  .pill.new { background: var(--new-soft); color: var(--new); }
+  .pill.updated { background: var(--updated-soft); color: var(--updated); }
+
+  .stage-bars { display: flex; flex-direction: column; gap: 10px; }
+  .stage-row { display: flex; align-items: center; gap: 12px; }
+  .stage-name { flex: 0 0 140px; font-size: 0.85rem; color: var(--text-muted); }
+  .stage-bar-track { flex: 1 1 auto; height: 8px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+  .stage-bar-fill { display: block; height: 100%; border-radius: 999px; background: var(--accent); }
+  .stage-count { flex: 0 0 28px; text-align: right; font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; color: var(--text); }
+
+  footer {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--text-faint);
+    font-size: 0.78rem;
+    line-height: 1.6;
+  }
+
+  footer code {
+    font-family: 'IBM Plex Mono', monospace;
+    background: var(--surface-2);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+
+  .lead-cutoff-note, .sort-note {
+    font-size: 0.78rem;
+    color: var(--text-faint);
+    padding: 10px 18px 0;
+  }
+
+  .record-table { width: 100%; border-collapse: collapse; }
+  .record-table th {
+    text-align: left;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-faint);
+    font-weight: 500;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .record-table td {
+    padding: 10px 10px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+    vertical-align: top;
+  }
+  .record-table tr:last-child td { border-bottom: none; }
+  .record-table .rt-name { font-weight: 500; }
+  .record-table .rt-muted { color: var(--text-muted); }
+  .record-table .rt-faint { color: var(--text-faint); font-style: italic; }
+  .record-table .rt-mono { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; white-space: nowrap; }
+
+  .sf-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .sf-link:hover { text-decoration: underline; }
+  .sf-link svg { width: 11px; height: 11px; }
+  .sf-link-pending { color: var(--text-faint); font-size: 0.78rem; font-style: italic; white-space: nowrap; }
+
+  .stage-group { border-bottom: 1px solid var(--border); }
+  .stage-group:last-child { border-bottom: none; }
+  .stage-group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    background: var(--surface-2);
+    font-family: 'Sora', system-ui, sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+  .stage-group-header .badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 400;
+    background: var(--surface);
+    color: var(--text-muted);
+    border-radius: 999px;
+    padding: 1px 8px;
+  }
+  .stage-group-empty {
+    padding: 14px 18px;
+    color: var(--text-faint);
+    font-size: 0.85rem;
+  }
+  .record-table-wrap { overflow-x: auto; }
+
+  .tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tab-btn {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 10px 4px;
+    margin-bottom: -1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .tab-btn + .tab-btn { margin-left: 18px; }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab-btn .badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    background: var(--surface-2);
+    color: var(--text-muted);
+    border-radius: 999px;
+    padding: 1px 7px;
+  }
+  .tab-btn.active .badge { background: var(--accent-soft); color: var(--accent-strong); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .week-meta {
+    font-size: 0.8rem;
+    color: var(--text-faint);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .day-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .day-group.day-today { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow); }
+  .day-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    font-family: 'Sora', system-ui, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: var(--surface-2);
+  }
+  .day-today .day-header { background: var(--accent-soft); color: var(--accent-strong); }
+  .day-header .badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 400;
+    background: var(--surface);
+    color: var(--text-muted);
+    border-radius: 999px;
+    padding: 1px 8px;
+  }
+  .day-empty { padding: 14px 18px; color: var(--text-faint); font-size: 0.85rem; }
+
+  .meeting-card {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .meeting-card:last-child { border-bottom: none; }
+  .meeting-row1 {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .meeting-time {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    flex: 0 0 auto;
+  }
+  .meeting-name { font-weight: 500; font-size: 0.92rem; }
+  .declined-flag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--stale);
+    background: var(--stale-soft);
+    border-radius: 999px;
+    padding: 1px 8px;
+  }
+  .meeting-meta { color: var(--text-muted); font-size: 0.82rem; margin-top: 3px; }
+  .meeting-type { color: var(--text-faint); font-size: 0.8rem; margin-top: 2px; font-style: italic; }
+  .meeting-note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+    padding: 8px 10px;
+    background: var(--surface-2);
+    border-radius: 8px;
+    line-height: 1.45;
+  }
+  .meeting-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .match-pill {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 2px 9px;
+    border-radius: 999px;
+  }
+  .match-pill.match-found { background: var(--new-soft); color: var(--new); }
+  .match-pill.match-none { background: var(--surface-2); color: var(--text-faint); font-style: italic; }
+
+  .nt-name-link { color: var(--accent-strong); text-decoration: none; font-weight: 600; }
+  .nt-name-link:hover { text-decoration: underline; }
+  .nt-link-icon { font-size: 0.75em; opacity: 0.75; }
+</style></head><body><script type="application/json" id="pp-state">{"scope": {"opportunity_owner_filter": "adam.rus", "opportunity_source": "Salesforce report \"Adam Russo - Open Pipeline by Stage\" (report id 00OOO000007Bo2H2AS)", "opportunity_source_url": "https://benchaccounting.lightning.force.com/lightning/r/Report/00OOO000007Bo2H2AS/view", "rule": "Only track/report opportunities where Opportunity Owner Alias = adam.rus. For OPPORTUNITIES, use the 'Adam Russo - Open Pipeline by Stage' Salesforce report as the source instead of the Opportunity 'Recently Viewed' list view -- Recently Viewed only shows records someone happened to click into recently and silently misses real open opportunities, which is how this tracker undercounted before (confirmed 2026-08-22: report showed 17 open opportunities for Adam vs. 8 that Recently Viewed had ever surfaced). This report only lists OPEN-stage opportunities (excludes Closed Won/Closed Lost), so closed opportunities already in seenOpportunities are kept as historical record but won't be re-verified by future report-based checks. Opportunities on this report lack a Bench ID/record ID column, so they are keyed by Account Name (fallback key) unless a Bench ID is confirmed separately. Ignore opportunities owned by any other rep (julian.m, iris.sin, LMedl, salesops, etc.) entirely. Leads are NOT scoped -- continue tracking all leads via the Lead Recently Viewed list regardless of owner. UPDATED 2026-08-25: Leads are now scoped to Owner = Adam Russo only (previously all owners were tracked). Opportunities are scoped to Owner = Adam Russo AND stage in [Assessing Needs, Demo/Evaluation, Trial, Awaiting Decision, Pending Payment] -- Closed Won and Closed Lost are never tracked or displayed, and an opportunity that reaches either of those stages should be dropped from seenOpportunities on the next check rather than kept as historical record.", "set_by": "user request in chat, 2026-08-22", "lead_owner_filter": "adam.rus", "excluded_stages": ["Closed Won", "Closed Lost"], "tracked_stages": ["Assessing Needs", "Demo/Evaluation", "Trial", "Awaiting Decision", "Pending Payment"]}, "freshness": {"stale": false, "text": "Checked Aug 25, 2026, 12:18 PM MT \u2014 no new leads, no opportunity changes; pipeline unchanged since last check \u2014 display now shows individual records (see Leads / Open opportunities by stage panels)"}, "stats": {"leads": 13, "opps": 18, "newCount": 0, "updatedCount": 0}, "newLeads": [], "updatedOpps": [], "refreshRequest": null, "seenLeads": {"Danilo Tauro|204079": {"name": "Danilo Tauro", "company": "Advertising Expert Intelligence", "email": "danilo@go-aei.com", "status": "Converted", "source": "Calendly", "owner": "adam.rus", "created": "8/20/2026, 4:14 AM"}, "Chris Tugman": {"name": "Chris Tugman", "company": "Stripe", "email": "ctugman@stripe.com", "status": "Lost", "source": "Calendly", "owner": "adam.rus", "created": "8/19/2026, 7:22 AM"}, "Laura Reyna": {"name": "Laura Reyna", "company": "The Beauty Mark", "email": "thebeautymark.219@gmail.com", "status": "Missed Discovery Call", "source": "Calendly", "owner": "adam.rus", "created": "8/18/2026, 11:43 PM"}, "Abdel Ibrahimi": {"name": "Abdel Ibrahimi", "company": "FTUK LLC", "email": "abdel@ftuk.com", "status": "Converted", "source": "Calendly", "owner": "adam.rus", "created": "8/18/2026, 7:25 AM"}, "Jean Wei Jian Yang": {"name": "Jean Wei Jian Yang", "company": "JeanWeiYang", "email": "jean_yang54@yahoo.com", "status": "Missed Discovery Call", "source": "Calendly", "owner": "adam.rus", "created": "8/18/2026, 12:43 AM"}, "Dana Hansen|204072": {"name": "Dana Hansen", "company": "SALON NUNA", "email": "danashansen@gmail.com", "status": "Converted", "source": "Calendly", "owner": "adam.rus", "created": "8/17/2026, 6:18 PM"}, "Jonathan Jackson|204073": {"name": "Jonathan Jackson", "company": "Jackson, Landrith & Kulesz, PC", "email": "jonathan@jlkattorneys.com", "status": "Converted", "source": "Calendly", "owner": "adam.rus", "created": "8/17/2026, 7:13 AM"}, "Nathan Moser|204109": {"name": "Nathan Moser", "company": "NPM Ventures 1 Inc", "email": "npmventures1@gmail.com", "status": "Converted", "source": "Calendly", "owner": "adam.rus", "created": "8/24/2026, 9:11 PM"}, "Stephan Cantin": {"name": "Stephan Cantin", "company": "Le Canal LLC", "email": "sprcantin@gmail.com", "status": "Lost", "source": "Unassigned", "owner": "adam.rus", "created": "8/24/2026, 6:09 AM"}, "Gabrielle Hinahara": {"name": "Gabrielle Hinahara", "company": "[not provided]", "email": "hinahara@gmail.com", "status": "INQ", "source": "Content", "owner": "adam.rus", "created": "11/21/2023, 8:06 PM"}, "DS Doble": {"name": "DS Doble", "company": "[not provided]", "email": "dspracticeoperationsconsulting@gmail.com", "status": "INQ", "source": "Signup Flow", "owner": "adam.rus", "created": "11/21/2023, 6:30 AM"}, "Dino Reyes": {"name": "Dino Reyes", "company": "AR Low Volt", "email": "dinoreyes@arlowvolt.com", "status": "INQ", "source": "Calendly", "owner": "adam.rus", "created": "9/14/2023, 5:11 PM"}, "Grace Gerson": {"name": "Grace Gerson", "company": "[not provided]", "email": "heartandsoulfire@gmail.com", "status": "INQ", "source": "Content", "owner": "adam.rus", "created": "8/29/2023, 12:32 PM"}}, "seenOpportunities": {"28511": {"name": "Crystal Care Home Health- Annual Bench Core (Gusto referred)", "account": "Crystal Care Home Health", "stage": "Awaiting Decision", "close_date": "6/30/2026", "owner": "adam.rus", "amount": 7188}, "119624": {"name": "DWL Holdings Inc - Core BK", "account": "DWL Holdings Inc", "stage": "Awaiting Decision", "close_date": "8/31/2026", "owner": "adam.rus"}, "203707": {"name": "BEACHVANA LLC-", "account": "BEACHVANA LLC", "stage": "Awaiting Decision", "close_date": "6/30/2026", "owner": "adam.rus"}, "203952": {"name": "Bryan Yang MD, Inc-", "account": "Bryan Yang MD, Inc", "stage": "Awaiting Decision", "close_date": "9/30/2026", "owner": "adam.rus"}, "204070": {"name": "FTUK LLC-", "account": "FTUK LLC", "stage": "Trial", "close_date": "9/30/2026", "owner": "adam.rus"}, "204072": {"name": "SALON NUNA-", "account": "SALON NUNA", "stage": "Demo/Evaluation", "close_date": "9/30/2026", "owner": "adam.rus"}, "204073": {"name": "Jackson, Landrith & Kulesz, PC-", "account": "Jackson, Landrith & Kulesz", "stage": "Trial", "close_date": "9/30/2026", "owner": "adam.rus"}, "204079": {"name": "Advertising Expert Intelligence-", "account": "Advertising Expert Intelligence", "stage": "Trial", "close_date": "9/30/2026", "owner": "adam.rus"}, "acct:Sofia Espina Marketing, LLC": {"name": "Sofia Espina Marketing, LLC- Annual Bench Grow + 2025/2026 CU", "account": "Sofia Espina Marketing, LLC", "stage": "Awaiting Decision", "close_date": "6/30/2026", "owner": "adam.rus", "amount": 2268}, "acct:Rustic West Realty": {"name": "Rustic West Realty- Annual Bench Grow", "account": "Rustic West Realty", "stage": "Awaiting Decision", "close_date": "6/30/2026", "owner": "adam.rus", "amount": 2268}, "acct:Ventus Investments, LLC": {"name": "Ventus Investments, LLC- Bench Core + 2023-2025 CU (maybe tax)", "account": "Ventus Investments, LLC", "stage": "Awaiting Decision", "close_date": "6/30/2026", "owner": "adam.rus", "amount": 7668}, "acct:Building Blocks For eCommerce, Inc.": {"name": "Building Blocks For eCommerce, Inc.- Annual Bench Core + 2026 CU", "account": "Building Blocks For eCommerce, Inc.", "stage": "Awaiting Decision", "close_date": "6/30/2026", "owner": "adam.rus", "amount": 4275}, "acct:Tula Movement Arts": {"name": "Tula Movement Arts-", "account": "Tula Movement Arts", "stage": "Awaiting Decision", "close_date": "6/30/2026", "owner": "adam.rus"}, "acct:Jezebel Jewels": {"name": "Jezebel Jewels - Bench Core", "account": "Jezebel Jewels", "stage": "Awaiting Decision", "close_date": "7/23/2026", "owner": "adam.rus", "amount": 2268}, "acct:Elevate Marketing Solutions LLC": {"name": "Elevate Marketing Solutions LLC - Annual Core + Jan 2026 - May 2026 CU", "account": "Elevate Marketing Solutions LLC", "stage": "Awaiting Decision", "close_date": "8/11/2026", "owner": "adam.rus"}, "acct:Good Shepherd Essentials LLC/DBA Happy Little Quilt Shop": {"name": "DBA Happy Little Quilt Shop - Annual Core + 2025/2026 CU + 2025 tax filing", "account": "Good Shepherd Essentials LLC/DBA Happy Little Quilt Shop", "stage": "Awaiting Decision", "close_date": "10/6/2026", "owner": "adam.rus"}, "acct:Inspirational Dance DBA. CRZ Enterprises, Inc": {"name": "Inspirations Dance Inc. - Reactivation", "account": "Inspirational Dance DBA. CRZ Enterprises, Inc", "stage": "Awaiting Decision", "close_date": "1/1/2050", "owner": "adam.rus"}, "acct:NPM Ventures 1 Inc": {"name": "NPM Ventures 1 Inc-", "account": "NPM Ventures 1 Inc", "stage": "Demo/Evaluation", "close_date": "9/30/2026", "owner": "adam.rus", "amount": 3830}}, "stageOrder": ["Assessing Needs", "Demo/Evaluation", "Trial", "Awaiting Decision", "Pending Payment"], "stageCounts": {"Assessing Needs": 0, "Demo/Evaluation": 2, "Trial": 3, "Awaiting Decision": 13, "Pending Payment": 0}, "thisWeek": {"checkedAtLabel": "Aug 26, 2026, 12:10 PM MT", "weekLabel": "Aug 26\u201330, 2026", "timezone": "America/Edmonton", "source": "Google Calendar (adam.russo@bench.co), live read via connected Calendar tool", "filterNote": "Shows calendar events with at least one attendee outside bench.co/mainstreet.com. Canceled meetings, internal syncs, and calendar blocks (lunch, buffer, out-of-office, Apollo outbound, etc.) are hidden. 1 meeting this week (Hyden Zhang / Heurisko) was canceled and is excluded.", "days": [{"date": "2026-08-26", "label": "Today \u00b7 Wed, Aug 26", "isToday": true, "meetings": [{"time": "09:30", "contactName": "Bernadette Anderson", "email": "bernadette@refreshnailbar.com", "business": "Refresh Nail Bar", "meetingType": "Learn More About Bench (demo)", "note": null, "declined": false, "calendarLink": "https://www.google.com/calendar/event?eid=ZjczaTV1M3ZqZG5xdG5tYnZlZzQxMm1rOXMgYWRhbS5ydXNzb0BiZW5jaC5jbw&ctz=America/Edmonton"}, {"time": "11:30", "contactName": "Todd Neider", "email": "todd@activebodywork.com", "business": "Active Bodywork", "meetingType": "Reactivate My Account", "note": "Client note: \u201cI would like to sign back up my account.\u201d \u2014 likely a returning/former customer, not a fresh prospect.", "declined": false, "calendarLink": "https://www.google.com/calendar/event?eid=ZWZ1bGhldTlpa3YwbjVyN2Iwa3VhcnBrYTQgYWRhbS5ydXNzb0BiZW5jaC5jbw&ctz=America/Edmonton"}, {"time": "13:30", "contactName": "Patty Banach", "email": "pizzabistro@hotmail.com", "business": null, "meetingType": "Bring On An Additional Business With Bench", "note": "Client note: \u201cI clicked on taxes which I need my personal for 2025 done\u201d \u2014 may actually be asking about 2025 personal tax filing rather than adding a business.", "declined": false, "calendarLink": "https://www.google.com/calendar/event?eid=Z2I0OTk0b3ZtdjBndWkzajI5aWZzMmRxY2sgYWRhbS5ydXNzb0BiZW5jaC5jbw&ctz=America/Edmonton"}, {"time": "14:00", "contactName": "Daniel Simunek", "email": "ssp_chasers@yahoo.com", "business": "SSP Chasers", "meetingType": "Bench Accounting Consultation", "note": null, "declined": false, "calendarLink": "https://www.google.com/calendar/event?eid=dTJsazJwOG43ZzhwcjgxaDdmZ2VsNDBmZW8gYWRhbS5ydXNzb0BiZW5jaC5jbw&ctz=America/Edmonton"}, {"time": "15:00", "contactName": "Geoffrey Aquino", "email": "geoffaquino@me.com", "business": "Geoff Aquino Consulting", "meetingType": "Bench Accounting Consultation", "note": "Previously rescheduled (reason given: \u201cWork\u201d).", "declined": false, "calendarLink": "https://www.google.com/calendar/event?eid=OWczbTdkZnVtcHM0bm91Nmltb25kNjlmbjQgYWRhbS5ydXNzb0BiZW5jaC5jbw&ctz=America/Edmonton"}]}, {"date": "2026-08-27", "label": "Thu, Aug 27", "isToday": false, "meetings": [{"time": "11:00", "contactName": "Tyler Chartier", "email": "tyler@callhighlevel.com", "business": null, "meetingType": "Bench Account Set-Up", "note": null, "declined": true, "calendarLink": "https://www.google.com/calendar/event?eid=dWxlbGtndHZ1OTdzMHZrZ3RvZDVob2hjNGsgYWRhbS5ydXNzb0BiZW5jaC5jbw&ctz=America/Edmonton"}]}, {"date": "2026-08-28", "label": "Fri, Aug 28", "isToday": false, "meetings": [{"time": "12:00", "contactName": "Beverly Lwenya", "email": "beverlyskills@gmail.com", "business": "The Afropolitan Shop", "meetingType": "Learn More About Bench (demo)", "note": null, "declined": false, "calendarLink": "https://www.google.com/calendar/event?eid=MzFmZjA4NzdkaXVpbDUxajZkNDV2NjltdW8gYWRhbS5ydXNzb0BiZW5jaC5jbw&ctz=America/Edmonton"}, {"time": "14:45", "contactName": "Christian Rothchild", "email": "christian@rainbowwarriors.earth", "business": "Rainbow Warriors", "meetingType": "Book a call with Bench", "note": "Previously rescheduled (reason given: \u201cHigher priority obligation came up\u201d).", "declined": false, "calendarLink": "https://www.google.com/calendar/event?eid=MWVoN3N1MDBvZW51YTgzdXVpMG9zbmlvbG8gYWRhbS5ydXNzb0BiZW5jaC5jbw&ctz=America/Edmonton"}]}, {"date": "2026-08-29", "label": "Sat, Aug 29", "isToday": false, "meetings": []}, {"date": "2026-08-30", "label": "Sun, Aug 30", "isToday": false, "meetings": []}]}, "seenContacts": {}, "seenAccounts": {}}</script><div class="wrap" id="app"></div><script>
+(function () {
+  var SELF = document.currentScript.textContent;
+  var STATE = JSON.parse(document.getElementById('pp-state').textContent);
+  var NEXT_TOUCH_URL = "https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3";
+  var NEXT_TOUCH_BY_EMAIL = {"todd@activebodywork.com": "todd-neider", "tyler@callhighlevel.com": "tyler-chartier", "jonathan@jlkattorneys.com": "jonathan-jackson", "jean_yang54@yahoo.com": "jean-wei-jian-yang", "abdel@ftuk.com": "abdel-ibrahimi", "dlowry1977@gmail.com": "daniel-lowry", "danilo@go-aei.com": "danilo-tauro", "andrew@ggbhealthcare.com": "andrew-bravo", "bernadette@refreshnailbar.com": "bernadette-anderson", "danashansen@gmail.com": "dana-hansen", "teresa@executive-towncar.com": "teresa-leatham", "npmventures1@gmail.com": "nathan-moser", "pizzabistro@hotmail.com": "patty-banach", "hdpatel1230@gmail.com": "hamenti-patel", "ctugman@stripe.com": "chris-tugman", "ssp_chasers@yahoo.com": "daniel-simunek", "geoffaquino@me.com": "geoffrey-aquino", "beverlyskills@gmail.com": "beverly-lwenya", "christian@rainbowwarriors.earth": "christian-rothchild"};
+  var NEXT_TOUCH_BY_BIZ = {"active bodywork": "todd-neider", "highlevel garage doors": "tyler-chartier", "jackson landrith kulesz": "jonathan-jackson", "jeanweiyang": "jean-wei-jian-yang", "floret and foliage": "allison", "ftuk": "abdel-ibrahimi", "dwl holdings": "daniel-lowry", "advertising expert intelligence": "danilo-tauro", "ggb healthcare": "andrew-bravo", "refresh nail bar": "bernadette-anderson", "salon nuna": "dana-hansen", "vip executive car service": "teresa-leatham", "npm ventures 1": "nathan-moser", "pizza bistro existing client": "patty-banach", "hydrate iv bar": "hamenti-patel", "stripe": "chris-tugman", "ssp chasers": "daniel-simunek", "geoff aquino consulting": "geoffrey-aquino", "the afropolitan shop": "beverly-lwenya", "rainbow warriors": "christian-rothchild"};
+
+  function nextTouchSlug(email, bizRaw) {
+    var e = (email || '').toLowerCase().trim();
+    if (e && NEXT_TOUCH_BY_EMAIL[e]) return NEXT_TOUCH_BY_EMAIL[e];
+    var b = normalizeBiz(bizRaw);
+    if (b && NEXT_TOUCH_BY_BIZ[b]) return NEXT_TOUCH_BY_BIZ[b];
+    return null;
+  }
+
+  function nameWithNextTouchLink(name, email, bizRaw) {
+    var slug = nextTouchSlug(email, bizRaw);
+    if (!slug) return esc(name);
+    return '<a class="nt-name-link" href="' + esc(NEXT_TOUCH_URL) + '#c-' + slug + '" target="_blank" rel="noopener" title="Open Contact Brief in Next Touch">' + esc(name) + ' <span class="nt-link-icon">&#8599;</span></a>';
+  }
+
+  function safeJson(obj) {
+    return JSON.stringify(obj).replace(/<\/script/gi, '<\\/script');
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function renderItems(items, kind) {
+    if (!items || !items.length) {
+      return '<div class="empty">' + (kind === 'lead'
+        ? 'No new leads yet. This panel fills in as new leads land in Salesforce — most recent first.'
+        : 'No stage/close-date changes yet. This panel tracks opportunities that had a field change since the baseline.') + '</div>';
+    }
+    return items.map(function (it) {
+      return '<div class="item"><div class="row1"><span class="name">' + esc(it.name) + '</span><span class="time">' + esc(it.time) + '</span></div>' +
+        '<div class="meta">' + esc(it.meta) + '</div>' +
+        '<span class="pill ' + (kind === 'lead' ? 'new' : 'updated') + '">' + esc(it.pillText) + '</span></div>';
+    }).join('');
+  }
+
+  function renderRequestNote(r) {
+    if (!r) return '';
+    return 'Refresh requested ' + esc(r.when) + (r.note ? ' — ' + esc(r.note) : '') + '. Ask Claude in the Pipeline Pulse chat to run it — a click here flags the request but can\'t run the check on its own.';
+  }
+
+  function renderStageBreakdown(state) {
+    var order = state.stageOrder || [];
+    var counts = state.stageCounts || {};
+    var total = order.reduce(function (sum, s) { return sum + (counts[s] || 0); }, 0);
+    if (!total) {
+      return '<div class="empty">No open opportunities in a tracked stage yet.</div>';
+    }
+    return '<div class="stage-bars">' + order.map(function (s) {
+      var n = counts[s] || 0;
+      var pct = total ? Math.round((n / total) * 100) : 0;
+      return '<div class="stage-row">' +
+        '<span class="stage-name">' + esc(s) + '</span>' +
+        '<span class="stage-bar-track"><span class="stage-bar-fill" style="width:' + pct + '%"></span></span>' +
+        '<span class="stage-count">' + n + '</span>' +
+        '</div>';
+    }).join('') + '</div>';
+  }
+
+  var LEAD_CUTOFF = new Date(2026, 7, 1); // Aug 1, 2026 (month is 0-indexed)
+
+  function parseLooseDate(s) {
+    if (!s) return null;
+    var d = new Date(s);
+    return isNaN(d.getTime()) ? null : d;
+  }
+
+  function fmtDate(d) {
+    if (!d) return null;
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+
+  function daysAgo(d) {
+    if (!d) return null;
+    var ms = Date.now() - d.getTime();
+    var days = Math.floor(ms / 86400000);
+    if (days < 0) return null;
+    if (days === 0) return 'today';
+    if (days === 1) return '1 day ago';
+    return days + ' days ago';
+  }
+
+  function formatMeetingTime(hhmm) {
+    if (!hhmm) return '';
+    var parts = hhmm.split(':');
+    var h = parseInt(parts[0], 10), mins = parts[1];
+    var ap = h >= 12 ? 'PM' : 'AM';
+    var h12 = h % 12; if (h12 === 0) h12 = 12;
+    return h12 + ':' + mins + ' ' + ap;
+  }
+
+  function normalizeBiz(s) {
+    if (!s) return '';
+    return String(s).toLowerCase()
+      .replace(/[.,''"]/g, '')
+      .replace(/\b(llc|inc|corp|co|ltd|pc|dba)\b/g, '')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim();
+  }
+
+  function matchProspect(meeting, state) {
+    var email = (meeting.email || '').toLowerCase().trim();
+    var biz = normalizeBiz(meeting.business);
+    var lead = null, opportunity = null, contact = null, account = null;
+
+    Object.keys(state.seenLeads || {}).forEach(function (k) {
+      if (lead) return;
+      var l = state.seenLeads[k];
+      if (l.email && email && l.email.toLowerCase().trim() === email) lead = Object.assign({ _key: k }, l);
+    });
+    if (!lead && biz) {
+      Object.keys(state.seenLeads || {}).forEach(function (k) {
+        if (lead) return;
+        var l = state.seenLeads[k];
+        if (l.company && normalizeBiz(l.company) === biz) lead = Object.assign({ _key: k }, l);
+      });
+    }
+
+    Object.keys(state.seenContacts || {}).forEach(function (k) {
+      if (contact) return;
+      var c = state.seenContacts[k];
+      if (c.email && email && c.email.toLowerCase().trim() === email) contact = Object.assign({ _key: k }, c);
+    });
+    if (!contact && biz) {
+      Object.keys(state.seenContacts || {}).forEach(function (k) {
+        if (contact) return;
+        var c = state.seenContacts[k];
+        if (c.account && normalizeBiz(c.account) === biz) contact = Object.assign({ _key: k }, c);
+      });
+    }
+
+    if (biz) {
+      Object.keys(state.seenOpportunities || {}).forEach(function (k) {
+        if (opportunity) return;
+        var o = state.seenOpportunities[k];
+        if (o.account && normalizeBiz(o.account) === biz) opportunity = Object.assign({ _key: k }, o);
+      });
+    }
+
+    // Resolve an Account record from whichever biz name we can find: the meeting's own
+    // business field, or the account name attached to a matched contact/opportunity.
+    var accountNameToTry = biz || normalizeBiz((contact && contact.account) || (opportunity && opportunity.account));
+    if (accountNameToTry) {
+      Object.keys(state.seenAccounts || {}).forEach(function (k) {
+        if (account) return;
+        var a = state.seenAccounts[k];
+        if (a.name && normalizeBiz(a.name) === accountNameToTry) account = Object.assign({ _key: k }, a);
+      });
+    }
+
+    return { lead: lead, opportunity: opportunity, contact: contact, account: account };
+  }
+
+  function renderMeetingCard(m, state) {
+    var match = matchProspect(m, state);
+    var bits = [];
+    if (match.opportunity) {
+      bits.push('<span class="match-pill match-found">Opportunity: ' + esc((match.opportunity.name || '').replace(/-$/, '') || match.opportunity.account) + ' &middot; ' + esc(match.opportunity.stage) + '</span>');
+    }
+    if (match.lead) {
+      bits.push('<span class="match-pill match-found">Lead: ' + esc(match.lead.status || 'status unknown') + '</span>');
+    }
+    if (match.contact) {
+      bits.push('<span class="match-pill match-found">Contact: ' + esc(match.contact.name || m.contactName) + (match.contact.title ? ' &middot; ' + esc(match.contact.title) : '') + '</span>');
+    }
+    if (match.account) {
+      var acctBits = [];
+      if (match.account.industry) acctBits.push('Industry: ' + esc(match.account.industry));
+      if (match.account.accountOwner) acctBits.push('Owner: ' + esc(match.account.accountOwner));
+      if (match.account.phone) acctBits.push('Phone: ' + esc(match.account.phone));
+      bits.push('<span class="match-pill match-found">Account: ' + esc(match.account.name) + (acctBits.length ? ' &middot; ' + acctBits.join(' &middot; ') : '') + '</span>');
+    }
+    var matchHtml = bits.length ? bits.join(' ') : '<span class="match-pill match-none">Not found in tracked data</span>';
+    return '<div class="meeting-card">' +
+      '<div class="meeting-row1">' +
+        '<span class="meeting-time">' + esc(formatMeetingTime(m.time)) + '</span>' +
+        '<span class="meeting-name">' + nameWithNextTouchLink(m.contactName, m.email, m.business) + '</span>' +
+        (m.declined ? '<span class="declined-flag">Attendee declined</span>' : '') +
+      '</div>' +
+      '<div class="meeting-meta">' + esc(m.business || 'Business not provided') + (m.email ? ' &middot; ' + esc(m.email) : '') + '</div>' +
+      (m.meetingType ? '<div class="meeting-type">' + esc(m.meetingType) + '</div>' : '') +
+      (m.note ? '<div class="meeting-note">' + esc(m.note) + '</div>' : '') +
+      '<div class="meeting-footer">' + matchHtml +
+        (m.calendarLink ? ' <a class="sf-link" href="' + esc(m.calendarLink) + '" target="_blank" rel="noopener">View in Calendar</a>' : '') +
+      '</div>' +
+      '</div>';
+  }
+
+  function renderThisWeek(state) {
+    var tw = state.thisWeek;
+    if (!tw || !tw.days || !tw.days.length) {
+      return '<div class="empty">No calendar check has been run yet. This tab fills in once a live check reads Google Calendar for the coming week.</div>';
+    }
+    var totalMeetings = tw.days.reduce(function (sum, d) { return sum + (d.meetings || []).length; }, 0);
+    var html = '<div class="week-meta">Checked ' + esc(tw.checkedAtLabel) + ' &middot; ' + esc(tw.weekLabel) + ' (' + esc(tw.timezone) + ') &middot; ' + totalMeetings + ' prospect meeting' + (totalMeetings === 1 ? '' : 's') + ' this week' +
+      (tw.filterNote ? '<br>' + esc(tw.filterNote) : '') +
+      '</div>';
+    html += tw.days.map(function (day) {
+      var meetings = day.meetings || [];
+      var header = '<div class="day-header"><span>' + esc(day.label) + '</span><span class="badge">' + meetings.length + '</span></div>';
+      var body = meetings.length
+        ? meetings.map(function (m) { return renderMeetingCard(m, state); }).join('')
+        : '<div class="day-empty">No prospect meetings scheduled.</div>';
+      return '<div class="day-group' + (day.isToday ? ' day-today' : '') + '">' + header + body + '</div>';
+    }).join('');
+    return html;
+  }
+
+  function sfLinkHtml(link) {
+    if (!link) {
+      return '<span class="sf-link-pending">Link pending &ndash; Salesforce URL not yet captured</span>';
+    }
+    return '<a class="sf-link" href="' + esc(link) + '" target="_blank" rel="noopener">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+      '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>' +
+      'Open in Salesforce</a>';
+  }
+
+  var EXCLUDED_LEAD_STATUSES = ['converted', 'lost', 'nurture'];
+
+  function leadsForDisplay(state) {
+    var rows = Object.keys(state.seenLeads).map(function (k) {
+      var v = state.seenLeads[k];
+      return Object.assign({ _key: k }, v);
+    }).filter(function (l) {
+      var created = parseLooseDate(l.created);
+      if (!created || created.getTime() < LEAD_CUTOFF.getTime()) return false;
+      var status = (l.status || '').toLowerCase().trim();
+      if (EXCLUDED_LEAD_STATUSES.indexOf(status) !== -1) return false;
+      return true;
+    });
+    rows.sort(function (a, b) {
+      var da = parseLooseDate(a.created), db = parseLooseDate(b.created);
+      return (db ? db.getTime() : 0) - (da ? da.getTime() : 0); // newest first
+    });
+    return rows;
+  }
+
+  function renderLeadsTable(state) {
+    var rows = leadsForDisplay(state);
+    if (!rows.length) {
+      return '<div class="empty">No leads owned by Adam Russo created on or after Aug 1, 2026.</div>';
+    }
+    var head = '<tr><th>Lead</th><th>Company</th><th>Status</th><th>Created</th><th>Last activity</th><th>Salesforce</th></tr>';
+    var body = rows.map(function (l) {
+      var created = parseLooseDate(l.created);
+      return '<tr>' +
+        '<td class="rt-name">' + nameWithNextTouchLink(l.name, l.email, l.company) + '</td>' +
+        '<td class="rt-muted">' + esc(l.company || '&mdash;') + '</td>' +
+        '<td>' + esc(l.status || '&mdash;') + '</td>' +
+        '<td class="rt-mono">' + esc(created ? fmtDate(created) : (l.created || '&mdash;')) + '</td>' +
+        '<td class="' + (l.lastActivityDate ? 'rt-mono' : 'rt-faint') + '">' + (l.lastActivityDate ? esc(l.lastActivityDate) : 'No data') + '</td>' +
+        '<td>' + sfLinkHtml(l.link) + '</td>' +
+        '</tr>';
+    }).join('');
+    return '<div class="record-table-wrap"><table class="record-table">' + head + body + '</table></div>';
+  }
+
+  function opportunitiesByStage(state) {
+    var order = state.stageOrder || [];
+    var byStage = {};
+    order.forEach(function (s) { byStage[s] = []; });
+    Object.keys(state.seenOpportunities).forEach(function (k) {
+      var v = state.seenOpportunities[k];
+      var stage = v.stage;
+      if (!byStage[stage]) byStage[stage] = [];
+      byStage[stage].push(Object.assign({ _key: k }, v));
+    });
+    order.forEach(function (s) {
+      byStage[s].sort(function (a, b) {
+        var da = parseLooseDate(a.lastUpdatedDate), db = parseLooseDate(b.lastUpdatedDate);
+        if (da && db) return da.getTime() - db.getTime(); // oldest update first = most overdue
+        if (da && !db) return -1;
+        if (!da && db) return 1;
+        return (a.account || a.name || '').localeCompare(b.account || b.name || ''); // fallback when neither has it
+      });
+    });
+    return { order: order, byStage: byStage };
+  }
+
+  function renderOpportunityStageGroups(state) {
+    var g = opportunitiesByStage(state);
+    return g.order.map(function (stage) {
+      var opps = g.byStage[stage] || [];
+      var header = '<div class="stage-group-header"><span>' + esc(stage) + '</span><span class="badge">' + opps.length + '</span></div>';
+      if (!opps.length) {
+        return '<div class="stage-group">' + header + '<div class="stage-group-empty">No open opportunities in this stage.</div></div>';
+      }
+      var rowsHtml = opps.map(function (o) {
+        var updated = parseLooseDate(o.lastUpdatedDate);
+        var ago = updated ? daysAgo(updated) : null;
+        return '<tr>' +
+          '<td class="rt-name">' + nameWithNextTouchLink((o.name || '').replace(/-$/, '') || o.account, null, o.account) + '</td>' +
+          '<td class="rt-muted">' + esc(o.account || '&mdash;') + '</td>' +
+          '<td>' + esc(o.owner || '&mdash;') + '</td>' +
+          '<td class="' + (updated ? 'rt-mono' : 'rt-faint') + '">' + (updated ? esc(fmtDate(updated)) : 'Not captured yet') + '</td>' +
+          '<td class="' + (ago ? 'rt-mono' : 'rt-faint') + '">' + (ago ? esc(ago) : '&mdash;') + '</td>' +
+          '<td>' + sfLinkHtml(o.link) + '</td>' +
+          '</tr>';
+      }).join('');
+      var table = '<div class="record-table-wrap"><table class="record-table">' +
+        '<tr><th>Opportunity</th><th>Account</th><th>Owner</th><th>Last updated</th><th>Time since update</th><th>Salesforce</th></tr>' +
+        rowsHtml + '</table></div>';
+      return '<div class="stage-group">' + header + table + '</div>';
+    }).join('');
+  }
+
+  function renderRequestNote(r) {
+    if (!r) return '';
+    return 'Refresh requested ' + esc(r.when) + (r.note ? ' — ' + esc(r.note) : '') + '. Ask Claude in the Pipeline Pulse chat to run it — a click here flags the request but can\'t run the check on its own.';
+  }
+
+  function renderStageBreakdown(state) {
+    var order = state.stageOrder || [];
+    var counts = state.stageCounts || {};
+    var total = order.reduce(function (sum, s) { return sum + (counts[s] || 0); }, 0);
+    if (!total) {
+      return '<div class="empty">No open opportunities in a tracked stage yet.</div>';
+    }
+    return '<div class="stage-bars">' + order.map(function (s) {
+      var n = counts[s] || 0;
+      var pct = total ? Math.round((n / total) * 100) : 0;
+      return '<div class="stage-row">' +
+        '<span class="stage-name">' + esc(s) + '</span>' +
+        '<span class="stage-bar-track"><span class="stage-bar-fill" style="width:' + pct + '%"></span></span>' +
+        '<span class="stage-count">' + n + '</span>' +
+        '</div>';
+    }).join('') + '</div>';
+  }
+
+  function renderApp(state) {
+    var leadRows = leadsForDisplay(state);
+    var oppGroups = opportunitiesByStage(state);
+    var oppTotal = oppGroups.order.reduce(function (sum, s) { return sum + (oppGroups.byStage[s] || []).length; }, 0);
+    var anyLastUpdated = Object.keys(state.seenOpportunities).some(function (k) { return !!state.seenOpportunities[k].lastUpdatedDate; });
+    var anyLeadLink = Object.keys(state.seenLeads).some(function (k) { return !!state.seenLeads[k].link; });
+    var tw = state.thisWeek;
+    var weekTotal = tw && tw.days ? tw.days.reduce(function (sum, d) { return sum + (d.meetings || []).length; }, 0) : 0;
+    var weekToday = tw && tw.days ? tw.days.reduce(function (sum, d) { return sum + (d.isToday ? (d.meetings || []).length : 0); }, 0) : 0;
+    return '' +
+      '<header>' +
+        '<div>' +
+          '<h1>Pipeline Pulse</h1>' +
+          '<p class="subtitle">Leads &amp; open opportunities for Adam Russo\'s book only, tracked on request.</p>' +
+          '<p style="margin:6px 0 0; font-family:\'IBM Plex Mono\',monospace; font-size:.75rem;"><a href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3" style="color:var(--accent-strong); font-weight:600; text-decoration:none;">&larr; Next Touch dashboard</a></p>' +
+        '</div>' +
+        '<div class="freshness-row">' +
+          '<div class="freshness"><span class="dot' + (state.freshness.stale ? ' stale' : '') + '"></span> ' + esc(state.freshness.text) + '</div>' +
+          '<button class="refresh-btn" id="refreshBtn" type="button">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>' +
+            'Request refresh' +
+          '</button>' +
+        '</div>' +
+      '</header>' +
+      '<div class="request-note" id="requestNote">' + renderRequestNote(state.refreshRequest) + '</div>' +
+      '<div class="tabs">' +
+        '<button class="tab-btn active" type="button" data-tab="pipeline">Pipeline</button>' +
+        '<button class="tab-btn" type="button" data-tab="week">This Week' + (weekToday ? ' <span class="badge">' + weekToday + ' today</span>' : (weekTotal ? ' <span class="badge">' + weekTotal + '</span>' : '')) + '</button>' +
+      '</div>' +
+      '<div class="tab-panel active" id="tabPipeline">' +
+        '<div class="stats">' +
+          '<div class="stat"><div class="n">' + leadRows.length + '</div><div class="l">Leads (Aug 1+)</div></div>' +
+          '<div class="stat"><div class="n">' + oppTotal + '</div><div class="l">Open opportunities</div></div>' +
+          '<div class="stat"><div class="n">' + state.stats.newCount + '</div><div class="l">New since last check</div></div>' +
+          '<div class="stat"><div class="n">' + state.stats.updatedCount + '</div><div class="l">Changed since last check</div></div>' +
+        '</div>' +
+        '<div class="panel" style="margin-bottom:20px;">' +
+          '<h2>Open pipeline by stage <span class="badge">' + oppTotal + '</span></h2>' +
+          '<div style="padding:16px 18px;">' + renderStageBreakdown(state) + '</div>' +
+        '</div>' +
+        '<div class="panel" style="margin-bottom:20px;">' +
+          '<h2>Leads <span class="badge">' + leadRows.length + '</span></h2>' +
+          '<div class="lead-cutoff-note">Owner = Adam Russo, Created Date &ge; Aug 1, 2026, excluding Converted/Lost/Nurture. Sorted newest first.' +
+            (anyLeadLink ? '' : ' Salesforce links will appear once a live check captures the record\'s direct link (see handoff notes).') +
+          '</div>' +
+          renderLeadsTable(state) +
+        '</div>' +
+        '<div class="panel">' +
+          '<h2>Open opportunities by stage <span class="badge">' + oppTotal + '</span></h2>' +
+          '<div class="sort-note">Owner = Adam Russo, open stages only. Within each stage, sorted by longest time since last update first' +
+            (anyLastUpdated ? '.' : ' &mdash; not yet possible for all rows since Last Updated Date hasn\'t been captured for every opportunity; those fall back to alphabetical order until a live check backfills it.') +
+          '</div>' +
+          renderOpportunityStageGroups(state) +
+        '</div>' +
+      '</div>' +
+      '<div class="tab-panel" id="tabWeek">' +
+        renderThisWeek(state) +
+      '</div>' +
+      '<footer>Pipeline (Leads/Opportunities) is checked on request, by reusing your logged-in Salesforce browser session in the Pipeline Pulse Cowork chat — no Salesforce API connection required (Salesforce admin approval for that is still pending). Click "Request refresh" to flag that you want a check, then ask Claude in that chat to run it. Both leads and opportunities are scoped to Adam Russo (Owner Alias adam.rus) only. Opportunities are further limited to the open stages Assessing Needs, Demo/Evaluation, Trial, Awaiting Decision, and Pending Payment — Closed Won and Closed Lost are never tracked or shown, sourced from the "Adam Russo - Open Pipeline by Stage" Salesforce report. The This Week tab is pulled directly from Adam\'s Google Calendar (a live, connected read, refreshed on request) and matched against the same tracked Lead/Opportunity data above — matches will start appearing automatically as the tracked baseline is refreshed. This page itself is the shared source of truth for what\'s been seen — any Claude session can read and update it. Source: <code>benchaccounting.lightning.force.com</code> and Google Calendar.</footer>';
+  }
+
+  function renderFullDocument(state) {
+    var styleTag = document.getElementById('pp-style').outerHTML;
+    return '<!doctype html><html><head><meta charset="utf-8">' +
+      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<title>Pipeline Pulse</title>' + styleTag + '</head><body>' +
+      '<script type="application/json" id="pp-state">' + safeJson(state) + '<' + '/script>' +
+      '<div class="wrap" id="app"></div>' +
+      '<script>' + SELF + '<' + '/script>' +
+      '</body></html>';
+  }
+
+  function paint() {
+    document.getElementById('app').innerHTML = renderApp(STATE);
+    wire();
+  }
+
+  function wire() {
+    var tabBtns = document.querySelectorAll('.tab-btn');
+    tabBtns.forEach(function (tb) {
+      tb.addEventListener('click', function () {
+        var target = tb.getAttribute('data-tab');
+        document.querySelectorAll('.tab-btn').forEach(function (b) { b.classList.toggle('active', b === tb); });
+        var pipelinePanel = document.getElementById('tabPipeline');
+        var weekPanel = document.getElementById('tabWeek');
+        if (pipelinePanel) pipelinePanel.classList.toggle('active', target === 'pipeline');
+        if (weekPanel) weekPanel.classList.toggle('active', target === 'week');
+      });
+    });
+
+    var btn = document.getElementById('refreshBtn');
+    if (!btn) return;
+    btn.addEventListener('click', async function () {
+      btn.disabled = true;
+      btn.textContent = 'Requesting…';
+      var when = new Date().toLocaleString('en-US', {
+        month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'
+      });
+      var nextState = Object.assign({}, STATE, {
+        refreshRequest: { when: when }
+      });
+      try {
+        var artifact = window.claude ? await window.claude.use('artifact') : null;
+        if (!artifact) {
+          document.getElementById('requestNote').textContent =
+            'Live refresh requests aren\'t available in this view — just ask Claude in the Pipeline Pulse chat directly.';
+          btn.disabled = false;
+          btn.innerHTML = btn.innerHTML.replace('Requesting…', 'Request refresh');
+          return;
+        }
+        await artifact.publish(renderFullDocument(nextState));
+        // On success the view reloads to the new version automatically.
+      } catch (err) {
+        var code = err && err.code;
+        var note;
+        if (code === 'conflict') {
+          note = 'A Claude session just updated this dashboard — reloading to show the latest version\u2026';
+        } else if (code === 'not_writer' || code === 'not_granted' || code === 'consent_required') {
+          note = 'This view is read-only, so it can\'t flag a refresh request here — ask in the Pipeline Pulse chat directly.';
+        } else if (code === 'not_declared' || code === 'capability_disabled' || code === 'capability_removed') {
+          note = 'Live refresh requests aren\'t available in this view right now — just ask Claude in the Pipeline Pulse chat directly.';
+        } else {
+          note = 'Couldn\'t save the request (' + (code || 'unknown error') + '). Just ask Claude in the Pipeline Pulse chat directly.';
+        }
+        document.getElementById('requestNote').textContent = note;
+        if (code !== 'conflict') {
+          btn.disabled = false;
+          btn.textContent = 'Request refresh';
+        }
+        // On 'conflict' the shell itself reloads this view to the winning version —
+        // leave the button disabled rather than resetting it, since a reload is already coming.
+      }
+    });
+  }
+
+  paint();
+})();</script></body></html>
+
+</body></html>

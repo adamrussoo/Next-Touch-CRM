@@ -1,0 +1,1214 @@
+<!doctype html><html><head><!-- frame-runtime --><base href="/_f/1787781652-4aff/"><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.YODCk0yK.js","assets":"assets.DBUJcvq_.js","comments":"comments.GLuHR3zP.js","db":"db.CRhVHzSt.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CxGAyc-v.js","mcp":"mcp.Bvma3qD7.js","network":"network.B5UA9Su4.js","permissions":"permissions.BNySkLV5.js","room":"room.BMMoe2BY.js","sample":"sample.BW2Uysoh.js","self":"artifact.YODCk0yK.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.CQm3TZ9K.js","comments":"_comments.PBVy184F.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var J=["light","dark","system"],Q=/^[A-Za-z0-9_-]{1,64}$/,H=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,ee=new Set(["class","hidden","value","checked"]);function te(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||ee.has(t)}var Me="http://www.w3.org/1999/xhtml",re="http://www.w3.org/2000/svg",ne=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),oe=new Set(["script","style"]);function se(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!ne.has(t):e.namespaceURI===re?!oe.has(t):!1}var ae=new Set(["html","head","body","frameset"]);function ie(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&ae.has(e.localName)}function ce(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!Q.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[r,n]of Object.entries(t.attrsSet))if(!H.test(r)||typeof n!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const r of t.attrsRemoved)if(typeof r!="string"||!H.test(r))return!1}return!0}function le(e,t){if(e===null||typeof e!="object")return!1;const{seq:r,elements:n}=e;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let s=0;s<n.length;s++)if(!t(n[s]))return!1;return!0}function ue(e){return e===null||typeof e!="object"?!1:le(e.__frame_patch,ce)}function fe(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function pe(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function de(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&J.includes(r)}var A=/^[\w.-]+\.js$/;function me(e,t,r){return r?"inert":typeof t=="string"&&A.test(t)?e?[t]:"inert":e?"inert":"framed"}function he(){return{post(e,t){parent.postMessage(e,t)},on(e){const t=r=>{r.source===parent&&e(r.data,r.origin)};return addEventListener("message",t),()=>removeEventListener("message",t)}}}function _e(){return{post:()=>{},on:()=>()=>{}}}var O="__frame_scroll",ve=150,ye=310,we=160,be=3e4;function Ee(){let e=0,t=!1,r=!1,n=!1,s=0,a=null;const l=i=>{try{sessionStorage.setItem(O,JSON.stringify({y:i}))}catch{}},d=()=>{if(clearTimeout(e),a===null)return;const i=a;a=null,l(i)},v=()=>{if(t){t=!1;return}r=!0,a=scrollY,clearTimeout(e),e=setTimeout(d,ve)};try{addEventListener("scroll",v,{passive:!0}),addEventListener("pagehide",d)}catch{}const y=()=>{let i;try{i=sessionStorage.getItem(O)}catch{return null}if(i===null)return null;let m;try{m=JSON.parse(i)}catch{m=null}const u=m?.y;if(!(typeof u=="number"&&Number.isFinite(u)&&u>=0)){try{sessionStorage.removeItem(O)}catch{}return null}return u};let S=!1;const h=i=>{try{const m=scrollY;scrollTo({top:i,left:0,behavior:"instant"}),s=i,n=!0,clearTimeout(e),a=null,l(i);const u=scrollY;u!==m&&(t=!0),u!==i&&!S&&(S=!0,addEventListener("load",()=>{try{if(scrollY===u){const k=y();h(k!==null?k:s)}}catch{}},{once:!0}))}catch{}},w=()=>{try{return!!location.hash}catch{return!0}};let o=!1;const f=()=>{try{if(o||innerWidth>ye||innerHeight>we)return;o=!0;const i=Date.now(),m=()=>{try{removeEventListener("resize",m)}catch{}if(Date.now()-i>be||r||w())return;const u=y();h(u!==null?u:s)};addEventListener("resize",m)}catch{}};let _=!1,b=!1;return{restore(){if(_||(_=!0,w()))return;const i=y();i!==null&&(h(i),f())},promoted(){if(b||(b=!0,w()))return;const i=y();i!==null?(h(i),f()):n&&h(s)}}}function ge(e,t,r,n){let s=null;try{s=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:v=>v})??null}catch{}const a=window.Worker,l=a?.prototype,d=Object.freeze({Worker:a,workerOn:l?.addEventListener,workerPost:l?.postMessage,workerTerminate:l?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,policy:s,origins:t});r(e).then(v=>v?.bootTopLevel?v.bootTopLevel(d,n):n.settle()).catch(()=>n.settle())}var Oe="modulepreload",Ce=function(e){return"/"+e},je={},Ae=function(t,r,n){let s=Promise.resolve();function a(l){const d=new Event("vite:preloadError",{cancelable:!0});if(d.payload=l,window.dispatchEvent(d),!d.defaultPrevented)throw l}return s.then(l=>{for(const d of l||[])d.status==="rejected"&&a(d.reason);return t().catch(a)})},Re=window===top,q=Object.getOwnPropertyDescriptor(window,"claude"),T=me(Re,window.__FRAME_PREAMBLE?.topLevel,q?.writable===!1),C=typeof T=="object"&&T[0],p=C?_e():he();(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let s=0;s<r.length;s++){const a=r[s];try{e(t,a,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[a]}catch{}try{e(t,a,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[a]=="function"&&n++}if(n&&T==="framed")try{p.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Se=1e4,W=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function $(e){for(const t of W)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var L=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),j=window.__FRAME_PREAMBLE?.transforms,N=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate;function R(e){return Ae(()=>import("/_runtime/"+e),void 0)}function K(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:D,pipe:()=>({wrap:(r,n)=>(...s)=>{try{return n(...s)}catch(a){return Promise.reject(a)}}})}}var P=null,E=null;function Y(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var B=!1;function ke(e,t){const r=[];for(const n of e.elements){const s=document.querySelector(`[data-id="${n.target}"]`);if(!s){p.post({__frame_patch_miss:{seq:e.seq}},t);return}if([...Object.keys(n.attrsSet??{}),...n.attrsRemoved??[]].some(a=>!te(a))){p.post({__frame_patch_miss:{seq:e.seq}},t);return}if(n.text!==void 0&&(!se(s)||ie(s))){p.post({__frame_patch_miss:{seq:e.seq}},t);return}for(const[a,l]of Object.entries(n.attrsSet??{}))if(!G(s,a)){try{s.setAttribute(a,l)}catch{}X(s,a,l)}for(const a of n.attrsRemoved??[])G(s,a)||(s.removeAttribute(a),X(s,a,null));typeof n.text=="string"&&(s.textContent=n.text),r.push(n.target)}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:r}}))}catch{}}function X(e,t,r){if(!(e instanceof HTMLInputElement))return;const n=t.toLowerCase();n==="checked"?e.checked=r!==null:n==="value"&&e.type!=="file"&&(e.value=r??"")}function G(e,t){const r=t.toLowerCase(),n=e;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function V(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,B=!0):B&&(delete t.dataset.theme,t.style.colorScheme="",B=!1)}var M=new Map;function Te(){let e;const t={u:new Promise(r=>{e=r}),r:r=>{t.done=!0,e(r)},done:!1,nulled:!1};return t}function U(){for(const e of M.values())e.done||(e.nulled=!0,e.r(null))}var Le=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),D=(e,t)=>{const r=M.get(e);if(!r||r.done){r?.nulled&&E&&p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},E);return}const n=typeof t=="function"?Object.setPrototypeOf(t,Le):Object.assign(Object.create(null),t);typeof n.then=="function"&&delete n.then,r.r(Object.freeze(n))};function Z(){const e=q?.value??{};Y(window,"claude",e);for(const t of Object.keys(L)){if(e[t]!==void 0){Y(e,t,e[t]);continue}M.set(t,Te())}if(e.use===void 0){const t=r=>{if(typeof r!="string"||!Object.hasOwn(L,r))return Promise.resolve(null);const n=M.get(r);return n?n.u:Promise.resolve(e[r]??null)};try{Object.defineProperty(e,"use",{value:t,writable:!0,configurable:!0,enumerable:!1})}catch{}}}if(T==="framed"){const e=j&&A.test(j)?R(j).catch(()=>{}):Promise.resolve(void 0),t=o=>{if(o.type==="auxclick"&&o.button!==1)return;const f=o.target,_=f&&f.closest?f.closest("a[href],area[href]"):null;if(!_)return;const b=_.getAttribute("href");if(!b)return;let i;try{i=new URL(b,document.baseURI)}catch{return}if((i.protocol==="http:"||i.protocol==="https:")&&i.origin!==location.origin){o.preventDefault();const m=(_.getAttribute("target")??"").toLowerCase(),u=o.type==="auxclick"||o.metaKey||o.ctrlKey||o.shiftKey||o.altKey||!["","_self","_top","_parent"].includes(m);p.post({__frame_nav:!0,url:i.href,newTab:u},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const r={},n=o=>{o.isTrusted&&(r.pointer=!0)},s=o=>{o.isTrusted&&(r.click=!0)};addEventListener("pointermove",n,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0}),e.then(o=>{o?.wireNav&&(o.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",n,!0),removeEventListener("click",s,!0),o.wireEngagement?.(r))});let a=null;try{a=Ee()}catch{}Z();let l=null,d=null,v=0;const y=p.on((o,f)=>{$(f)&&fe(o)&&(l=o.__frame_init,E=f,y(),clearTimeout(v),d?.())});p.post({__frame_connect:!0},"*");const S=new Promise(o=>{d=o,v=setTimeout(()=>{y(),o()},Se)}),h=document.readyState==="loading"?new Promise(o=>document.addEventListener("DOMContentLoaded",()=>o(),{once:!0})):Promise.resolve();h.then(()=>{try{a?.restore()}catch{}});const w={cb:null};p.on((o,f)=>{if($(f)&&pe(o)){try{a?.promoted()}catch{}w.cb?.()}}),S.then(async()=>{if(!l||!E){U();return}V(l.theme);const o=E;let f=!1,_=!1;p.on((c,x)=>{if(x!==o)return;de(c)&&V(c.__frame_theme.theme),ue(c)&&ke(c.__frame_patch,o);const g=c?.__fc_mode;g&&typeof g=="object"&&!f&&N&&A.test(N)&&(f=!0,R(N).then(z=>z.install?.(o,g.on===!0)).catch(()=>{}));const F=c?.__ft_cmd;F&&typeof F=="object"&&!_&&I&&A.test(I)&&(_=!0,R(I).then(z=>z.install?.(o,F)).catch(()=>{}))});const b=Object.keys(l.capabilities??{}).filter(c=>Object.hasOwn(L,c)).map(c=>[c,L[c]]).filter(c=>typeof c[1]=="string"&&A.test(c[1])),i=await Promise.allSettled(b.map(([,c])=>R(c))),m=await e,u=E;if(m?.buildBoot||p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},u),m?.buildBoot)try{P=m.buildBoot(l,m.TRANSFORMS??{},{shellOrigin:u,mount:D},c=>p.post({__frame_cap_telemetry:c},u))}catch{p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},u),P=K(l,u)}else P=K(l,u);const k=c=>p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:c}},u),Pe=P;i.forEach((c,x)=>{const g=b[x][0];if(c.status!=="fulfilled"){k(g);return}try{c.value?.install?.(Pe)}catch{k(g)}}),U(),await h,p.post({__frame_ready:!0},E),e.then(c=>c?.installSizeReporter?.(u,w))})}else C&&(Z(),ge(C,W,R,{settle:U,mount:D}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Next Touch</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #f5f3ee;
+    --surface: #ffffff;
+    --surface-2: #ece8de;
+    --border: #ddd7c8;
+    --ink: #1d221f;
+    --ink-soft: #4b5049;
+    --ink-faint: #8b8a7c;
+    --accent: #2c6b60;
+    --accent-ink: #ffffff;
+    --accent-soft: #dcece6;
+    --accent-strong: #1d4a42;
+    --high: #b34324;
+    --high-soft: #f7e4dd;
+    --med: #a06a12;
+    --med-soft: #f4e9d3;
+    --low: #3d6a92;
+    --low-soft: #dfe9f1;
+    --none: #5c7566;
+    --none-soft: #e3ead9;
+    --shadow: 0 1px 2px rgba(29, 34, 31, 0.05), 0 10px 28px -14px rgba(29, 34, 31, 0.18);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171a17;
+      --surface: #1f2320;
+      --surface-2: #262b26;
+      --border: #383e38;
+      --ink: #eeece2;
+      --ink-soft: #b6b8ac;
+      --ink-faint: #82857b;
+      --accent: #6ec3ac;
+      --accent-ink: #0d1917;
+      --accent-soft: #1e3630;
+      --accent-strong: #93d9c4;
+      --high: #e08260;
+      --high-soft: #3a251d;
+      --med: #d8ab5c;
+      --med-soft: #3a3020;
+      --low: #85aed3;
+      --low-soft: #202f3c;
+      --none: #93b39d;
+      --none-soft: #22301f;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 10px 28px -14px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #171a17;
+    --surface: #1f2320;
+    --surface-2: #262b26;
+    --border: #383e38;
+    --ink: #eeece2;
+    --ink-soft: #b6b8ac;
+    --ink-faint: #82857b;
+    --accent: #6ec3ac;
+    --accent-ink: #0d1917;
+    --accent-soft: #1e3630;
+    --accent-strong: #93d9c4;
+    --high: #e08260;
+    --high-soft: #3a251d;
+    --med: #d8ab5c;
+    --med-soft: #3a3020;
+    --low: #85aed3;
+    --low-soft: #202f3c;
+    --none: #93b39d;
+    --none-soft: #22301f;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 10px 28px -14px rgba(0, 0, 0, 0.6);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Public Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 48px 28px 80px;
+  }
+
+  header.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-strong);
+    margin: 0 0 8px;
+  }
+
+  h1 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 600;
+    font-size: 2.4rem;
+    letter-spacing: -0.01em;
+    margin: 0 0 6px;
+    text-wrap: balance;
+  }
+
+  .subtitle {
+    color: var(--ink-soft);
+    font-size: 1rem;
+    margin: 0;
+    max-width: 54ch;
+    line-height: 1.5;
+  }
+
+  .asof {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 18px;
+    box-shadow: var(--shadow);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    min-width: 230px;
+  }
+  .asof b { color: var(--ink); font-weight: 600; }
+  .asof .row { display: flex; justify-content: space-between; gap: 12px; }
+  .asof .row + .row { margin-top: 3px; }
+  .asof .tag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    padding: 1px 6px;
+    border-radius: 5px;
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+  }
+  .asof .tag.stale { background: var(--med-soft); color: var(--med); }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 32px 0;
+  }
+
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--stat-color, var(--border));
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: var(--shadow);
+  }
+  .stat.high { --stat-color: var(--high); }
+  .stat.med { --stat-color: var(--med); }
+  .stat.low { --stat-color: var(--low); }
+  .stat.none { --stat-color: var(--none); }
+
+  .stat .n {
+    font-family: 'IBM Plex Mono', monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .stat .l {
+    color: var(--ink-soft);
+    font-size: 0.78rem;
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 640px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  section.notice {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  section.notice strong { color: var(--ink); }
+  section.notice a { color: var(--accent-strong); }
+
+  .group {
+    margin-bottom: 36px;
+  }
+
+  .group h2 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.3rem;
+    margin: 0 0 14px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+  .group h2 .count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-style: normal;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--card-color, var(--border));
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 18px 22px;
+    margin-bottom: 12px;
+  }
+  .card.high { --card-color: var(--high); }
+  .card.med { --card-color: var(--med); }
+  .card.low { --card-color: var(--low); }
+  .card.none { --card-color: var(--none); }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .who .name {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  .who .biz {
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+    margin-top: 2px;
+  }
+  .who .email {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.76rem;
+    color: var(--ink-faint);
+    margin-top: 3px;
+  }
+
+  .days {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .days .n {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .days .l {
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-top: 2px;
+  }
+
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px 20px;
+    margin: 16px 0;
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .meta-grid .field .k {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-faint);
+    margin-bottom: 3px;
+  }
+  .meta-grid .field .v {
+    font-size: 0.86rem;
+    color: var(--ink);
+  }
+  .meta-grid .field .v.dim {
+    color: var(--ink-faint);
+    font-style: italic;
+  }
+
+  .action {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .action .arrow {
+    color: var(--card-color, var(--accent));
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .action q {
+    color: var(--ink-soft);
+  }
+
+  .notes {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    font-size: 0.83rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .notes .notes-k {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .notes q { color: var(--ink); }
+
+  .linkrow {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .linkrow a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent-strong);
+    text-decoration: none;
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 4px 10px;
+    white-space: nowrap;
+  }
+  .linkrow a:hover { text-decoration: underline; }
+  .linkrow a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .linkrow .none {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    padding: 4px 2px;
+  }
+
+  .badge-row {
+    margin-top: 10px;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .flag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    padding: 2px 7px;
+    border-radius: 5px;
+    background: var(--surface-2);
+    color: var(--ink-faint);
+    border: 1px solid var(--border);
+  }
+  .flag.warn {
+    background: var(--high-soft);
+    color: var(--high);
+    border-color: color-mix(in srgb, var(--high) 35%, transparent);
+    font-weight: 600;
+  }
+
+  footer {
+    margin-top: 44px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    color: var(--ink-faint);
+    font-size: 0.78rem;
+    line-height: 1.7;
+  }
+  footer h3 {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+    margin: 0 0 8px;
+  }
+  footer code {
+    font-family: 'IBM Plex Mono', monospace;
+    background: var(--surface-2);
+    padding: 1px 5px;
+    border-radius: 4px;
+    color: var(--ink-soft);
+  }
+  footer ul { margin: 6px 0 18px; padding-left: 18px; }
+  footer a { color: var(--accent-strong); }
+
+  /* --- clickable priority stats --- */
+  .stat-link { text-decoration: none; display: block; border-radius: 10px; transition: transform 0.12s ease; }
+  .stat-link:hover { transform: translateY(-1px); }
+  .stat-link:hover .stat { box-shadow: 0 0 0 2px var(--stat-color, var(--accent)), var(--shadow); }
+  .stat-link:focus-visible .stat { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .stats-hint { margin: -22px 0 28px; font-size: 0.78rem; color: var(--ink-faint); }
+  .stats-hint a { color: var(--accent-strong); font-weight: 600; }
+
+  /* --- group anchor offset so jumps don't hide under nothing (headroom) --- */
+  .group { scroll-margin-top: 20px; }
+  section.thisweek { scroll-margin-top: 20px; }
+  .empty-tier { color: var(--ink-faint); font-size: 0.88rem; background: var(--surface); border: 1px dashed var(--border); border-radius: 10px; padding: 16px 20px; }
+
+  /* --- clickable contact name / expandable resources panel --- */
+  .name-btn {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: var(--ink);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-align: left;
+  }
+  .name-btn:hover { color: var(--accent-strong); text-decoration: underline; }
+  .name-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .name-btn .chev {
+    font-size: 0.62rem;
+    color: var(--ink-faint);
+    transition: transform 0.15s ease;
+    display: inline-block;
+  }
+  .name-btn.open .chev { transform: rotate(90deg); }
+
+  .resources {
+    margin-top: 12px;
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    border-radius: 10px;
+    padding: 12px 16px;
+  }
+  .resources-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-strong);
+    margin-bottom: 8px;
+  }
+  .resources-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .resbtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--accent-ink);
+    background: var(--accent);
+    border-radius: 8px;
+    padding: 7px 13px;
+    box-shadow: var(--shadow);
+  }
+  .resbtn:hover { opacity: 0.9; }
+  .res-note { margin: 10px 0 0; font-size: 0.8rem; color: var(--ink-soft); font-style: italic; }
+
+  /* --- this week section --- */
+  section.thisweek {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 22px 24px 20px;
+    margin-bottom: 40px;
+  }
+  .tw-head h2 {
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0 0 6px;
+  }
+  .tw-sub { color: var(--ink-soft); font-size: 0.86rem; line-height: 1.5; margin: 0 0 20px; }
+  .tw-sub a { color: var(--accent-strong); }
+  .tw-day { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 14px; overflow: hidden; }
+  .tw-day.tw-today { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .tw-day-head {
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--surface-2); padding: 10px 16px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.02em; color: var(--ink-soft);
+  }
+  .tw-today .tw-day-head { background: var(--accent-soft); color: var(--accent-strong); }
+  .tw-badge {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; background: var(--surface);
+    color: var(--ink-faint); border-radius: 999px; padding: 1px 8px;
+  }
+  .tw-meeting { padding: 12px 16px; border-top: 1px solid var(--border); }
+  .tw-day-head + .tw-meeting { border-top: none; }
+  .tw-row1 { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .tw-time { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--ink-soft); flex-shrink: 0; }
+  .tw-name { font-weight: 600; font-size: 0.95rem; }
+  .tw-match { font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
+  .tw-match-nt { background: var(--accent-soft); color: var(--accent-strong); }
+  .tw-match-none { background: var(--high-soft); color: var(--high); }
+  .tw-declined { font-size: 0.68rem; font-weight: 600; color: var(--high); background: var(--high-soft); border-radius: 999px; padding: 1px 8px; }
+  .tw-meta { font-size: 0.82rem; color: var(--ink-faint); margin-top: 3px; }
+  .tw-review { font-size: 0.86rem; color: var(--ink-soft); line-height: 1.55; margin-top: 6px; }
+  .tw-review a { color: var(--accent-strong); font-weight: 600; }
+  .tw-footnote { font-size: 0.76rem; color: var(--ink-faint); line-height: 1.6; margin: 14px 0 0; }
+
+  /* --- Contact Brief modal --- */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(20, 22, 19, 0.5);
+    display: flex; align-items: flex-start; justify-content: center;
+    padding: 48px 20px; z-index: 1000; overflow-y: auto;
+  }
+  .modal-overlay[hidden] { display: none; }
+  .modal {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    box-shadow: var(--shadow); max-width: 640px; width: 100%;
+    padding: 30px 32px 28px; position: relative; margin-bottom: 40px;
+  }
+  .modal-close {
+    position: absolute; top: 18px; right: 18px;
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 8px;
+    padding: 7px 14px; font-family: 'Public Sans', sans-serif; font-size: 0.8rem; font-weight: 600;
+    color: var(--ink-soft); cursor: pointer;
+  }
+  .modal-close:hover { color: var(--ink); background: var(--border); }
+  .modal-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .modal-priority-badge {
+    display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem;
+    text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600;
+    padding: 3px 11px; border-radius: 999px; margin-bottom: 12px;
+  }
+  .mpb-high { background: var(--high-soft); color: var(--high); }
+  .mpb-med { background: var(--med-soft); color: var(--med); }
+  .mpb-low { background: var(--low-soft); color: var(--low); }
+  .mpb-none { background: var(--none-soft); color: var(--none); }
+  .mpb-unmatched { background: var(--surface-2); color: var(--ink-faint); }
+  .modal-name { font-family: 'Newsreader', Georgia, serif; font-weight: 600; font-size: 1.65rem; margin: 0 0 4px; padding-right: 84px; line-height: 1.2; }
+  .modal-biz { color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 2px; }
+  .modal-email { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--ink-faint); margin-bottom: 18px; }
+  .modal-metagrid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px;
+    background: var(--surface-2); border-radius: 10px; padding: 14px 16px; margin-bottom: 6px;
+  }
+  .modal-metagrid .mf .k { font-family: 'IBM Plex Mono', monospace; font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-faint); margin-bottom: 3px; }
+  .modal-metagrid .mf .v { font-size: 0.85rem; color: var(--ink); line-height: 1.4; }
+  .modal-section { border-top: 1px solid var(--border); padding-top: 14px; margin-top: 14px; }
+  .modal-section summary { cursor: pointer; font-weight: 600; font-size: 0.92rem; list-style: none; display: flex; align-items: center; gap: 8px; color: var(--ink); }
+  .modal-section summary::-webkit-details-marker { display: none; }
+  .modal-section summary::before { content: '\25B8'; font-size: 0.68rem; color: var(--ink-faint); display: inline-block; transition: transform 0.15s ease; }
+  .modal-section[open] summary::before { transform: rotate(90deg); }
+  .modal-section summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .modal-section-body { font-size: 0.86rem; color: var(--ink-soft); line-height: 1.6; margin-top: 10px; }
+  .modal-section-body p { margin: 0 0 8px; }
+  .modal-section-body p:last-child { margin-bottom: 0; }
+  .dim-note { color: var(--ink-faint); font-style: italic; }
+  .coach-situation { background: var(--accent-soft); border-radius: 8px; padding: 11px 14px; font-size: 0.85rem; color: var(--ink); margin-bottom: 14px; line-height: 1.55; }
+  .coach-line { margin-bottom: 13px; }
+  .coach-line:last-child { margin-bottom: 0; }
+  .coach-line .cl-label { font-weight: 600; font-size: 0.83rem; color: var(--accent-strong); margin-bottom: 3px; }
+  .coach-line .cl-verbiage { font-size: 0.86rem; color: var(--ink); line-height: 1.55; }
+  .modal-resources { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; border-top: 1px solid var(--border); padding-top: 16px; }
+  .tw-name-btn, .modal-jump-btn {
+    font-family: 'Public Sans', sans-serif; font-weight: 600; font-size: 0.95rem;
+    background: none; border: none; padding: 0; margin: 0; color: var(--ink);
+    cursor: pointer; text-align: left;
+  }
+  .tw-name-btn:hover { color: var(--accent-strong); text-decoration: underline; }
+  .tw-name-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+</style>
+
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <p class="eyebrow">Sales relationship tracker &middot; Adam Russo</p>
+      <h1>Next Touch</h1>
+      <p class="subtitle">Every prospect from your live Gmail, Calendar, Apollo, and Gemini call-note activity, cross-referenced with the latest known Salesforce stage, ranked by who needs you next.</p>
+      <p style="margin:.6rem 0 0; font-family:'IBM Plex Mono',monospace; font-size:.78rem;">
+        <a href="https://claude.ai/code/artifact/c683bd30-99e5-4085-9208-433136744f20" style="color:var(--accent-strong); font-weight:600;">Daily Priorities &rarr;</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://claude.ai/code/artifact/19d06ea7-3178-46ff-bf4d-13f1dca37906" style="color:var(--accent-strong); font-weight:600;">Call Verbiage Field Guide &rarr;</a>
+      </p>
+    </div>
+    <div class="asof">
+      <div class="row"><span>Gmail / Calendar / Gemini notes</span><span class="tag">live &middot; Aug 26, 2:19 PM MT</span></div>
+      <div class="row"><span>Salesforce stage &amp; opportunity</span><span class="tag stale">snapshot &middot; Aug 21</span></div>
+      <div class="row"><span>Contacts tracked</span><b>16</b></div>
+    </div>
+  </header>
+
+  <div class="stats">
+    <a class="stat-link" href="#group-high"><div class="stat high"><div class="n">8</div><div class="l">High priority</div></div></a>
+    <a class="stat-link" href="#group-med"><div class="stat med"><div class="n">5</div><div class="l">Medium priority</div></div></a>
+    <a class="stat-link" href="#group-low"><div class="stat low"><div class="n">3</div><div class="l">Low priority</div></div></a>
+    <a class="stat-link" href="#group-none"><div class="stat none"><div class="n">0</div><div class="l">No action needed</div></div></a>
+  </div>
+  <p class="stats-hint">Click a priority above to jump straight to those contacts. <a href="#section-thisweek">Jump to this week's meetings &rarr;</a></p>
+
+  <section class="notice">
+    <strong>New this pass (hourly sync, Aug 26 ~2:19 PM MT):</strong> No new inbound emails from tracked contacts since the last watermark — Tyler's "different direction" thread was already reflected. Two completed meetings from Aug 25 landed with Gemini notes and now have full contact-brief pages: <a href="https://claude.ai/code/artifact/da7aab07-b0f9-4669-9026-0feef51c167b">Andrew Bravo</a> (real pricing conversation, comparing Bench vs. Collective, follow-up Mon Aug 31) and <a href="https://claude.ai/code/artifact/d2d7c6da-706d-4f68-b936-b6704b6899d8">Dana Hansen</a> (her scheduled follow-up was actually a no-show/voicemail, not the completed meeting the prior build assumed). Also surfaced from today's Calendar: four brand-new leads with completed first calls (Todd Neider, Bernadette Anderson, Hamenti Patel, Patty Banach) — added below as cards so nothing discovered gets dropped, but none has a dedicated brief page yet or an Apollo/Salesforce lookup; those get built the next time each one has further activity, per the same on-demand pattern used for the rest of the book. Salesforce fields are still only as fresh as the Aug 21 Pipeline Pulse snapshot (no live Salesforce connection — out of scope for this sync). <strong>Notes are Gemini's auto-generated summaries</strong> &mdash; per its own disclaimer they "may contain errors," worth a skim against your memory of the call before you act on specifics.
+  </section>
+
+  <section class="thisweek" id="section-thisweek">
+    <div class="tw-head">
+      <h2>This week's meetings</h2>
+      <p class="tw-sub">Calendar + Salesforce matches synced from <a href="https://claude.ai/code/artifact/ce5924e8-918b-4ea5-b039-3b5ae79a3d95">Pipeline Pulse</a>, checked Aug 26, 2026, 12:10 PM MT. A meeting matched to Salesforce shows its Account/Opportunity below; a meeting already on Next Touch links straight to that contact's card; anything else is flagged as unmatched rather than guessed at.</p>
+    </div>
+
+    <div class="tw-day tw-today">
+      <div class="tw-day-head"><span>Today &middot; Wed, Aug 26</span><span class="tw-badge">5</span></div>
+
+      <div class="tw-meeting">
+        <div class="tw-row1"><span class="tw-time">9:30 AM</span><button type="button" class="tw-name-btn" onclick="openBrief('bernadette-anderson')">Bernadette Anderson</button><span class="tw-match tw-match-nt">On Next Touch &middot; Medium priority</span></div>
+        <div class="tw-meta">Refresh Nail Bar &middot; bernadette@refreshnailbar.com &middot; Learn More About Bench (demo)</div>
+        <div class="tw-review">Already tracked: quoted $9,110/yr (20% off + waived catch-up), she asked to review and said she'd text her decision. Send the pricing recap you owe her before following up. <a href="#c-bernadette-anderson">Jump to her full card &darr;</a></div>
+      </div>
+
+      <div class="tw-meeting">
+        <div class="tw-row1"><span class="tw-time">11:30 AM</span><button type="button" class="tw-name-btn" onclick="openBrief('todd-neider')">Todd Neider</button><span class="tw-match tw-match-nt">On Next Touch &middot; High priority</span></div>
+        <div class="tw-meta">Active Bodywork &middot; todd@activebodywork.com &middot; Reactivate My Account</div>
+        <div class="tw-review">Already tracked: reactivation agreement signed on the call, but he's refusing to pay separately for back-tax filing and warned he won't stay if catch-up drags on. Adam owes him an answer today. <a href="#c-todd-neider">Jump to his full card &darr;</a></div>
+      </div>
+
+      <div class="tw-meeting">
+        <div class="tw-row1"><span class="tw-time">1:30 PM</span><button type="button" class="tw-name-btn" onclick="openBrief('patty-banach')">Patty Banach</button><span class="tw-match tw-match-nt">On Next Touch &middot; Low priority</span></div>
+        <div class="tw-meta">Pizza Bistro (existing client) &middot; pizzabistro@hotmail.com &middot; Bring On An Additional Business</div>
+        <div class="tw-review">Already tracked: existing client, signed up for joint personal tax filing on the call. Low priority &mdash; just needs the team follow-up on additional income sources. <a href="#c-patty-banach">Jump to her full card &darr;</a></div>
+      </div>
+
+      <div class="tw-meeting">
+        <div class="tw-row1"><span class="tw-time">2:00 PM</span><button type="button" class="tw-name-btn" onclick="openBrief('daniel-simunek')">Daniel Simunek</button><span class="tw-match tw-match-none">&#9888; Not matched</span></div>
+        <div class="tw-meta">SSP Chasers &middot; ssp_chasers@yahoo.com &middot; Bench Accounting Consultation</div>
+        <div class="tw-review"><strong>Not confidently matched to a Salesforce record or an existing Next Touch contact</strong> &mdash; this review is built from calendar details only. Reads as a first-time consultation; open with the standard discovery framing from the <a href="https://claude.ai/code/artifact/19d06ea7-3178-46ff-bf4d-13f1dca37906">Verbiage Field Guide</a> (agenda-setting + "walk me through where you're at today") rather than assuming any prior context.</div>
+      </div>
+
+      <div class="tw-meeting">
+        <div class="tw-row1"><span class="tw-time">3:00 PM</span><button type="button" class="tw-name-btn" onclick="openBrief('geoffrey-aquino')">Geoffrey Aquino</button><span class="tw-match tw-match-none">&#9888; Not matched</span></div>
+        <div class="tw-meta">Geoff Aquino Consulting &middot; geoffaquino@me.com &middot; Bench Accounting Consultation &middot; previously rescheduled (reason given: "Work")</div>
+        <div class="tw-review"><strong>Not confidently matched</strong> &mdash; built from calendar details only. He's already rescheduled this once, so keep the open tight and confirm what he needs before going deep. Standard first-consultation discovery framing from the <a href="https://claude.ai/code/artifact/19d06ea7-3178-46ff-bf4d-13f1dca37906">Verbiage Field Guide</a> applies.</div>
+      </div>
+    </div>
+
+    <div class="tw-day">
+      <div class="tw-day-head"><span>Thu, Aug 27</span><span class="tw-badge">1</span></div>
+      <div class="tw-meeting">
+        <div class="tw-row1"><span class="tw-time">11:00 AM</span><button type="button" class="tw-name-btn" onclick="openBrief('tyler-chartier')">Tyler Chartier</button><span class="tw-match tw-match-nt">On Next Touch &middot; High priority</span><span class="tw-declined">Attendee declined</span></div>
+        <div class="tw-meta">HighLevel Garage Doors &middot; tyler@callhighlevel.com &middot; Bench Account Set-Up</div>
+        <div class="tw-review">Already tracked: he emailed Aug 25 saying he's going a different direction and declined this slot. No reply yet to Adam's follow-up question &mdash; if nothing comes back before Thursday, treat this slot as open. <a href="#c-tyler-chartier">Jump to his full card &darr;</a></div>
+      </div>
+    </div>
+
+    <div class="tw-day">
+      <div class="tw-day-head"><span>Fri, Aug 28</span><span class="tw-badge">2</span></div>
+      <div class="tw-meeting">
+        <div class="tw-row1"><span class="tw-time">12:00 PM</span><button type="button" class="tw-name-btn" onclick="openBrief('beverly-lwenya')">Beverly Lwenya</button><span class="tw-match tw-match-none">&#9888; Not matched</span></div>
+        <div class="tw-meta">The Afropolitan Shop &middot; beverlyskills@gmail.com &middot; Learn More About Bench (demo)</div>
+        <div class="tw-review"><strong>Not confidently matched</strong> &mdash; built from calendar details only. Listed as a demo, which usually means a warmer, further-along conversation than a cold consult &mdash; lead with the platform walkthrough rather than starting from scratch on discovery.</div>
+      </div>
+      <div class="tw-meeting">
+        <div class="tw-row1"><span class="tw-time">2:45 PM</span><button type="button" class="tw-name-btn" onclick="openBrief('christian-rothchild')">Christian Rothchild</button><span class="tw-match tw-match-none">&#9888; Not matched</span></div>
+        <div class="tw-meta">Rainbow Warriors &middot; christian@rainbowwarriors.earth &middot; Book a call with Bench &middot; previously rescheduled (reason given: "Higher priority obligation")</div>
+        <div class="tw-review"><strong>Not confidently matched</strong> &mdash; built from calendar details only. He's already rescheduled once &mdash; worth a light check-in on timing before launching into the full pitch.</div>
+      </div>
+    </div>
+
+    <p class="tw-footnote">Sat Aug 29 &amp; Sun Aug 30: no prospect meetings on the calendar. "Not matched" means this attendee's email and business name didn't turn up in Pipeline Pulse's tracked Salesforce Leads/Opportunities or in Next Touch's own contact list as of the sync above &mdash; not that they don't exist in Salesforce, only that a check hasn't confirmed it yet. This section refreshes each time the hourly Next Touch sync runs.</p>
+  </section>
+
+  <div class="group" id="group-high">
+    <h2>High priority <span class="count">8 contacts</span></h2>
+
+    <div class="card high" id="c-todd-neider">
+      <div class="card-top">
+        <div class="who">
+          <button type="button" class="name-btn" onclick="openBrief('todd-neider')">Todd Neider<span class="chev">&#9656;</span></button>
+          <div class="biz">Active Bodywork &middot; reactivation &mdash; agreement signed today</div>
+          <div class="email">todd@activebodywork.com</div>
+        </div>
+        <div class="days"><div class="n">0</div><div class="l">days since contact</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="field"><div class="k">Last contact</div><div class="v">Today, 11:30 AM &middot; reactivation call, agreement signed</div></div>
+        <div class="field"><div class="k">Apollo sequence</div><div class="v dim">Not looked up</div></div>
+        <div class="field"><div class="k">Upcoming meeting</div><div class="v dim">None scheduled</div></div>
+        <div class="field"><div class="k">Follow-up signal</div><div class="v">Need payment updated (agreement signed)</div></div>
+      </div>
+      <div class="notes"><span class="notes-k">Today's call notes (Gemini)</span>Dormant account reactivating at $599/mo starting Sept 1, plus $750 for 5 months of catch-up. Todd updated his card and signed the revised agreement on the call &mdash; but he was explicit: <q>if 25 is going to take six months once everything is collected, I'm not going to use Bench again.</q> He's refusing to pay separately for 2024/2025 tax filing on top of it. Adam promised to check with the billing team and follow up <em>by end of day today</em> &mdash; either an email (yes, covered) or a call (no, not covered).</div>
+      <div class="action"><span class="arrow">&rarr;</span><span>New lead first surfaced today, not a previously-tracked contact &mdash; brand-new brief. Adam owes him an answer today; if that promise slips, this signed reactivation is genuinely at risk of falling through before it even starts.</span></div>
+      <div class="badge-row"><span class="flag">signal: agreement signed</span><span class="flag">action owed: today by EOD</span></div>
+      <div class="linkrow">
+        <a href="https://www.google.com/calendar/event?eid=ZWZ1bGhldTlpa3YwbjVyN2Iwa3VhcnBrYTQgYWRhbS5ydXNzb0BiZW5jaC5jbw">Today's call on Calendar ↗</a>
+        <a href="https://docs.google.com/document/d/1k-NQAwf81aUwpstPVA2i8BoyLbAt1jZRXOdBSJvKlsQ/edit">Full Gemini notes ↗</a>
+      </div>
+    </div>
+
+    <div class="card high" id="c-tyler-chartier">
+      <div class="card-top">
+        <div class="who">
+          <button type="button" class="name-btn" onclick="openBrief('tyler-chartier')">Tyler Chartier<span class="chev">&#9656;</span></button>
+          <div class="biz">HighLevel Garage Doors &middot; Opportunity: not found</div>
+          <div class="email">tyler@callhighlevel.com</div>
+        </div>
+        <div class="days"><div class="n">1</div><div class="l">days since contact</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="field"><div class="k">Last contact</div><div class="v">Aug 25 &middot; outbound reply (awaiting response)</div></div>
+        <div class="field"><div class="k">Apollo sequence</div><div class="v dim">No data</div></div>
+        <div class="field"><div class="k">Upcoming meeting</div><div class="v">Thu Aug 27, 11:00 AM &mdash; Tyler declined</div></div>
+        <div class="field"><div class="k">Follow-up signal</div><div class="v">Found another solution</div></div>
+      </div>
+      <div class="notes"><span class="notes-k">Aug 25, 8:01 AM MDT &mdash; email from Tyler</span><q>I decided to go in a different direction. Thanks for your time in discussing Bench, if anything changes on my end I'll be sure to reach out.</q> He also declined the Thursday follow-up call. Adam replied the same day asking what changed and whether Bench compared unfavorably to whatever he chose &mdash; still no response back as of this pass.</div>
+      <div class="action"><span class="arrow">&rarr;</span><span>No reply yet to Adam's question. If nothing comes back by Thursday, treat that slot as open rather than counting on it.</span></div>
+      <div class="badge-row"><span class="flag">signal: found another solution</span><span class="flag">meeting: declined</span></div>
+      <div class="linkrow">
+        <a href="https://www.google.com/calendar/event?eid=dWxlbGtndHZ1OTdzMHZrZ3RvZDVob2hjNGsgYWRhbS5ydXNzb0BiZW5jaC5jbw">Thu Calendar event ↗</a>
+        <a href="https://docs.google.com/document/d/15kc4Y4pQWPfnYylXiTK92stZDXQbQ8AdKu9309Gp3wo/edit">Aug 24 Gemini notes ↗</a>
+      </div>
+    </div>
+
+    <div class="card high" id="c-jonathan-jackson">
+      <div class="card-top">
+        <div class="who">
+          <button type="button" class="name-btn" onclick="openBrief('jonathan-jackson')">Jonathan Jackson<span class="chev">&#9656;</span></button>
+          <div class="biz">Jackson, Landrith &amp; Kulesz, PC &middot; Opportunity: Jackson, Landrith &amp; Kulesz, PC- (Trial)</div>
+          <div class="email">jonathan@jlkattorneys.com</div>
+        </div>
+        <div class="days"><div class="n">6</div><div class="l">days since contact</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="field"><div class="k">Last contact</div><div class="v">Aug 20 &middot; outbound email</div></div>
+        <div class="field"><div class="k">Apollo sequence</div><div class="v dim">Unsequenced</div></div>
+        <div class="field"><div class="k">Upcoming meeting</div><div class="v dim">None scheduled</div></div>
+        <div class="field"><div class="k">Follow-up signal</div><div class="v">Sent over the Agreement</div></div>
+      </div>
+      <div class="notes"><span class="notes-k">Aug 18 call notes (Gemini)</span>Trust-account discrepancy of $40,000 traced to deposit misallocations; firm agreed to bring in outside bookkeeping to reconcile 2024&ndash;2025 records rather than a formal forensic audit. <q>[Adam Russo] Send Access Instructions: Email the client instructions on how to provide access to the QuickBooks account, copy Michelle.</q></div>
+      <div class="action"><span class="arrow">&rarr;</span><span>Confirm the resent eSignature actually landed &mdash; he'd reported not receiving it twice before your Aug 20 resend, and this is now 6 days quiet with real money ($40k reconciliation) on the line.</span></div>
+      <div class="linkrow">
+        <a href="https://app.apollo.io/#/contacts/6a8317633d61600001c1ce18">Apollo record ↗</a>
+        <a href="https://www.google.com/calendar/event?eid=a3BhcWlwcmM5bzBjMWkzcmkxM2VwZmEzaTAgYWRhbS5ydXNzb0BiZW5jaC5jbw">Aug 18 call on Calendar ↗</a>
+        <a href="https://docs.google.com/document/d/1DZgCEpevLS4wXN4tB2uGO6MulN9MfMFTOXi-L4KSjzk/edit">Full Gemini notes ↗</a>
+      </div>
+    </div>
+
+    <div class="card high" id="c-jean-wei-jian-yang">
+      <div class="card-top">
+        <div class="who">
+          <button type="button" class="name-btn" onclick="openBrief('jean-wei-jian-yang')">Jean Wei Jian Yang<span class="chev">&#9656;</span></button>
+          <div class="biz">JeanWeiYang &middot; Opportunity: not found</div>
+          <div class="email">jean_yang54@yahoo.com</div>
+        </div>
+        <div class="days"><div class="n">8</div><div class="l">days since contact</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="field"><div class="k">Last contact</div><div class="v">Aug 18 &middot; call with Julian Muneton</div></div>
+        <div class="field"><div class="k">Apollo sequence</div><div class="v dim">No data</div></div>
+        <div class="field"><div class="k">Upcoming meeting</div><div class="v dim">None scheduled</div></div>
+        <div class="field"><div class="k">Salesforce lead status</div><div class="v">Missed Discovery Call</div></div>
+      </div>
+      <div class="notes"><span class="notes-k">Data discrepancy</span>Calendar shows a discovery call actually took place Aug 18 &mdash; but with Julian Muneton, not you, and not Salesforce's own record of it. Salesforce still shows the lead status as "Missed Discovery Call." Flagging rather than picking one: either the status is stale, or the call didn't go as recorded.</div>
+      <div class="action"><span class="arrow">&rarr;</span><span>8 days quiet with conflicting records of what even happened on the discovery call &mdash; worth a direct check with Julian before you re-engage her yourself.</span></div>
+      <div class="linkrow">
+        <a href="https://www.google.com/calendar/event?eid=aWd1YnVkdWI4MnVrN2hnaHZobTBnYms4azQgYWRhbS5ydXNzb0BiZW5jaC5jbw">Aug 18 call on Calendar ↗</a>
+        <span class="none">Apollo: not looked up</span>
+      </div>
+    </div>
+
+    <div class="card high" id="c-allison">
+      <div class="card-top">
+        <div class="who">
+          <button type="button" class="name-btn" onclick="openBrief('allison')">Allison<span class="chev">&#9656;</span></button>
+          <div class="biz">Floret and Foliage &middot; Opportunity: not found</div>
+          <div class="email dim">No data</div>
+        </div>
+        <div class="days"><div class="n">9</div><div class="l">days since contact</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="field"><div class="k">Last contact</div><div class="v">Aug 17 &middot; lead assignment only</div></div>
+        <div class="field"><div class="k">Apollo sequence</div><div class="v dim">No data</div></div>
+        <div class="field"><div class="k">Upcoming meeting</div><div class="v dim">None scheduled</div></div>
+        <div class="field"><div class="k">Salesforce stage</div><div class="v dim">Not found</div></div>
+      </div>
+      <div class="action"><span class="arrow">&rarr;</span><span>No outreach on record in the 9 days since this lead landed in your queue &mdash; nothing in Gmail or Calendar shows a first touch yet. Oldest untouched lead in your book.</span></div>
+      <div class="badge-row"><span class="flag">email: no data</span><span class="flag">stage: not found</span></div>
+    </div>
+
+    <div class="card high" id="c-abdel-ibrahimi">
+      <div class="card-top">
+        <div class="who">
+          <button type="button" class="name-btn" onclick="openBrief('abdel-ibrahimi')">Abdel Ibrahimi<span class="chev">&#9656;</span></button>
+          <div class="biz">FTUK LLC &middot; Opportunity: FTUK LLC- (Trial)</div>
+          <div class="email">abdel@ftuk.com</div>
+        </div>
+        <div class="days"><div class="n">5</div><div class="l">days since contact</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="field"><div class="k">Last contact</div><div class="v">Aug 21 &middot; call attempt, no answer</div></div>
+        <div class="field"><div class="k">Apollo sequence</div><div class="v">Adam &ndash; Missed 2nd Call (step 2 of 11, active)</div></div>
+        <div class="field"><div class="k">Upcoming meeting</div><div class="v dim">None scheduled</div></div>
+        <div class="field"><div class="k">Follow-up signal</div><div class="v">Details wanted &ndash; will follow up</div></div>
+      </div>
+      <div class="notes"><span class="notes-k">Aug 21 call notes (Gemini)</span>Two calls missed now &mdash; Julian's Aug 18 kickoff and your own Aug 21 follow-up both went unanswered. You left a voicemail offering to reschedule for next week and said you'd send a text plus a calendar link.</div>
+      <div class="action"><span class="arrow">&rarr;</span><span>Apollo's own sequence name says it: two missed calls, mid-trial, nothing rebooked. Try text instead of another call &mdash; that's what you told his voicemail you'd do.</span></div>
+      <div class="linkrow">
+        <a href="https://app.apollo.io/#/contacts/6a846b90831c510001da9d57">Apollo record ↗</a>
+        <a href="https://www.google.com/calendar/event?eid=Y24yYXJlb2puZ3Q3cDhsbTZybXBkNjY1cTQgYWRhbS5ydXNzb0BiZW5jaC5jbw">Aug 21 call on Calendar ↗</a>
+        <a href="https://docs.google.com/document/d/1eyPtxbi0Zu2bMbe4bKwnFnHGFCdJXc7WVdBEKOiT9bU/edit">Full Gemini notes ↗</a>
+      </div>
+    </div>
+
+    <div class="card high" id="c-daniel-lowry">
+      <div class="card-top">
+        <div class="who">
+          <button type="button" class="name-btn" onclick="openBrief('daniel-lowry')">Daniel Lowry<span class="chev">&#9656;</span></button>
+          <div class="biz">DWL Holdings Inc &middot; Opportunity: DWL Holdings Inc - Core BK (Awaiting Decision)</div>
+          <div class="email">dlowry1977@gmail.com</div>
+        </div>
+        <div class="days"><div class="n">1</div><div class="l">days since contact</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="field"><div class="k">Last contact</div><div class="v">Aug 25, 9:00 AM &middot; call attempt, no answer</div></div>
+        <div class="field"><div class="k">Apollo sequence</div><div class="v dim">Unsequenced</div></div>
+        <div class="field"><div class="k">Upcoming meeting</div><div class="v dim">None scheduled</div></div>
+        <div class="field"><div class="k">Follow-up signal</div><div class="v">Awaiting Decision</div></div>
+      </div>
+      <div class="notes"><span class="notes-k">Aug 25 call notes (Gemini)</span>Call went to an automated unavailable message, no live contact. You still need to send a follow-up text and a scheduling link.</div>
+      <div class="action"><span class="arrow">&rarr;</span><span>Salesforce has this at Awaiting Decision and he still hasn't picked up &mdash; a deal this far along going quiet is the highest-cost kind of silence. Text him today rather than waiting on another call to connect.</span></div>
+      <div class="linkrow">
+        <a href="https://app.apollo.io/#/contacts/6a7e980c910d0900018a1741">Apollo record ↗</a>
+        <a href="https://www.google.com/calendar/event?eid=bm12bTI1cmdoNnZlZjliY2tpcjIwZXBydjAgYWRhbS5ydXNzb0BiZW5jaC5jbw">Aug 25 call on Calendar ↗</a>
+      </div>
+    </div>
+
+    <div class="card high" id="c-danilo-tauro">
+      <div class="card-top">
+        <div class="who">
+          <button type="button" class="name-btn" onclick="openBrief('danilo-tauro')">Danilo Tauro<span class="chev">&#9656;</span></button>
+          <div class="biz">Advertising Expert Intelligence &middot; Opportunity: Advertising Expert Intelligence- (Trial)</div>
+          <div class="email">danilo@go-aei.com</div>
+        </div>
+        <div class="days"><div class="n">6</div><div class="l">days since contact</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="field"><div class="k">Last contact</div><div class="v">Aug 20 &middot; meeting + same-day recap</div></div>
+        <div class="field"><div class="k">Apollo sequence</div><div class="v">&laquo;October 2025 (active, step 1 of 17)</div></div>
+        <div class="field"><div class="k">Upcoming meeting</div><div class="v dim">None scheduled</div></div>
+        <div class="field"><div class="k">Follow-up signal</div><div class="v dim">Unclassified</div></div>
+      </div>
+      <div class="notes"><span class="notes-k">Aug 20 call notes (Gemini)</span>New LLC needs P&amp;L reporting and year-end tax help for international operations. You sent a final proposal: $7,549 covering annual bookkeeping, 8 months of historical cleanup, and joint household tax filing.</div>
+      <div class="action"><span class="arrow">&rarr;</span><span>A real $7,549 proposal has been sitting 6 days with only the automated sequence running &mdash; get a human check-in on the calendar before it goes cold.</span></div>
+      <div class="linkrow">
+        <a href="https://app.apollo.io/#/contacts/6a876d1e4b70ff001c963c2f">Apollo record ↗</a>
+        <a href="https://www.google.com/calendar/event?eid=dTQ0cXBhcnZsOGdqMGZnYTludjhoNWl1dGMgYWRhbS5ydXNzb0BiZW5jaC5jbw">Aug 20 call on Calendar ↗</a>
+        <a href="https://docs.google.com/document/d/1CQFJB1d9CgodwDZWLx_zVMa-rbq2hcbrWkCe6CbGR5Y/edit">Full Gemini notes ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="group" id="group-med">
+    <h2>Medium priority <span class="count">5 contacts</span></h2>
+
+    <div class="card med" id="c-andrew-bravo">
+      <div class="card-top">
+        <div class="who">
+          <button type="button" class="name-btn" onclick="openBrief('andrew-bravo')">Andrew Bravo<span class="chev">&#9656;</span></button>
+          <div class="biz">GGB Healthcare &middot; Opportunity: not found</div>
+          <div class="email">andrew@ggbhealthcare.com</div>
+        </div>
+        <div class="days"><div class="n">1</div><div class="l">days since contact</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="field"><div class="k">Last contact</div><div class="v">Aug 25 &middot; discovery &amp; demo call</div></div>
+        <div class="field"><div class="k">Apollo sequence</div><div class="v dim">No data</div></div>
+        <div class="field"><div class="k">Upcoming meeting</div><div class="v">Mon Aug 31, 11:00 AM</div></div>
+        <div class="field"><div class="k">Follow-up signal</div><div class="v">Price consideration</div></div>
+      </div>
+      <div class="notes"><span class="notes-k">Aug 25 call notes (Gemini)</span>Comparing Bench's $3,710 total package (2025 catchup + 2026 bookkeeping + tax filing) against Collective's flat $199/mo, which bundles tax filing into the base rate. Not solely price-driven &mdash; he said quality matters too. Follow-up set for Monday Aug 31, 11 AM.</div>
+      <div class="action"><span class="arrow">&rarr;</span><span>Still owes him the recap email, the calendar invite, and a trial account &mdash; all three were promised on the call and none have gone out yet. Get them sent before Monday.</span></div>
+      <div class="linkrow">
+        <a href="https://claude.ai/code/artifact/da7aab07-b0f9-4669-9026-0feef51c167b"><strong>Full contact brief ↗</strong></a>
+        <a href="https://www.google.com/calendar/event?eid=ZzZva2M2bmticmljaGE4Z2NpNjBnOXFkaTQgYWRhbS5ydXNzb0BiZW5jaC5jbw">Aug 25 call on Calendar ↗</a>
+        <a href="https://docs.google.com/document/d/1NBDi-kyRwE2tZbNhwON1oQI8WBNW7OE-cM9qpL6WFIU/edit">Full Gemini notes ↗</a>
+      </div>
+    </div>
+
+    <div class="card med" id="c-bernadette-anderson">
+      <div class="card-top">
+        <div class="who">
+          <button type="button" class="name-btn" onclick="openBrief('bernadette-anderson')">Bernadette Anderson<span class="chev">&#9656;</span></button>
+          <div class="biz">Refresh Nail Bar &middot; Opportunity: not found</div>
+          <div class="email">bernadette@refreshnailbar.com</div>
+        </div>
+        <div class="days"><div class="n">0</div><div class="l">days since contact</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="field"><div class="k">Last contact</div><div class="v">Today, 9:30 AM &middot; discovery call</div></div>
+        <div class="field"><div class="k">Apollo sequence</div><div class="v dim">Not looked up</div></div>
+        <div class="field"><div class="k">Upcoming meeting</div><div class="v dim">None scheduled</div></div>
+        <div class="field"><div class="k">Follow-up signal</div><div class="v">Price consideration</div></div>
+      </div>
+      <div class="notes"><span class="notes-k">Today's call notes (Gemini)</span>Single-member LLC nail bar, ~$80K/yr revenue, needs 2023&ndash;2026 historical cleanup + full tax filing. Quoted $9,110 annual total (20% off + waived $1,600 catch-up), payable in 4 installments of $2,277.50. She asked to review and said she'd text her decision.</div>
+      <div class="action"><span class="arrow">&rarr;</span><span>New lead first surfaced today, not a previously-tracked contact &mdash; brand-new brief. Send the promised pricing recap email today so she has the numbers in writing while she decides.</span></div>
+      <div class="linkrow">
+        <a href="https://www.google.com/calendar/event?eid=ZjczaTV1M3ZqZG5xdG5tYnZlZzQxMm1rOXMgYWRhbS5ydXNzb0BiZW5jaC5jbw">Today's call on Calendar ↗</a>
+        <a href="https://docs.google.com/document/d/19q367jvZjX_TxI6XqCbtH5pO45x4UOeLu6UNbUl_6fs/edit">Full Gemini notes ↗</a>
+      </div>
+    </div>
+
+    <div class="card med" id="c-dana-hansen">
+      <div class="card-top">
+        <div class="who">
+          <button type="button" class="name-btn" onclick="openBrief('dana-hansen')">Dana Hansen<span class="chev">&#9656;</span></button>
+          <div class="biz">SALON NUNA &middot; Opportunity: SALON NUNA- (Demo/Evaluation)</div>
+          <div class="email">danashansen@gmail.com</div>
+        </div>
+        <div class="days"><div class="n">1</div><div class="l">days since contact</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="field"><div class="k">Last contact</div><div class="v">Aug 25 &middot; missed follow-up (voicemail only)</div></div>
+        <div class="field"><div class="k">Apollo sequence</div><div class="v dim">Unsequenced</div></div>
+        <div class="field"><div class="k">Upcoming meeting</div><div class="v dim">None scheduled</div></div>
+        <div class="field"><div class="k">Follow-up signal</div><div class="v">Details wanted &ndash; she'll follow up</div></div>
+      </div>
+      <div class="notes"><span class="notes-k">Aug 25, 2:45 PM &mdash; missed follow-up</span>The follow-up call the prior build expected went to voicemail, not a completed meeting. Adam left a message offering to email + text a scheduling link, and said he'd call again in a few days if she doesn't respond. Nothing new since the Aug 18 discovery call ($199/mo tier + $1,200/yr tax filing discussed).</div>
+      <div class="action"><span class="arrow">&rarr;</span><span>Two missed connections in a row now &mdash; send the promised scheduling link by email and text today; calls clearly aren't the reliable channel here.</span></div>
+      <div class="badge-row"><span class="flag">meeting: no-show (was expected as completed)</span></div>
+      <div class="linkrow">
+        <a href="https://claude.ai/code/artifact/d2d7c6da-706d-4f68-b936-b6704b6899d8"><strong>Full contact brief ↗</strong></a>
+        <a href="https://app.apollo.io/#/contacts/6a83b4016260f700016c16b4">Apollo record ↗</a>
+        <a href="https://www.google.com/calendar/event?eid=ZXZxOW1sN2pqNWQwMXFxOTkxYWJrMjFqZ28gYWRhbS5ydXNzb0BiZW5jaC5jbw">Aug 25 call on Calendar ↗</a>
+      </div>
+    </div>
+
+    <div class="card med" id="c-teresa-leatham">
+      <div class="card-top">
+        <div class="who">
+          <button type="button" class="name-btn" onclick="openBrief('teresa-leatham')">Teresa Leatham<span class="chev">&#9656;</span></button>
+          <div class="biz">VIP Executive Car Service &middot; Opportunity: not found</div>
+          <div class="email">teresa@executive-towncar.com</div>
+        </div>
+        <div class="days"><div class="n">7</div><div class="l">days since contact</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="field"><div class="k">Last contact</div><div class="v">Aug 19 &middot; 2 call attempts, no answer</div></div>
+        <div class="field"><div class="k">Apollo sequence</div><div class="v dim">No data</div></div>
+        <div class="field"><div class="k">Upcoming meeting</div><div class="v dim">None scheduled</div></div>
+        <div class="field"><div class="k">Salesforce stage</div><div class="v dim">Not found</div></div>
+      </div>
+      <div class="notes"><span class="notes-k">Aug 19 call notes (Gemini)</span>Former Bench customer re-inquiring. Both calls hit an automated screener; you left a detailed voicemail on the first attempt referencing her past account and offering to text/email a scheduling link.</div>
+      <div class="action"><span class="arrow">&rarr;</span><span>Real effort already went in &mdash; two calls, a detailed voicemail &mdash; but 7 days quiet on a win-back with a prior account is worth one more attempt by text since calls aren't landing.</span></div>
+      <div class="linkrow">
+        <a href="https://www.google.com/calendar/event?eid=Nzh1cnNjcnJvOHFqMTAzdXV0YmFudDQyMTQgYWRhbS5ydXNzb0BiZW5jaC5jbw">Aug 19 call on Calendar ↗</a>
+        <a href="https://docs.google.com/document/d/1qmvvm0gMHwUL7uFw2KFMQfkB9-xelIS1U8s_cnQJA-Y/edit">Full Gemini notes ↗</a>
+      </div>
+    </div>
+
+    <div class="card med" id="c-nathan-moser">
+      <div class="card-top">
+        <div class="who">
+          <button type="button" class="name-btn" onclick="openBrief('nathan-moser')">Nathan Moser<span class="chev">&#9656;</span></button>
+          <div class="biz">NPM Ventures 1 Inc &middot; Opportunity: not in snapshot yet</div>
+          <div class="email">npmventures1@gmail.com</div>
+        </div>
+        <div class="days"><div class="n">1</div><div class="l">days since contact</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="field"><div class="k">Last contact</div><div class="v">Aug 25 &middot; meeting held</div></div>
+        <div class="field"><div class="k">Apollo sequence</div><div class="v dim">Unsequenced</div></div>
+        <div class="field"><div class="k">Upcoming meeting</div><div class="v">Sept 2, 12:30 PM</div></div>
+        <div class="field"><div class="k">Follow-up signal</div><div class="v">Price consideration</div></div>
+      </div>
+      <div class="notes"><span class="notes-k">Aug 25 call notes (Gemini)</span>Currently on QuickBooks with heavy unclassified transactions; decided to prefer Bench over continued QuickBooks. Outstanding: <q>[Adam Russo] Email service summary: Send a recap of the Bench bookkeeping platform and the provided pricing options.</q></div>
+      <div class="action"><span class="arrow">&rarr;</span><span>Hot lead from Aug 25, already leaning your way &mdash; send the pricing recap you promised before the Sept 2 follow-up so it doesn't slip.</span></div>
+      <div class="linkrow">
+        <a href="https://claude.ai/code/artifact/0f4cad15-00f0-4120-b68d-0dece99f5687"><strong>Full contact brief ↗</strong></a>
+        <a href="https://app.apollo.io/#/contacts/6a8d17013ce51d00010a63a3">Apollo record ↗</a>
+        <a href="https://www.google.com/calendar/event?eid=Y3VrdTBwMW9zamoxcTlpcGw2Y2U0cjY1b2sgYWRhbS5ydXNzb0BiZW5jaC5jbw">Aug 25 call on Calendar ↗</a>
+        <a href="https://www.google.com/calendar/event?eid=bmVxaWUzOHE3N29lcDNidnNmZjhlNGlyczQgYWRhbS5ydXNzb0BiZW5jaC5jbw">Sept 2 meeting on Calendar ↗</a>
+        <a href="https://docs.google.com/document/d/1DVY5mUL9UzjwGFEFwO1YluD5xSoMTrGvgKzWIGLKUw0/edit">Full Gemini notes ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="group" id="group-low">
+    <h2>Low priority <span class="count">3 contacts</span></h2>
+
+    <div class="card low" id="c-patty-banach">
+      <div class="card-top">
+        <div class="who">
+          <button type="button" class="name-btn" onclick="openBrief('patty-banach')">Patty Banach<span class="chev">&#9656;</span></button>
+          <div class="biz">Pizza Bistro (existing client) &middot; personal tax add-on signed</div>
+          <div class="email">pizzabistro@hotmail.com</div>
+        </div>
+        <div class="days"><div class="n">0</div><div class="l">days since contact</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="field"><div class="k">Last contact</div><div class="v">Today, 1:30 PM &middot; call, agreement signed</div></div>
+        <div class="field"><div class="k">Apollo sequence</div><div class="v dim">Not looked up</div></div>
+        <div class="field"><div class="k">Upcoming meeting</div><div class="v dim">None scheduled</div></div>
+        <div class="field"><div class="k">Follow-up signal</div><div class="v">Need payment updated (agreement signed)</div></div>
+      </div>
+      <div class="notes"><span class="notes-k">Today's call notes (Gemini)</span>Existing business client added joint personal tax filing for $699/yr; agreement signed on the call. She also flagged a broken website link (the "taxes" scheduling option routes to a "new business" page) &mdash; passed along as a product bug, not a sales item.</div>
+      <div class="action"><span class="arrow">&rarr;</span><span>New lead first surfaced today, existing client not previously tracked by name &mdash; low priority since the agreement's already done; just needs the team to follow up on additional income sources (spouse W2, investments) per the call's own next steps.</span></div>
+      <div class="linkrow">
+        <a href="https://www.google.com/calendar/event?eid=Z2I0OTk0b3ZtdjBndWkzajI5aWZzMmRxY2sgYWRhbS5ydXNzb0BiZW5jaC5jbw">Today's call on Calendar ↗</a>
+        <a href="https://docs.google.com/document/d/18PHChra6aLHk7hBwUQkUazNOSw-lJKltqsVDDQGncGA/edit">Full Gemini notes ↗</a>
+      </div>
+    </div>
+
+    <div class="card low" id="c-hamenti-patel">
+      <div class="card-top">
+        <div class="who">
+          <button type="button" class="name-btn" onclick="openBrief('hamenti-patel')">Hamenti Patel<span class="chev">&#9656;</span></button>
+          <div class="biz">Hydrate IV Bar &middot; Opportunity: not found</div>
+          <div class="email">hdpatel1230@gmail.com</div>
+        </div>
+        <div class="days"><div class="n">1</div><div class="l">days since contact</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="field"><div class="k">Last contact</div><div class="v">Aug 25 &middot; 2 call attempts, no answer</div></div>
+        <div class="field"><div class="k">Apollo sequence</div><div class="v dim">Not looked up</div></div>
+        <div class="field"><div class="k">Upcoming meeting</div><div class="v dim">None scheduled</div></div>
+        <div class="field"><div class="k">Salesforce stage</div><div class="v dim">Not found</div></div>
+      </div>
+      <div class="notes"><span class="notes-k">Aug 25 call notes (Gemini)</span>Both attempts hit voicemail/automated system. Left a message offering to text and email a calendar link to reschedule for later in the week.</div>
+      <div class="action"><span class="arrow">&rarr;</span><span>New lead first surfaced today, not a previously-tracked contact &mdash; brand-new brief. Send the promised text + email with a scheduling link.</span></div>
+      <div class="linkrow">
+        <a href="https://www.google.com/calendar/event?eid=MDFsbjBkMGRuaWdxdGNqanE0NXV2ZWllNGcgYWRhbS5ydXNzb0BiZW5jaC5jbw">Aug 25 call on Calendar ↗</a>
+        <a href="https://docs.google.com/document/d/1z9_RERhETr3qAiqXQVKqOR5dEV0JkfFy9pE0ola9Nqk/edit">Full Gemini notes ↗</a>
+      </div>
+    </div>
+
+    <div class="card low" id="c-chris-tugman">
+      <div class="card-top">
+        <div class="who">
+          <button type="button" class="name-btn" onclick="openBrief('chris-tugman')">Chris Tugman<span class="chev">&#9656;</span></button>
+          <div class="biz">Stripe &middot; not a sales opportunity &mdash; see note</div>
+          <div class="email">ctugman@stripe.com</div>
+        </div>
+        <div class="days"><div class="n">7</div><div class="l">days since contact</div></div>
+      </div>
+      <div class="meta-grid">
+        <div class="field"><div class="k">Last contact</div><div class="v">Aug 19 &middot; inbound email</div></div>
+        <div class="field"><div class="k">Apollo sequence</div><div class="v dim">No data</div></div>
+        <div class="field"><div class="k">Upcoming meeting</div><div class="v dim">None scheduled</div></div>
+        <div class="field"><div class="k">Salesforce lead status</div><div class="v">Lost (Calendly source)</div></div>
+      </div>
+      <div class="action"><span class="arrow">&rarr;</span><span>This reads as a Stripe partnerships inquiry about the Bench app listing on the Stripe Marketplace, not a bookkeeping lead &mdash; likely worth routing to your partnerships contact rather than a sales sequence.</span></div>
+    </div>
+  </div>
+
+  <div class="group" id="group-none">
+    <h2>No action needed <span class="count">0 contacts</span></h2>
+    <div class="empty-tier">Nobody's sitting in this tier right now &mdash; every tracked contact currently needs some kind of follow-up. This section fills in automatically once a contact is fully caught up (recently contacted, nothing owed, no overdue signal).</div>
+  </div>
+
+  <footer>
+    <h3>Sources &amp; method</h3>
+    <ul>
+      <li><b>Gmail, Calendar &amp; Gemini notes</b> &mdash; queried live at build time (Aug 26, 2026, ~2:19 PM MT). There's no separate "Gemini" connector to add &mdash; meeting notes already arrive as regular Gmail messages from <code>gemini-notes@google.com</code> with the full summary inline, and the linked "Notes by Gemini" doc (opened via Google Drive, already connected) carries the full transcript when more detail is useful. Internal Bench/MainStreet/Employer.com colleagues who surfaced as calendar or email contacts were excluded as non-prospects.</li>
+      <li><b>New leads this pass</b> &mdash; Todd Neider, Bernadette Anderson, Hamenti Patel, and Patty Banach all had their first completed calls today (Aug 25&ndash;26) and are included per the "never exclude a contact" rule, but none has a dedicated brief page or an Apollo/Salesforce lookup yet &mdash; those get built the next time each one has further activity, matching how the rest of the book was built up.</li>
+      <li><b>Apollo record links</b> use the pattern <code>app.apollo.io/#/contacts/{id}</code> from your account's own contact IDs &mdash; if Apollo's link format has changed, search the email directly inside Apollo as a fallback.</li>
+      <li><b>Apollo sequences</b> &mdash; this org's 27 sequences are named for outreach campaigns (e.g. "Missed 2nd Call," "Nurture Leads List"), not the six follow-up stages in the project brief, so "Apollo sequence" and "Follow-up signal" are shown as two separate fields. Follow-up signal is only filled in where Gmail/Calendar/notes content gave clear evidence; everything else reads Unclassified rather than guessed.</li>
+      <li><b>Salesforce</b> &mdash; opportunity name and stage come from the <a href="https://claude.ai/code/artifact/ce5924e8-918b-4ea5-b039-3b5ae79a3d95">Pipeline Pulse</a> snapshot (browser-session pull, last refreshed Aug 21) &mdash; five days stale as of this build. This sync does not touch Salesforce directly; there's still no live Salesforce API connection (org OAuth policy blocking it, pending admin approval). A separate scheduled task now attempts to refresh the Pipeline Pulse snapshot ahead of upcoming meetings, but is not yet bound to Adam's device.</li>
+      <li>Gemini's own notes carry its standard disclaimer that auto-generated summaries "may contain errors" &mdash; treat the quoted next-steps as a starting point, not a transcript of record.</li>
+      <li>This page is rebuilt by an hourly automated sync (Next Touch). Ask in a Claude session to force a fresh rebuild, or make edits directly, at any time.</li>
+    </ul>
+  </footer>
+
+  <div class="modal-overlay" id="briefOverlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="briefName">
+      <button type="button" class="modal-close" id="briefClose">&times; Close</button>
+      <div id="briefPriority"></div>
+      <h2 class="modal-name" id="briefName"></h2>
+      <div class="modal-biz" id="briefBiz"></div>
+      <div class="modal-email" id="briefEmail"></div>
+      <div class="modal-metagrid" id="briefMetaGrid"></div>
+      <div id="briefBody"></div>
+      <div class="modal-resources" id="briefResources"></div>
+    </div>
+  </div>
+
+
+</div>
+
+<script type="application/json" id="contacts-data">{"todd-neider": {"name": "Todd Neider", "business": "Active Bodywork", "email": "todd@activebodywork.com", "priority": "High", "tier": "high", "signal": "Need payment updated (agreement signed)", "lastContact": "Today, 11:30 AM · reactivation call, agreement signed", "upcoming": "None scheduled", "notes": "Dormant account reactivating at $599/mo starting Sept 1, plus $750 for 5 months of catch-up. Todd updated his card and signed the revised agreement on the call — but he was explicit: “if 25 is going to take six months once everything is collected, I’m not going to use Bench again.” He’s refusing to pay separately for 2024/2025 tax filing on top of it. Adam promised to check with the billing team and follow up by end of day today — either an email (yes, covered) or a call (no, not covered).", "action": "New lead first surfaced today — brand-new brief. Adam owes him an answer today; if that promise slips, this signed reactivation is genuinely at risk of falling through before it even starts.", "briefUrl": null, "coach": {"situation": "Signed reactivation, but genuinely at risk on two fronts: the 6-month catch-up timeline (his stated dealbreaker) and the separate tax-filing charge he's refusing to pay.", "lines": [["Don’t re-pitch — commit to a date.", "“I hear you on the six-month risk — here’s exactly what I’m doing: checking with billing today and getting you a real answer, not a ‘soon.’ You’ll hear from me by end of day.”"], ["If billing can’t bend on the tax-filing charge", "“I want to give you the full, comprehensive service — help me understand what would make this more affordable for you” (Guide: Holding the line on price) — find out if it's really the amount or the principle of a second charge."], ["Close with a concrete deadline, not vague reassurance", "“How can we get this resolved by end of day? I don’t want you second-guessing this reactivation any longer than you have to.” (Guide: The magic question)"]]}}, "tyler-chartier": {"name": "Tyler Chartier", "business": "HighLevel Garage Doors", "email": "tyler@callhighlevel.com", "priority": "High", "tier": "high", "signal": "Found another solution", "lastContact": "Aug 25 · outbound reply (awaiting response)", "upcoming": "Thu Aug 27, 11:00 AM — Tyler declined", "notes": "“I decided to go in a different direction. Thanks for your time in discussing Bench, if anything changes on my end I’ll be sure to reach out.” He also declined the Thursday follow-up call. Adam replied the same day asking what changed and whether Bench compared unfavorably to whatever he chose — still no response back as of this pass.", "action": "No reply yet to Adam’s question. If nothing comes back by Thursday, treat that slot as open rather than counting on it.", "briefUrl": null, "coach": {"situation": "Already gone quiet on a polite decline — this is a win-back attempt, not a live call. Goal is to find out what actually happened, not to re-pitch cold.", "lines": [["Stay curious, don’t defend", "“That sounds like it wasn’t the right fit — mind sharing what tipped it?” (Guide: Ross — stay curious, don’t over-explain)"], ["If he names a competitor or a reason", "“Given [what mattered most to him] was the priority — why didn’t we move forward with Bench?” (Guide: Ross — why here, not there)"], ["Leave the door open, don't chase", "“Totally understand — if anything changes, I’m here. Mind if I check back in a month?” Low-pressure, since he's already declined once."]]}}, "jonathan-jackson": {"name": "Jonathan Jackson", "business": "Jackson, Landrith & Kulesz, PC", "email": "jonathan@jlkattorneys.com", "priority": "High", "tier": "high", "signal": "Sent over the Agreement", "lastContact": "Aug 20 · outbound email", "upcoming": "None scheduled", "notes": "Trust-account discrepancy of $40,000 traced to deposit misallocations; firm agreed to bring in outside bookkeeping to reconcile 2024–2025 records rather than a formal forensic audit. “Send Access Instructions: Email the client instructions on how to provide access to the QuickBooks account, copy Michelle.”", "action": "Confirm the resent eSignature actually landed — he’d reported not receiving it twice before your Aug 20 resend, and this is now 6 days quiet with real money ($40k reconciliation) on the line.", "briefUrl": null, "coach": {"situation": "Agreement already sent (twice, reportedly lost both times) — 6 days quiet on a $40k trust-account reconciliation. This is an urgency/logistics check-in, not a pitch.", "lines": [["Open by confirming delivery, not re-selling", "“Wanted to make sure the agreement actually landed this time — can you confirm you’ve got it in front of you?” Address the technical failure directly before anything else."], ["Create real urgency from his own stakes", "“How can we get this signed by [date]? I don’t want that $40k discrepancy sitting unresolved any longer than it has to.” (Guide: The magic question)"], ["Schedule the QuickBooks access hand-off live", "“Let’s get that access set up while we’re both here — does [day/time] work for you and Michelle?” (Guide: Schedule on the call, not after)"]]}}, "jean-wei-jian-yang": {"name": "Jean Wei Jian Yang", "business": "JeanWeiYang", "email": "jean_yang54@yahoo.com", "priority": "High", "tier": "high", "signal": "Unsequenced", "lastContact": "Aug 18 · call with Julian Muneton", "upcoming": "None scheduled", "notes": "Calendar shows a discovery call actually took place Aug 18 — but with Julian Muneton, not you, and not Salesforce’s own record of it. Salesforce still shows the lead status as “Missed Discovery Call.” Flagging rather than picking one: either the status is stale, or the call didn’t go as recorded.", "action": "8 days quiet with conflicting records of what even happened on the discovery call — worth a direct check with Julian before you re-engage her yourself.", "briefUrl": null, "coach": {"situation": "Data conflict, not a known sales situation — check with Julian first. If you do end up on the call, treat it as a first discovery since her actual history is unclear.", "lines": [["If this turns into a fresh discovery call", "“Can you start off by telling me a bit about what your business does?” then the bucket question: “I speak to companies like yours all the time — they’re usually either frustrated by taxes, or their bookkeeping solution isn’t working anymore. Does that sound like your world?” (Guide: First question / Bucket question)"], ["Get her actual current-state, since Salesforce may be wrong", "“How are you currently managing your bookkeeping — doing it yourself, or working with someone?”"]]}}, "allison": {"name": "Allison", "business": "Floret and Foliage", "email": null, "priority": "High", "tier": "high", "signal": "No data", "lastContact": "Aug 17 · lead assignment only", "upcoming": "None scheduled", "notes": null, "action": "No outreach on record in the 9 days since this lead landed in your queue — nothing in Gmail or Calendar shows a first touch yet. Oldest untouched lead in your book.", "briefUrl": null, "coach": {"situation": "Zero contact yet — this is a cold first touch, 9 days overdue. Use the full open.", "lines": [["Opener", "“Hey Allison, this is Adam calling from Bench Accounting. How’s your day going so far?”"], ["Agenda", "“I’m going to ask you some questions about your business and your bookkeeping and tax needs, we’ll talk through the top things you’re looking for, and then I’ll walk you through what working with Bench looks like. How’s that sound?”"], ["First question", "“Can you start off by telling me a bit about what Floret and Foliage does?”"]]}}, "abdel-ibrahimi": {"name": "Abdel Ibrahimi", "business": "FTUK LLC", "email": "abdel@ftuk.com", "priority": "High", "tier": "high", "signal": "Details wanted – will follow up", "lastContact": "Aug 21 · call attempt, no answer", "upcoming": "None scheduled", "notes": "Two calls missed now — Julian’s Aug 18 kickoff and your own Aug 21 follow-up both went unanswered. You left a voicemail offering to reschedule for next week and said you’d send a text plus a calendar link.", "action": "Apollo’s own sequence name says it: two missed calls, mid-trial, nothing rebooked. Try text instead of another call — that’s what you told his voicemail you’d do.", "briefUrl": null, "coach": {"situation": "Mid-trial, two missed calls — he's not picking up, so the channel needs to change, not the pitch.", "lines": [["Text, don’t call a third time", "“Want to follow up once you’ve had a moment? Happy to grab 15 minutes whenever works — here’s a link.” (Guide: Ross — same-day micro-follow-up, adapted to text)"], ["If he responds, get his trial experience in his own words", "“How’s the trial been going so far — anything getting in the way of it clicking?”"]]}}, "daniel-lowry": {"name": "Daniel Lowry", "business": "DWL Holdings Inc", "email": "dlowry1977@gmail.com", "priority": "High", "tier": "high", "signal": "Awaiting Decision", "lastContact": "Aug 25, 9:00 AM · call attempt, no answer", "upcoming": "None scheduled", "notes": "Call went to an automated unavailable message, no live contact. You still need to send a follow-up text and a scheduling link.", "action": "Salesforce has this at Awaiting Decision and he still hasn’t picked up — a deal this far along going quiet is the highest-cost kind of silence. Text him today rather than waiting on another call to connect.", "briefUrl": null, "coach": {"situation": "Awaiting Decision stage, gone quiet, calls aren't connecting. This is late-stage — treat silence as urgent, not routine.", "lines": [["Text with a real deadline, not a generic check-in", "“How can we get this decided by [date]? I don’t want you sitting on this longer than you have to — happy to answer anything that’s still open.” (Guide: The magic question)"], ["If he responds and hesitates", "“Is it really the price, or is it something else — the service, the product, something I didn’t cover?” (Guide: Iris — real objection or something else?)"]]}}, "danilo-tauro": {"name": "Danilo Tauro", "business": "Advertising Expert Intelligence", "email": "danilo@go-aei.com", "priority": "High", "tier": "high", "signal": "Unclassified", "lastContact": "Aug 20 · meeting + same-day recap", "upcoming": "None scheduled", "notes": "New LLC needs P&L reporting and year-end tax help for international operations. You sent a final proposal: $7,549 covering annual bookkeeping, 8 months of historical cleanup, and joint household tax filing.", "action": "A real $7,549 proposal has been sitting 6 days with only the automated sequence running — get a human check-in on the calendar before it goes cold.", "briefUrl": null, "coach": {"situation": "Proposal already sent, no human follow-up in 6 days — re-engage around the proposal, don't restart discovery.", "lines": [["Re-open around what stood out, not the number", "“Before we talk next steps — what stood out to you as the biggest impact this could have on the business?” (Guide: Do they want it)"], ["If price is the hesitation on the $7,549", "“What’s your baseline — what’s expensive to you, compared to what?” (Guide: “It’s too expensive”)"], ["Close with a direct ask", "“I’m confident this is the right move for the business — can we get you started this week?”"]]}}, "andrew-bravo": {"name": "Andrew Bravo", "business": "GGB Healthcare", "email": "andrew@ggbhealthcare.com", "priority": "Medium", "tier": "med", "signal": "Price consideration", "lastContact": "Aug 25 · discovery & demo call", "upcoming": "Mon Aug 31, 11:00 AM", "notes": "Comparing Bench’s $3,710 total package (2025 catchup + 2026 bookkeeping + tax filing) against Collective’s flat $199/mo, which bundles tax filing into the base rate. Not solely price-driven — he said quality matters too. Follow-up set for Monday Aug 31, 11 AM.", "action": "Still owes him the recap email, the calendar invite, and a trial account — all three were promised on the call and none have gone out yet. Get them sent before Monday.", "briefUrl": "https://claude.ai/code/artifact/da7aab07-b0f9-4669-9026-0feef51c167b", "coach": {"situation": "Head-to-head price comparison vs. Collective's $199/mo flat rate. He's said quality matters too — don't just defend the number, unsell the cheaper alternative's real failure mode.", "lines": [["Don’t defend on price — unsell the alternative", "“I totally hear you — a flat-rate option is absolutely going to have a cheaper sticker price. What I hear most from people who’ve moved between services is the cheaper option exposes you to ‘communication chaos’ — they outsource you to a pool of bookkeepers who don’t actually work in your account.” (Guide: Found a cheaper outsourced service, verbatim)"], ["Then find out why he's still comparing at all", "“Given quality was what mattered most to you — what’s Collective offering that’s giving you pause on Bench?” (Guide: Ross — why here, not there)"], ["On Monday, confirm he's sold before re-pitching price", "“Does this feel like the thing that finally solves your financial pressures?” then move straight to onboarding options, not back to features."]]}}, "bernadette-anderson": {"name": "Bernadette Anderson", "business": "Refresh Nail Bar", "email": "bernadette@refreshnailbar.com", "priority": "Medium", "tier": "med", "signal": "Price consideration", "lastContact": "Today, 9:30 AM · discovery call", "upcoming": "None scheduled", "notes": "Single-member LLC nail bar, ~$80K/yr revenue, needs 2023–2026 historical cleanup + full tax filing. Quoted $9,110 annual total (20% off + waived $1,600 catch-up), payable in 4 installments of $2,277.50. She asked to review and said she’d text her decision.", "action": "New lead first surfaced today — brand-new brief. Send the promised pricing recap email today so she has the numbers in writing while she decides.", "briefUrl": null, "coach": {"situation": "Quoted, asked to review, said she'd text — classic soft stall right after a real number. Get the recap out fast and give her a decision window, not just a wait.", "lines": [["In the recap email, don't just restate the price", "“I know you mentioned feeling behind on the books — with Bench, the goal is to get you feeling caught up and confident again, not just cleaned up.” (Guide: Returns → Results → Emotion)"], ["If she calls back hesitant", "“What does the timeline look like for you to decide — this week, or more toward end of month?” (Guide: Iris — timeline, not yes/no)"], ["If it comes back to price specifically", "“Is it really the price, or is it something else?” (Guide: Iris — real objection or something else?)"]]}}, "dana-hansen": {"name": "Dana Hansen", "business": "SALON NUNA", "email": "danashansen@gmail.com", "priority": "Medium", "tier": "med", "signal": "Details wanted – she’ll follow up", "lastContact": "Aug 25 · missed follow-up (voicemail only)", "upcoming": "None scheduled", "notes": "The follow-up call the prior build expected went to voicemail, not a completed meeting. Adam left a message offering to email + text a scheduling link, and said he’d call again in a few days if she doesn’t respond. Nothing new since the Aug 18 discovery call ($199/mo tier + $1,200/yr tax filing discussed).", "action": "Two missed connections in a row now — send the promised scheduling link by email and text today; calls clearly aren’t the reliable channel here.", "briefUrl": "https://claude.ai/code/artifact/d2d7c6da-706d-4f68-b936-b6704b6899d8", "coach": {"situation": "Two missed calls in a row — channel problem, not a value problem. Switch to text/email and make re-booking effortless.", "lines": [["Text, short and low-friction", "“Want to follow up once you’ve had a chance to look this over? Happy to grab 15 minutes whenever works — here’s a link to grab a time.” (Guide: Ross — same-day micro-follow-up, adapted)"], ["When you do connect, reconfirm interest before re-pitching", "“Last time we talked about the $199/mo tier plus tax filing — does that still sound like where you’re at?”"]]}}, "teresa-leatham": {"name": "Teresa Leatham", "business": "VIP Executive Car Service", "email": "teresa@executive-towncar.com", "priority": "Medium", "tier": "med", "signal": "No data", "lastContact": "Aug 19 · 2 call attempts, no answer", "upcoming": "None scheduled", "notes": "Former Bench customer re-inquiring. Both calls hit an automated screener; you left a detailed voicemail on the first attempt referencing her past account and offering to text/email a scheduling link.", "action": "Real effort already went in — two calls, a detailed voicemail — but 7 days quiet on a win-back with a prior account is worth one more attempt by text since calls aren’t landing.", "briefUrl": null, "coach": {"situation": "Former customer, re-inquiring — this is a win-back, not a cold call. She already knows Bench; find out what changed and why she's back.", "lines": [["Welcome-back framing, not a generic opener", "“Good to hear from you again — what’s got you thinking about coming back to Bench?”"], ["Surface what didn't work wherever she went instead", "“What’s not been working with how you’ve been handling it since?” (Guide: Has a local CPA, adapted for a win-back)"]]}}, "nathan-moser": {"name": "Nathan Moser", "business": "NPM Ventures 1 Inc", "email": "npmventures1@gmail.com", "priority": "Medium", "tier": "med", "signal": "Price consideration", "lastContact": "Aug 25 · meeting held", "upcoming": "Sept 2, 12:30 PM", "notes": "Currently on QuickBooks with heavy unclassified transactions; decided to prefer Bench over continued QuickBooks. Outstanding: “Email service summary: Send a recap of the Bench bookkeeping platform and the provided pricing options.”", "action": "Hot lead from Aug 25, already leaning your way — send the pricing recap you promised before the Sept 2 follow-up so it doesn’t slip.", "briefUrl": "https://claude.ai/code/artifact/0f4cad15-00f0-4120-b68d-0dece99f5687", "coach": {"situation": "Hot lead, real buying signal already on record (“this definitely seems like 21st century” re: QuickBooks vs. Bench) — Sept 2 is a decision call, and Reading the Tape flagged two specific things to fix from the Aug 25 call: he only got space to raise his real concern (money moving between accounts) after a 3:38 unbroken monologue, and pricing numbers went by fast (189 wpm).", "lines": [["Checkpoint the recap, don’t monologue it", "Every 60–90 seconds: “does that match what you’re picturing?” (Reading the Tape: the single most actionable fix from his last call — an 80/20 talk-time split let his real objection about moving money between accounts sit unspoken for over 3 minutes last time)."], ["Slow down specifically on the $9,110/annual number", "Reading the Tape flagged pricing delivered at full pace as the one place a deliberate half-beat pays off — dollar figures said fast are the ones people ask you to repeat."], ["Reconfirm the buying signal before pricing", "“Last time you mentioned QuickBooks felt laggy and dated — does the dashboard we walked through still feel like the fix for that?”"], ["Proactive objection strike before the close", "“Do you feel like Bench will accomplish what you need?” (yes) “Great. And does the annual pricing feel fair?” (yes) “Great — sounds like we’re a fit.” (Guide: Ross — proactive objection strike)"], ["Close, naming the emotional payoff", "“I’m confident this gets QuickBooks off your plate for good — can we get you started today?”"]]}, "readingTapeUrl": "https://claude.ai/code/artifact/7e63e020-1d8f-40d2-b06a-293983c5c04c"}, "patty-banach": {"name": "Patty Banach", "business": "Pizza Bistro (existing client)", "email": "pizzabistro@hotmail.com", "priority": "Low", "tier": "low", "signal": "Need payment updated (agreement signed)", "lastContact": "Today, 1:30 PM · call, agreement signed", "upcoming": "None scheduled", "notes": "Existing business client added joint personal tax filing for $699/yr; agreement signed on the call. She also flagged a broken website link (the “taxes” scheduling option routes to a “new business” page) — passed along as a product bug, not a sales item.", "action": "New lead first surfaced today, existing client not previously tracked by name — low priority since the agreement’s already done; just needs the team to follow up on additional income sources (spouse W2, investments) per the call’s own next steps.", "briefUrl": null, "coach": {"situation": "Already signed — this is a light upsell/data-gathering follow-up, not a sales conversation.", "lines": [["Light discovery on additional income", "“To make sure the personal filing is complete — any other income sources this year? A spouse’s W2, investment income, anything like that?”"]]}}, "hamenti-patel": {"name": "Hamenti Patel", "business": "Hydrate IV Bar", "email": "hdpatel1230@gmail.com", "priority": "Low", "tier": "low", "signal": "No data", "lastContact": "Aug 25 · 2 call attempts, no answer", "upcoming": "None scheduled", "notes": "Both attempts hit voicemail/automated system. Left a message offering to text and email a calendar link to reschedule for later in the week.", "action": "New lead first surfaced today — brand-new brief. Send the promised text + email with a scheduling link.", "briefUrl": null, "coach": {"situation": "No live contact yet — calls aren't connecting, switch to text as promised.", "lines": [["Text, short and easy to say yes to", "“Hi Hamenti, this is Adam from Bench Accounting — tried reaching you a couple times. Happy to grab 15 minutes whenever works, here’s a link to pick a time.”"]]}}, "chris-tugman": {"name": "Chris Tugman", "business": "Stripe", "email": "ctugman@stripe.com", "priority": "Low", "tier": "low", "signal": "Not a sales opportunity", "lastContact": "Aug 19 · inbound email", "upcoming": "None scheduled", "notes": null, "action": "This reads as a Stripe partnerships inquiry about the Bench app listing on the Stripe Marketplace, not a bookkeeping lead — likely worth routing to your partnerships contact rather than a sales sequence.", "briefUrl": null, "coach": null, "coachSkipNote": "This looks like a partnerships inquiry, not a prospect — no sales Call Coach applies here. Route to your partnerships contact instead."}, "daniel-simunek": {"name": "Daniel Simunek", "business": "SSP Chasers", "email": "ssp_chasers@yahoo.com", "priority": null, "tier": "unmatched", "signal": null, "lastContact": "Today, 2:00 PM · Bench Accounting Consultation", "upcoming": null, "notes": "Not confidently matched to a Salesforce record or an existing Next Touch contact — this profile is built from calendar details only.", "action": "First-time consultation, per the meeting type on the calendar.", "briefUrl": null, "coach": {"situation": "Not yet tracked anywhere — treat as a first-time consultation.", "lines": [["Open with agenda-setting, not assumptions", "“Can you start off by telling me a bit about what SSP Chasers does?” then the bucket question: “I speak to companies like yours all the time — they’re usually either frustrated by taxes, or their current bookkeeping isn’t working anymore. Does that sound like your world?”"]]}}, "geoffrey-aquino": {"name": "Geoffrey Aquino", "business": "Geoff Aquino Consulting", "email": "geoffaquino@me.com", "priority": null, "tier": "unmatched", "signal": null, "lastContact": "Today, 3:00 PM · Bench Accounting Consultation · previously rescheduled (reason given: “Work”)", "upcoming": null, "notes": "Not confidently matched to a Salesforce record or an existing Next Touch contact — this profile is built from calendar details only.", "action": "Already rescheduled once — keep the open tight and confirm what he needs before going deep.", "briefUrl": null, "coach": {"situation": "Rescheduled once already (“Work”) — respect that his time is tight.", "lines": [["Acknowledge the reschedule, keep it efficient", "“Thanks for making time — I’ll keep this focused. Can you start by telling me a bit about what you’re running into with your bookkeeping right now?”"]]}}, "beverly-lwenya": {"name": "Beverly Lwenya", "business": "The Afropolitan Shop", "email": "beverlyskills@gmail.com", "priority": null, "tier": "unmatched", "signal": null, "lastContact": "Fri Aug 28, 12:00 PM · Learn More About Bench (demo)", "upcoming": null, "notes": "Not confidently matched to a Salesforce record or an existing Next Touch contact — this profile is built from calendar details only.", "action": "Listed as a demo, which usually means a warmer conversation than a cold consult.", "briefUrl": null, "coach": {"situation": "Booked as a demo, not a cold consult — likely already warm; lead with the platform, not a full discovery restart.", "lines": [["Confirm what she already knows before diving in", "“Before I walk you through the platform — what made you want to take a closer look at Bench?”"], ["Checkpoint through the demo", "“Does that match what you were picturing?” after each section, rather than one long walkthrough."]]}}, "christian-rothchild": {"name": "Christian Rothchild", "business": "Rainbow Warriors", "email": "christian@rainbowwarriors.earth", "priority": null, "tier": "unmatched", "signal": null, "lastContact": "Fri Aug 28, 2:45 PM · Book a call with Bench · previously rescheduled (reason given: “Higher priority obligation”)", "upcoming": null, "notes": "Not confidently matched to a Salesforce record or an existing Next Touch contact — this profile is built from calendar details only.", "action": "Already rescheduled once — worth a light check-in on timing before the full pitch.", "briefUrl": null, "coach": {"situation": "Rescheduled once already — check timing/priority before launching in.", "lines": [["Light check-in first", "“Good to finally connect — is this still a good time, or is something else pulling at you?” then move into: “Can you tell me a bit about what Rainbow Warriors does and where bookkeeping fits in right now?”"]]}}}</script>
+<script>
+var CONTACTS = JSON.parse(document.getElementById('contacts-data').textContent);
+var VERBIAGE_URL = "https://claude.ai/code/artifact/19d06ea7-3178-46ff-bf4d-13f1dca37906";
+var lastFocusedEl = null;
+
+function esc(s) {
+  if (s === null || s === undefined) return '';
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function priorityLabel(tier) {
+  var map = { high: 'High priority', med: 'Medium priority', low: 'Low priority', none: 'No action needed', unmatched: 'Not yet matched to a profile' };
+  return map[tier] || '';
+}
+
+function metaField(k, v) {
+  return '<div class="mf"><div class="k">' + esc(k) + '</div><div class="v">' + esc(v) + '</div></div>';
+}
+
+function section(title, bodyHtml, openDefault) {
+  return '<details class="modal-section"' + (openDefault ? ' open' : '') + '><summary>' + esc(title) + '</summary><div class="modal-section-body">' + bodyHtml + '</div></details>';
+}
+
+function coachHtml(c) {
+  if (!c.coach) {
+    return '<p class="dim-note">' + esc(c.coachSkipNote || 'No call coaching available for this contact yet.') + '</p>';
+  }
+  var h = '<div class="coach-situation">' + esc(c.coach.situation) + '</div>';
+  c.coach.lines.forEach(function (pair) {
+    h += '<div class="coach-line"><div class="cl-label">' + esc(pair[0]) + '</div><div class="cl-verbiage">' + esc(pair[1]) + '</div></div>';
+  });
+  return h;
+}
+
+function openBrief(slug) {
+  var c = CONTACTS[slug];
+  if (!c) return;
+  lastFocusedEl = document.activeElement;
+
+  document.getElementById('briefPriority').innerHTML = c.tier ? ('<span class="modal-priority-badge mpb-' + c.tier + '">' + esc(priorityLabel(c.tier)) + '</span>') : '';
+  document.getElementById('briefName').textContent = c.name || '';
+  document.getElementById('briefBiz').textContent = c.business || 'No data';
+  document.getElementById('briefEmail').textContent = c.email || 'No data';
+
+  var meta = '';
+  meta += metaField('Last contact', c.lastContact || 'No data');
+  meta += metaField('Upcoming meeting', c.upcoming || 'None scheduled');
+  meta += metaField('Follow-up signal', c.signal || 'Unsequenced');
+  document.getElementById('briefMetaGrid').innerHTML = meta;
+
+  var body = '';
+  body += section('Conversation history &amp; notes', c.notes ? ('<p>' + esc(c.notes) + '</p>') : '<p class="dim-note">No data on file yet for this contact.</p>', true);
+  body += section('Recommended next action', '<p>' + esc(c.action || 'No recommendation yet.') + '</p>', true);
+  body += section('Call Coach', coachHtml(c), true);
+  document.getElementById('briefBody').innerHTML = body;
+
+  var res = '';
+  if (c.briefUrl) res += '<a class="resbtn resbtn-brief" href="' + esc(c.briefUrl) + '" target="_blank" rel="noopener">\uD83D\uDCCB Full Contact Brief</a>';
+  if (c.readingTapeUrl) res += '<a class="resbtn resbtn-coach" href="' + esc(c.readingTapeUrl) + '" target="_blank" rel="noopener">\uD83C\uDFA7 Reading the Tape</a>';
+  res += '<a class="resbtn resbtn-verbiage" href="' + esc(VERBIAGE_URL) + '" target="_blank" rel="noopener">\uD83D\uDCAC Call Verbiage Field Guide</a>';
+  document.getElementById('briefResources').innerHTML = res;
+
+  document.getElementById('briefOverlay').hidden = false;
+  document.body.style.overflow = 'hidden';
+  document.getElementById('briefClose').focus();
+}
+
+function closeBrief() {
+  var ov = document.getElementById('briefOverlay');
+  if (ov.hidden) return;
+  ov.hidden = true;
+  document.body.style.overflow = '';
+  if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') lastFocusedEl.focus();
+}
+
+document.getElementById('briefClose').addEventListener('click', closeBrief);
+document.getElementById('briefOverlay').addEventListener('click', function (e) {
+  if (e.target === this) closeBrief();
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') closeBrief();
+});
+
+// Deep-link support: arriving with #c-<slug> in the URL (e.g. from Pipeline Pulse or
+// Daily Priorities) auto-opens that contact's brief.
+(function () {
+  try {
+    var h = location.hash;
+    if (h && h.indexOf('#c-') === 0) {
+      var slug = h.slice(3);
+      if (CONTACTS[slug]) {
+        setTimeout(function () { openBrief(slug); }, 60);
+      }
+    }
+  } catch (e) {}
+})();
+</script>
+
+
+
+</body></html>

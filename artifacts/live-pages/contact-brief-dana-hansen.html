@@ -1,0 +1,1105 @@
+<!doctype html><html><head><!-- frame-runtime --><base href="/_f/1787783290-594c/"><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.YODCk0yK.js","assets":"assets.DBUJcvq_.js","comments":"comments.GLuHR3zP.js","db":"db.CRhVHzSt.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CxGAyc-v.js","mcp":"mcp.Bvma3qD7.js","network":"network.B5UA9Su4.js","permissions":"permissions.BNySkLV5.js","room":"room.BMMoe2BY.js","sample":"sample.BW2Uysoh.js","self":"artifact.YODCk0yK.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.CQm3TZ9K.js","comments":"_comments.PBVy184F.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var J=["light","dark","system"],Q=/^[A-Za-z0-9_-]{1,64}$/,H=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,ee=new Set(["class","hidden","value","checked"]);function te(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||ee.has(t)}var Me="http://www.w3.org/1999/xhtml",re="http://www.w3.org/2000/svg",ne=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),oe=new Set(["script","style"]);function se(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!ne.has(t):e.namespaceURI===re?!oe.has(t):!1}var ae=new Set(["html","head","body","frameset"]);function ie(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&ae.has(e.localName)}function ce(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!Q.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[r,n]of Object.entries(t.attrsSet))if(!H.test(r)||typeof n!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const r of t.attrsRemoved)if(typeof r!="string"||!H.test(r))return!1}return!0}function le(e,t){if(e===null||typeof e!="object")return!1;const{seq:r,elements:n}=e;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let s=0;s<n.length;s++)if(!t(n[s]))return!1;return!0}function ue(e){return e===null||typeof e!="object"?!1:le(e.__frame_patch,ce)}function fe(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function pe(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function de(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&J.includes(r)}var A=/^[\w.-]+\.js$/;function me(e,t,r){return r?"inert":typeof t=="string"&&A.test(t)?e?[t]:"inert":e?"inert":"framed"}function he(){return{post(e,t){parent.postMessage(e,t)},on(e){const t=r=>{r.source===parent&&e(r.data,r.origin)};return addEventListener("message",t),()=>removeEventListener("message",t)}}}function _e(){return{post:()=>{},on:()=>()=>{}}}var O="__frame_scroll",ve=150,ye=310,we=160,be=3e4;function Ee(){let e=0,t=!1,r=!1,n=!1,s=0,a=null;const l=i=>{try{sessionStorage.setItem(O,JSON.stringify({y:i}))}catch{}},d=()=>{if(clearTimeout(e),a===null)return;const i=a;a=null,l(i)},v=()=>{if(t){t=!1;return}r=!0,a=scrollY,clearTimeout(e),e=setTimeout(d,ve)};try{addEventListener("scroll",v,{passive:!0}),addEventListener("pagehide",d)}catch{}const y=()=>{let i;try{i=sessionStorage.getItem(O)}catch{return null}if(i===null)return null;let m;try{m=JSON.parse(i)}catch{m=null}const u=m?.y;if(!(typeof u=="number"&&Number.isFinite(u)&&u>=0)){try{sessionStorage.removeItem(O)}catch{}return null}return u};let S=!1;const h=i=>{try{const m=scrollY;scrollTo({top:i,left:0,behavior:"instant"}),s=i,n=!0,clearTimeout(e),a=null,l(i);const u=scrollY;u!==m&&(t=!0),u!==i&&!S&&(S=!0,addEventListener("load",()=>{try{if(scrollY===u){const k=y();h(k!==null?k:s)}}catch{}},{once:!0}))}catch{}},w=()=>{try{return!!location.hash}catch{return!0}};let o=!1;const f=()=>{try{if(o||innerWidth>ye||innerHeight>we)return;o=!0;const i=Date.now(),m=()=>{try{removeEventListener("resize",m)}catch{}if(Date.now()-i>be||r||w())return;const u=y();h(u!==null?u:s)};addEventListener("resize",m)}catch{}};let _=!1,b=!1;return{restore(){if(_||(_=!0,w()))return;const i=y();i!==null&&(h(i),f())},promoted(){if(b||(b=!0,w()))return;const i=y();i!==null?(h(i),f()):n&&h(s)}}}function ge(e,t,r,n){let s=null;try{s=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:v=>v})??null}catch{}const a=window.Worker,l=a?.prototype,d=Object.freeze({Worker:a,workerOn:l?.addEventListener,workerPost:l?.postMessage,workerTerminate:l?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,policy:s,origins:t});r(e).then(v=>v?.bootTopLevel?v.bootTopLevel(d,n):n.settle()).catch(()=>n.settle())}var Oe="modulepreload",Ce=function(e){return"/"+e},je={},Ae=function(t,r,n){let s=Promise.resolve();function a(l){const d=new Event("vite:preloadError",{cancelable:!0});if(d.payload=l,window.dispatchEvent(d),!d.defaultPrevented)throw l}return s.then(l=>{for(const d of l||[])d.status==="rejected"&&a(d.reason);return t().catch(a)})},Re=window===top,q=Object.getOwnPropertyDescriptor(window,"claude"),T=me(Re,window.__FRAME_PREAMBLE?.topLevel,q?.writable===!1),C=typeof T=="object"&&T[0],p=C?_e():he();(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let s=0;s<r.length;s++){const a=r[s];try{e(t,a,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[a]}catch{}try{e(t,a,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[a]=="function"&&n++}if(n&&T==="framed")try{p.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Se=1e4,W=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function $(e){for(const t of W)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var L=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),j=window.__FRAME_PREAMBLE?.transforms,N=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate;function R(e){return Ae(()=>import("/_runtime/"+e),void 0)}function K(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:D,pipe:()=>({wrap:(r,n)=>(...s)=>{try{return n(...s)}catch(a){return Promise.reject(a)}}})}}var P=null,E=null;function Y(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var B=!1;function ke(e,t){const r=[];for(const n of e.elements){const s=document.querySelector(`[data-id="${n.target}"]`);if(!s){p.post({__frame_patch_miss:{seq:e.seq}},t);return}if([...Object.keys(n.attrsSet??{}),...n.attrsRemoved??[]].some(a=>!te(a))){p.post({__frame_patch_miss:{seq:e.seq}},t);return}if(n.text!==void 0&&(!se(s)||ie(s))){p.post({__frame_patch_miss:{seq:e.seq}},t);return}for(const[a,l]of Object.entries(n.attrsSet??{}))if(!G(s,a)){try{s.setAttribute(a,l)}catch{}X(s,a,l)}for(const a of n.attrsRemoved??[])G(s,a)||(s.removeAttribute(a),X(s,a,null));typeof n.text=="string"&&(s.textContent=n.text),r.push(n.target)}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:r}}))}catch{}}function X(e,t,r){if(!(e instanceof HTMLInputElement))return;const n=t.toLowerCase();n==="checked"?e.checked=r!==null:n==="value"&&e.type!=="file"&&(e.value=r??"")}function G(e,t){const r=t.toLowerCase(),n=e;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function V(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,B=!0):B&&(delete t.dataset.theme,t.style.colorScheme="",B=!1)}var M=new Map;function Te(){let e;const t={u:new Promise(r=>{e=r}),r:r=>{t.done=!0,e(r)},done:!1,nulled:!1};return t}function U(){for(const e of M.values())e.done||(e.nulled=!0,e.r(null))}var Le=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),D=(e,t)=>{const r=M.get(e);if(!r||r.done){r?.nulled&&E&&p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},E);return}const n=typeof t=="function"?Object.setPrototypeOf(t,Le):Object.assign(Object.create(null),t);typeof n.then=="function"&&delete n.then,r.r(Object.freeze(n))};function Z(){const e=q?.value??{};Y(window,"claude",e);for(const t of Object.keys(L)){if(e[t]!==void 0){Y(e,t,e[t]);continue}M.set(t,Te())}if(e.use===void 0){const t=r=>{if(typeof r!="string"||!Object.hasOwn(L,r))return Promise.resolve(null);const n=M.get(r);return n?n.u:Promise.resolve(e[r]??null)};try{Object.defineProperty(e,"use",{value:t,writable:!0,configurable:!0,enumerable:!1})}catch{}}}if(T==="framed"){const e=j&&A.test(j)?R(j).catch(()=>{}):Promise.resolve(void 0),t=o=>{if(o.type==="auxclick"&&o.button!==1)return;const f=o.target,_=f&&f.closest?f.closest("a[href],area[href]"):null;if(!_)return;const b=_.getAttribute("href");if(!b)return;let i;try{i=new URL(b,document.baseURI)}catch{return}if((i.protocol==="http:"||i.protocol==="https:")&&i.origin!==location.origin){o.preventDefault();const m=(_.getAttribute("target")??"").toLowerCase(),u=o.type==="auxclick"||o.metaKey||o.ctrlKey||o.shiftKey||o.altKey||!["","_self","_top","_parent"].includes(m);p.post({__frame_nav:!0,url:i.href,newTab:u},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const r={},n=o=>{o.isTrusted&&(r.pointer=!0)},s=o=>{o.isTrusted&&(r.click=!0)};addEventListener("pointermove",n,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0}),e.then(o=>{o?.wireNav&&(o.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",n,!0),removeEventListener("click",s,!0),o.wireEngagement?.(r))});let a=null;try{a=Ee()}catch{}Z();let l=null,d=null,v=0;const y=p.on((o,f)=>{$(f)&&fe(o)&&(l=o.__frame_init,E=f,y(),clearTimeout(v),d?.())});p.post({__frame_connect:!0},"*");const S=new Promise(o=>{d=o,v=setTimeout(()=>{y(),o()},Se)}),h=document.readyState==="loading"?new Promise(o=>document.addEventListener("DOMContentLoaded",()=>o(),{once:!0})):Promise.resolve();h.then(()=>{try{a?.restore()}catch{}});const w={cb:null};p.on((o,f)=>{if($(f)&&pe(o)){try{a?.promoted()}catch{}w.cb?.()}}),S.then(async()=>{if(!l||!E){U();return}V(l.theme);const o=E;let f=!1,_=!1;p.on((c,x)=>{if(x!==o)return;de(c)&&V(c.__frame_theme.theme),ue(c)&&ke(c.__frame_patch,o);const g=c?.__fc_mode;g&&typeof g=="object"&&!f&&N&&A.test(N)&&(f=!0,R(N).then(z=>z.install?.(o,g.on===!0)).catch(()=>{}));const F=c?.__ft_cmd;F&&typeof F=="object"&&!_&&I&&A.test(I)&&(_=!0,R(I).then(z=>z.install?.(o,F)).catch(()=>{}))});const b=Object.keys(l.capabilities??{}).filter(c=>Object.hasOwn(L,c)).map(c=>[c,L[c]]).filter(c=>typeof c[1]=="string"&&A.test(c[1])),i=await Promise.allSettled(b.map(([,c])=>R(c))),m=await e,u=E;if(m?.buildBoot||p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},u),m?.buildBoot)try{P=m.buildBoot(l,m.TRANSFORMS??{},{shellOrigin:u,mount:D},c=>p.post({__frame_cap_telemetry:c},u))}catch{p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},u),P=K(l,u)}else P=K(l,u);const k=c=>p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:c}},u),Pe=P;i.forEach((c,x)=>{const g=b[x][0];if(c.status!=="fulfilled"){k(g);return}try{c.value?.install?.(Pe)}catch{k(g)}}),U(),await h,p.post({__frame_ready:!0},E),e.then(c=>c?.installSizeReporter?.(u,w))})}else C&&(Z(),ge(C,W,R,{settle:U,mount:D}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Dana Hansen</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --bg:#f7f4ec;
+  --surface:#ffffff;
+  --surface-alt:#efe9db;
+  --ink:#24312b;
+  --ink-soft:#5c6b62;
+  --ink-faint:#8b978d;
+  --accent:#2c6b5c;
+  --accent-ink:#1c463c;
+  --accent-soft:#e2ece7;
+  --border:#ddd3bd;
+  --border-soft:#e9e1cd;
+  --open:#a15a1f;
+  --open-soft:#f5e6d3;
+  --med:#a06a12;
+  --med-soft:#f4e9d3;
+  --done:#3c7a5c;
+  --done-soft:#e1ede4;
+  --quote-bg:#f1ece0;
+  --shadow: 0 1px 2px rgba(36,49,43,0.06), 0 8px 24px -12px rgba(36,49,43,0.12);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141d1a;
+    --surface:#1a2622;
+    --surface-alt:#20302a;
+    --ink:#eef2ee;
+    --ink-soft:#a6b6ac;
+    --ink-faint:#748078;
+    --accent:#7fd0b3;
+    --accent-ink:#bfeadb;
+    --accent-soft:rgba(127,208,179,0.13);
+    --border:#31423a;
+    --border-soft:#293830;
+    --open:#e2a460;
+    --open-soft:rgba(226,164,96,0.14);
+    --med:#d8ab5c;
+    --med-soft:rgba(216,171,92,0.14);
+    --done:#7fc79e;
+    --done-soft:rgba(127,199,158,0.13);
+    --quote-bg:#20302a;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.45);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141d1a;
+  --surface:#1a2622;
+  --surface-alt:#20302a;
+  --ink:#eef2ee;
+  --ink-soft:#a6b6ac;
+  --ink-faint:#748078;
+  --accent:#7fd0b3;
+  --accent-ink:#bfeadb;
+  --accent-soft:rgba(127,208,179,0.13);
+  --border:#31423a;
+  --border-soft:#293830;
+  --open:#e2a460;
+  --open-soft:rgba(226,164,96,0.14);
+  --med:#d8ab5c;
+  --med-soft:rgba(216,171,92,0.14);
+  --done:#7fc79e;
+  --done-soft:rgba(127,199,158,0.13);
+  --quote-bg:#20302a;
+  --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.45);
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Public Sans', ui-sans-serif, system-ui, sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--accent-soft); }
+
+.page{
+  max-width:760px;
+  margin:0 auto;
+  padding:2.5rem 1.5rem 5rem;
+}
+
+.backlink{
+  display:inline-flex; align-items:center; gap:.4rem;
+  font-family:'IBM Plex Mono', ui-monospace, monospace;
+  font-size:.8rem;
+  color:var(--ink-soft);
+  text-decoration:none;
+  margin-bottom:1.5rem;
+  padding:.4rem .1rem;
+}
+.backlink:hover{ color:var(--accent-ink); }
+.backlink svg{ width:13px; height:13px; }
+
+.header{
+  display:flex;
+  gap:1.1rem;
+  align-items:flex-start;
+  padding-bottom:1.5rem;
+  border-bottom:1px solid var(--border);
+}
+.avatar{
+  flex:none;
+  width:52px; height:52px;
+  border-radius:50%;
+  background:var(--accent);
+  color:var(--surface);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Newsreader', serif;
+  font-size:1.35rem;
+  font-weight:500;
+}
+:root[data-theme="dark"] .avatar, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .avatar{ color:#0d1512; } }
+.header-main{flex:1; min-width:0;}
+.eyebrow{
+  font-family:'IBM Plex Mono', ui-monospace, monospace;
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  margin:0 0 .25rem;
+}
+h1{
+  font-family:'Newsreader', serif;
+  font-weight:500;
+  font-size:2.1rem;
+  line-height:1.15;
+  margin:0 0 .3rem;
+  text-wrap:balance;
+  color:var(--ink);
+}
+.subline{
+  color:var(--ink-soft);
+  font-size:.98rem;
+  margin:0;
+}
+.subline a{ color:var(--accent-ink); text-decoration:underline; text-decoration-color:var(--border); text-underline-offset:2px; }
+
+.facts{
+  display:flex; flex-wrap:wrap; gap:.4rem;
+  margin-top:.9rem;
+}
+.fact{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.76rem;
+  color:var(--ink-soft);
+  background:var(--surface-alt);
+  border:1px solid var(--border-soft);
+  border-radius:5px;
+  padding:.28rem .55rem;
+}
+
+.status{
+  display:flex; flex-wrap:wrap; gap:.6rem;
+  margin:1.25rem 0 0;
+}
+.pill{
+  display:inline-flex; align-items:center; gap:.4rem;
+  font-size:.82rem; font-weight:600;
+  padding:.4rem .7rem;
+  border-radius:99px;
+  border:1px solid transparent;
+}
+.pill .dot{ width:7px; height:7px; border-radius:50%; }
+.pill.high{ background:var(--open-soft); color:var(--open); border-color:color-mix(in srgb, var(--open) 30%, transparent); }
+.pill.high .dot{ background:var(--open); }
+.pill.medium{ background:var(--med-soft); color:var(--med); border-color:color-mix(in srgb, var(--med) 30%, transparent); }
+.pill.medium .dot{ background:var(--med); }
+.pill.neutral{ background:var(--surface-alt); color:var(--ink-soft); border-color:var(--border-soft); }
+.pill.neutral .dot{ background:var(--ink-faint); }
+.pill.accent{ background:var(--accent-soft); color:var(--accent-ink); border-color:color-mix(in srgb, var(--accent) 25%, transparent); }
+.pill.accent .dot{ background:var(--accent); }
+
+.section{
+  margin-top:2.75rem;
+}
+.section-head{
+  display:flex; align-items:baseline; gap:.7rem;
+  border-left:3px solid var(--accent);
+  padding-left:.85rem;
+  margin-bottom:1.1rem;
+}
+.section-head h2{
+  font-family:'Newsreader', serif;
+  font-weight:500;
+  font-size:1.5rem;
+  margin:0;
+  color:var(--ink);
+}
+.section-head .when{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.78rem;
+  color:var(--ink-faint);
+}
+
+.tldr{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  box-shadow:var(--shadow);
+  padding:1.1rem 1.25rem;
+  font-size:1rem;
+  color:var(--ink);
+}
+.tldr strong{ color:var(--accent-ink); }
+
+h3{
+  font-family:'Public Sans', sans-serif;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  margin:1.6rem 0 .6rem;
+}
+.block{ margin-top:1.4rem; }
+.block:first-of-type{ margin-top:1.6rem; }
+
+ul.clean{ margin:0; padding:0; list-style:none; }
+ul.clean li{
+  position:relative;
+  padding-left:1.1rem;
+  margin-bottom:.55rem;
+  color:var(--ink);
+}
+ul.clean li::before{
+  content:"";
+  position:absolute; left:0; top:.62em;
+  width:5px; height:5px; border-radius:50%;
+  background:var(--accent);
+  opacity:.65;
+}
+ul.clean li:last-child{ margin-bottom:0; }
+ul.clean.chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
+ul.clean.chips li{
+  padding:.45rem .75rem .45rem 1.6rem;
+  background:var(--surface-alt);
+  border:1px solid var(--border-soft);
+  border-radius:8px;
+  margin:0;
+  font-size:.92rem;
+}
+ul.clean.chips li::before{ left:.7rem; top:.95em; }
+
+.checklist{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.55rem; }
+.checklist li{ display:flex; align-items:flex-start; gap:.6rem; font-size:.98rem; }
+.checkbox{
+  flex:none; width:18px; height:18px; margin-top:.15rem;
+  border-radius:5px; border:1.5px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:.7rem;
+}
+.checklist li.done .checkbox{ background:var(--done); border-color:var(--done); color:var(--surface); }
+.checklist li.done .checkbox::after{ content:"✓"; }
+.checklist li.open .checkbox{ border-color:var(--open); }
+.checklist li.open span{ color:var(--ink); }
+.checklist li.done span{ color:var(--ink-soft); text-decoration:line-through; text-decoration-color:var(--border); }
+
+blockquote{
+  margin:0; padding:.9rem 1.1rem;
+  background:var(--quote-bg);
+  border-left:3px solid var(--accent);
+  border-radius:0 8px 8px 0;
+  font-family:'Newsreader', serif;
+  font-style:italic;
+  font-size:1.05rem;
+  color:var(--ink);
+}
+blockquote cite{
+  display:block; margin-top:.4rem;
+  font-family:'IBM Plex Mono', monospace;
+  font-style:normal; font-size:.74rem;
+  color:var(--ink-faint);
+}
+
+.cardgrid{ display:flex; flex-direction:column; gap:.75rem; }
+.objcard{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:.9rem 1.05rem;
+}
+.objcard .hes{
+  font-weight:600; font-size:.98rem; margin-bottom:.35rem;
+  display:flex; gap:.5rem; align-items:baseline;
+}
+.objcard .hes::before{ content:"“"; font-family:'Newsreader',serif; color:var(--accent); font-size:1.3rem; line-height:0; }
+.objcard dl{ margin:.5rem 0 0; display:grid; grid-template-columns:auto 1fr; gap:.3rem .7rem; }
+.objcard dt{ font-family:'IBM Plex Mono',monospace; font-size:.7rem; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-faint); align-self:baseline; padding-top:.15rem; }
+.objcard dd{ margin:0; font-size:.92rem; color:var(--ink); }
+
+details{
+  margin-top:1.5rem;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--surface);
+  overflow:hidden;
+}
+
+.revised{
+  outline:2px solid var(--open);
+  outline-offset:3px;
+  border-radius:4px;
+  position:relative;
+}
+.revised-tag{
+  display:inline-block;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.66rem;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:var(--open);
+  background:var(--open-soft);
+  border-radius:4px;
+  padding:.12rem .4rem;
+  margin-left:.4rem;
+  vertical-align:middle;
+}
+.was{
+  font-size:.85rem;
+  color:var(--ink-faint);
+  margin-top:.3rem;
+}
+.was s{ text-decoration-color:var(--border); }
+
+.logentry{
+  display:flex; gap:.7rem;
+  padding:.7rem 0;
+  border-bottom:1px solid var(--border-soft);
+  font-size:.88rem;
+}
+.logentry:last-child{ border-bottom:none; }
+.logentry .ts{
+  flex:none; width:118px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;
+  color:var(--ink-faint);
+  padding-top:.1rem;
+}
+.logentry .desc{ color:var(--ink); }
+.logentry .desc b{ color:var(--accent-ink); font-weight:600; }
+
+.callarchive{
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--surface);
+  margin-top:.75rem;
+  overflow:hidden;
+}
+.callarchive summary{ font-size:.88rem; }
+.callarchive summary .when{ font-weight:400; color:var(--ink-faint); margin-left:.5rem; }
+.callarchive .details-body{ font-size:.9rem; }
+.callarchive .details-body ul.clean{ margin-bottom:.7rem; }
+
+.quicksend{ margin-top:1.1rem; }
+.qsbtn{
+  font-family:'Public Sans', sans-serif;
+  font-weight:600; font-size:.9rem;
+  color:var(--surface);
+  background:var(--accent);
+  border:none; border-radius:8px;
+  padding:.65rem 1.1rem;
+  cursor:pointer;
+  transition:opacity .15s;
+}
+:root[data-theme="dark"] .qsbtn, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .qsbtn{ color:#0d1512; } }
+.qsbtn:hover{ opacity:.88; }
+.qsbtn:disabled{ opacity:.55; cursor:default; }
+.qsbtn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+.qsstatus{
+  margin-left:.7rem;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.78rem;
+}
+.qsstatus.ok{ color:var(--done); }
+.qsstatus.err{ color:var(--open); }
+.qshelp{
+  font-size:.82rem; color:var(--ink-faint);
+  margin:.5rem 0 0;
+}
+.qspreview{ margin-top:.6rem; }
+.qspreview summary{ font-size:.82rem; padding:.6rem .85rem; }
+.qsfield{ font-size:.85rem; margin-bottom:.4rem; }
+.qsfield span{ font-family:'IBM Plex Mono',monospace; font-size:.7rem; text-transform:uppercase; color:var(--ink-faint); margin-right:.5rem; }
+.qsbody{
+  white-space:pre-wrap;
+  font-family:'Public Sans', sans-serif;
+  font-size:.88rem;
+  color:var(--ink);
+  background:var(--surface-alt);
+  border-radius:8px;
+  padding:.8rem .9rem;
+  margin-top:.5rem;
+}
+summary{
+  cursor:pointer;
+  padding:.85rem 1.05rem;
+  font-weight:600; font-size:.92rem;
+  color:var(--accent-ink);
+  list-style:none;
+  display:flex; align-items:center; justify-content:space-between;
+}
+summary::-webkit-details-marker{ display:none; }
+summary::after{ content:"+"; font-family:'IBM Plex Mono',monospace; color:var(--ink-faint); font-size:1.1rem; }
+details[open] summary::after{ content:"–"; }
+details[open] summary{ border-bottom:1px solid var(--border-soft); }
+.details-body{ padding:1rem 1.05rem 1.15rem; }
+
+.kv{ width:100%; border-collapse:collapse; font-size:.9rem; }
+.kv td{ padding:.4rem 0; border-bottom:1px solid var(--border-soft); vertical-align:top; }
+.kv td:first-child{ color:var(--ink-faint); font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:.03em; width:44%; padding-right:1rem; }
+.kv tr:last-child td{ border-bottom:none; }
+
+.pricebox{
+  display:grid; grid-template-columns:1fr 1fr; gap:.75rem;
+  margin-top:.5rem;
+}
+.priceopt{
+  border:1px solid var(--border); border-radius:10px; padding:.9rem 1rem;
+  background:var(--surface);
+}
+.priceopt.reco{ border-color:var(--accent); background:var(--accent-soft); }
+.priceopt .label{ font-family:'IBM Plex Mono',monospace; font-size:.7rem; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-faint); }
+.priceopt.reco .label{ color:var(--accent-ink); }
+.priceopt .amount{ font-family:'Newsreader',serif; font-size:1.5rem; font-weight:500; margin:.15rem 0; color:var(--ink); }
+.priceopt .note{ font-size:.82rem; color:var(--ink-soft); }
+
+.opening{
+  margin-top:1.5rem;
+  border-radius:10px;
+  padding:1.1rem 1.25rem;
+  background:var(--accent);
+  color:var(--surface);
+}
+:root[data-theme="dark"] .opening, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .opening{ color:#0d1512; } }
+.opening .label{ font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; opacity:.85; margin-bottom:.4rem; }
+.opening q{ font-family:'Newsreader',serif; font-style:italic; font-size:1.15rem; }
+
+.callcoach-cta{ margin-top:1.1rem; }
+.ccbtn{
+  display:inline-flex; align-items:center; gap:.55rem;
+  font-family:'Public Sans', sans-serif; font-weight:600; font-size:.92rem;
+  color:var(--surface);
+  background:var(--accent);
+  border-radius:9px;
+  padding:.65rem 1.05rem;
+  text-decoration:none;
+  box-shadow:var(--shadow);
+}
+.ccbtn:hover{ opacity:.9; }
+:root[data-theme="dark"] .ccbtn, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .ccbtn{ color:#0d1512; } }
+
+.sharehint{
+  font-size:.8rem; color:var(--ink-faint);
+  margin:-1.1rem 0 1.6rem;
+}
+
+.pagesearch{
+  margin-top:1.4rem;
+  display:flex; align-items:center; gap:.6rem; flex-wrap:wrap;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:.65rem .9rem;
+  box-shadow:var(--shadow);
+}
+.pagesearch svg{ flex:none; width:16px; height:16px; color:var(--ink-faint); }
+.pagesearch input{
+  flex:1; min-width:160px;
+  border:none; outline:none; background:transparent;
+  font-family:'Public Sans', sans-serif; font-size:.94rem; color:var(--ink);
+}
+.pagesearch input::placeholder{ color:var(--ink-faint); }
+.pagesearch .count{
+  font-family:'IBM Plex Mono',monospace; font-size:.76rem; color:var(--ink-faint);
+  white-space:nowrap; min-width:3.2rem; text-align:right;
+}
+.pagesearch .navbtn{
+  flex:none; width:26px; height:26px; border-radius:6px;
+  border:1px solid var(--border-soft); background:var(--surface-alt);
+  color:var(--ink-soft); cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:.8rem; padding:0;
+}
+.pagesearch .navbtn:hover{ background:var(--accent-soft); color:var(--accent-ink); }
+.pagesearch .navbtn:disabled{ opacity:.4; cursor:default; }
+.pagesearch-help{
+  font-size:.8rem; color:var(--ink-faint); margin:.55rem 0 0;
+}
+mark.hit{ background:var(--open-soft); color:var(--ink); border-radius:2px; padding:0 1px; }
+mark.hit.current{ background:var(--accent); color:var(--surface); }
+:root[data-theme="dark"] mark.hit.current, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) mark.hit.current{ color:#0d1512; } }
+
+.transcript{ font-size:.9rem; }
+.transcript-note{ font-size:.82rem; color:var(--ink-faint); margin:0 0 1rem; }
+.transcript .turn{ margin:.15rem 0; }
+.transcript .ts{
+  display:block;
+  font-family:'IBM Plex Mono',monospace; font-size:.68rem; text-transform:uppercase; letter-spacing:.04em;
+  color:var(--ink-faint); margin:1.3rem 0 .55rem;
+}
+.transcript .turn:first-of-type .ts{ margin-top:0; }
+.transcript .who{ color:var(--accent-ink); font-weight:600; }
+.transcript p{ margin:.3rem 0 0; color:var(--ink); }
+
+footer{
+  margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--border);
+  font-size:.82rem; color:var(--ink-faint); line-height:1.7;
+}
+footer a{ color:var(--accent-ink); }
+
+@media (max-width:520px){
+  .pricebox{ grid-template-columns:1fr; }
+  h1{ font-size:1.7rem; }
+}
+</style>
+
+<div class="page">
+
+  <a class="backlink" href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3 5 8l5 5"/></svg>
+    Back to Next Touch
+  </a>
+  <p class="sharehint">Share this page with your team using the share option on this view — anyone with the link can read what happened on this account without needing your Gemini conversations.</p>
+  <p class="sharehint">Prepping for a call with Dana? Keep the <a href="https://claude.ai/code/artifact/19d06ea7-3178-46ff-bf4d-13f1dca37906" target="_blank" rel="noopener">Call Verbiage Field Guide</a> open alongside this page — it's one general reference for every call, not specific to Dana.</p>
+  <p class="sharehint"><a href="https://claude.ai/code/artifact/c683bd30-99e5-4085-9208-433136744f20" target="_blank" rel="noopener">Daily Priorities</a></p>
+
+  <div class="header">
+    <div class="avatar">DH</div>
+    <div class="header-main">
+      <p class="eyebrow">Contact brief</p>
+      <h1>Dana Hansen</h1>
+      <p class="subline">Salon Nuna · <a href="mailto:danashansen@gmail.com">danashansen@gmail.com</a></p>
+      <div class="facts">
+        <span class="fact">S-Corp · 4 chairs</span>
+        <span class="fact">~$10K/mo revenue</span>
+        <span class="fact">6 years in business</span>
+        <span class="fact">Missed Aug 25 follow-up</span>
+      </div>
+      <div class="status">
+        <span class="pill medium"><span class="dot"></span>Medium priority</span>
+        <span class="pill accent"><span class="dot"></span>Details wanted &ndash; she'll follow up</span>
+        <span class="pill neutral"><span class="dot"></span>No meeting currently scheduled</span>
+      </div>
+      <div class="callcoach-cta">
+        <a class="ccbtn" href="#callcoach">&#127908; Open Call Coach &mdash; tailored talk track for this call</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagesearch">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="5.2"/><path d="M11 11l3.5 3.5"/></svg>
+    <input type="text" id="pageSearchInput" placeholder="Search these notes &amp; the call transcripts — e.g. &quot;199&quot;, &quot;S-Corp&quot;, &quot;voicemail&quot;">
+    <span class="count" id="pageSearchCount"></span>
+    <button class="navbtn" id="pageSearchPrev" type="button" title="Previous match">&uarr;</button>
+    <button class="navbtn" id="pageSearchNext" type="button" title="Next match">&darr;</button>
+  </div>
+  <p class="pagesearch-help">Finds exact words or phrases anywhere on this page, including the full transcripts below each call's notes. For open-ended questions — "what was she comparing Bench against?" — ask Claude directly in your workspace; it can read this whole page and both transcripts and answer in context, the same way it would answer about any client.</p>
+
+  <!-- ============ CALL COACH ============ -->
+  <div class="section" id="callcoach">
+    <div class="section-head">
+      <h2>Call Coach</h2>
+      <span class="when">Tailored from the Call Verbiage Field Guide</span>
+    </div>
+
+    <div class="tldr">
+      <strong>Situation:</strong> Two missed calls in a row &mdash; channel problem, not a value problem. Switch to text/email and make re-booking effortless.
+    </div>
+
+    <h3>Talk track for next contact</h3>
+    <div class="cardgrid">
+      <div class="objcard">
+        <div class="hes">Text, short and low-friction</div>
+        <dl>
+          <dt>Say this</dt><dd>&ldquo;Want to follow up once you&rsquo;ve had a chance to look this over? Happy to grab 15 minutes whenever works &mdash; here&rsquo;s a link to grab a time.&rdquo; <span style="color:var(--ink-faint);">(Guide: Ross &mdash; same-day micro-follow-up, adapted)</span></dd>
+        </dl>
+      </div>
+      <div class="objcard">
+        <div class="hes">When you do connect, reconfirm interest before re-pitching</div>
+        <dl>
+          <dt>Ask</dt><dd>&ldquo;Last time we talked about the $199/mo tier plus tax filing &mdash; does that still sound like where you&rsquo;re at?&rdquo;</dd>
+        </dl>
+      </div>
+    </div>
+
+    <p class="pagesearch-help" style="margin-top:1.1rem;">Pulled from your <a href="https://claude.ai/code/artifact/19d06ea7-3178-46ff-bf4d-13f1dca37906" target="_blank" rel="noopener">Call Verbiage Field Guide</a> &mdash; open it for the full reference.</p>
+  </div>
+
+  <!-- ============ PRE-CALL SUMMARY ============ -->
+  <div class="section">
+    <div class="section-head">
+      <h2>Before your next call</h2>
+      <span class="when">Not yet scheduled</span>
+    </div>
+
+    <div class="tldr">
+      <strong>She no-showed the Aug 25 follow-up</strong> and hasn't responded to the corrected recap email sent Aug 19 either. Nothing about her intent has actually changed — the last real signal (Aug 18) was that she's comparing providers on "the most inclusive package for the best price," discussing Bench's $199/mo tier plus $1,200/yr tax filing. Goal right now isn't selling, it's re-establishing contact: the voicemail promised an email + text with a scheduling link, and calls clearly aren't landing.
+    </div>
+
+    <h3>Still open from today's missed call</h3>
+    <ul class="checklist">
+      <li class="open"><span class="checkbox"></span><span>Email a scheduling link, as promised on the voicemail</span></li>
+      <li class="open"><span class="checkbox"></span><span>Text a scheduling link, as promised on the voicemail</span></li>
+      <li class="open"><span class="checkbox"></span><span>If no reply, call again in a few days (per the voicemail)</span></li>
+    </ul>
+
+    <div class="quicksend">
+      <button id="draftBtn" class="qsbtn" type="button">Draft a re-engagement email with a scheduling link</button>
+      <span id="qsStatus" class="qsstatus"></span>
+      <p class="qshelp">Composes the email below as a Gmail draft, addressed to Dana — you review and send it yourself, nothing goes out automatically.</p>
+      <details class="qspreview">
+        <summary>Preview the draft text</summary>
+        <div class="details-body">
+          <div class="qsfield"><span>To</span> danashansen@gmail.com</div>
+          <div class="qsfield"><span>Subject</span> Missed you today — let's find a new time</div>
+          <pre id="qsBody" class="qsbody">Hi Dana,
+
+I tried calling for our scheduled time today but it went to voicemail — no worries at all, these things happen.
+
+If you're still interested in chatting about a bookkeeping solution for Salon Nuna, here's a link to grab a new time that works better for you: [scheduling link]
+
+As a quick reminder from our first call: we talked through the $199/mo basic tier plus $1,200/yr for your S-Corp tax filing, and I'd recommended the Grow subscription as the best middle-ground option for where you're at.
+
+If you've decided to go a different direction, no hard feelings at all — just let me know so I stop bothering you. Otherwise I'll plan to check in again in a few days.
+
+Talk soon,
+Adam</pre>
+        </div>
+      </details>
+    </div>
+
+    <h3>Where she stands</h3>
+    <ul class="clean">
+      <li>As of the Aug 18 call, she was actively comparing multiple bookkeeping providers, looking for "the most inclusive package for the best price."</li>
+      <li>No pushback on the $199/mo + $1,200/yr tax filing pricing itself — she just wanted to shop around first.</li>
+      <li>Two calls in a row have now gone to voicemail (Aug 18's first attempt, and today's Aug 25 follow-up) — worth confirming she's even still reachable at this number, or if text/email is the better channel going forward.</li>
+    </ul>
+
+    <h3>Be ready for</h3>
+    <div class="cardgrid">
+      <div class="objcard">
+        <div class="hes">Comparing multiple providers on price + completeness</div>
+        <dl>
+          <dt>Concern</dt><dd>Wants the most inclusive package for the best price — hasn't said who else she's talking to.</dd>
+          <dt>Say this</dt><dd>Reiterate the Grow subscription framing: automated categorization plus a dedicated bookkeeper, with tax filing folded in as one line item, not scattered across providers.</dd>
+          <dt>Ask</dt><dd>"What have the other options been missing that made you want to keep looking?"</dd>
+        </dl>
+      </div>
+      <div class="objcard">
+        <div class="hes">Confirming she's still interested at all</div>
+        <dl>
+          <dt>Concern</dt><dd>A full no-show after already receiving a corrected recap could mean she's moved on and just hasn't said so.</dd>
+          <dt>Say this</dt><dd>Lead with the direct, low-pressure ask from the voicemail — happy to help if she's still interested, no worries if not.</dd>
+          <dt>Ask</dt><dd>"Is this still something you're looking to move forward on, or has the timing changed?"</dd>
+        </dl>
+      </div>
+    </div>
+
+    <h3>This call's goal (once reconnected)</h3>
+    <ul class="clean">
+      <li>Re-establish contact — text is likely the more reliable channel after two missed calls.</li>
+      <li>Confirm she's still interested before investing more time in the pitch.</li>
+      <li>Get a real time on the calendar this time, and find out what the other providers have offered so far.</li>
+    </ul>
+
+    <div class="opening">
+      <div class="label">Open with (next time you connect)</div>
+      <q>Hey Dana — wanted to check in on where you landed. Still exploring options for the salon's books, or did the timing just not work out?</q>
+    </div>
+  </div>
+
+  <!-- ============ LAST CALL ============ -->
+  <div class="section">
+    <div class="section-head">
+      <h2>Last call</h2>
+      <span class="when">Aug 25 · 2:45 PM MT · Missed follow-up (voicemail only)</span>
+    </div>
+
+    <div class="tldr">
+      <strong>No live contact.</strong> Today's scheduled follow-up went straight to voicemail on the first attempt reached. Adam left a detailed message: still interested in chatting about a bookkeeping solution? If so, he'd send a scheduling link by email and text; if she's gone a different direction, just let him know so he stops following up. Otherwise he'll call again in a few days.
+    </div>
+
+    <h3>What happened</h3>
+    <ul class="clean">
+      <li>Called at the scheduled 2:30 PM MT slot — reached Dana's voicemail greeting for Salon Nuna.</li>
+      <li>Left a message referencing the original topic (bookkeeping solution), offering to send a calendar link by email and text, and explicitly inviting her to say if she'd gone a different direction.</li>
+      <li>No new information was exchanged — nothing about pricing, business details, or timeline changed from the Aug 18 call.</li>
+    </ul>
+
+    <details>
+      <summary>Full business profile</summary>
+      <div class="details-body">
+        <table class="kv">
+          <tr><td>Business name</td><td>Salon Nuna</td></tr>
+          <tr><td>Industry</td><td>Hair salon, 4 chairs, independent contractors</td></tr>
+          <tr><td>Current solution</td><td>Fully manual — separate personal/business bank accounts, logs expenses, not tech-savvy, avoids QuickBooks</td></tr>
+          <tr><td>Issues with it</td><td>No monthly reports; hands receipts to an accountant at tax time; previous CPA passed away</td></tr>
+          <tr><td>Corporate structure</td><td>S-Corp</td></tr>
+          <tr><td>Gross annual revenue</td><td>~$10,000/mo (~$120,000/yr)</td></tr>
+          <tr><td>Gross monthly expenses</td><td>Mostly hair/beauty product costs plus 1099 contractor payments</td></tr>
+          <tr><td>Years in business</td><td>6 years</td></tr>
+          <tr><td>Tax filing needs</td><td>No CPA currently (prior CPA passed away); needs S-Corp tax filing support</td></tr>
+        </table>
+      </div>
+    </details>
+
+    <details>
+      <summary>Action items from today</summary>
+      <div class="details-body">
+        <ul class="checklist">
+          <li class="open"><span class="checkbox"></span><span>Email a scheduling link to reschedule</span></li>
+          <li class="open"><span class="checkbox"></span><span>Text a scheduling link to reschedule</span></li>
+          <li class="open"><span class="checkbox"></span><span>Call again in a few days if no response</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Full call transcript — Aug 25, 2026 <span style="font-weight:400;color:var(--ink-faint);margin-left:.5rem;">verbatim, 04:23</span></summary>
+      <div class="details-body transcript">
+        <p class="transcript-note">Computer-generated by Gemini from the call recording. The source doc labels both the voicemail greeting and Adam's own recorded message under speaker tags tied to the meeting host — reproduced verbatim below exactly as transcribed, including the repeated/truncated voicemail greeting. Original: <a href="https://docs.google.com/document/d/1MZ_u4VXAW4CMFSXXm1P02wGSieRVeV3cfkV8K-M63qE/edit" target="_blank" rel="noopener">Gemini transcript doc</a>.</p>
+
+        <span class="ts">00:02:53</span>
+        <p class="turn"><span class="who">Voicemail greeting:</span> You have reached Dana Hansen with Salon Nuna. Please leave a message.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Hey Dana, it's Adam from Bench Accounting. I was just calling in regards to the meeting we scheduled for today at uh 2:30 Mountain time regarding a bookkeeping solution for your business. Um if you're still interested in chatting, I'll go ahead and shoot you an email as well as a text message with a link to my calendar and we can try for a better date. Um if you did end up going in a different direction, no worries at all. Just let me know. I don't want to keep bothering you. Uh, but if this is something you're still interested in, um, I'll go ahead and give you a call back in the next few days and, uh, hopefully we can sort something out. Thanks. We'll talk soon. Have a good one. Bye-bye.</p>
+        <p class="turn"><span class="who">Voicemail greeting:</span> You have reached</p>
+
+        <span class="ts">Transcription ended after 00:04:23</span>
+      </div>
+    </details>
+
+  </div>
+
+  <!-- ============ PREVIOUS CALLS ============ -->
+  <!--
+    CALL HISTORY CONVENTION (for automated edits — Next Touch sync job):
+    This page holds ONE consolidated record per contact — never create a second page or a
+    separate note set when a new transcript comes in for a contact who already has a brief.
+    When a NEW call happens for Dana:
+      1. Move the current contents of the "LAST CALL" section above (everything from its
+         <div class="tldr"> through its action-items <details>) down into a new entry inside
+         "Previous calls" below — collapsed, dated, condensed to a few lines (TL;DR + top
+         pain points + action items is enough; keep that call's own full transcript <details>
+         block with it, moved down, not deleted).
+      2. Replace the "LAST CALL" section's contents with the new call's notes, generated the
+         same way (TL;DR, pain points, what I learned, pricing, objections, business profile,
+         action items).
+      3. Merge "Full business profile" forward — update fields the new call changed or added,
+         don't duplicate the table. If a new call contradicts an earlier stated fact, follow
+         the Update Log convention below: flag it inline with class="revised" and log why.
+      4. Regenerate "Before your next call" (the pre-call summary section above) from the NEW
+         most recent call's open items and objections — not the older ones.
+      5. Update the header's status pills (priority, sequence step, next meeting) to match
+         current reality.
+    The goal: opening this one page always shows the complete, current relationship — never
+    a fragment of it.
+  -->
+  <div class="section">
+    <div class="section-head">
+      <h2>Previous calls</h2>
+    </div>
+
+    <details class="callarchive">
+      <summary>Dana Hansen and Adam Russo <span class="when">Aug 18, 2026 · Discovery call</span></summary>
+      <div class="details-body">
+        <p><strong>TL;DR:</strong> Good first call. S-Corp salon, 4 chairs, ~$10K/mo revenue, fully manual bookkeeping (not tech-savvy, avoids QuickBooks). Previous CPA passed away — she needs both bookkeeping and tax filing. Discussed the $199/mo basic tier plus $1,200/yr S-Corp tax filing; recommended the mid-tier "Grow" subscription. She's comparing multiple providers on price and completeness, and a follow-up call was set for "next Tuesday" (which became today's no-show).</p>
+        <ul class="clean">
+          <li>Not tech-savvy — currently just separates personal/business accounts and logs expenses manually, no software.</li>
+          <li>No monthly reports; historically handed receipts to an accountant at tax time.</li>
+          <li>Prior CPA passed away; she leaned on a friend for last year's filing and is now looking for a full-service replacement.</li>
+          <li>Base $199/mo tier requires her to manually categorize odd transactions (like checks) herself — Grow subscription (~80% automated) suggested as a better fit if she wants less manual work.</li>
+        </ul>
+        <p style="margin-top:.8rem;"><strong>Action items:</strong> Create trial account, send calendar invite for the follow-up, send a summary of the discussion — all completed ahead of today's (missed) follow-up; a corrected recap was also sent Aug 19 after an initial mix-up.</p>
+        <details style="margin-top:1rem;">
+          <summary>Full call transcript — Aug 18, 2026 <span style="font-weight:400;color:var(--ink-faint);margin-left:.5rem;">verbatim, 14:08</span></summary>
+          <div class="details-body transcript">
+            <p class="transcript-note">Computer-generated by Gemini from the call recording. The source doc labels Dana's turns "Adam Russo's Presentation" (an artifact of how the meeting host's device names appeared) — relabeled "Dana Hansen" below for clarity; wording is otherwise verbatim, filler words and all. Original: <a href="https://docs.google.com/document/d/1tj7g0LvDBrVFN_OU1qcbwUgm0ZfK0V5y22n4UNjy35I/edit" target="_blank" rel="noopener">Gemini transcript doc</a>.</p>
+
+            <span class="ts">00:03:03</span>
+            <p class="turn"><span class="who">Voicemail greeting:</span> You have reached Dana Hansen with Salon Nuna. You have reached Dana Hansen with Salon Nuna. Please leave a message.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Hey Dana, it's Adam from Bench Accounting. I was just calling in regards Oh,</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Hello, this is Dana.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> hey Dana. How are you?</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Good. How are you?</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Good, thanks. I appreciate you uh answer the call there. Um my name's Adam. I'm calling from Bench Accounting. Uh seems like you scheduled some time for us to chat about a bookkeeping and possible tax</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Yeah.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> solution.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Yes.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Cool.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Um my I have a friend that uses um this for their escorp business and uh recommended it so I thought I would look into it.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Yeah, absolutely. Is your company in ESCORP as well?</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Yes.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Uh, got it. Okay, cool. Um, I'd love to start off by uh just learning a bit about your business and really what you're looking for.</p>
+
+            <span class="ts">00:04:31</span>
+            <p class="turn"><span class="who">Adam Russo:</span> Um, I do see uh your company's name is Salon uh Nuna. Um, how long have you been in business</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Yeah. Um, I've been in business for six years.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> for?</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Um, I am a salon, a small salon of four chairs. Uh, I hire um independent contractors, so I just let them do their own thing. I'm looking for uh mainly help with bookkeeping. Um, basically all the things that a small ES corp needs to do and take care of.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Okay, cool. And how are you doing your books up to date?</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Well, just by myself. Uh, that's why I need</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Yeah, absolutely.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> help.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> That's what we're here for. So, are you doing it through Excel? Are you using QuickBooks? How are you currently doing it yourself?</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Um, I have my business account, my personal bank account. Uh, just doing it, uh, separating it that way.</p>
+
+            <span class="ts">00:05:43</span>
+            <p class="turn"><span class="who">Dana Hansen:</span> um logging expenses, but I I'm very I'm not techsavvy, so um I do not do QuickBooks and these other uh things that will help. Um,</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Mhm.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> and that's again why I Need someone to take</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Totally. Yeah. And that that's what we're here for. Okay. Perfect. So,</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> over.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> sounds like you're kind of um you're just seeing the transactions that hit your business bank account, keeping the receipt, and then when it comes to uh you know, tax season, you're just pulling out the receipts from under your bed, bringing them to the account, and just saying help. Is that accurate?</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Yep.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Yeah. Okay, cool.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Sound exactly right.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> So, you have no monthly reports. Do you have an idea of your like your monthly revenue or like how the business is doing?</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Um, yeah. So, I I'm around I would say 10,000 a month. Um, and any other specifics?</p>
+
+            <span class="ts">00:06:49</span>
+            <p class="turn"><span class="who">Adam Russo:</span> Um, do you have an idea of the expenses? So, the 10,000 per month, I'm assuming that's revenue, right? So, you're doing around 120 per year.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Right.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Cool. Um, what type of expenses do you typically</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Yeah.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> have?</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Um I try to like categorize and get like expense everything that I can. Um but the majority is beauty supplies products, hair products um that I'm using in the salon. Um,</p>
+            <p class="turn"><span class="who">Adam Russo:</span> got it.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> that's the</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Okay. So, a lot of cost of goods and then you mentioned you have the contractors. So,</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> bulk.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> those are 1099 contractors. Um, and then I'm assuming you need to generate those reports to ensure that they can uh they can of course file their taxes accordingly. And then do you have a CPA or are you also looking for a</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> So, I my CPA recently passed away.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> CPA?</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Um, and so I have a friend who um I leaned on for this last year.</p>
+
+            <span class="ts">00:07:55</span>
+            <p class="turn"><span class="who">Dana Hansen:</span> Uh,</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Mhm.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> but I was looking for um a business that would encompass all of that. So,</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Yeah.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> uh, yours does not have a CPA.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Nope,</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Is that what I'm hearing?</p>
+            <p class="turn"><span class="who">Adam Russo:</span> we do. We definitely have a CPA. I just want to make sure because we offer the way that we work is we can offer different subscriptions for really what people are looking for. Um it goes from, you know, basic bookkeeping um up to uh tax advisory and um compliance. So, and we can do everything in between. So, I just want to make sure that I'm I'm getting a clear idea of uh exactly what you're looking for. Uh just so that I can point you in the right direction. If you're looking for the full solution, um, basically just the the bookkeeping and tax filing done under one house, um, we can do that for you. Uh, so we can pretty much take about 90% of the work off of your plate.</p>
+
+            <span class="ts">00:08:46</span>
+            <p class="turn"><span class="who">Adam Russo:</span> That 10% that comes into plays realistically for any transaction that, uh, we aren't able to categorize. Um, our bookkeeper would just reach out to you and just be like, "Hey, Dana, this uh, this transaction came in. Can you give us some insight?" So could be like if a check hits the bank account, right? Like we wouldn't know how to categorize it. We would just reach out to you. Um things like that. Other than that, the way that we work is we'll connect directly to your business bank account. From there, we can review all of the transactions moving throughout the business and actually automatically categorize them for you. Um we'll produce monthly reports so that you have a clear idea how the business is operating. Um and then you'll have a dedicated bookkeeper that you'll work with. If you have any questions, you can reach out to them, ask questions. Um, if not, they're sitting in the background idling to make sure that your account stays compliant. Okay. At the end of the year, once all of your reports are done,</p>
+
+            <span class="ts">00:09:35</span>
+            <p class="turn"><span class="who">Dana Hansen:</span> Sounds good.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> we would just file the taxes for you.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Great. Um,</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Cool.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> so I noticed that there was like different levels of how much uh you do from like the smaller package that's 199. So what you just described, would that all fall into that or is that a different package?</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Yeah, great question. So, the the small package that you see there for $1.99, um that is basic bookkeeping. Um your business would fall under there. Uh that's for smaller businesses typically doing under uh 25,000 per year or sorry, 250,000 per year. Um, so you would fall in that category. Um, but the way that we're able to offer the cheaper price is that it requires more work on your end. Uh, so the way that it works is you would prioritize our software. It would still do all the automatic categorizations. Um, you would have a dedicated bookkeeper. They would be the ones doing reports. Um, but for the example of a check, a check comes in and our software isn't able to categorize it.</p>
+
+            <span class="ts">00:10:43</span>
+            <p class="turn"><span class="who">Adam Russo:</span> This is where the bookkeeper wouldn't do the categorization. They're just producing your reports. So, this is where on your end, you would have to go in and categorize those transactions accordingly. Um, and then our bookkeeper would pick those up and uh generate your reports for you. Then we would have to add on the tax filing fee. Um, so for an escorp,</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Okay.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> your typical tax filing fee for the year is $1,200 for the entire year. Um, so that would be on top of the the $1.99. If you did want the full solution, um we would be looking at the core plus tax. So that's really where the price does change, but um it's really only picking up for those odd transactions. If you feel that you can handle those yourself, I would recommend just to be price conscious. We could start you on the grow subscription. Um it does 80% of the work. Um so you really wouldn't have to worry about it too much or bookkeepers would produce your reports and then we can add on the tax filing for that $1,200 for you.</p>
+
+            <span class="ts">00:11:42</span>
+            <p class="turn"><span class="who">Dana Hansen:</span> Okay. Um I I'm looking around, shopping around at this point. Um, and I'm going to just kind of sit back and compare the different companies that I'm looking at right now. Um, quick question also. Do you use QuickBooks or another option</p>
+            <p class="turn"><span class="who">Adam Russo:</span> We use our own proprietary software.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> for</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Um, if you did currently use QuickBooks, um,</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Okay.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> we do have a QuickBooks subscription which is also listed on our, uh, on our website there. Um, that's different pricing. It's priced per hour. So, we could take that route if you wanted if you did want to take the QuickBooks route. Sometimes people feel more comfortable with QuickBooks because it is the allark of uh of bookkeeping right there. You kind of see them everywhere. Um, but if you did want more of the hands-on solution, that's really where our software was developed and really where we uh we take most of the control so that you don't have to stress about it any longer.</p>
+
+            <span class="ts">00:12:44</span>
+            <p class="turn"><span class="who">Adam Russo:</span> Okay,</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Okay.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> you got it.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> All right.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> And Dana,</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Great.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> if you don't mind me asking, uh, you mentioned you're comparing different solutions.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Well,</p>
+            <p class="turn"><span class="who">Adam Russo:</span> What are you looking for when you're comparing, uh, between providers, what what's something that stands out to you to make sure that you're like, you know what, that's that's what I</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Right now, I'm looking for like the most um inclusive package.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> want.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> What is going to take care of everything uh for the best price. That's what it really comes down to. Um so, I I actually have to go. My client just walked in, but um I appreciate your time and I'll reach out if uh want to</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Yeah,</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> proceed.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> no worries. Sounds good. What I can do is I can set up a trial account for you. Would it make sense for us to schedule some time maybe later this week and hop back on a call? Hopefully I can um help answer some more questions even after you speak with the different providers.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Um, yeah, we can uh follow up like in a</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Yeah. Okay.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> week.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Do we want to do uh same time uh next Tuesday? Cool. Okay, I'll send you a calendar invitation now.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Sure.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Um, I won't keep you on the phone because I know your client is there, but I'll send you a summary of everything we went over as well, so you have a good idea of bench itself. Any questions come up, feel free to reach out. All right.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> All right.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Awesome.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Thank you.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> You're very welcome. Enjoy your day. We'll talk soon.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> All right.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Okay.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> You too.</p>
+            <p class="turn"><span class="who">Adam Russo:</span> Bye. Bye.</p>
+            <p class="turn"><span class="who">Dana Hansen:</span> Hello.</p>
+
+            <span class="ts">Transcription ended after 00:14:08</span>
+          </div>
+        </details>
+      </div>
+    </details>
+  </div>
+
+  <!--
+    UPDATE LOG CONVENTION (for automated edits — Next Touch sync job):
+    Whenever a run changes existing content above (not just appends a new call section),
+    add a .logentry here with a timestamp + one-line reason, and mark the changed content
+    itself with class="revised" plus a <span class="revised-tag">Updated</span> next to it.
+    If the change replaced a specific stated fact, show what it replaced with:
+      <div class="was">Was: <s>old value</s></div>
+    directly under the new value. Never delete the log — only append above the oldest entry.
+  -->
+  <details>
+    <summary>Update log</summary>
+    <div class="details-body">
+      <div class="logentry">
+        <div class="ts">Aug 26, 2026 (2nd edit)</div>
+        <div class="desc">Added a "Call Coach" section (with a jump-to button under the status pills) &mdash; a talk track built specifically for Dana's channel problem (two missed calls) from the Call Verbiage Field Guide, not generic script. This feature was trialed on Nathan Moser's brief first and is now standard on every contact brief. Also added the Call Verbiage Field Guide and Daily Priorities links under the share hint, matching the standard pattern.</div>
+      </div>
+      <div class="logentry">
+        <div class="ts">Aug 26, 2026</div>
+        <div class="desc">Page built from scratch by the Next Touch hourly sync. The Next Touch dashboard card previously read "meeting today at 2:45, no chase needed" — that call has now happened (a missed connection, not a completed demo), so priority and next-step framing on this page and the dashboard reflect the no-show rather than an upcoming meeting. Includes on-page search and full verbatim transcripts for both the Aug 18 discovery call and today's missed follow-up, per the team-access pattern. No prior page existed for Dana.</div>
+      </div>
+    </div>
+  </details>
+
+  <footer>
+    Notes generated from the Gemini transcripts of the <a href="https://docs.google.com/document/d/1tj7g0LvDBrVFN_OU1qcbwUgm0ZfK0V5y22n4UNjy35I/edit" target="_blank" rel="noopener">Aug 18 discovery call</a> and the <a href="https://docs.google.com/document/d/1MZ_u4VXAW4CMFSXXm1P02wGSieRVeV3cfkV8K-M63qE/edit" target="_blank" rel="noopener">Aug 25 follow-up attempt</a>. Gemini's notes may contain transcription errors — worth a skim before the next call if anything above looks off.<br>
+    This page updates after every call or contact attempt with Dana and keeps prior calls further down. Any change to existing notes is flagged inline and logged above, never made silently. The full verbatim transcript of every call is kept below its notes, and the search bar above finds anything on this page in seconds. Share this link with your team so they can get client answers here directly — part of <strong>Next Touch</strong>, your prospect tracker.
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('draftBtn');
+  var status = document.getElementById('qsStatus');
+  var bodyEl = document.getElementById('qsBody');
+
+  function setStatus(text, cls){
+    status.textContent = text;
+    status.className = 'qsstatus' + (cls ? ' ' + cls : '');
+  }
+
+  claude.use('mcp').then(function(mcp){
+    if(!mcp){
+      btn.disabled = true;
+      setStatus('Gmail actions unavailable in this view', 'err');
+      return;
+    }
+    btn.addEventListener('click', function(){
+      btn.disabled = true;
+      setStatus('Drafting…');
+      mcp.callTool('Gmail', 'create_draft', {
+        to: ['danashansen@gmail.com'],
+        subject: 'Missed you today — let\'s find a new time',
+        body: bodyEl.textContent
+      }).then(function(){
+        setStatus('Draft ready — check Gmail Drafts to review and send', 'ok');
+      }).catch(function(err){
+        btn.disabled = false;
+        var code = err && err.code;
+        if(code === 'needs_reauth'){
+          setStatus('Reconnect Gmail in claude.ai Settings → Connectors', 'err');
+        } else if(code === 'server_not_connected'){
+          setStatus('Add Gmail in claude.ai Settings → Connectors', 'err');
+        } else if(code === 'selection_required'){
+          setStatus('Choose a Gmail account in the prompt, then try again', 'err');
+        } else if(code === 'blocked_by_policy' || code === 'approval_required'){
+          setStatus('Blocked by your org\'s connector policy', 'err');
+        } else if(code === 'server_unavailable'){
+          setStatus('Gmail is temporarily unavailable — try again shortly', 'err');
+        } else if(code === 'cancelled'){
+          setStatus('Cancelled', 'err');
+        } else {
+          setStatus((err && err.message) || 'Could not create the draft — try again', 'err');
+        }
+      });
+    });
+  }).catch(function(){
+    btn.disabled = true;
+    setStatus('Gmail actions unavailable in this view', 'err');
+  });
+})();
+
+/* ---- on-page search: notes + full transcript, no external calls ---- */
+(function(){
+  var input = document.getElementById('pageSearchInput');
+  var countEl = document.getElementById('pageSearchCount');
+  var prevBtn = document.getElementById('pageSearchPrev');
+  var nextBtn = document.getElementById('pageSearchNext');
+  var page = document.querySelector('.page');
+  if(!input || !page) return;
+
+  var marks = [];
+  var current = -1;
+  var debounceTimer = null;
+
+  function clearMarks(){
+    var existing = page.querySelectorAll('mark.hit');
+    existing.forEach(function(m){
+      var parent = m.parentNode;
+      parent.replaceChild(document.createTextNode(m.textContent), m);
+      parent.normalize();
+    });
+    marks = [];
+    current = -1;
+  }
+
+  function openAncestorDetails(node){
+    var el = node.nodeType === 1 ? node : node.parentElement;
+    while(el){
+      if(el.tagName === 'DETAILS' && !el.open){ el.open = true; }
+      el = el.parentElement;
+    }
+  }
+
+  function highlight(term){
+    clearMarks();
+    if(!term){ updateCount(); return; }
+    var lower = term.toLowerCase();
+    var walker = document.createTreeWalker(page, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(node){
+        if(!node.nodeValue || !node.nodeValue.toLowerCase().includes(lower)) return NodeFilter.FILTER_REJECT;
+        var p = node.parentElement;
+        if(p && (p.closest('.pagesearch') || p.closest('script') || p.closest('style'))) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var textNodes = [];
+    var n;
+    while((n = walker.nextNode())) textNodes.push(n);
+
+    textNodes.forEach(function(node){
+      var text = node.nodeValue;
+      var lowerText = text.toLowerCase();
+      var frag = document.createDocumentFragment();
+      var i = 0;
+      var idx;
+      while((idx = lowerText.indexOf(lower, i)) !== -1){
+        if(idx > i) frag.appendChild(document.createTextNode(text.slice(i, idx)));
+        var mark = document.createElement('mark');
+        mark.className = 'hit';
+        mark.textContent = text.slice(idx, idx + term.length);
+        frag.appendChild(mark);
+        marks.push(mark);
+        i = idx + term.length;
+      }
+      if(i < text.length) frag.appendChild(document.createTextNode(text.slice(i)));
+      if(frag.childNodes.length) node.parentNode.replaceChild(frag, node);
+    });
+
+    updateCount();
+    if(marks.length){ goTo(0); }
+  }
+
+  function updateCount(){
+    if(!marks.length){
+      countEl.textContent = input.value ? '0 found' : '';
+    } else {
+      countEl.textContent = (current + 1) + ' of ' + marks.length;
+    }
+    prevBtn.disabled = marks.length === 0;
+    nextBtn.disabled = marks.length === 0;
+  }
+
+  function goTo(i){
+    if(!marks.length) return;
+    if(current >= 0 && marks[current]) marks[current].classList.remove('current');
+    current = (i + marks.length) % marks.length;
+    var m = marks[current];
+    m.classList.add('current');
+    openAncestorDetails(m);
+    m.scrollIntoView({behavior:'smooth', block:'center'});
+    updateCount();
+  }
+
+  input.addEventListener('input', function(){
+    clearTimeout(debounceTimer);
+    var val = input.value.trim();
+    debounceTimer = setTimeout(function(){ highlight(val); }, 180);
+  });
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); goTo(current + (e.shiftKey ? -1 : 1)); }
+  });
+  prevBtn.addEventListener('click', function(){ goTo(current - 1); });
+  nextBtn.addEventListener('click', function(){ goTo(current + 1); });
+})();
+</script>
+
+</body></html>
+</body></html>

@@ -1,0 +1,1224 @@
+<!doctype html><html><head><!-- frame-runtime --><base href="/_f/1787782546-20ca/"><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.YODCk0yK.js","assets":"assets.DBUJcvq_.js","comments":"comments.GLuHR3zP.js","db":"db.CRhVHzSt.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CxGAyc-v.js","mcp":"mcp.Bvma3qD7.js","network":"network.B5UA9Su4.js","permissions":"permissions.BNySkLV5.js","room":"room.BMMoe2BY.js","sample":"sample.BW2Uysoh.js","self":"artifact.YODCk0yK.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.CQm3TZ9K.js","comments":"_comments.PBVy184F.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var J=["light","dark","system"],Q=/^[A-Za-z0-9_-]{1,64}$/,H=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,ee=new Set(["class","hidden","value","checked"]);function te(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||ee.has(t)}var Me="http://www.w3.org/1999/xhtml",re="http://www.w3.org/2000/svg",ne=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),oe=new Set(["script","style"]);function se(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!ne.has(t):e.namespaceURI===re?!oe.has(t):!1}var ae=new Set(["html","head","body","frameset"]);function ie(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&ae.has(e.localName)}function ce(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!Q.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[r,n]of Object.entries(t.attrsSet))if(!H.test(r)||typeof n!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const r of t.attrsRemoved)if(typeof r!="string"||!H.test(r))return!1}return!0}function le(e,t){if(e===null||typeof e!="object")return!1;const{seq:r,elements:n}=e;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let s=0;s<n.length;s++)if(!t(n[s]))return!1;return!0}function ue(e){return e===null||typeof e!="object"?!1:le(e.__frame_patch,ce)}function fe(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function pe(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function de(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&J.includes(r)}var A=/^[\w.-]+\.js$/;function me(e,t,r){return r?"inert":typeof t=="string"&&A.test(t)?e?[t]:"inert":e?"inert":"framed"}function he(){return{post(e,t){parent.postMessage(e,t)},on(e){const t=r=>{r.source===parent&&e(r.data,r.origin)};return addEventListener("message",t),()=>removeEventListener("message",t)}}}function _e(){return{post:()=>{},on:()=>()=>{}}}var O="__frame_scroll",ve=150,ye=310,we=160,be=3e4;function Ee(){let e=0,t=!1,r=!1,n=!1,s=0,a=null;const l=i=>{try{sessionStorage.setItem(O,JSON.stringify({y:i}))}catch{}},d=()=>{if(clearTimeout(e),a===null)return;const i=a;a=null,l(i)},v=()=>{if(t){t=!1;return}r=!0,a=scrollY,clearTimeout(e),e=setTimeout(d,ve)};try{addEventListener("scroll",v,{passive:!0}),addEventListener("pagehide",d)}catch{}const y=()=>{let i;try{i=sessionStorage.getItem(O)}catch{return null}if(i===null)return null;let m;try{m=JSON.parse(i)}catch{m=null}const u=m?.y;if(!(typeof u=="number"&&Number.isFinite(u)&&u>=0)){try{sessionStorage.removeItem(O)}catch{}return null}return u};let S=!1;const h=i=>{try{const m=scrollY;scrollTo({top:i,left:0,behavior:"instant"}),s=i,n=!0,clearTimeout(e),a=null,l(i);const u=scrollY;u!==m&&(t=!0),u!==i&&!S&&(S=!0,addEventListener("load",()=>{try{if(scrollY===u){const k=y();h(k!==null?k:s)}}catch{}},{once:!0}))}catch{}},w=()=>{try{return!!location.hash}catch{return!0}};let o=!1;const f=()=>{try{if(o||innerWidth>ye||innerHeight>we)return;o=!0;const i=Date.now(),m=()=>{try{removeEventListener("resize",m)}catch{}if(Date.now()-i>be||r||w())return;const u=y();h(u!==null?u:s)};addEventListener("resize",m)}catch{}};let _=!1,b=!1;return{restore(){if(_||(_=!0,w()))return;const i=y();i!==null&&(h(i),f())},promoted(){if(b||(b=!0,w()))return;const i=y();i!==null?(h(i),f()):n&&h(s)}}}function ge(e,t,r,n){let s=null;try{s=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:v=>v})??null}catch{}const a=window.Worker,l=a?.prototype,d=Object.freeze({Worker:a,workerOn:l?.addEventListener,workerPost:l?.postMessage,workerTerminate:l?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,policy:s,origins:t});r(e).then(v=>v?.bootTopLevel?v.bootTopLevel(d,n):n.settle()).catch(()=>n.settle())}var Oe="modulepreload",Ce=function(e){return"/"+e},je={},Ae=function(t,r,n){let s=Promise.resolve();function a(l){const d=new Event("vite:preloadError",{cancelable:!0});if(d.payload=l,window.dispatchEvent(d),!d.defaultPrevented)throw l}return s.then(l=>{for(const d of l||[])d.status==="rejected"&&a(d.reason);return t().catch(a)})},Re=window===top,q=Object.getOwnPropertyDescriptor(window,"claude"),T=me(Re,window.__FRAME_PREAMBLE?.topLevel,q?.writable===!1),C=typeof T=="object"&&T[0],p=C?_e():he();(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let s=0;s<r.length;s++){const a=r[s];try{e(t,a,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[a]}catch{}try{e(t,a,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[a]=="function"&&n++}if(n&&T==="framed")try{p.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Se=1e4,W=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function $(e){for(const t of W)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var L=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),j=window.__FRAME_PREAMBLE?.transforms,N=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate;function R(e){return Ae(()=>import("/_runtime/"+e),void 0)}function K(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:D,pipe:()=>({wrap:(r,n)=>(...s)=>{try{return n(...s)}catch(a){return Promise.reject(a)}}})}}var P=null,E=null;function Y(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var B=!1;function ke(e,t){const r=[];for(const n of e.elements){const s=document.querySelector(`[data-id="${n.target}"]`);if(!s){p.post({__frame_patch_miss:{seq:e.seq}},t);return}if([...Object.keys(n.attrsSet??{}),...n.attrsRemoved??[]].some(a=>!te(a))){p.post({__frame_patch_miss:{seq:e.seq}},t);return}if(n.text!==void 0&&(!se(s)||ie(s))){p.post({__frame_patch_miss:{seq:e.seq}},t);return}for(const[a,l]of Object.entries(n.attrsSet??{}))if(!G(s,a)){try{s.setAttribute(a,l)}catch{}X(s,a,l)}for(const a of n.attrsRemoved??[])G(s,a)||(s.removeAttribute(a),X(s,a,null));typeof n.text=="string"&&(s.textContent=n.text),r.push(n.target)}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:r}}))}catch{}}function X(e,t,r){if(!(e instanceof HTMLInputElement))return;const n=t.toLowerCase();n==="checked"?e.checked=r!==null:n==="value"&&e.type!=="file"&&(e.value=r??"")}function G(e,t){const r=t.toLowerCase(),n=e;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function V(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,B=!0):B&&(delete t.dataset.theme,t.style.colorScheme="",B=!1)}var M=new Map;function Te(){let e;const t={u:new Promise(r=>{e=r}),r:r=>{t.done=!0,e(r)},done:!1,nulled:!1};return t}function U(){for(const e of M.values())e.done||(e.nulled=!0,e.r(null))}var Le=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),D=(e,t)=>{const r=M.get(e);if(!r||r.done){r?.nulled&&E&&p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},E);return}const n=typeof t=="function"?Object.setPrototypeOf(t,Le):Object.assign(Object.create(null),t);typeof n.then=="function"&&delete n.then,r.r(Object.freeze(n))};function Z(){const e=q?.value??{};Y(window,"claude",e);for(const t of Object.keys(L)){if(e[t]!==void 0){Y(e,t,e[t]);continue}M.set(t,Te())}if(e.use===void 0){const t=r=>{if(typeof r!="string"||!Object.hasOwn(L,r))return Promise.resolve(null);const n=M.get(r);return n?n.u:Promise.resolve(e[r]??null)};try{Object.defineProperty(e,"use",{value:t,writable:!0,configurable:!0,enumerable:!1})}catch{}}}if(T==="framed"){const e=j&&A.test(j)?R(j).catch(()=>{}):Promise.resolve(void 0),t=o=>{if(o.type==="auxclick"&&o.button!==1)return;const f=o.target,_=f&&f.closest?f.closest("a[href],area[href]"):null;if(!_)return;const b=_.getAttribute("href");if(!b)return;let i;try{i=new URL(b,document.baseURI)}catch{return}if((i.protocol==="http:"||i.protocol==="https:")&&i.origin!==location.origin){o.preventDefault();const m=(_.getAttribute("target")??"").toLowerCase(),u=o.type==="auxclick"||o.metaKey||o.ctrlKey||o.shiftKey||o.altKey||!["","_self","_top","_parent"].includes(m);p.post({__frame_nav:!0,url:i.href,newTab:u},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const r={},n=o=>{o.isTrusted&&(r.pointer=!0)},s=o=>{o.isTrusted&&(r.click=!0)};addEventListener("pointermove",n,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0}),e.then(o=>{o?.wireNav&&(o.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",n,!0),removeEventListener("click",s,!0),o.wireEngagement?.(r))});let a=null;try{a=Ee()}catch{}Z();let l=null,d=null,v=0;const y=p.on((o,f)=>{$(f)&&fe(o)&&(l=o.__frame_init,E=f,y(),clearTimeout(v),d?.())});p.post({__frame_connect:!0},"*");const S=new Promise(o=>{d=o,v=setTimeout(()=>{y(),o()},Se)}),h=document.readyState==="loading"?new Promise(o=>document.addEventListener("DOMContentLoaded",()=>o(),{once:!0})):Promise.resolve();h.then(()=>{try{a?.restore()}catch{}});const w={cb:null};p.on((o,f)=>{if($(f)&&pe(o)){try{a?.promoted()}catch{}w.cb?.()}}),S.then(async()=>{if(!l||!E){U();return}V(l.theme);const o=E;let f=!1,_=!1;p.on((c,x)=>{if(x!==o)return;de(c)&&V(c.__frame_theme.theme),ue(c)&&ke(c.__frame_patch,o);const g=c?.__fc_mode;g&&typeof g=="object"&&!f&&N&&A.test(N)&&(f=!0,R(N).then(z=>z.install?.(o,g.on===!0)).catch(()=>{}));const F=c?.__ft_cmd;F&&typeof F=="object"&&!_&&I&&A.test(I)&&(_=!0,R(I).then(z=>z.install?.(o,F)).catch(()=>{}))});const b=Object.keys(l.capabilities??{}).filter(c=>Object.hasOwn(L,c)).map(c=>[c,L[c]]).filter(c=>typeof c[1]=="string"&&A.test(c[1])),i=await Promise.allSettled(b.map(([,c])=>R(c))),m=await e,u=E;if(m?.buildBoot||p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},u),m?.buildBoot)try{P=m.buildBoot(l,m.TRANSFORMS??{},{shellOrigin:u,mount:D},c=>p.post({__frame_cap_telemetry:c},u))}catch{p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},u),P=K(l,u)}else P=K(l,u);const k=c=>p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:c}},u),Pe=P;i.forEach((c,x)=>{const g=b[x][0];if(c.status!=="fulfilled"){k(g);return}try{c.value?.install?.(Pe)}catch{k(g)}}),U(),await h,p.post({__frame_ready:!0},E),e.then(c=>c?.installSizeReporter?.(u,w))})}else C&&(Z(),ge(C,W,R,{settle:U,mount:D}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Nathan Moser</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  --bg:#f7f4ec;
+  --surface:#ffffff;
+  --surface-alt:#efe9db;
+  --ink:#24312b;
+  --ink-soft:#5c6b62;
+  --ink-faint:#8b978d;
+  --accent:#2c6b5c;
+  --accent-ink:#1c463c;
+  --accent-soft:#e2ece7;
+  --border:#ddd3bd;
+  --border-soft:#e9e1cd;
+  --open:#a15a1f;
+  --open-soft:#f5e6d3;
+  --done:#3c7a5c;
+  --done-soft:#e1ede4;
+  --quote-bg:#f1ece0;
+  --shadow: 0 1px 2px rgba(36,49,43,0.06), 0 8px 24px -12px rgba(36,49,43,0.12);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141d1a;
+    --surface:#1a2622;
+    --surface-alt:#20302a;
+    --ink:#eef2ee;
+    --ink-soft:#a6b6ac;
+    --ink-faint:#748078;
+    --accent:#7fd0b3;
+    --accent-ink:#bfeadb;
+    --accent-soft:rgba(127,208,179,0.13);
+    --border:#31423a;
+    --border-soft:#293830;
+    --open:#e2a460;
+    --open-soft:rgba(226,164,96,0.14);
+    --done:#7fc79e;
+    --done-soft:rgba(127,199,158,0.13);
+    --quote-bg:#20302a;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.45);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141d1a;
+  --surface:#1a2622;
+  --surface-alt:#20302a;
+  --ink:#eef2ee;
+  --ink-soft:#a6b6ac;
+  --ink-faint:#748078;
+  --accent:#7fd0b3;
+  --accent-ink:#bfeadb;
+  --accent-soft:rgba(127,208,179,0.13);
+  --border:#31423a;
+  --border-soft:#293830;
+  --open:#e2a460;
+  --open-soft:rgba(226,164,96,0.14);
+  --done:#7fc79e;
+  --done-soft:rgba(127,199,158,0.13);
+  --quote-bg:#20302a;
+  --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.45);
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Public Sans', ui-sans-serif, system-ui, sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{ background:var(--accent-soft); }
+
+.page{
+  max-width:760px;
+  margin:0 auto;
+  padding:2.5rem 1.5rem 5rem;
+}
+
+.backlink{
+  display:inline-flex; align-items:center; gap:.4rem;
+  font-family:'IBM Plex Mono', ui-monospace, monospace;
+  font-size:.8rem;
+  color:var(--ink-soft);
+  text-decoration:none;
+  margin-bottom:1.5rem;
+  padding:.4rem .1rem;
+}
+.backlink:hover{ color:var(--accent-ink); }
+.backlink svg{ width:13px; height:13px; }
+
+/* ---------- Header ---------- */
+.header{
+  display:flex;
+  gap:1.1rem;
+  align-items:flex-start;
+  padding-bottom:1.5rem;
+  border-bottom:1px solid var(--border);
+}
+.avatar{
+  flex:none;
+  width:52px; height:52px;
+  border-radius:50%;
+  background:var(--accent);
+  color:var(--surface);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Newsreader', serif;
+  font-size:1.35rem;
+  font-weight:500;
+}
+:root[data-theme="dark"] .avatar, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .avatar{ color:#0d1512; } }
+.header-main{flex:1; min-width:0;}
+.eyebrow{
+  font-family:'IBM Plex Mono', ui-monospace, monospace;
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  margin:0 0 .25rem;
+}
+h1{
+  font-family:'Newsreader', serif;
+  font-weight:500;
+  font-size:2.1rem;
+  line-height:1.15;
+  margin:0 0 .3rem;
+  text-wrap:balance;
+  color:var(--ink);
+}
+.subline{
+  color:var(--ink-soft);
+  font-size:.98rem;
+  margin:0;
+}
+.subline a{ color:var(--accent-ink); text-decoration:underline; text-decoration-color:var(--border); text-underline-offset:2px; }
+
+.facts{
+  display:flex; flex-wrap:wrap; gap:.4rem;
+  margin-top:.9rem;
+}
+.fact{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.76rem;
+  color:var(--ink-soft);
+  background:var(--surface-alt);
+  border:1px solid var(--border-soft);
+  border-radius:5px;
+  padding:.28rem .55rem;
+}
+
+/* ---------- Status strip ---------- */
+.status{
+  display:flex; flex-wrap:wrap; gap:.6rem;
+  margin:1.25rem 0 0;
+}
+.pill{
+  display:inline-flex; align-items:center; gap:.4rem;
+  font-size:.82rem; font-weight:600;
+  padding:.4rem .7rem;
+  border-radius:99px;
+  border:1px solid transparent;
+}
+.pill .dot{ width:7px; height:7px; border-radius:50%; }
+.pill.high{ background:var(--open-soft); color:var(--open); border-color:color-mix(in srgb, var(--open) 30%, transparent); }
+.pill.high .dot{ background:var(--open); }
+.pill.neutral{ background:var(--surface-alt); color:var(--ink-soft); border-color:var(--border-soft); }
+.pill.neutral .dot{ background:var(--ink-faint); }
+.pill.accent{ background:var(--accent-soft); color:var(--accent-ink); border-color:color-mix(in srgb, var(--accent) 25%, transparent); }
+.pill.accent .dot{ background:var(--accent); }
+
+/* ---------- Sections ---------- */
+.section{
+  margin-top:2.75rem;
+}
+.section-head{
+  display:flex; align-items:baseline; gap:.7rem;
+  border-left:3px solid var(--accent);
+  padding-left:.85rem;
+  margin-bottom:1.1rem;
+}
+.section-head h2{
+  font-family:'Newsreader', serif;
+  font-weight:500;
+  font-size:1.5rem;
+  margin:0;
+  color:var(--ink);
+}
+.section-head .when{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:.78rem;
+  color:var(--ink-faint);
+}
+
+.tldr{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  box-shadow:var(--shadow);
+  padding:1.1rem 1.25rem;
+  font-size:1rem;
+  color:var(--ink);
+}
+.tldr strong{ color:var(--accent-ink); }
+
+h3{
+  font-family:'Public Sans', sans-serif;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  margin:1.6rem 0 .6rem;
+}
+.block{ margin-top:1.4rem; }
+.block:first-of-type{ margin-top:1.6rem; }
+
+ul.clean{ margin:0; padding:0; list-style:none; }
+ul.clean li{
+  position:relative;
+  padding-left:1.1rem;
+  margin-bottom:.55rem;
+  color:var(--ink);
+}
+ul.clean li::before{
+  content:"";
+  position:absolute; left:0; top:.62em;
+  width:5px; height:5px; border-radius:50%;
+  background:var(--accent);
+  opacity:.65;
+}
+ul.clean li:last-child{ margin-bottom:0; }
+ul.clean.chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
+ul.clean.chips li{
+  padding:.45rem .75rem .45rem 1.6rem;
+  background:var(--surface-alt);
+  border:1px solid var(--border-soft);
+  border-radius:8px;
+  margin:0;
+  font-size:.92rem;
+}
+ul.clean.chips li::before{ left:.7rem; top:.95em; }
+
+.checklist{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:.55rem; }
+.checklist li{ display:flex; align-items:flex-start; gap:.6rem; font-size:.98rem; }
+.checkbox{
+  flex:none; width:18px; height:18px; margin-top:.15rem;
+  border-radius:5px; border:1.5px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:.7rem;
+}
+.checklist li.done .checkbox{ background:var(--done); border-color:var(--done); color:var(--surface); }
+.checklist li.done .checkbox::after{ content:"✓"; }
+.checklist li.open .checkbox{ border-color:var(--open); }
+.checklist li.open span{ color:var(--ink); }
+.checklist li.done span{ color:var(--ink-soft); text-decoration:line-through; text-decoration-color:var(--border); }
+
+blockquote{
+  margin:0; padding:.9rem 1.1rem;
+  background:var(--quote-bg);
+  border-left:3px solid var(--accent);
+  border-radius:0 8px 8px 0;
+  font-family:'Newsreader', serif;
+  font-style:italic;
+  font-size:1.05rem;
+  color:var(--ink);
+}
+blockquote cite{
+  display:block; margin-top:.4rem;
+  font-family:'IBM Plex Mono', monospace;
+  font-style:normal; font-size:.74rem;
+  color:var(--ink-faint);
+}
+
+.cardgrid{ display:flex; flex-direction:column; gap:.75rem; }
+.objcard{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:.9rem 1.05rem;
+}
+.objcard .hes{
+  font-weight:600; font-size:.98rem; margin-bottom:.35rem;
+  display:flex; gap:.5rem; align-items:baseline;
+}
+.objcard .hes::before{ content:"“"; font-family:'Newsreader',serif; color:var(--accent); font-size:1.3rem; line-height:0; }
+.objcard dl{ margin:.5rem 0 0; display:grid; grid-template-columns:auto 1fr; gap:.3rem .7rem; }
+.objcard dt{ font-family:'IBM Plex Mono',monospace; font-size:.7rem; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-faint); align-self:baseline; padding-top:.15rem; }
+.objcard dd{ margin:0; font-size:.92rem; color:var(--ink); }
+
+details{
+  margin-top:1.5rem;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--surface);
+  overflow:hidden;
+}
+
+.revised{
+  outline:2px solid var(--open);
+  outline-offset:3px;
+  border-radius:4px;
+  position:relative;
+}
+.revised-tag{
+  display:inline-block;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.66rem;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  color:var(--open);
+  background:var(--open-soft);
+  border-radius:4px;
+  padding:.12rem .4rem;
+  margin-left:.4rem;
+  vertical-align:middle;
+}
+.was{
+  font-size:.85rem;
+  color:var(--ink-faint);
+  margin-top:.3rem;
+}
+.was s{ text-decoration-color:var(--border); }
+
+.logentry{
+  display:flex; gap:.7rem;
+  padding:.7rem 0;
+  border-bottom:1px solid var(--border-soft);
+  font-size:.88rem;
+}
+.logentry:last-child{ border-bottom:none; }
+.logentry .ts{
+  flex:none; width:118px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;
+  color:var(--ink-faint);
+  padding-top:.1rem;
+}
+.logentry .desc{ color:var(--ink); }
+.logentry .desc b{ color:var(--accent-ink); font-weight:600; }
+
+.callarchive{
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--surface);
+  margin-top:.75rem;
+  overflow:hidden;
+}
+.callarchive summary{ font-size:.88rem; }
+.callarchive summary .when{ font-weight:400; color:var(--ink-faint); margin-left:.5rem; }
+.callarchive .details-body{ font-size:.9rem; }
+.callarchive .details-body ul.clean{ margin-bottom:.7rem; }
+
+.quicksend{ margin-top:1.1rem; }
+.qsbtn{
+  font-family:'Public Sans', sans-serif;
+  font-weight:600; font-size:.9rem;
+  color:var(--surface);
+  background:var(--accent);
+  border:none; border-radius:8px;
+  padding:.65rem 1.1rem;
+  cursor:pointer;
+  transition:opacity .15s;
+}
+:root[data-theme="dark"] .qsbtn, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .qsbtn{ color:#0d1512; } }
+.qsbtn:hover{ opacity:.88; }
+.qsbtn:disabled{ opacity:.55; cursor:default; }
+.qsbtn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+.qsstatus{
+  margin-left:.7rem;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.78rem;
+}
+.qsstatus.ok{ color:var(--done); }
+.qsstatus.err{ color:var(--open); }
+.qshelp{
+  font-size:.82rem; color:var(--ink-faint);
+  margin:.5rem 0 0;
+}
+.qspreview{ margin-top:.6rem; }
+.qspreview summary{ font-size:.82rem; padding:.6rem .85rem; }
+.qsfield{ font-size:.85rem; margin-bottom:.4rem; }
+.qsfield span{ font-family:'IBM Plex Mono',monospace; font-size:.7rem; text-transform:uppercase; color:var(--ink-faint); margin-right:.5rem; }
+.qsbody{
+  white-space:pre-wrap;
+  font-family:'Public Sans', sans-serif;
+  font-size:.88rem;
+  color:var(--ink);
+  background:var(--surface-alt);
+  border-radius:8px;
+  padding:.8rem .9rem;
+  margin-top:.5rem;
+}
+summary{
+  cursor:pointer;
+  padding:.85rem 1.05rem;
+  font-weight:600; font-size:.92rem;
+  color:var(--accent-ink);
+  list-style:none;
+  display:flex; align-items:center; justify-content:space-between;
+}
+summary::-webkit-details-marker{ display:none; }
+summary::after{ content:"+"; font-family:'IBM Plex Mono',monospace; color:var(--ink-faint); font-size:1.1rem; }
+details[open] summary::after{ content:"–"; }
+details[open] summary{ border-bottom:1px solid var(--border-soft); }
+.details-body{ padding:1rem 1.05rem 1.15rem; }
+
+.kv{ width:100%; border-collapse:collapse; font-size:.9rem; }
+.kv td{ padding:.4rem 0; border-bottom:1px solid var(--border-soft); vertical-align:top; }
+.kv td:first-child{ color:var(--ink-faint); font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:.03em; width:44%; padding-right:1rem; }
+.kv tr:last-child td{ border-bottom:none; }
+
+.pricebox{
+  display:grid; grid-template-columns:1fr 1fr; gap:.75rem;
+  margin-top:.5rem;
+}
+.priceopt{
+  border:1px solid var(--border); border-radius:10px; padding:.9rem 1rem;
+  background:var(--surface);
+}
+.priceopt.reco{ border-color:var(--accent); background:var(--accent-soft); }
+.priceopt .label{ font-family:'IBM Plex Mono',monospace; font-size:.7rem; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-faint); }
+.priceopt.reco .label{ color:var(--accent-ink); }
+.priceopt .amount{ font-family:'Newsreader',serif; font-size:1.5rem; font-weight:500; margin:.15rem 0; color:var(--ink); }
+.priceopt .note{ font-size:.82rem; color:var(--ink-soft); }
+
+.opening{
+  margin-top:1.5rem;
+  border-radius:10px;
+  padding:1.1rem 1.25rem;
+  background:var(--accent);
+  color:var(--surface);
+}
+:root[data-theme="dark"] .opening, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .opening{ color:#0d1512; } }
+.opening .label{ font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; opacity:.85; margin-bottom:.4rem; }
+.opening q{ font-family:'Newsreader',serif; font-style:italic; font-size:1.15rem; }
+
+.sharehint{
+  font-size:.8rem; color:var(--ink-faint);
+  margin:-1.1rem 0 1.6rem;
+}
+.sharehint a{ color:var(--accent-ink); font-weight:600; }
+.sharehint a:hover{ text-decoration:none; }
+
+.callcoach-cta{ margin-top:1.1rem; }
+.ccbtn{
+  display:inline-flex; align-items:center; gap:.55rem;
+  font-family:'Public Sans', sans-serif; font-weight:600; font-size:.92rem;
+  color:var(--surface);
+  background:var(--accent);
+  border-radius:9px;
+  padding:.65rem 1.05rem;
+  text-decoration:none;
+  box-shadow:var(--shadow);
+}
+.ccbtn:hover{ opacity:.9; }
+:root[data-theme="dark"] .ccbtn, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .ccbtn{ color:#0d1512; } }
+
+.pagesearch{
+  margin-top:1.4rem;
+  display:flex; align-items:center; gap:.6rem; flex-wrap:wrap;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:.65rem .9rem;
+  box-shadow:var(--shadow);
+}
+.pagesearch svg{ flex:none; width:16px; height:16px; color:var(--ink-faint); }
+.pagesearch input{
+  flex:1; min-width:160px;
+  border:none; outline:none; background:transparent;
+  font-family:'Public Sans', sans-serif; font-size:.94rem; color:var(--ink);
+}
+.pagesearch input::placeholder{ color:var(--ink-faint); }
+.pagesearch .count{
+  font-family:'IBM Plex Mono',monospace; font-size:.76rem; color:var(--ink-faint);
+  white-space:nowrap; min-width:3.2rem; text-align:right;
+}
+.pagesearch .navbtn{
+  flex:none; width:26px; height:26px; border-radius:6px;
+  border:1px solid var(--border-soft); background:var(--surface-alt);
+  color:var(--ink-soft); cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size:.8rem; padding:0;
+}
+.pagesearch .navbtn:hover{ background:var(--accent-soft); color:var(--accent-ink); }
+.pagesearch .navbtn:disabled{ opacity:.4; cursor:default; }
+.pagesearch-help{
+  font-size:.8rem; color:var(--ink-faint); margin:.55rem 0 0;
+}
+mark.hit{ background:var(--open-soft); color:var(--ink); border-radius:2px; padding:0 1px; }
+mark.hit.current{ background:var(--accent); color:var(--surface); }
+:root[data-theme="dark"] mark.hit.current, @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) mark.hit.current{ color:#0d1512; } }
+
+.transcript{ font-size:.9rem; }
+.transcript-note{ font-size:.82rem; color:var(--ink-faint); margin:0 0 1rem; }
+.transcript .turn{ margin:.15rem 0; }
+.transcript .ts{
+  display:block;
+  font-family:'IBM Plex Mono',monospace; font-size:.68rem; text-transform:uppercase; letter-spacing:.04em;
+  color:var(--ink-faint); margin:1.3rem 0 .55rem;
+}
+.transcript .turn:first-of-type .ts{ margin-top:0; }
+.transcript .who{ color:var(--accent-ink); font-weight:600; }
+.transcript p{ margin:.3rem 0 0; color:var(--ink); }
+
+footer{
+  margin-top:3rem; padding-top:1.5rem; border-top:1px solid var(--border);
+  font-size:.82rem; color:var(--ink-faint); line-height:1.7;
+}
+footer a{ color:var(--accent-ink); }
+
+@media (max-width:520px){
+  .pricebox{ grid-template-columns:1fr; }
+  h1{ font-size:1.7rem; }
+}
+</style>
+
+<div class="page">
+
+  <a class="backlink" href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3 5 8l5 5"/></svg>
+    Back to Next Touch
+  </a>
+  <p class="sharehint">Share this page with your team using the share option on this view — anyone with the link can read what happened on this account without needing your Gemini conversations.</p>
+  <p class="sharehint">Prepping for a call with Nathan? Keep the <a href="https://claude.ai/code/artifact/19d06ea7-3178-46ff-bf4d-13f1dca37906" target="_blank" rel="noopener">Call Verbiage Field Guide</a> open alongside this page — it's one general reference for every call, not specific to Nathan.</p>
+  <p class="sharehint"><a href="https://claude.ai/code/artifact/c683bd30-99e5-4085-9208-433136744f20" target="_blank" rel="noopener">Daily Priorities</a> &middot; <a href="https://claude.ai/code/artifact/7e63e020-1d8f-40d2-b06a-293983c5c04c" target="_blank" rel="noopener">Reading the tape: call-coaching review of the Aug 25 call</a></p>
+
+  <div class="header">
+    <div class="avatar">NM</div>
+    <div class="header-main">
+      <p class="eyebrow">Contact brief</p>
+      <h1>Nathan Moser</h1>
+      <p class="subline">NPM Ventures · <a href="mailto:npmventures1@gmail.com">npmventures1@gmail.com</a></p>
+      <div class="facts">
+        <span class="fact">Ticket resale / e-commerce</span>
+        <span class="fact">&gt;$500K/yr revenue</span>
+        <span class="fact">Founded 2021</span>
+        <span class="fact">Miami, FL</span>
+      </div>
+      <div class="status">
+        <span class="pill high"><span class="dot"></span>High priority</span>
+        <span class="pill accent"><span class="dot"></span>Price consideration</span>
+        <span class="pill neutral"><span class="dot"></span>Next call: Wed Sep 2, 2:30 PM MT</span>
+      </div>
+      <div class="callcoach-cta">
+        <a class="ccbtn" href="#callcoach">&#127908; Open Call Coach &mdash; tailored talk track for this call</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagesearch">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="5.2"/><path d="M11 11l3.5 3.5"/></svg>
+    <input type="text" id="pageSearchInput" placeholder="Search these notes &amp; the call transcript — e.g. &quot;pricing&quot;, &quot;vacation&quot;, &quot;Plaid&quot;">
+    <span class="count" id="pageSearchCount"></span>
+    <button class="navbtn" id="pageSearchPrev" type="button" title="Previous match">&uarr;</button>
+    <button class="navbtn" id="pageSearchNext" type="button" title="Next match">&darr;</button>
+  </div>
+  <p class="pagesearch-help">Finds exact words or phrases anywhere on this page, including the full transcript at the bottom of the last call. For open-ended questions — "what pushed him toward Bench over the other options he's comparing?" — ask Claude directly in your workspace; it can read this whole page and transcript and answer in context, the same way it would answer about any client.</p>
+
+  <!-- ============ CALL COACH ============ -->
+  <div class="section" id="callcoach">
+    <div class="section-head">
+      <h2>Call Coach</h2>
+      <span class="when">Tailored from the Call Verbiage Field Guide &amp; Reading the Tape</span>
+    </div>
+
+    <div class="tldr">
+      <strong>Situation:</strong> Hot lead, real buying signal already on record (&ldquo;this definitely seems like 21st century&rdquo; re: QuickBooks vs. Bench) &mdash; Sept 2 is a decision call, and Reading the Tape flagged two specific things to fix from the Aug 25 call: he only got space to raise his real concern (money moving between accounts) after a 3:38 unbroken monologue, and pricing numbers went by fast (189 wpm).
+    </div>
+
+    <h3>Talk track for this call</h3>
+    <div class="cardgrid">
+      <div class="objcard">
+        <div class="hes">Checkpoint the recap, don&rsquo;t monologue it</div>
+        <dl>
+          <dt>Say this</dt><dd>Every 60&ndash;90 seconds: &ldquo;does that match what you&rsquo;re picturing?&rdquo; &mdash; the single most actionable fix from Reading the Tape. An 80/20 talk-time split let his real objection about moving money between accounts sit unspoken for over 3 minutes last time.</dd>
+        </dl>
+      </div>
+      <div class="objcard">
+        <div class="hes">Slow down specifically on the $9,110/annual number</div>
+        <dl>
+          <dt>Why</dt><dd>Reading the Tape flagged pricing delivered at full pace as the one place a deliberate half-beat pays off &mdash; dollar figures said fast are the ones people ask you to repeat.</dd>
+        </dl>
+      </div>
+      <div class="objcard">
+        <div class="hes">Reconfirm the buying signal before pricing</div>
+        <dl>
+          <dt>Ask</dt><dd>&ldquo;Last time you mentioned QuickBooks felt laggy and dated &mdash; does the dashboard we walked through still feel like the fix for that?&rdquo;</dd>
+        </dl>
+      </div>
+      <div class="objcard">
+        <div class="hes">Proactive objection strike before the close</div>
+        <dl>
+          <dt>Say this</dt><dd>&ldquo;Do you feel like Bench will accomplish what you need?&rdquo; (yes) &ldquo;Great. And does the annual pricing feel fair?&rdquo; (yes) &ldquo;Great &mdash; sounds like we&rsquo;re a fit.&rdquo; <span style="color:var(--ink-faint);">(Guide: Ross &mdash; proactive objection strike)</span></dd>
+        </dl>
+      </div>
+      <div class="objcard">
+        <div class="hes">Close, naming the emotional payoff</div>
+        <dl>
+          <dt>Say this</dt><dd>&ldquo;I&rsquo;m confident this gets QuickBooks off your plate for good &mdash; can we get you started today?&rdquo;</dd>
+        </dl>
+      </div>
+    </div>
+
+    <p class="pagesearch-help" style="margin-top:1.1rem;">Pulled from your <a href="https://claude.ai/code/artifact/19d06ea7-3178-46ff-bf4d-13f1dca37906" target="_blank" rel="noopener">Call Verbiage Field Guide</a> (general reference for every call) and <a href="https://claude.ai/code/artifact/7e63e020-1d8f-40d2-b06a-293983c5c04c" target="_blank" rel="noopener">Reading the Tape</a> (the coaching review of Nathan&rsquo;s Aug 25 call specifically) &mdash; open either for the full reference.</p>
+  </div>
+
+  <!-- ============ PRE-CALL SUMMARY ============ -->
+  <div class="section">
+    <div class="section-head">
+      <h2>Before your next call</h2>
+      <span class="when">Wed, Sep 2 · 2:30 PM MT</span>
+    </div>
+
+    <div class="tldr">
+      He's <strong>comparing Bench against other providers</strong> and wanted to think it over — not a price objection, a fit decision. He's leaning toward leaving QuickBooks (called it "21st century" when he saw the Bench dashboard). Goal for this call: find out what the other options told him, and close on the annual plan while the free 6-month cleanup offer is still fresh.
+    </div>
+
+    <h3>Since the last call</h3>
+    <ul class="checklist">
+      <li class="open"><span class="checkbox"></span><span>Email service summary — recap of the Bench platform + pricing breakdown (annual vs. monthly)</span></li>
+      <li class="open"><span class="checkbox"></span><span>Calendar invite for Wed Sep 2, 2:30 PM MT</span></li>
+    </ul>
+
+    <div class="quicksend">
+      <button id="draftBtn" class="qsbtn" type="button">Draft the pricing recap email</button>
+      <span id="qsStatus" class="qsstatus"></span>
+      <p class="qshelp">Composes the email below as a Gmail draft, addressed to Nathan — you review and send it yourself, nothing goes out automatically.</p>
+      <details class="qspreview">
+        <summary>Preview the draft text</summary>
+        <div class="details-body">
+          <div class="qsfield"><span>To</span> npmventures1@gmail.com</div>
+          <div class="qsfield"><span>Subject</span> Bench pricing recap — NPM Ventures</div>
+          <pre id="qsBody" class="qsbody">Hi Nathan,
+
+Great catching up yesterday — wanted to get you the numbers we talked through while you compare your options.
+
+Bench Core, billed annually: $319/month ($3,830/year). Since that's the annual plan, I can also include 6 months of historical cleanup at no charge, which covers the backlog currently sitting in QuickBooks (normally about $2,400 of work).
+
+Bench Core, billed monthly: $399/month, without the free cleanup.
+
+For reference, the alternative we discussed — keeping QuickBooks and having a Bench bookkeeper work inside it hourly — runs about $550/month based on 8-10 hours of work.
+
+Either way, migrating your existing QuickBooks data over is fully handled on our end, and the one account that doesn't connect through Plaid just needs a monthly statement upload — everything else is automated.
+
+No rush — take the time you need to compare. I'll follow up before our Wednesday, September 2nd call at 2:30 PM MT. Feel free to reply here or call/text me directly if anything comes up sooner.
+
+Talk soon,
+Adam</pre>
+        </div>
+      </details>
+    </div>
+
+    <h3>Where he stands</h3>
+    <ul class="clean">
+      <li>Actively evaluating a few other bookkeeping providers — no specifics on who yet.</li>
+      <li>Said he'd decide "by the end of the week," but that was before he left for vacation Friday — worth checking whether that's slipped.</li>
+      <li>No pushback on the $319–399/mo pricing itself; his hesitation is entirely about which provider is the right fit.</li>
+    </ul>
+
+    <h3>Be ready for</h3>
+    <div class="cardgrid">
+      <div class="objcard">
+        <div class="hes">Still comparing other providers</div>
+        <dl>
+          <dt>Concern</dt><dd>Wants confidence he's picking the best fit, not just the first offer.</dd>
+          <dt>Say this</dt><dd>Lead with the hybrid model — dedicated human bookkeeper plus software, not a bot or a pooled team. Ten years in business.</dd>
+          <dt>Ask</dt><dd>"What are the other platforms offering that Bench isn't?"</dd>
+        </dl>
+      </div>
+      <div class="objcard">
+        <div class="hes">Might still lean toward staying in QuickBooks</div>
+        <dl>
+          <dt>Concern</dt><dd>Switching effort / losing existing data.</dd>
+          <dt>Say this</dt><dd>Migration is fully handled on our side — nothing he has to move himself.</dd>
+          <dt>Ask</dt><dd>"Now that the free cleanup's on the table, does staying in QuickBooks still make sense?"</dd>
+        </dl>
+      </div>
+    </div>
+
+    <h3>This call's goal</h3>
+    <ul class="clean">
+      <li>Learn what he found comparing other vendors, and what mattered most to him.</li>
+      <li>Reconfirm the annual plan — it's what unlocks the free 6-month historical cleanup (~$2,400 value).</li>
+      <li>Clear any new questions from his research window.</li>
+      <li>He's back from vacation and said he'd decide soon — this is the natural close.</li>
+    </ul>
+
+    <div class="opening">
+      <div class="label">Open with</div>
+      <q>Now that you've had a chance to compare, what would need to be true for Bench to be the easy yes today?</q>
+    </div>
+  </div>
+
+  <!-- ============ LAST CALL ============ -->
+  <div class="section">
+    <div class="section-head">
+      <h2>Last call</h2>
+      <span class="when">Aug 25 · 9:30 AM MT · Discovery &amp; demo</span>
+    </div>
+
+    <div class="tldr">
+      <strong>Good call.</strong> He runs his own books in QuickBooks, is behind on ~1,000 transactions, and is tired of doing it himself. Saw the Bench dashboard and reacted well — but wants to compare options before deciding. No price objection surfaced.
+    </div>
+
+    <h3>Top pain points</h3>
+    <ul class="clean chips">
+      <li>Wants bookkeeping fully off his plate</li>
+      <li>~1,000 uncategorized transactions since January</li>
+      <li>Finds QuickBooks "laggy" and dated</li>
+    </ul>
+
+    <h3>What I learned</h3>
+    <ul class="clean">
+      <li>The real driver is the backlog and QuickBooks' clunky feel — not cost.</li>
+      <li>He wants a CPA-ready year-end package; he files through his own accountant, not us.</li>
+      <li>One account (an interest-bearing sub-account) doesn't connect through Plaid — he'll need to upload those statements manually either way.</li>
+      <li>Risk: shopping competitors with a soft "end of week" timeline, then unreachable on vacation from Friday.</li>
+    </ul>
+
+    <h3>Pricing discussed</h3>
+    <div class="pricebox">
+      <div class="priceopt reco">
+        <div class="label">Bench Core · Annual</div>
+        <div class="amount">$319<span style="font-size:.9rem;font-weight:400;">/mo</span></div>
+        <div class="note">$3,830/yr · includes 6 months of historical cleanup free (~$2,400 value)</div>
+      </div>
+      <div class="priceopt">
+        <div class="label">Bench Core · Monthly</div>
+        <div class="amount">$399<span style="font-size:.9rem;font-weight:400;">/mo</span></div>
+        <div class="note">No historical cleanup included</div>
+      </div>
+    </div>
+    <p style="font-size:.86rem;color:var(--ink-soft);margin-top:.6rem;">Alternative discussed: keeping QuickBooks with a Bench bookkeeper working inside it hourly — estimated ~$550/mo (8–10 hrs).</p>
+
+    <h3>Objections raised</h3>
+    <div class="cardgrid">
+      <div class="objcard">
+        <div class="hes">Comparing multiple providers</div>
+        <dl>
+          <dt>Concern</dt><dd>Wants best fit before committing.</dd>
+          <dt>Response used</dt><dd>Emphasized the hybrid software + dedicated bookkeeper model vs. pure-AI or pure-manual competitors.</dd>
+        </dl>
+      </div>
+      <div class="objcard">
+        <div class="hes">Non-Plaid sub-account</div>
+        <dl>
+          <dt>Concern</dt><dd>Manual upload work undercuts the "offload everything" goal.</dd>
+          <dt>Response used</dt><dd>Framed as one small exception vs. everything else being automated — resolved on the call.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <details>
+      <summary>Full business profile</summary>
+      <div class="details-body">
+        <table class="kv">
+          <tr><td>Business name</td><td>NPM Ventures</td></tr>
+          <tr><td>Industry</td><td>E-commerce — buys/sells sport &amp; concert tickets</td></tr>
+          <tr><td>Current solution</td><td>QuickBooks Online (2 bank accounts, 3 credit cards)</td></tr>
+          <tr><td>Issues with it</td><td>Laggy, manual, ~1,000 uncategorized transactions, no reports used</td></tr>
+          <tr><td>Corporate structure</td><td>Not mentioned</td></tr>
+          <tr><td>Gross annual revenue</td><td>&gt;$500K/yr (&gt;$50K/mo)</td></tr>
+          <tr><td>Gross monthly expenses</td><td>Not stated</td></tr>
+          <tr><td>State of registry</td><td>Florida (Miami)</td></tr>
+          <tr><td>Years in business</td><td>Since 2021</td></tr>
+          <tr><td>Catch-up required</td><td>Yes — ~1,000 transactions, 2026 YTD</td></tr>
+          <tr><td>Last year filed</td><td>Up to date (per client)</td></tr>
+          <tr><td>Cash-basis accounting</td><td>Not confirmed — no inventory tracking, COGS booked at purchase</td></tr>
+        </table>
+      </div>
+    </details>
+
+    <details>
+      <summary>Action items from the call</summary>
+      <div class="details-body">
+        <ul class="checklist">
+          <li class="open"><span class="checkbox"></span><span>Send follow-up email — Bench recap + pricing breakdown</span></li>
+          <li class="open"><span class="checkbox"></span><span>Send calendar invite for Wed Sep 2, 2:30 PM MT</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Full call transcript — Aug 25, 2026 <span style="font-weight:400;color:var(--ink-faint);margin-left:.5rem;">verbatim, 19:41</span></summary>
+      <div class="details-body transcript">
+        <p class="transcript-note">Computer-generated by Gemini from the call recording. The source doc labels Nathan's turns "NPM Ventures" (from the calendar invite) — relabeled "Nathan Moser" below for clarity; wording is otherwise verbatim, filler words and all. Original: <a href="https://docs.google.com/document/d/1DVY5mUL9UzjwGFEFwO1YluD5xSoMTrGvgKzWIGLKUw0/edit" target="_blank" rel="noopener">Gemini transcript doc</a>.</p>
+
+        <span class="ts">00:00:01</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Hey,</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Hey, how are you doing?</p>
+        <p class="turn"><span class="who">Adam Russo:</span> not too bad. Oh, can you hear me? Okay. Cool. Awesome. Notetaker in here quickly.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Yep.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay, perfect. Awesome. I appreciate you hopping on the call here. Um, I was just reviewing the notes uh you just briefly left me when you booked the meeting. Um, it seems like you're running a business, um, doing over $50,000 a month. Um, and you're doing all of your books through QuickBooks.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Yes.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay. Cool. Awesome. Typically, how I like to start off these calls by learning a bit about your business and,</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Correct.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> uh, really what you've been, how your book's been going, um, as it stands right now through QuickBooks. Uh, from there, we'll tell you a bit about Bench. um see how we can support and if everything works for you, we can go ahead and get started, start moving you to onboarding. Does that</p>
+
+        <span class="ts">00:00:57</span>
+        <p class="turn"><span class="who">Nathan Moser:</span> Yeah. So, I use QuickBooks online right now.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> work?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Um, there's two bank accounts and three credit cards. Um, I was doing it myself and now I'm really just looking for someone else to do it.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay. And so what have you liked about QuickBooks so far?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> It's just the only thing I've ever used.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay. How long have you been in business for? How long have you been doing it</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Uh, the business was open</p>
+        <p class="turn"><span class="who">Adam Russo:</span> yourself?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> 2021.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay. And what exactly is the business?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> We buy and sell sport and concert tickets.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Oh, cool. So, is this a software</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Uh, no. It's kind of like ecom, I guess, closely related to</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay. So, but it's an it's an online Yes. So, it's e-commerce. So, you have an online inventory. Is there a level of any inventory tracking that um you're doing at this time or what's what's really the process that you go through?</p>
+
+        <span class="ts">00:02:03</span>
+        <p class="turn"><span class="who">Nathan Moser:</span> Uh, no inventory tracking. Everything gets marked as like cost of goods sold when it's purchased.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay. So, what type of reports are you tracking right now in QuickBooks?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> I literally don't look at any reports. Like I I don't really care about anything like that.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> No.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> I just need it like categorized um for like end of year accountant for him to file.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay. And are you up to date on your taxes right now?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Yep.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay. And so the books itself, um, how often are you categorizing? Have you categorized this year? Are you are you up to date from January?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> There's a thousand uncatategorized transactions right</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> now.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> And is that a thousand from like the past couple months or is that a thousand from like January, like 2025? Like how how far back does that go?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Right. I did do like some myself.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Oh,</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> I mean,</p>
+        <p class="turn"><span class="who">Adam Russo:</span> it's writing vision all</p>
+
+        <span class="ts">00:03:02</span>
+        <p class="turn"><span class="who">Nathan Moser:</span> 26.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> 2026.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Yes. But like these are just like the ones I haven't gotten a chance to do</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah. Okay. That that's totally fine. Um Okay,</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> yet.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> cool. That makes complete sense. Is there anything you're looking for in a solution other than of course just by the sounds of it, you just want this done? you want this out of your hands, but um you know moving to a solution where you don't have to worry about anymore. Are there any insights that you're hoping to see? Um of course you want to see your revenue, your expenses, things like that, but</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Um, like I have like a point of sale that everything goes through. So that like like I look through that to see like how much money I have. Like like I know how much everything I have and like how much is going out, how much is going in. It's just I don't want to do it in QuickBooks anymore.</p>
+
+        <span class="ts">00:03:58</span>
+        <p class="turn"><span class="who">Nathan Moser:</span> Um so really I just need someone to catch up the the</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> um the stuff that I haven't done and then like continuing forward like handle the</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Got it. and you have a CPA.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> QuickBooks.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> So, it's truly just um it's just doing the bookkeeping and then you're going to hand off the reports to your CPA. They're going to file your taxes. Yeah. Okay, cool. Um, sounds good.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Correct.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> That all works for me. Um, in regards to where you want to get the books done, um, do you want to stay in QuickBooks? Is that what you're hoping for? Or are you looking at different solutions to get out of QuickBooks?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Um, yeah. I would like to stay in QuickBooks.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay. The reason I ask is because we have two different solutions. So, we have our bench bookkeeping solution um and then we do we are able to contract one of our bookkeepers into your uh QuickBooks account.</p>
+
+        <span class="ts">00:05:07</span>
+        <p class="turn"><span class="who">Adam Russo:</span> So, it depends on whatever works best for you. The difference between the two is if you're already working on a cashbased accounting system. If we did put you on to the bench platform,</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Mhm.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> it's a onetime subscription um and it's unlimited categorizations, your reports, you get a human bookkeeper, the whole jazz. If we did work in your QuickBooks account depending on how much work is required, it is an hourly rate so it does change. So, um if you do want us to work in your QuickBooks, totally fine. Absolutely doable. we can figure out um how much time you would require and then match that accordingly. If you were interested in moving away from QuickBooks, if you weren't tied to it in any way, um we I could show you the platform itself and uh really the different reports that you can get and see if it makes sense to take that direction as well. Do either of those work better for you?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> That's Um, it's just I guess I'll take a look at the</p>
+
+        <span class="ts">00:06:03</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah. Okay. Well, here, why don't I share my screen and I can just like quickly walk through it.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> platform.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> If off the bat you feel like, you know what, this this isn't what I want. I want to stay in QuickBooks. Cool. Let's take the QuickBooks route. Let's let's go from there. Um, let me share my screen here for you. All</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Yeah.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> right. Can you see this?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Yeah.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Cool. Awesome. So, off the bat, first thing that you see when you log into your Bench account is your overview page. So, this is essentially a timeline. So, you can see as your books are getting done, uh, what stage they're at. So you can see when your books have been reviewed, when they're tax ready, which means your reports are generated, when your bookkeeper is working on them, and just when your input's required. And I'll I'll get to exactly what that is. Some other things you can see is uh your P&amp;Ls right off the bat.</p>
+
+        <span class="ts">00:07:04</span>
+        <p class="turn"><span class="who">Adam Russo:</span> You can see the performance throughout the year. Um and then you can also click on each subject line to see exactly how well the company's done month over month. Okay. You can see things like your top expenses,</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Mhm.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> uh the total percentage of your overall revenue being allocated to certain categories as well. they can click into it and see exactly what was categorized under there. Exactly the same reports as you would see on your income statement. Okay, so the cost of goods sold, if we go over to your income statement, um you would also see it broken down um on your operating expenses. You could find the cost of goods sold on here wherever it may be sitting. Of course, it's a demo, but um the way the expense lines work is they populate as you require them. So the IRS compliance is like 900 pages long. So there's a million ways you can categorize things. The way that Bench works is we offer a hybrid solution between software and service.</p>
+
+        <span class="ts">00:07:56</span>
+        <p class="turn"><span class="who">Adam Russo:</span> So where QuickBooks, right, it's manual. So you they give you the platform and it's up to you to manually categorize. Um there's other softwares where it's really you just connect to their platform and an AI just</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Mhm.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> starts categorizing them as if it's chat. Where we come in between is we offer the software and a bookkeeper. So, it's our own um it's our own personal software. It's our own proprietary software. Um we've been in business for about 10 years now. Um so, our software will go ahead and categorize all of your transactions as your business is operating in real time. So, you'll see this number change as you're making purchases, as revenue is coming in, it's constantly changing. Okay. From there, you do have a dedicated bookkeeper. So, at any time, you can text your bookkeeper. It's not a pool of bookkeepers. It's not a bot. It's not just anyone. It's your dedicated bookkeeper. So, you can go ahead message them any questions.</p>
+
+        <span class="ts">00:08:50</span>
+        <p class="turn"><span class="who">Adam Russo:</span> You can use the phone icon. This opens up their calendar. So you can sit down, chat with them, go over your finances, make sure that everything makes sense,</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Come</p>
+        <p class="turn"><span class="who">Adam Russo:</span> and and before handing everything off to your CPA. So, the whole goal really here is we take it completely off of your plate so you don't have to worry about it,</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> here.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> but at any time you can come in, sign in, and see exactly how well the business is performing and know exactly what's going on. You also get monthly reports. Um, so typically 10 days after the month ends, you'll get your income statement and balance sheet. Um so you'll be able to see the total health of the business in real time um all the time and then get a monthly report to see exactly the activity month over month which produces your your P&amp;Ls down here. Okay, under the accounts. So this is where we pull all the data.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Mhm.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> So we'll connect directly to the business bank account as well as your credit cards to pull all of the data and then we can go ahead and start categorizing accordingly.</p>
+
+        <span class="ts">00:09:45</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Um, we can also connect to your Stripe, Square, Shopify, Amazon, things of that nature to make sure we're pulling as much information as possible as well down the line. If you start getting people on payroll, we can add them along as well. We do partner with Gusto. Um, if you are looking for payroll down the line, we can make that connection so you can save 50% off. Um, but we want to make sure that we pull as much data as possible just like any other bookkeeper uh bookkeeping solution, right? Same as QuickBooks. Okay. From there to file your taxes, we would produce a year and financial package. So under the bookkeeping documents tab under your taxes, this is where you'd find your year and financial package. And this is exactly what your CPA is looking for.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Mhm.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> So they want a summary of all the categorizations that you've done so that they can go ahead take your reports and file your taxes. So, we produce that package for your CPA so that they can either a come in um they'll get a like an accountant login.</p>
+
+        <span class="ts">00:10:40</span>
+        <p class="turn"><span class="who">Adam Russo:</span> They'll come in, pull the package, file the taxes for you, so you don't have to think about it. Um or you could just download it, hand it off to your CPA, and they can uh take it, run, and file the taxes for you. Okay.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> got it.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Does this seem like something that would make your life easier, or do you still feel like you would prefer staying on the QuickBooks route?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> I mean, it seems like like QuickBooks have been like really laggy for me lately and like annoying to work around. So like this is definitely seems like 21st</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> century.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah. A little more modern. Yeah. Well, what we could do is if you do have your reports um from QuickBooks,</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Yeah.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> uh you can actually go ahead and download them and we can move them all into your bench account as well. So, you wouldn't have to leave any data there. we can just migrate your data over and then we can pick up your books from here uh going forward.</p>
+
+        <span class="ts">00:11:36</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Um if you did want to go with the bench solution, I can include the historical work for you for free. Um so I can give you the first uh six months for free and then you just have to pay for uh two months. So July and August and you you'd be all caught up with and would would that work?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> How much is does it cost for um if I use bench versus if you guys do QuickBooks or if you give me like a quote on how much it would be to stay in QuickBooks.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah. So, off the top of my head, without looking at your QuickBooks account, um, typically most business owners require 8 to 10 hours of work per month, right? So, breaks down to about two and a half hours a week, uh, which comes out to, uh, $550 per month. Okay, if excuse me, if we did want to take the bench route,</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Mhm.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> I'll even just pull up the pricing sheet here. So, if you did want to take the bench route, um you would be looking at the core subscription.</p>
+
+        <span class="ts">00:12:40</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Uh as of this time, your business is too large to go with the grow um because you're doing over half a million dollars a year. Um so, you'd be looking at the core subscription where on a monthto monthth it would start off at 3.99. If uh we did take the route where I can include the historical work for you, uh we could throw you on the annual, you do save 20% off your year. Um plus, like I said, I would throw in the six months of catch-up work there for you. So, it comes up 3830. So, when I break that down, 3830 uh divided by 12 months, it comes up to 319 per month instead of the the 399 we showed before. Plus, like I said, I'd include the six months for you. So, if we did the historical work is the regular monthly rate, so it's $3.99 by the 6 months, uh, you're saving $2,400.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> and this includes unlimited expenses.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah. Yeah, you got it. So, as long as your business continues to grow, um, your rate would stay the same.</p>
+
+        <span class="ts">00:13:38</span>
+        <p class="turn"><span class="who">Adam Russo:</span> So, you could do a million dollars next month with thousand transactions in September alone, and, uh, your rate stays the same, doesn't change.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Okay. And are the bookkeepers in uh America or are they in another country?</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Uh so they're based in we have some in the US, I know we have some in Canada, uh we have some in South America. Um that's that's the primary gist of it. So all all within America.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Okay. because I don't know like if your software can like look at my stuff and like figure out what is going on because a lot of like money gets moved around between accounts and like um yeah I just don't know if it like is a human going to do that or is it like AI trying to go through</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah. Yes. No. So,</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> it?</p>
+        <p class="turn"><span class="who">Adam Russo:</span> that's where that's where the human bookkeeper comes into play. So, I'm going to jump back into the overview tab and see where your inputs required. This is where specific transactions came in that um our software didn't know and our bookkeeper didn't know.</p>
+
+        <span class="ts">00:14:48</span>
+        <p class="turn"><span class="who">Adam Russo:</span> And the reason may being um I'll go into categorize now. For instance, like a check, right? So if transactions come in and we have no idea where it came from, like a check, we have no idea where it was routed from, um that's where we'll reach out to you to get those different insights. So,</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Mhm.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> and during our onboarding, we'll set up um those nuances to make sure that we have a clear idea. If specific transactions come in that are typically confusing month over month, we can add rules into place so that we don't have to reach out to you every month be like, "Hey, Nathan, another transaction came in. Can you help us?" You're like, "Dude, it's the same one." Well, add those rules into place so that as we build the partnership with you,</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Okay.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> it'll require less and less work on your end. So, typically we handle about 90% of the work um off the bat. I'd say maybe around 80% because we got to get to know the account and then as time goes on it'll go, you know, back to 90%.</p>
+
+        <span class="ts">00:15:38</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Maybe we'll handle 95%, 96% and it'll continue to grow hopefully so that it will require no time at all on your end and we can just handle the books for you going forward.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Okay. And everything like all the accounts will connect in like through Plaid or something.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yep. Yeah, you got it. Alter</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Okay. So,</p>
+        <p class="turn"><span class="who">Adam Russo:</span> plaque.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> one of my accounts does not like show up on Plaid. So, how would that work?</p>
+        <p class="turn"><span class="who">Adam Russo:</span> So, if it doesn't show up on Plaid, um, how do you get the reports into QuickBooks?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> I don't right now. It's like a new account. Um, and it's not like I've been talking to them and they're saying they're like working on it, but I don't know when it will. Like basically my one business bank account connects through SL through uh plaid but then now I made like there's like this sub account that they started offering where you can get interest on your money sitting in the bank account uh but that account does not show up in plaid</p>
+
+        <span class="ts">00:16:43</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay. So, no worries.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> currently.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> So, what we could do for until that bank um ends up getting the connection with Plaid, um we can get the reports from it. So, obviously, we wouldn't have access to the bank account. Um, so you can download the reports and then just upload them every month. So as much as it may be a manual task, it's still more work off your plate than you were doing last month doing all the categorization.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Okay.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> So just download the statements um each month and upload them to your account. Uh you can do that right here in the data and request under bookkeeping documents. Just hit upload. Just drop it in.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Okay.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Make sense?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Yeah.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Cool. Do you have any other questions about that?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Uh, no. I think I'm all</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah. Okay. Awesome.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> good.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Um, well, I'd love to move you towards onboarding. Do you have an idea which subscription work best for you?</p>
+
+        <span class="ts">00:17:36</span>
+        <p class="turn"><span class="who">Adam Russo:</span> The annual or the</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Uh, I am talking to like a few other companies right now.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> monthtomonth.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> I was going to decide by like the end of the week. So, if you could email me like uh the pricing you said and I will follow up with you</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Yeah,</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> at the end of the week.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> cool. Yeah, that works. I'll send you um just an email summarizing basically everything we went over. um really what bench does,</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Okay.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> how we support um and then I'll give you a pricing breakdown at the bottom there. Um, go around, chat around, um, see what you can find. Would it make sense for us to throw some time in maybe, uh, Thursday or Friday, and then if any questions come up, um, during your research, uh, we can address those and see what makes sense?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Um, we could do next Wednesday</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Sure. When are you hoping to make a decision?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> uh soon, but I am going on vacation Friday, so it's going to be</p>
+
+        <span class="ts">00:18:29</span>
+        <p class="turn"><span class="who">Adam Russo:</span> Uh, okay. Cool. Um, sounds good. Let's uh let's do Wednesday. Um, what time works best for you? Where are you located?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> in Miami.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Got it. Cool. Is the business registered in Miami as well?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Yes.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Nice. Um, okay. So, we're looking at on the</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> like after 2 p.m.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> 2nd. You want to do 2 o'clock or after 2 o'clock?</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Uh like</p>
+        <p class="turn"><span class="who">Adam Russo:</span> 2:30 is good. Okay. Awesome. Nathan,</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> 2:30.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> I'll go ahead and send you u the calendar invitation now and then um I just have a meeting after us, so let me chat with him and then I'll send you the email just summarizing everything we went over. Um, if any questions come up, just email me back, reply to the summary, and I'd be happy to respond. Um, if you want a quicker response, I do leave my business line and my signature. Shoot me a text and I'm happy to help.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Okay, great. We'll talk soon.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay, awesome, man. Enjoy your trip. We'll talk soon.</p>
+        <p class="turn"><span class="who">Nathan Moser:</span> Thanks.</p>
+        <p class="turn"><span class="who">Adam Russo:</span> Okay, bye.</p>
+
+        <span class="ts">Transcription ended after 00:19:41</span>
+      </div>
+    </details>
+
+  </div>
+
+  <!--
+    CALL HISTORY CONVENTION (for automated edits — Next Touch sync job):
+    This page holds ONE consolidated record per contact — never create a second page or a
+    separate note set when a new transcript comes in for a contact who already has a brief.
+    When a NEW call happens for Nathan:
+      1. Move the current contents of the "LAST CALL" section above (everything from its
+         <div class="tldr"> through its action-items <details>) down into a new entry inside
+         "Previous calls" below — collapsed, dated, condensed to a few lines (TL;DR + top
+         pain points + action items is enough; the full detail already lives in its own
+         Gemini transcript link).
+      2. Replace the "LAST CALL" section's contents with the new call's notes, generated the
+         same way (TL;DR, pain points, what I learned, pricing, objections, business profile,
+         action items).
+      3. Merge "Full business profile" forward — update fields the new call changed or added,
+         don't duplicate the table. If a new call contradicts an earlier stated fact, follow
+         the Update Log convention below: flag it inline with class="revised" and log why.
+      4. Regenerate "Before your next call" (the pre-call summary section above) from the NEW
+         most recent call's open items and objections — not the older ones.
+      5. Update the header's status pills (priority, sequence step, next meeting) to match
+         current reality.
+    The goal: opening this one page always shows the complete, current relationship — never
+    a fragment of it.
+  -->
+  <div class="section">
+    <div class="section-head">
+      <h2>Previous calls</h2>
+    </div>
+    <p style="font-size:.88rem;color:var(--ink-faint);">Only one call so far — this fills in once there's history to show.</p>
+  </div>
+
+  <!--
+    UPDATE LOG CONVENTION (for automated edits — Next Touch sync job):
+    Whenever a run changes existing content above (not just appends a new call section),
+    add a .logentry here with a timestamp + one-line reason, and mark the changed content
+    itself with class="revised" plus a <span class="revised-tag">Updated</span> next to it.
+    If the change replaced a specific stated fact, show what it replaced with:
+      <div class="was">Was: <s>old value</s></div>
+    directly under the new value. Never delete the log — only append above the oldest entry.
+  -->
+  <details>
+    <summary>Update log</summary>
+    <div class="details-body">
+      <div class="logentry">
+        <div class="ts">Aug 26, 2026 (3rd edit)</div>
+        <div class="desc">Added a "Call Coach" section (with a jump-to button under the status pills) &mdash; a talk track built specifically for Nathan from the Call Verbiage Field Guide and Reading the Tape, rather than generic script. Covers checkpointing the recap, slowing down on the $9,110 number, reconfirming his buying signal, a proactive objection strike, and the close.</div>
+      </div>
+      <div class="logentry">
+        <div class="ts">Aug 26, 2026 (2nd edit)</div>
+        <div class="desc">Added a link to the Call Verbiage Field Guide under the share hint, so it's one click away while prepping for or during a call. It's a general live-call reference, not specific to Nathan — required on every contact brief going forward, same as the other share-hint line.</div>
+      </div>
+      <div class="logentry">
+        <div class="ts">Aug 26, 2026</div>
+        <div class="desc">Added on-page search (finds any word or phrase across these notes and the transcript, with jump-to-match) and the full verbatim call transcript below the Aug 25 notes, so anyone on the team can pull an exact detail from the call without going through Adam or Gemini.</div>
+      </div>
+      <div class="logentry">
+        <div class="ts">Aug 25, 2026</div>
+        <div class="desc">Page generated from the Aug 25 discovery call. No edits since.</div>
+      </div>
+    </div>
+  </details>
+
+  <footer>
+    Notes generated from the <a href="https://docs.google.com/document/d/1DVY5mUL9UzjwGFEFwO1YluD5xSoMTrGvgKzWIGLKUw0/edit" target="_blank" rel="noopener">Gemini transcript</a> of the Aug 25 call, using your MacBook Remote Notes template. Gemini's notes may contain transcription errors — worth a skim before the call if anything above looks off.<br>
+    This page updates after every call with Nathan and keeps prior calls further down. Any change to existing notes is flagged inline and logged above, never made silently. The full verbatim transcript of every call is kept below its call's notes, and the search bar above finds anything on this page in seconds. Share this link with your team so they can get client answers here directly — Part of <strong>Next Touch</strong>, your prospect tracker.
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById('draftBtn');
+  var status = document.getElementById('qsStatus');
+  var bodyEl = document.getElementById('qsBody');
+
+  function setStatus(text, cls){
+    status.textContent = text;
+    status.className = 'qsstatus' + (cls ? ' ' + cls : '');
+  }
+
+  claude.use('mcp').then(function(mcp){
+    if(!mcp){
+      btn.disabled = true;
+      setStatus('Gmail actions unavailable in this view', 'err');
+      return;
+    }
+    btn.addEventListener('click', function(){
+      btn.disabled = true;
+      setStatus('Drafting…');
+      mcp.callTool('Gmail', 'create_draft', {
+        to: ['npmventures1@gmail.com'],
+        subject: 'Bench pricing recap — NPM Ventures',
+        body: bodyEl.textContent
+      }).then(function(){
+        setStatus('Draft ready — check Gmail Drafts to review and send', 'ok');
+      }).catch(function(err){
+        btn.disabled = false;
+        var code = err && err.code;
+        if(code === 'needs_reauth'){
+          setStatus('Reconnect Gmail in claude.ai Settings → Connectors', 'err');
+        } else if(code === 'server_not_connected'){
+          setStatus('Add Gmail in claude.ai Settings → Connectors', 'err');
+        } else if(code === 'selection_required'){
+          setStatus('Choose a Gmail account in the prompt, then try again', 'err');
+        } else if(code === 'blocked_by_policy' || code === 'approval_required'){
+          setStatus('Blocked by your org\'s connector policy', 'err');
+        } else if(code === 'server_unavailable'){
+          setStatus('Gmail is temporarily unavailable — try again shortly', 'err');
+        } else if(code === 'cancelled'){
+          setStatus('Cancelled', 'err');
+        } else {
+          setStatus((err && err.message) || 'Could not create the draft — try again', 'err');
+        }
+      });
+    });
+  }).catch(function(){
+    btn.disabled = true;
+    setStatus('Gmail actions unavailable in this view', 'err');
+  });
+})();
+
+/* ---- on-page search: notes + full transcript, no external calls ---- */
+(function(){
+  var input = document.getElementById('pageSearchInput');
+  var countEl = document.getElementById('pageSearchCount');
+  var prevBtn = document.getElementById('pageSearchPrev');
+  var nextBtn = document.getElementById('pageSearchNext');
+  var page = document.querySelector('.page');
+  if(!input || !page) return;
+
+  var marks = [];
+  var current = -1;
+  var debounceTimer = null;
+
+  function clearMarks(){
+    var existing = page.querySelectorAll('mark.hit');
+    existing.forEach(function(m){
+      var parent = m.parentNode;
+      parent.replaceChild(document.createTextNode(m.textContent), m);
+      parent.normalize();
+    });
+    marks = [];
+    current = -1;
+  }
+
+  function openAncestorDetails(node){
+    var el = node.nodeType === 1 ? node : node.parentElement;
+    while(el){
+      if(el.tagName === 'DETAILS' && !el.open){ el.open = true; }
+      el = el.parentElement;
+    }
+  }
+
+  function highlight(term){
+    clearMarks();
+    if(!term){ updateCount(); return; }
+    var lower = term.toLowerCase();
+    var walker = document.createTreeWalker(page, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(node){
+        if(!node.nodeValue || !node.nodeValue.toLowerCase().includes(lower)) return NodeFilter.FILTER_REJECT;
+        var p = node.parentElement;
+        if(p && (p.closest('.pagesearch') || p.closest('script') || p.closest('style'))) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var textNodes = [];
+    var n;
+    while((n = walker.nextNode())) textNodes.push(n);
+
+    textNodes.forEach(function(node){
+      var text = node.nodeValue;
+      var lowerText = text.toLowerCase();
+      var frag = document.createDocumentFragment();
+      var i = 0;
+      var idx;
+      while((idx = lowerText.indexOf(lower, i)) !== -1){
+        if(idx > i) frag.appendChild(document.createTextNode(text.slice(i, idx)));
+        var mark = document.createElement('mark');
+        mark.className = 'hit';
+        mark.textContent = text.slice(idx, idx + term.length);
+        frag.appendChild(mark);
+        marks.push(mark);
+        i = idx + term.length;
+      }
+      if(i < text.length) frag.appendChild(document.createTextNode(text.slice(i)));
+      if(frag.childNodes.length) node.parentNode.replaceChild(frag, node);
+    });
+
+    updateCount();
+    if(marks.length){ goTo(0); }
+  }
+
+  function updateCount(){
+    if(!marks.length){
+      countEl.textContent = input.value ? '0 found' : '';
+    } else {
+      countEl.textContent = (current + 1) + ' of ' + marks.length;
+    }
+    prevBtn.disabled = marks.length === 0;
+    nextBtn.disabled = marks.length === 0;
+  }
+
+  function goTo(i){
+    if(!marks.length) return;
+    if(current >= 0 && marks[current]) marks[current].classList.remove('current');
+    current = (i + marks.length) % marks.length;
+    var m = marks[current];
+    m.classList.add('current');
+    openAncestorDetails(m);
+    m.scrollIntoView({behavior:'smooth', block:'center'});
+    updateCount();
+  }
+
+  input.addEventListener('input', function(){
+    clearTimeout(debounceTimer);
+    var val = input.value.trim();
+    debounceTimer = setTimeout(function(){ highlight(val); }, 180);
+  });
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); goTo(current + (e.shiftKey ? -1 : 1)); }
+  });
+  prevBtn.addEventListener('click', function(){ goTo(current - 1); });
+  nextBtn.addEventListener('click', function(){ goTo(current + 1); });
+})();
+</script>
+
+</body></html>

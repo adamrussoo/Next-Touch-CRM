@@ -1,0 +1,258 @@
+<!doctype html><html><head><!-- frame-runtime --><base href="/_f/1787781972-601e/"><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.YODCk0yK.js","assets":"assets.DBUJcvq_.js","comments":"comments.GLuHR3zP.js","db":"db.CRhVHzSt.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CxGAyc-v.js","mcp":"mcp.Bvma3qD7.js","network":"network.B5UA9Su4.js","permissions":"permissions.BNySkLV5.js","room":"room.BMMoe2BY.js","sample":"sample.BW2Uysoh.js","self":"artifact.YODCk0yK.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.CQm3TZ9K.js","comments":"_comments.PBVy184F.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var J=["light","dark","system"],Q=/^[A-Za-z0-9_-]{1,64}$/,H=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,ee=new Set(["class","hidden","value","checked"]);function te(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||ee.has(t)}var Me="http://www.w3.org/1999/xhtml",re="http://www.w3.org/2000/svg",ne=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),oe=new Set(["script","style"]);function se(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!ne.has(t):e.namespaceURI===re?!oe.has(t):!1}var ae=new Set(["html","head","body","frameset"]);function ie(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&ae.has(e.localName)}function ce(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!Q.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[r,n]of Object.entries(t.attrsSet))if(!H.test(r)||typeof n!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const r of t.attrsRemoved)if(typeof r!="string"||!H.test(r))return!1}return!0}function le(e,t){if(e===null||typeof e!="object")return!1;const{seq:r,elements:n}=e;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let s=0;s<n.length;s++)if(!t(n[s]))return!1;return!0}function ue(e){return e===null||typeof e!="object"?!1:le(e.__frame_patch,ce)}function fe(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function pe(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function de(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&J.includes(r)}var A=/^[\w.-]+\.js$/;function me(e,t,r){return r?"inert":typeof t=="string"&&A.test(t)?e?[t]:"inert":e?"inert":"framed"}function he(){return{post(e,t){parent.postMessage(e,t)},on(e){const t=r=>{r.source===parent&&e(r.data,r.origin)};return addEventListener("message",t),()=>removeEventListener("message",t)}}}function _e(){return{post:()=>{},on:()=>()=>{}}}var O="__frame_scroll",ve=150,ye=310,we=160,be=3e4;function Ee(){let e=0,t=!1,r=!1,n=!1,s=0,a=null;const l=i=>{try{sessionStorage.setItem(O,JSON.stringify({y:i}))}catch{}},d=()=>{if(clearTimeout(e),a===null)return;const i=a;a=null,l(i)},v=()=>{if(t){t=!1;return}r=!0,a=scrollY,clearTimeout(e),e=setTimeout(d,ve)};try{addEventListener("scroll",v,{passive:!0}),addEventListener("pagehide",d)}catch{}const y=()=>{let i;try{i=sessionStorage.getItem(O)}catch{return null}if(i===null)return null;let m;try{m=JSON.parse(i)}catch{m=null}const u=m?.y;if(!(typeof u=="number"&&Number.isFinite(u)&&u>=0)){try{sessionStorage.removeItem(O)}catch{}return null}return u};let S=!1;const h=i=>{try{const m=scrollY;scrollTo({top:i,left:0,behavior:"instant"}),s=i,n=!0,clearTimeout(e),a=null,l(i);const u=scrollY;u!==m&&(t=!0),u!==i&&!S&&(S=!0,addEventListener("load",()=>{try{if(scrollY===u){const k=y();h(k!==null?k:s)}}catch{}},{once:!0}))}catch{}},w=()=>{try{return!!location.hash}catch{return!0}};let o=!1;const f=()=>{try{if(o||innerWidth>ye||innerHeight>we)return;o=!0;const i=Date.now(),m=()=>{try{removeEventListener("resize",m)}catch{}if(Date.now()-i>be||r||w())return;const u=y();h(u!==null?u:s)};addEventListener("resize",m)}catch{}};let _=!1,b=!1;return{restore(){if(_||(_=!0,w()))return;const i=y();i!==null&&(h(i),f())},promoted(){if(b||(b=!0,w()))return;const i=y();i!==null?(h(i),f()):n&&h(s)}}}function ge(e,t,r,n){let s=null;try{s=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:v=>v})??null}catch{}const a=window.Worker,l=a?.prototype,d=Object.freeze({Worker:a,workerOn:l?.addEventListener,workerPost:l?.postMessage,workerTerminate:l?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,policy:s,origins:t});r(e).then(v=>v?.bootTopLevel?v.bootTopLevel(d,n):n.settle()).catch(()=>n.settle())}var Oe="modulepreload",Ce=function(e){return"/"+e},je={},Ae=function(t,r,n){let s=Promise.resolve();function a(l){const d=new Event("vite:preloadError",{cancelable:!0});if(d.payload=l,window.dispatchEvent(d),!d.defaultPrevented)throw l}return s.then(l=>{for(const d of l||[])d.status==="rejected"&&a(d.reason);return t().catch(a)})},Re=window===top,q=Object.getOwnPropertyDescriptor(window,"claude"),T=me(Re,window.__FRAME_PREAMBLE?.topLevel,q?.writable===!1),C=typeof T=="object"&&T[0],p=C?_e():he();(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let s=0;s<r.length;s++){const a=r[s];try{e(t,a,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[a]}catch{}try{e(t,a,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[a]=="function"&&n++}if(n&&T==="framed")try{p.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Se=1e4,W=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function $(e){for(const t of W)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var L=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),j=window.__FRAME_PREAMBLE?.transforms,N=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate;function R(e){return Ae(()=>import("/_runtime/"+e),void 0)}function K(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:D,pipe:()=>({wrap:(r,n)=>(...s)=>{try{return n(...s)}catch(a){return Promise.reject(a)}}})}}var P=null,E=null;function Y(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var B=!1;function ke(e,t){const r=[];for(const n of e.elements){const s=document.querySelector(`[data-id="${n.target}"]`);if(!s){p.post({__frame_patch_miss:{seq:e.seq}},t);return}if([...Object.keys(n.attrsSet??{}),...n.attrsRemoved??[]].some(a=>!te(a))){p.post({__frame_patch_miss:{seq:e.seq}},t);return}if(n.text!==void 0&&(!se(s)||ie(s))){p.post({__frame_patch_miss:{seq:e.seq}},t);return}for(const[a,l]of Object.entries(n.attrsSet??{}))if(!G(s,a)){try{s.setAttribute(a,l)}catch{}X(s,a,l)}for(const a of n.attrsRemoved??[])G(s,a)||(s.removeAttribute(a),X(s,a,null));typeof n.text=="string"&&(s.textContent=n.text),r.push(n.target)}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:r}}))}catch{}}function X(e,t,r){if(!(e instanceof HTMLInputElement))return;const n=t.toLowerCase();n==="checked"?e.checked=r!==null:n==="value"&&e.type!=="file"&&(e.value=r??"")}function G(e,t){const r=t.toLowerCase(),n=e;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function V(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,B=!0):B&&(delete t.dataset.theme,t.style.colorScheme="",B=!1)}var M=new Map;function Te(){let e;const t={u:new Promise(r=>{e=r}),r:r=>{t.done=!0,e(r)},done:!1,nulled:!1};return t}function U(){for(const e of M.values())e.done||(e.nulled=!0,e.r(null))}var Le=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),D=(e,t)=>{const r=M.get(e);if(!r||r.done){r?.nulled&&E&&p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},E);return}const n=typeof t=="function"?Object.setPrototypeOf(t,Le):Object.assign(Object.create(null),t);typeof n.then=="function"&&delete n.then,r.r(Object.freeze(n))};function Z(){const e=q?.value??{};Y(window,"claude",e);for(const t of Object.keys(L)){if(e[t]!==void 0){Y(e,t,e[t]);continue}M.set(t,Te())}if(e.use===void 0){const t=r=>{if(typeof r!="string"||!Object.hasOwn(L,r))return Promise.resolve(null);const n=M.get(r);return n?n.u:Promise.resolve(e[r]??null)};try{Object.defineProperty(e,"use",{value:t,writable:!0,configurable:!0,enumerable:!1})}catch{}}}if(T==="framed"){const e=j&&A.test(j)?R(j).catch(()=>{}):Promise.resolve(void 0),t=o=>{if(o.type==="auxclick"&&o.button!==1)return;const f=o.target,_=f&&f.closest?f.closest("a[href],area[href]"):null;if(!_)return;const b=_.getAttribute("href");if(!b)return;let i;try{i=new URL(b,document.baseURI)}catch{return}if((i.protocol==="http:"||i.protocol==="https:")&&i.origin!==location.origin){o.preventDefault();const m=(_.getAttribute("target")??"").toLowerCase(),u=o.type==="auxclick"||o.metaKey||o.ctrlKey||o.shiftKey||o.altKey||!["","_self","_top","_parent"].includes(m);p.post({__frame_nav:!0,url:i.href,newTab:u},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const r={},n=o=>{o.isTrusted&&(r.pointer=!0)},s=o=>{o.isTrusted&&(r.click=!0)};addEventListener("pointermove",n,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0}),e.then(o=>{o?.wireNav&&(o.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",n,!0),removeEventListener("click",s,!0),o.wireEngagement?.(r))});let a=null;try{a=Ee()}catch{}Z();let l=null,d=null,v=0;const y=p.on((o,f)=>{$(f)&&fe(o)&&(l=o.__frame_init,E=f,y(),clearTimeout(v),d?.())});p.post({__frame_connect:!0},"*");const S=new Promise(o=>{d=o,v=setTimeout(()=>{y(),o()},Se)}),h=document.readyState==="loading"?new Promise(o=>document.addEventListener("DOMContentLoaded",()=>o(),{once:!0})):Promise.resolve();h.then(()=>{try{a?.restore()}catch{}});const w={cb:null};p.on((o,f)=>{if($(f)&&pe(o)){try{a?.promoted()}catch{}w.cb?.()}}),S.then(async()=>{if(!l||!E){U();return}V(l.theme);const o=E;let f=!1,_=!1;p.on((c,x)=>{if(x!==o)return;de(c)&&V(c.__frame_theme.theme),ue(c)&&ke(c.__frame_patch,o);const g=c?.__fc_mode;g&&typeof g=="object"&&!f&&N&&A.test(N)&&(f=!0,R(N).then(z=>z.install?.(o,g.on===!0)).catch(()=>{}));const F=c?.__ft_cmd;F&&typeof F=="object"&&!_&&I&&A.test(I)&&(_=!0,R(I).then(z=>z.install?.(o,F)).catch(()=>{}))});const b=Object.keys(l.capabilities??{}).filter(c=>Object.hasOwn(L,c)).map(c=>[c,L[c]]).filter(c=>typeof c[1]=="string"&&A.test(c[1])),i=await Promise.allSettled(b.map(([,c])=>R(c))),m=await e,u=E;if(m?.buildBoot||p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},u),m?.buildBoot)try{P=m.buildBoot(l,m.TRANSFORMS??{},{shellOrigin:u,mount:D},c=>p.post({__frame_cap_telemetry:c},u))}catch{p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},u),P=K(l,u)}else P=K(l,u);const k=c=>p.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:c}},u),Pe=P;i.forEach((c,x)=>{const g=b[x][0];if(c.status!=="fulfilled"){k(g);return}try{c.value?.install?.(Pe)}catch{k(g)}}),U(),await h,p.post({__frame_ready:!0},E),e.then(c=>c?.installSizeReporter?.(u,w))})}else C&&(Z(),ge(C,W,R,{settle:U,mount:D}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Daily Priorities</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #f5f3ee;
+  --surface: #ffffff;
+  --surface-2: #ece8de;
+  --border: #ddd7c8;
+  --ink: #1d221f;
+  --ink-soft: #4b5049;
+  --ink-faint: #8b8a7c;
+  --accent: #2c6b60;
+  --accent-ink: #ffffff;
+  --accent-soft: #dcece6;
+  --accent-strong: #1d4a42;
+  --high: #b34324;
+  --high-soft: #f7e4dd;
+  --med: #a06a12;
+  --med-soft: #f4e9d3;
+  --low: #3d6a92;
+  --low-soft: #dfe9f1;
+  --none: #5c7566;
+  --none-soft: #e3ead9;
+  --shadow: 0 1px 2px rgba(29, 34, 31, 0.05), 0 10px 28px -14px rgba(29, 34, 31, 0.18);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #171a17; --surface: #1f2320; --surface-2: #262b26; --border: #383e38;
+    --ink: #eeece2; --ink-soft: #b6b8ac; --ink-faint: #82857b;
+    --accent: #6ec3ac; --accent-ink: #0d1917; --accent-soft: #1e3630; --accent-strong: #93d9c4;
+    --high: #e08260; --high-soft: #3a251d; --med: #d8ab5c; --med-soft: #3a3020;
+    --low: #85aed3; --low-soft: #202f3c; --none: #93b39d; --none-soft: #22301f;
+    --shadow: 0 1px 2px rgba(0,0,0,0.35), 0 10px 28px -14px rgba(0,0,0,0.6);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #171a17; --surface: #1f2320; --surface-2: #262b26; --border: #383e38;
+  --ink: #eeece2; --ink-soft: #b6b8ac; --ink-faint: #82857b;
+  --accent: #6ec3ac; --accent-ink: #0d1917; --accent-soft: #1e3630; --accent-strong: #93d9c4;
+  --high: #e08260; --high-soft: #3a251d; --med: #d8ab5c; --med-soft: #3a3020;
+  --low: #85aed3; --low-soft: #202f3c; --none: #93b39d; --none-soft: #22301f;
+  --shadow: 0 1px 2px rgba(0,0,0,0.35), 0 10px 28px -14px rgba(0,0,0,0.6);
+}
+
+*{ box-sizing:border-box; }
+body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Public Sans', system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
+.wrap{ max-width:920px; margin:0 auto; padding:44px 24px 80px; }
+
+.backlink{
+  display:inline-flex; align-items:center; gap:.4rem;
+  font-family:'IBM Plex Mono', monospace; font-size:.8rem; color:var(--ink-soft);
+  text-decoration:none; margin-bottom:1.5rem;
+}
+.backlink:hover{ color:var(--accent-strong); }
+.backlink svg{ width:13px; height:13px; }
+
+header.top{ border-bottom:1px solid var(--border); padding-bottom:20px; margin-bottom:28px; }
+.eyebrow{ font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-faint); margin:0 0 6px; }
+h1{ font-family:'Newsreader',serif; font-weight:600; font-size:2.3rem; margin:0 0 6px; text-wrap:balance; }
+.subtitle{ color:var(--ink-soft); font-size:1rem; margin:0; }
+.asof{ margin-top:16px; display:flex; flex-wrap:wrap; gap:8px 20px; font-family:'IBM Plex Mono',monospace; font-size:.78rem; color:var(--ink-faint); }
+.asof b{ color:var(--ink); }
+
+.stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:36px; }
+.stat{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow); }
+.stat .n{ font-family:'Newsreader',serif; font-size:1.7rem; font-weight:600; }
+.stat .l{ font-size:.78rem; color:var(--ink-soft); margin-top:2px; }
+.stat.high .n{ color:var(--high); }
+
+section.block{ margin-bottom:40px; }
+section.block h2{
+  font-family:'Newsreader',serif; font-weight:600; font-size:1.35rem;
+  border-left:3px solid var(--accent); padding-left:12px; margin:0 0 6px;
+}
+section.block .sub{ color:var(--ink-faint); font-size:.85rem; margin:0 0 16px 15px; }
+
+.urgent{
+  background:var(--high-soft); border:1px solid var(--high); border-radius:12px;
+  padding:20px 22px; box-shadow:var(--shadow);
+}
+.urgent + .urgent{ margin-top:14px; }
+.urgent .who{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; }
+.urgent .name{ font-family:'Newsreader',serif; font-weight:600; font-size:1.25rem; color:var(--ink); }
+.urgent .why{ font-family:'IBM Plex Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; color:var(--high); }
+.urgent p{ margin:.6rem 0 0; font-size:.95rem; }
+.urgent blockquote{
+  margin:.7rem 0 0; padding:.7rem .9rem; background:var(--surface); border-left:3px solid var(--high);
+  border-radius:0 8px 8px 0; font-family:'Newsreader',serif; font-style:italic; font-size:.95rem;
+}
+.urgent .go{ margin-top:.8rem; font-weight:600; }
+.urgent a.cta{
+  display:inline-block; margin-top:.9rem; font-size:.85rem; font-weight:600;
+  color:var(--accent-ink); background:var(--accent-strong); padding:.5rem .85rem; border-radius:7px; text-decoration:none;
+}
+
+.mtg{
+  display:flex; gap:16px; padding:14px 0; border-bottom:1px solid var(--border);
+}
+.mtg:last-child{ border-bottom:none; }
+.mtg .when{
+  flex:none; width:118px; font-family:'IBM Plex Mono',monospace; font-size:.78rem; color:var(--ink-faint); padding-top:2px;
+}
+.mtg .body{ flex:1; min-width:0; }
+.mtg .name{ font-weight:600; font-size:.98rem; }
+.mtg .biz{ color:var(--ink-soft); font-size:.85rem; margin-top:1px; }
+.mtg .prep{ font-size:.88rem; margin-top:6px; color:var(--ink); }
+.mtg .tag{
+  display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:.68rem; text-transform:uppercase;
+  letter-spacing:.03em; padding:.15rem .4rem; border-radius:4px; margin-left:.5rem; vertical-align:middle;
+}
+.mtg .tag.off{ background:var(--none-soft); color:var(--none); }
+.mtg .tag.risk{ background:var(--high-soft); color:var(--high); }
+.mtg.canceled{ opacity:.55; }
+.mtg.canceled .name{ text-decoration:line-through; text-decoration-color:var(--border); }
+.name-link{ color:inherit; text-decoration:none; }
+.name-link:hover{ color:var(--accent-strong); text-decoration:underline; }
+
+table.tiers{ width:100%; border-collapse:collapse; font-size:.88rem; }
+table.tiers th{ text-align:left; font-family:'IBM Plex Mono',monospace; font-size:.68rem; text-transform:uppercase; letter-spacing:.03em; color:var(--ink-faint); padding:0 10px 8px 0; border-bottom:1px solid var(--border); }
+table.tiers td{ padding:9px 10px 9px 0; border-bottom:1px solid var(--border); vertical-align:top; }
+table.tiers tr:last-child td{ border-bottom:none; }
+table.tiers .tier{ font-family:'IBM Plex Mono',monospace; font-weight:600; color:var(--accent-strong); }
+table.tiers .cnt{ font-variant-numeric:tabular-nums; font-weight:600; }
+table.tiers .flagcell{ color:var(--high); font-size:.8rem; }
+
+.namesample{ font-size:.85rem; color:var(--ink-soft); margin-top:4px; }
+.namesample b{ color:var(--ink); font-weight:600; }
+
+.callout{
+  background:var(--surface); border:1px solid var(--border); border-radius:10px;
+  padding:14px 16px; font-size:.88rem; color:var(--ink-soft); margin-top:14px;
+}
+.callout b{ color:var(--ink); }
+
+footer{ margin-top:44px; padding-top:20px; border-top:1px solid var(--border); font-size:.82rem; color:var(--ink-faint); line-height:1.7; }
+footer a{ color:var(--accent-strong); }
+
+@media (max-width:640px){
+  .stats{ grid-template-columns:repeat(2,1fr); }
+  h1{ font-size:1.8rem; }
+  .mtg{ flex-direction:column; gap:4px; }
+  .mtg .when{ width:auto; }
+}
+</style>
+
+<div class="wrap">
+
+  <a class="backlink" href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3 5 8l5 5"/></svg>
+    Back to Next Touch
+  </a>
+  <p style="margin:-.9rem 0 1.5rem; font-family:'IBM Plex Mono',monospace; font-size:.78rem; color:var(--ink-faint);">
+    <a href="https://claude.ai/code/artifact/19d06ea7-3178-46ff-bf4d-13f1dca37906" style="color:var(--accent-strong); font-weight:600;">Call Verbiage Field Guide &rarr;</a>
+  </p>
+
+  <header class="top">
+    <p class="eyebrow">Daily priorities</p>
+    <h1>What to work on today</h1>
+    <p class="subtitle">Wednesday, August 26 — pulled fresh from Gmail, Calendar, and Apollo</p>
+    <div class="asof">
+      <span>Refreshed <b>Aug 26, 2:23 PM MT</b></span>
+      <span>Next automated check <b>hourly, via Next Touch sync</b></span>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat high"><div class="n">2</div><div class="l">Needs you now</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">Meetings, today &amp; tomorrow</div></div>
+    <div class="stat"><div class="n">39</div><div class="l">Missed-2nd-call tasks, all stale</div></div>
+    <div class="stat"><div class="n">1,621</div><div class="l">Lower-tier Apollo tasks queued</div></div>
+  </div>
+
+  <section class="block">
+    <h2>Needs you now</h2>
+    <p class="sub">Two things today can't wait for the regular cadence &mdash; one you promised an answer by end of day, one still hanging on a reply.</p>
+
+    <div class="urgent">
+      <div class="who">
+        <span class="name"><a class="name-link" href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3#c-todd-neider" target="_blank" rel="noopener">Todd Neider</a> &middot; Active Bodywork</span>
+        <span class="why">You owe him an answer today</span>
+      </div>
+      <p>He reactivated and signed a revised agreement this morning ($599/mo starting Sept 1, $750 catch-up), but was explicit about a condition:</p>
+      <blockquote>"If 25 is going to take six months once everything is collected, I'm not going to use Bench again."</blockquote>
+      <p class="go">He's refusing to pay separately for 2024/2025 tax filing. You told him you'd check with the billing team and follow up by end of today &mdash; either an email (covered) or a call (not covered). This is a signed deal that can still fall through if that promise slips.</p>
+      <a class="cta" href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3">See full context on Next Touch &rarr;</a>
+    </div>
+
+    <div class="urgent">
+      <div class="who">
+        <span class="name"><a class="name-link" href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3#c-tyler-chartier" target="_blank" rel="noopener">Tyler Chartier</a> &middot; HighLevel Garage Doors</span>
+        <span class="why">Found another solution</span>
+      </div>
+      <p>He declined Thursday's follow-up and emailed the same morning:</p>
+      <blockquote>"I decided to go in a different direction. Thanks for your time in discussing Bench, if anything changes on my end I'll be sure to reach out."</blockquote>
+      <p class="go">You replied asking what changed and whether Bench compared unfavorably &mdash; still no response as of this refresh. If nothing comes back by Thursday, treat that slot as open rather than counting on it.</p>
+      <a class="cta" href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3">See full context on Next Touch &rarr;</a>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Meetings — today &amp; tomorrow</h2>
+    <p class="sub">Excludes internal Bench meetings (1:1s, buffers, lunch, Apollo outbound blocks) &mdash; prospect-facing only.</p>
+
+    <div class="mtg">
+      <div class="when">Today · 3:00 PM</div>
+      <div class="body">
+        <div class="name"><a class="name-link" href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3#c-geoffrey-aquino" target="_blank" rel="noopener">Geoffrey Aquino</a> <span class="tag">Rescheduled</span></div>
+        <div class="biz">Geoff Aquino Consulting &middot; ~$10&ndash;25K/mo revenue</div>
+        <div class="prep">Moved from this morning to 3 PM (his reason: "Work"). No prior contact notes on file &mdash; standard first-call discovery.</div>
+      </div>
+    </div>
+
+    <div class="mtg">
+      <div class="when">Thu · 11:00 AM</div>
+      <div class="body">
+        <div class="name"><a class="name-link" href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3#c-tyler-chartier" target="_blank" rel="noopener">Tyler Chartier</a> <span class="tag risk">Declined &mdash; see above</span></div>
+        <div class="biz">HighLevel Garage Doors</div>
+        <div class="prep">Still on the calendar but he declined and says he's going elsewhere. See "Needs you now" above before assuming this happens.</div>
+      </div>
+    </div>
+
+    <div class="callout"><b>Already happened today, not upcoming:</b> <a class="name-link" href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3#c-todd-neider" target="_blank" rel="noopener">Todd Neider</a>'s reactivation call (11:30 AM &mdash; signed, see "Needs you now") and <a class="name-link" href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3#c-patty-banach" target="_blank" rel="noopener">Patty Banach</a>'s personal-tax call (1:30 PM &mdash; agreement signed) both completed earlier today. Full notes are on <a href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3">Next Touch</a>, not repeated here since this section is forward-looking only.</div>
+  </section>
+
+  <section class="block">
+    <h2>Apollo sequence backlog</h2>
+    <p class="sub">Your starred sequences, highest priority first. Open task counts are Apollo's own scheduled/overdue tallies for each sequence, not hand-counted.</p>
+
+    <table class="tiers">
+      <tr><th>Tier</th><th>Sequence</th><th>Open tasks</th><th></th></tr>
+      <tr><td class="tier">A</td><td>A-D (Awaiting Decisions)</td><td class="cnt">0</td><td class="flagcell">Still unexpected for your top tier &mdash; worth checking directly in Apollo</td></tr>
+      <tr><td class="tier">B</td><td>&lt;&lt;October 2025 (Warm)</td><td class="cnt">14</td><td></td></tr>
+      <tr><td class="tier">C</td><td>Adam - Missed 2nd Call</td><td class="cnt">39</td><td class="flagcell">All 39 still due Jul 7 &mdash; likely a stale batch date, not real urgency ranking</td></tr>
+      <tr><td class="tier">D</td><td>Assessing Needs - Leads List</td><td class="cnt">40</td><td></td></tr>
+      <tr><td class="tier">D</td><td>Call List</td><td class="cnt">118</td><td></td></tr>
+      <tr><td class="tier">E</td><td>New Missed Discovery Call</td><td class="cnt">187</td><td></td></tr>
+      <tr><td class="tier">F</td><td>SAL</td><td class="cnt">9</td><td></td></tr>
+      <tr><td class="tier">F</td><td>Trial</td><td class="cnt">741</td><td></td></tr>
+      <tr><td class="tier">F</td><td>INQ</td><td class="cnt">526</td><td></td></tr>
+    </table>
+
+    <div class="namesample">Sample from tier C (Missed 2nd Call), sorted soonest-due: <b>Tony Gentile</b>, <b>Jordan Stein</b>, <b>Norbert Ritas</b>, <b>George McCord</b>, <b>Kenneth Wolfley</b> &mdash; 34 more behind them, all carrying the same Jul 7 due date.</div>
+
+    <div class="callout">
+      Tiers D through F total <b>1,621</b> open tasks (up 2 since yesterday's count) &mdash; not itemized here by design. That's a batch-working volume, not a one-by-one daily list; working them here would bury the handful of things that actually need your personal judgment today. Best worked directly in Apollo in bulk, or ask in this chat to build a dedicated batch-review pass for one tier at a time.
+    </div>
+  </section>
+
+  <footer>
+    Built from live Gmail, Google Calendar, and Apollo (your starred sequences only) as of the timestamp above. Meetings shown are attendee-facing only; internal Bench meetings are filtered out. Apollo task counts are the sequences' own scheduled-task tallies, not independently re-verified per contact. This page is part of <strong>Next Touch</strong> and refreshes on the same hourly automation &mdash; see the <a href="https://claude.ai/code/artifact/c2f940ca-0052-4c5c-8af8-50dda88f49e3">main dashboard</a> for full contact-level detail.
+  </footer>
+
+</div>
+
+
+</body></html>

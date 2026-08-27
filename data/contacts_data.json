@@ -1,0 +1,532 @@
+{
+  "todd-neider": {
+    "name": "Todd Neider",
+    "business": "Active Bodywork",
+    "email": "todd@activebodywork.com",
+    "priority": "High",
+    "tier": "high",
+    "signal": "Need payment updated (agreement signed)",
+    "lastContact": "Today, 11:30 AM · reactivation call, agreement signed",
+    "upcoming": "None scheduled",
+    "notes": "Dormant account reactivating at $599/mo starting Sept 1, plus $750 for 5 months of catch-up. Todd updated his card and signed the revised agreement on the call — but he was explicit: “if 25 is going to take six months once everything is collected, I’m not going to use Bench again.” He’s refusing to pay separately for 2024/2025 tax filing on top of it. Adam promised to check with the billing team and follow up by end of day today — either an email (yes, covered) or a call (no, not covered).",
+    "action": "New lead first surfaced today — brand-new brief. Adam owes him an answer today; if that promise slips, this signed reactivation is genuinely at risk of falling through before it even starts.",
+    "briefUrl": null,
+    "coach": {
+      "situation": "Signed reactivation, but genuinely at risk on two fronts: the 6-month catch-up timeline (his stated dealbreaker) and the separate tax-filing charge he's refusing to pay.",
+      "lines": [
+        [
+          "Don’t re-pitch — commit to a date.",
+          "“I hear you on the six-month risk — here’s exactly what I’m doing: checking with billing today and getting you a real answer, not a ‘soon.’ You’ll hear from me by end of day.”"
+        ],
+        [
+          "If billing can’t bend on the tax-filing charge",
+          "“I want to give you the full, comprehensive service — help me understand what would make this more affordable for you” (Guide: Holding the line on price) — find out if it's really the amount or the principle of a second charge."
+        ],
+        [
+          "Close with a concrete deadline, not vague reassurance",
+          "“How can we get this resolved by end of day? I don’t want you second-guessing this reactivation any longer than you have to.” (Guide: The magic question)"
+        ]
+      ]
+    }
+  },
+  "tyler-chartier": {
+    "name": "Tyler Chartier",
+    "business": "HighLevel Garage Doors",
+    "email": "tyler@callhighlevel.com",
+    "priority": "High",
+    "tier": "high",
+    "signal": "Found another solution",
+    "lastContact": "Aug 25 · outbound reply (awaiting response)",
+    "upcoming": "Thu Aug 27, 11:00 AM — Tyler declined",
+    "notes": "“I decided to go in a different direction. Thanks for your time in discussing Bench, if anything changes on my end I’ll be sure to reach out.” He also declined the Thursday follow-up call. Adam replied the same day asking what changed and whether Bench compared unfavorably to whatever he chose — still no response back as of this pass.",
+    "action": "No reply yet to Adam’s question. If nothing comes back by Thursday, treat that slot as open rather than counting on it.",
+    "briefUrl": null,
+    "coach": {
+      "situation": "Already gone quiet on a polite decline — this is a win-back attempt, not a live call. Goal is to find out what actually happened, not to re-pitch cold.",
+      "lines": [
+        [
+          "Stay curious, don’t defend",
+          "“That sounds like it wasn’t the right fit — mind sharing what tipped it?” (Guide: Ross — stay curious, don’t over-explain)"
+        ],
+        [
+          "If he names a competitor or a reason",
+          "“Given [what mattered most to him] was the priority — why didn’t we move forward with Bench?” (Guide: Ross — why here, not there)"
+        ],
+        [
+          "Leave the door open, don't chase",
+          "“Totally understand — if anything changes, I’m here. Mind if I check back in a month?” Low-pressure, since he's already declined once."
+        ]
+      ]
+    }
+  },
+  "jonathan-jackson": {
+    "name": "Jonathan Jackson",
+    "business": "Jackson, Landrith & Kulesz, PC",
+    "email": "jonathan@jlkattorneys.com",
+    "priority": "High",
+    "tier": "high",
+    "signal": "Sent over the Agreement",
+    "lastContact": "Aug 20 · outbound email",
+    "upcoming": "None scheduled",
+    "notes": "Trust-account discrepancy of $40,000 traced to deposit misallocations; firm agreed to bring in outside bookkeeping to reconcile 2024–2025 records rather than a formal forensic audit. “Send Access Instructions: Email the client instructions on how to provide access to the QuickBooks account, copy Michelle.”",
+    "action": "Confirm the resent eSignature actually landed — he’d reported not receiving it twice before your Aug 20 resend, and this is now 6 days quiet with real money ($40k reconciliation) on the line.",
+    "briefUrl": null,
+    "coach": {
+      "situation": "Agreement already sent (twice, reportedly lost both times) — 6 days quiet on a $40k trust-account reconciliation. This is an urgency/logistics check-in, not a pitch.",
+      "lines": [
+        [
+          "Open by confirming delivery, not re-selling",
+          "“Wanted to make sure the agreement actually landed this time — can you confirm you’ve got it in front of you?” Address the technical failure directly before anything else."
+        ],
+        [
+          "Create real urgency from his own stakes",
+          "“How can we get this signed by [date]? I don’t want that $40k discrepancy sitting unresolved any longer than it has to.” (Guide: The magic question)"
+        ],
+        [
+          "Schedule the QuickBooks access hand-off live",
+          "“Let’s get that access set up while we’re both here — does [day/time] work for you and Michelle?” (Guide: Schedule on the call, not after)"
+        ]
+      ]
+    }
+  },
+  "jean-wei-jian-yang": {
+    "name": "Jean Wei Jian Yang",
+    "business": "JeanWeiYang",
+    "email": "jean_yang54@yahoo.com",
+    "priority": "High",
+    "tier": "high",
+    "signal": "Unsequenced",
+    "lastContact": "Aug 18 · call with Julian Muneton",
+    "upcoming": "None scheduled",
+    "notes": "Calendar shows a discovery call actually took place Aug 18 — but with Julian Muneton, not you, and not Salesforce’s own record of it. Salesforce still shows the lead status as “Missed Discovery Call.” Flagging rather than picking one: either the status is stale, or the call didn’t go as recorded.",
+    "action": "8 days quiet with conflicting records of what even happened on the discovery call — worth a direct check with Julian before you re-engage her yourself.",
+    "briefUrl": null,
+    "coach": {
+      "situation": "Data conflict, not a known sales situation — check with Julian first. If you do end up on the call, treat it as a first discovery since her actual history is unclear.",
+      "lines": [
+        [
+          "If this turns into a fresh discovery call",
+          "“Can you start off by telling me a bit about what your business does?” then the bucket question: “I speak to companies like yours all the time — they’re usually either frustrated by taxes, or their bookkeeping solution isn’t working anymore. Does that sound like your world?” (Guide: First question / Bucket question)"
+        ],
+        [
+          "Get her actual current-state, since Salesforce may be wrong",
+          "“How are you currently managing your bookkeeping — doing it yourself, or working with someone?”"
+        ]
+      ]
+    }
+  },
+  "allison": {
+    "name": "Allison",
+    "business": "Floret and Foliage",
+    "email": null,
+    "priority": "High",
+    "tier": "high",
+    "signal": "No data",
+    "lastContact": "Aug 17 · lead assignment only",
+    "upcoming": "None scheduled",
+    "notes": null,
+    "action": "No outreach on record in the 9 days since this lead landed in your queue — nothing in Gmail or Calendar shows a first touch yet. Oldest untouched lead in your book.",
+    "briefUrl": null,
+    "coach": {
+      "situation": "Zero contact yet — this is a cold first touch, 9 days overdue. Use the full open.",
+      "lines": [
+        [
+          "Opener",
+          "“Hey Allison, this is Adam calling from Bench Accounting. How’s your day going so far?”"
+        ],
+        [
+          "Agenda",
+          "“I’m going to ask you some questions about your business and your bookkeeping and tax needs, we’ll talk through the top things you’re looking for, and then I’ll walk you through what working with Bench looks like. How’s that sound?”"
+        ],
+        [
+          "First question",
+          "“Can you start off by telling me a bit about what Floret and Foliage does?”"
+        ]
+      ]
+    }
+  },
+  "abdel-ibrahimi": {
+    "name": "Abdel Ibrahimi",
+    "business": "FTUK LLC",
+    "email": "abdel@ftuk.com",
+    "priority": "High",
+    "tier": "high",
+    "signal": "Details wanted – will follow up",
+    "lastContact": "Aug 21 · call attempt, no answer",
+    "upcoming": "None scheduled",
+    "notes": "Two calls missed now — Julian’s Aug 18 kickoff and your own Aug 21 follow-up both went unanswered. You left a voicemail offering to reschedule for next week and said you’d send a text plus a calendar link.",
+    "action": "Apollo’s own sequence name says it: two missed calls, mid-trial, nothing rebooked. Try text instead of another call — that’s what you told his voicemail you’d do.",
+    "briefUrl": null,
+    "coach": {
+      "situation": "Mid-trial, two missed calls — he's not picking up, so the channel needs to change, not the pitch.",
+      "lines": [
+        [
+          "Text, don’t call a third time",
+          "“Want to follow up once you’ve had a moment? Happy to grab 15 minutes whenever works — here’s a link.” (Guide: Ross — same-day micro-follow-up, adapted to text)"
+        ],
+        [
+          "If he responds, get his trial experience in his own words",
+          "“How’s the trial been going so far — anything getting in the way of it clicking?”"
+        ]
+      ]
+    }
+  },
+  "daniel-lowry": {
+    "name": "Daniel Lowry",
+    "business": "DWL Holdings Inc",
+    "email": "dlowry1977@gmail.com",
+    "priority": "High",
+    "tier": "high",
+    "signal": "Awaiting Decision",
+    "lastContact": "Aug 25, 9:00 AM · call attempt, no answer",
+    "upcoming": "None scheduled",
+    "notes": "Call went to an automated unavailable message, no live contact. You still need to send a follow-up text and a scheduling link.",
+    "action": "Salesforce has this at Awaiting Decision and he still hasn’t picked up — a deal this far along going quiet is the highest-cost kind of silence. Text him today rather than waiting on another call to connect.",
+    "briefUrl": null,
+    "coach": {
+      "situation": "Awaiting Decision stage, gone quiet, calls aren't connecting. This is late-stage — treat silence as urgent, not routine.",
+      "lines": [
+        [
+          "Text with a real deadline, not a generic check-in",
+          "“How can we get this decided by [date]? I don’t want you sitting on this longer than you have to — happy to answer anything that’s still open.” (Guide: The magic question)"
+        ],
+        [
+          "If he responds and hesitates",
+          "“Is it really the price, or is it something else — the service, the product, something I didn’t cover?” (Guide: Iris — real objection or something else?)"
+        ]
+      ]
+    }
+  },
+  "danilo-tauro": {
+    "name": "Danilo Tauro",
+    "business": "Advertising Expert Intelligence",
+    "email": "danilo@go-aei.com",
+    "priority": "High",
+    "tier": "high",
+    "signal": "Unclassified",
+    "lastContact": "Aug 20 · meeting + same-day recap",
+    "upcoming": "None scheduled",
+    "notes": "New LLC needs P&L reporting and year-end tax help for international operations. You sent a final proposal: $7,549 covering annual bookkeeping, 8 months of historical cleanup, and joint household tax filing.",
+    "action": "A real $7,549 proposal has been sitting 6 days with only the automated sequence running — get a human check-in on the calendar before it goes cold.",
+    "briefUrl": null,
+    "coach": {
+      "situation": "Proposal already sent, no human follow-up in 6 days — re-engage around the proposal, don't restart discovery.",
+      "lines": [
+        [
+          "Re-open around what stood out, not the number",
+          "“Before we talk next steps — what stood out to you as the biggest impact this could have on the business?” (Guide: Do they want it)"
+        ],
+        [
+          "If price is the hesitation on the $7,549",
+          "“What’s your baseline — what’s expensive to you, compared to what?” (Guide: “It’s too expensive”)"
+        ],
+        [
+          "Close with a direct ask",
+          "“I’m confident this is the right move for the business — can we get you started this week?”"
+        ]
+      ]
+    }
+  },
+  "andrew-bravo": {
+    "name": "Andrew Bravo",
+    "business": "GGB Healthcare",
+    "email": "andrew@ggbhealthcare.com",
+    "priority": "Medium",
+    "tier": "med",
+    "signal": "Price consideration",
+    "lastContact": "Aug 25 · discovery & demo call",
+    "upcoming": "Mon Aug 31, 11:00 AM",
+    "notes": "Comparing Bench’s $3,710 total package (2025 catchup + 2026 bookkeeping + tax filing) against Collective’s flat $199/mo, which bundles tax filing into the base rate. Not solely price-driven — he said quality matters too. Follow-up set for Monday Aug 31, 11 AM.",
+    "action": "Still owes him the recap email, the calendar invite, and a trial account — all three were promised on the call and none have gone out yet. Get them sent before Monday.",
+    "briefUrl": "https://claude.ai/code/artifact/da7aab07-b0f9-4669-9026-0feef51c167b",
+    "coach": {
+      "situation": "Head-to-head price comparison vs. Collective's $199/mo flat rate. He's said quality matters too — don't just defend the number, unsell the cheaper alternative's real failure mode.",
+      "lines": [
+        [
+          "Don’t defend on price — unsell the alternative",
+          "“I totally hear you — a flat-rate option is absolutely going to have a cheaper sticker price. What I hear most from people who’ve moved between services is the cheaper option exposes you to ‘communication chaos’ — they outsource you to a pool of bookkeepers who don’t actually work in your account.” (Guide: Found a cheaper outsourced service, verbatim)"
+        ],
+        [
+          "Then find out why he's still comparing at all",
+          "“Given quality was what mattered most to you — what’s Collective offering that’s giving you pause on Bench?” (Guide: Ross — why here, not there)"
+        ],
+        [
+          "On Monday, confirm he's sold before re-pitching price",
+          "“Does this feel like the thing that finally solves your financial pressures?” then move straight to onboarding options, not back to features."
+        ]
+      ]
+    }
+  },
+  "bernadette-anderson": {
+    "name": "Bernadette Anderson",
+    "business": "Refresh Nail Bar",
+    "email": "bernadette@refreshnailbar.com",
+    "priority": "Medium",
+    "tier": "med",
+    "signal": "Price consideration",
+    "lastContact": "Today, 9:30 AM · discovery call",
+    "upcoming": "None scheduled",
+    "notes": "Single-member LLC nail bar, ~$80K/yr revenue, needs 2023–2026 historical cleanup + full tax filing. Quoted $9,110 annual total (20% off + waived $1,600 catch-up), payable in 4 installments of $2,277.50. She asked to review and said she’d text her decision.",
+    "action": "New lead first surfaced today — brand-new brief. Send the promised pricing recap email today so she has the numbers in writing while she decides.",
+    "briefUrl": null,
+    "coach": {
+      "situation": "Quoted, asked to review, said she'd text — classic soft stall right after a real number. Get the recap out fast and give her a decision window, not just a wait.",
+      "lines": [
+        [
+          "In the recap email, don't just restate the price",
+          "“I know you mentioned feeling behind on the books — with Bench, the goal is to get you feeling caught up and confident again, not just cleaned up.” (Guide: Returns → Results → Emotion)"
+        ],
+        [
+          "If she calls back hesitant",
+          "“What does the timeline look like for you to decide — this week, or more toward end of month?” (Guide: Iris — timeline, not yes/no)"
+        ],
+        [
+          "If it comes back to price specifically",
+          "“Is it really the price, or is it something else?” (Guide: Iris — real objection or something else?)"
+        ]
+      ]
+    }
+  },
+  "dana-hansen": {
+    "name": "Dana Hansen",
+    "business": "SALON NUNA",
+    "email": "danashansen@gmail.com",
+    "priority": "Medium",
+    "tier": "med",
+    "signal": "Details wanted – she’ll follow up",
+    "lastContact": "Aug 25 · missed follow-up (voicemail only)",
+    "upcoming": "None scheduled",
+    "notes": "The follow-up call the prior build expected went to voicemail, not a completed meeting. Adam left a message offering to email + text a scheduling link, and said he’d call again in a few days if she doesn’t respond. Nothing new since the Aug 18 discovery call ($199/mo tier + $1,200/yr tax filing discussed).",
+    "action": "Two missed connections in a row now — send the promised scheduling link by email and text today; calls clearly aren’t the reliable channel here.",
+    "briefUrl": "https://claude.ai/code/artifact/d2d7c6da-706d-4f68-b936-b6704b6899d8",
+    "coach": {
+      "situation": "Two missed calls in a row — channel problem, not a value problem. Switch to text/email and make re-booking effortless.",
+      "lines": [
+        [
+          "Text, short and low-friction",
+          "“Want to follow up once you’ve had a chance to look this over? Happy to grab 15 minutes whenever works — here’s a link to grab a time.” (Guide: Ross — same-day micro-follow-up, adapted)"
+        ],
+        [
+          "When you do connect, reconfirm interest before re-pitching",
+          "“Last time we talked about the $199/mo tier plus tax filing — does that still sound like where you’re at?”"
+        ]
+      ]
+    }
+  },
+  "teresa-leatham": {
+    "name": "Teresa Leatham",
+    "business": "VIP Executive Car Service",
+    "email": "teresa@executive-towncar.com",
+    "priority": "Medium",
+    "tier": "med",
+    "signal": "No data",
+    "lastContact": "Aug 19 · 2 call attempts, no answer",
+    "upcoming": "None scheduled",
+    "notes": "Former Bench customer re-inquiring. Both calls hit an automated screener; you left a detailed voicemail on the first attempt referencing her past account and offering to text/email a scheduling link.",
+    "action": "Real effort already went in — two calls, a detailed voicemail — but 7 days quiet on a win-back with a prior account is worth one more attempt by text since calls aren’t landing.",
+    "briefUrl": null,
+    "coach": {
+      "situation": "Former customer, re-inquiring — this is a win-back, not a cold call. She already knows Bench; find out what changed and why she's back.",
+      "lines": [
+        [
+          "Welcome-back framing, not a generic opener",
+          "“Good to hear from you again — what’s got you thinking about coming back to Bench?”"
+        ],
+        [
+          "Surface what didn't work wherever she went instead",
+          "“What’s not been working with how you’ve been handling it since?” (Guide: Has a local CPA, adapted for a win-back)"
+        ]
+      ]
+    }
+  },
+  "nathan-moser": {
+    "name": "Nathan Moser",
+    "business": "NPM Ventures 1 Inc",
+    "email": "npmventures1@gmail.com",
+    "priority": "Medium",
+    "tier": "med",
+    "signal": "Price consideration",
+    "lastContact": "Aug 25 · meeting held",
+    "upcoming": "Sept 2, 12:30 PM",
+    "notes": "Currently on QuickBooks with heavy unclassified transactions; decided to prefer Bench over continued QuickBooks. Outstanding: “Email service summary: Send a recap of the Bench bookkeeping platform and the provided pricing options.”",
+    "action": "Hot lead from Aug 25, already leaning your way — send the pricing recap you promised before the Sept 2 follow-up so it doesn’t slip.",
+    "briefUrl": "https://claude.ai/code/artifact/0f4cad15-00f0-4120-b68d-0dece99f5687",
+    "coach": {
+      "situation": "Hot lead, real buying signal already on record (“this definitely seems like 21st century” re: QuickBooks vs. Bench) — Sept 2 is a decision call, and Reading the Tape flagged two specific things to fix from the Aug 25 call: he only got space to raise his real concern (money moving between accounts) after a 3:38 unbroken monologue, and pricing numbers went by fast (189 wpm).",
+      "lines": [
+        [
+          "Checkpoint the recap, don’t monologue it",
+          "Every 60–90 seconds: “does that match what you’re picturing?” (Reading the Tape: the single most actionable fix from his last call — an 80/20 talk-time split let his real objection about moving money between accounts sit unspoken for over 3 minutes last time)."
+        ],
+        [
+          "Slow down specifically on the $9,110/annual number",
+          "Reading the Tape flagged pricing delivered at full pace as the one place a deliberate half-beat pays off — dollar figures said fast are the ones people ask you to repeat."
+        ],
+        [
+          "Reconfirm the buying signal before pricing",
+          "“Last time you mentioned QuickBooks felt laggy and dated — does the dashboard we walked through still feel like the fix for that?”"
+        ],
+        [
+          "Proactive objection strike before the close",
+          "“Do you feel like Bench will accomplish what you need?” (yes) “Great. And does the annual pricing feel fair?” (yes) “Great — sounds like we’re a fit.” (Guide: Ross — proactive objection strike)"
+        ],
+        [
+          "Close, naming the emotional payoff",
+          "“I’m confident this gets QuickBooks off your plate for good — can we get you started today?”"
+        ]
+      ]
+    },
+    "readingTapeUrl": "https://claude.ai/code/artifact/7e63e020-1d8f-40d2-b06a-293983c5c04c"
+  },
+  "patty-banach": {
+    "name": "Patty Banach",
+    "business": "Pizza Bistro (existing client)",
+    "email": "pizzabistro@hotmail.com",
+    "priority": "Low",
+    "tier": "low",
+    "signal": "Need payment updated (agreement signed)",
+    "lastContact": "Today, 1:30 PM · call, agreement signed",
+    "upcoming": "None scheduled",
+    "notes": "Existing business client added joint personal tax filing for $699/yr; agreement signed on the call. She also flagged a broken website link (the “taxes” scheduling option routes to a “new business” page) — passed along as a product bug, not a sales item.",
+    "action": "New lead first surfaced today, existing client not previously tracked by name — low priority since the agreement’s already done; just needs the team to follow up on additional income sources (spouse W2, investments) per the call’s own next steps.",
+    "briefUrl": null,
+    "coach": {
+      "situation": "Already signed — this is a light upsell/data-gathering follow-up, not a sales conversation.",
+      "lines": [
+        [
+          "Light discovery on additional income",
+          "“To make sure the personal filing is complete — any other income sources this year? A spouse’s W2, investment income, anything like that?”"
+        ]
+      ]
+    }
+  },
+  "hamenti-patel": {
+    "name": "Hamenti Patel",
+    "business": "Hydrate IV Bar",
+    "email": "hdpatel1230@gmail.com",
+    "priority": "Low",
+    "tier": "low",
+    "signal": "No data",
+    "lastContact": "Aug 25 · 2 call attempts, no answer",
+    "upcoming": "None scheduled",
+    "notes": "Both attempts hit voicemail/automated system. Left a message offering to text and email a calendar link to reschedule for later in the week.",
+    "action": "New lead first surfaced today — brand-new brief. Send the promised text + email with a scheduling link.",
+    "briefUrl": null,
+    "coach": {
+      "situation": "No live contact yet — calls aren't connecting, switch to text as promised.",
+      "lines": [
+        [
+          "Text, short and easy to say yes to",
+          "“Hi Hamenti, this is Adam from Bench Accounting — tried reaching you a couple times. Happy to grab 15 minutes whenever works, here’s a link to pick a time.”"
+        ]
+      ]
+    }
+  },
+  "chris-tugman": {
+    "name": "Chris Tugman",
+    "business": "Stripe",
+    "email": "ctugman@stripe.com",
+    "priority": "Low",
+    "tier": "low",
+    "signal": "Not a sales opportunity",
+    "lastContact": "Aug 19 · inbound email",
+    "upcoming": "None scheduled",
+    "notes": null,
+    "action": "This reads as a Stripe partnerships inquiry about the Bench app listing on the Stripe Marketplace, not a bookkeeping lead — likely worth routing to your partnerships contact rather than a sales sequence.",
+    "briefUrl": null,
+    "coach": null,
+    "coachSkipNote": "This looks like a partnerships inquiry, not a prospect — no sales Call Coach applies here. Route to your partnerships contact instead."
+  },
+  "daniel-simunek": {
+    "name": "Daniel Simunek",
+    "business": "SSP Chasers",
+    "email": "ssp_chasers@yahoo.com",
+    "priority": null,
+    "tier": "unmatched",
+    "signal": null,
+    "lastContact": "Today, 2:00 PM · Bench Accounting Consultation",
+    "upcoming": null,
+    "notes": "Not confidently matched to a Salesforce record or an existing Next Touch contact — this profile is built from calendar details only.",
+    "action": "First-time consultation, per the meeting type on the calendar.",
+    "briefUrl": null,
+    "coach": {
+      "situation": "Not yet tracked anywhere — treat as a first-time consultation.",
+      "lines": [
+        [
+          "Open with agenda-setting, not assumptions",
+          "“Can you start off by telling me a bit about what SSP Chasers does?” then the bucket question: “I speak to companies like yours all the time — they’re usually either frustrated by taxes, or their current bookkeeping isn’t working anymore. Does that sound like your world?”"
+        ]
+      ]
+    }
+  },
+  "geoffrey-aquino": {
+    "name": "Geoffrey Aquino",
+    "business": "Geoff Aquino Consulting",
+    "email": "geoffaquino@me.com",
+    "priority": null,
+    "tier": "unmatched",
+    "signal": null,
+    "lastContact": "Today, 3:00 PM · Bench Accounting Consultation · previously rescheduled (reason given: “Work”)",
+    "upcoming": null,
+    "notes": "Not confidently matched to a Salesforce record or an existing Next Touch contact — this profile is built from calendar details only.",
+    "action": "Already rescheduled once — keep the open tight and confirm what he needs before going deep.",
+    "briefUrl": null,
+    "coach": {
+      "situation": "Rescheduled once already (“Work”) — respect that his time is tight.",
+      "lines": [
+        [
+          "Acknowledge the reschedule, keep it efficient",
+          "“Thanks for making time — I’ll keep this focused. Can you start by telling me a bit about what you’re running into with your bookkeeping right now?”"
+        ]
+      ]
+    }
+  },
+  "beverly-lwenya": {
+    "name": "Beverly Lwenya",
+    "business": "The Afropolitan Shop",
+    "email": "beverlyskills@gmail.com",
+    "priority": null,
+    "tier": "unmatched",
+    "signal": null,
+    "lastContact": "Fri Aug 28, 12:00 PM · Learn More About Bench (demo)",
+    "upcoming": null,
+    "notes": "Not confidently matched to a Salesforce record or an existing Next Touch contact — this profile is built from calendar details only.",
+    "action": "Listed as a demo, which usually means a warmer conversation than a cold consult.",
+    "briefUrl": null,
+    "coach": {
+      "situation": "Booked as a demo, not a cold consult — likely already warm; lead with the platform, not a full discovery restart.",
+      "lines": [
+        [
+          "Confirm what she already knows before diving in",
+          "“Before I walk you through the platform — what made you want to take a closer look at Bench?”"
+        ],
+        [
+          "Checkpoint through the demo",
+          "“Does that match what you were picturing?” after each section, rather than one long walkthrough."
+        ]
+      ]
+    }
+  },
+  "christian-rothchild": {
+    "name": "Christian Rothchild",
+    "business": "Rainbow Warriors",
+    "email": "christian@rainbowwarriors.earth",
+    "priority": null,
+    "tier": "unmatched",
+    "signal": null,
+    "lastContact": "Fri Aug 28, 2:45 PM · Book a call with Bench · previously rescheduled (reason given: “Higher priority obligation”)",
+    "upcoming": null,
+    "notes": "Not confidently matched to a Salesforce record or an existing Next Touch contact — this profile is built from calendar details only.",
+    "action": "Already rescheduled once — worth a light check-in on timing before the full pitch.",
+    "briefUrl": null,
+    "coach": {
+      "situation": "Rescheduled once already — check timing/priority before launching in.",
+      "lines": [
+        [
+          "Light check-in first",
+          "“Good to finally connect — is this still a good time, or is something else pulling at you?” then move into: “Can you tell me a bit about what Rainbow Warriors does and where bookkeeping fits in right now?”"
+        ]
+      ]
+    }
+  }
+}
