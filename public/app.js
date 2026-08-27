@@ -1,6 +1,13 @@
 // Next Touch — Replit dashboard frontend
 // Polls /api/data (this server's own store, populated by Claude's pushes)
 // and renders it. No calls back to Claude ever happen from this file.
+//
+// Mirrors three features from the live Next Touch Claude Artifact:
+//   - the Contact Brief modal (name click -> popup with notes/action/coach)
+//   - the Call Coach section inside that modal, plus an easy-access button on the card
+//   - the "This Week" section (Calendar meetings matched against Next Touch / Salesforce)
+// The live Artifact itself is NOT reachable from here — everything rendered
+// below comes only from what Claude last pushed to /api/sync.
 
 const POLL_MS = 60_000; // re-check every 60s for a fresh push
 
@@ -26,6 +33,8 @@ const PRIORITY_ANCHOR = {
   None: "group-none",
 };
 
+// Populated on every refresh() so the modal and This Week section can look
+// up a contact by slug without re-fetching.
 let contactsBySlug = new Map();
 
 function normalizePriority(p) {
@@ -64,6 +73,10 @@ function escapeHtml(str) {
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
   }[c]));
 }
+
+// ---------------------------------------------------------------------
+// Priority-grouped contact cards
+// ---------------------------------------------------------------------
 
 function renderCard(slug, c) {
   const priority = normalizePriority(c.priority);
@@ -280,6 +293,10 @@ function renderThisWeek(thisWeek) {
   `;
 }
 
+// ---------------------------------------------------------------------
+// Poll loop
+// ---------------------------------------------------------------------
+
 async function refresh() {
   const statusEl = document.getElementById("syncStatus");
   try {
@@ -287,8 +304,10 @@ async function refresh() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
 
-    const contacts = contactsAsArray(data.nextTouch);
-    renderGroups(contacts);
+    const entries = contactEntries(data.nextTouch);
+    contactsBySlug = new Map(entries);
+    renderGroups(entries);
+    renderThisWeek(data.thisWeek);
 
     if (!data.syncedAt) {
       statusEl.textContent = "No sync received yet";
