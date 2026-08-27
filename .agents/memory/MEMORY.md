@@ -1,1 +1,2 @@
 - [Public asset boundary](public-asset-boundary.md) — imported CRM packages contain internal operational material; web runtimes must serve an explicit asset allowlist.
+- [Mockup preview recovery](mockup-preview-recovery.md) — an orphaned sandbox directory may need a fresh artifact and frame re-home before its preview workflow can run.

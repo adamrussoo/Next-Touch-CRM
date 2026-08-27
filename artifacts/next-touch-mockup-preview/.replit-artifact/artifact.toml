@@ -1,0 +1,19 @@
+kind = "design"
+previewPath = "/__mockup/"
+title = "Next Touch Mockup Preview"
+description = "Isolated preview server for the Next Touch command-center design."
+version = "1.0.0"
+id = "artifacts/next-touch-mockup-preview"
+router = "path"
+
+[[services]]
+name = "Component Preview Server"
+paths = [ "/__mockup/" ]
+localPort = 24099
+
+[services.development]
+run = "npm run dev"
+
+[services.env]
+PORT = "24099"
+BASE_PATH = "/__mockup/"
