@@ -1,0 +1,1 @@
+- [Public asset boundary](public-asset-boundary.md) — imported CRM packages contain internal operational material; web runtimes must serve an explicit asset allowlist.
