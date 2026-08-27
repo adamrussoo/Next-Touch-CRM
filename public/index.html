@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Next Touch — Live Dashboard</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="page-header">
+      <h1>Next Touch — Live Dashboard</h1>
+      <div class="sync-status" id="syncStatus">Loading…</div>
+    </header>
+
+    <div class="stat-row" id="statRow">
+      <button class="stat-tile" data-jump="group-high">
+        <span class="stat-label"><span class="stat-dot dot-high"></span>High priority</span>
+        <span class="stat-value" id="statHigh">–</span>
+      </button>
+      <button class="stat-tile" data-jump="group-medium">
+        <span class="stat-label"><span class="stat-dot dot-medium"></span>Medium priority</span>
+        <span class="stat-value" id="statMedium">–</span>
+      </button>
+      <button class="stat-tile" data-jump="group-low">
+        <span class="stat-label"><span class="stat-dot dot-low"></span>Low priority</span>
+        <span class="stat-value" id="statLow">–</span>
+      </button>
+      <button class="stat-tile" data-jump="group-none">
+        <span class="stat-label"><span class="stat-dot dot-none"></span>No action needed</span>
+        <span class="stat-value" id="statNone">–</span>
+      </button>
+    </div>
+
+    <main id="groups"><!-- populated by app.js --></main>
+
+    <footer class="page-footer">
+      Data is pushed here by Claude's hourly "Next Touch sync" scheduled task — this page never
+      reaches back into Claude, it only displays the latest snapshot it was sent.
+      <span id="footerSource"></span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

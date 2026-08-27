@@ -1,0 +1,15 @@
+{
+  "name": "next-touch-replit-dashboard",
+  "version": "1.0.0",
+  "description": "Receives pushed Next Touch / Pipeline Pulse data from Claude and displays it as a live dashboard.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

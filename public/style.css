@@ -1,0 +1,261 @@
+/* Next Touch — Replit dashboard
+   Color roles follow the dataviz skill's method: status colors are reserved,
+   always paired with a text label (never color alone), and the light/dark
+   values are selected per-mode, not an automatic filter-flip. The four
+   priority colors intentionally mirror the emoji convention already used on
+   the live Next Touch Claude Artifact (green=High, blue=Medium, yellow=Low,
+   gray=No action) so this display reads as "the same system," not a
+   different one. Gray is deliberately low-chroma — it is the neutral/ink
+   role for "nothing to act on," not a fifth categorical hue. */
+
+:root {
+  color-scheme: light;
+  --surface-page:   #f9f9f7;
+  --surface-card:   #fcfcfb;
+  --text-primary:   #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted:     #898781;
+  --border:         rgba(11, 11, 11, 0.10);
+  --gridline:       #e1e0d9;
+
+  --priority-high:   #0ca30c;
+  --priority-medium: #2a78d6;
+  --priority-low:    #b8860a;
+  --priority-none:   #898781;
+
+  --priority-high-bg:   rgba(12, 163, 12, 0.10);
+  --priority-medium-bg: rgba(42, 120, 214, 0.10);
+  --priority-low-bg:    rgba(184, 134, 10, 0.12);
+  --priority-none-bg:   rgba(137, 135, 129, 0.10);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --surface-page:   #0d0d0d;
+    --surface-card:   #1a1a19;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --border:         rgba(255, 255, 255, 0.10);
+    --gridline:       #2c2c2a;
+
+    --priority-high:   #0ca30c;
+    --priority-medium: #3987e5;
+    --priority-low:    #c98500;
+    --priority-none:   #898781;
+
+    --priority-high-bg:   rgba(12, 163, 12, 0.16);
+    --priority-medium-bg: rgba(57, 135, 229, 0.16);
+    --priority-low-bg:    rgba(201, 133, 0, 0.18);
+    --priority-none-bg:   rgba(137, 135, 129, 0.14);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface-page:   #0d0d0d;
+  --surface-card:   #1a1a19;
+  --text-primary:   #ffffff;
+  --text-secondary: #c3c2b7;
+  --text-muted:     #898781;
+  --border:         rgba(255, 255, 255, 0.10);
+  --gridline:       #2c2c2a;
+
+  --priority-high:   #0ca30c;
+  --priority-medium: #3987e5;
+  --priority-low:   #c98500;
+  --priority-none:   #898781;
+
+  --priority-high-bg:   rgba(12, 163, 12, 0.16);
+  --priority-medium-bg: rgba(57, 135, 229, 0.16);
+  --priority-low-bg:   rgba(201, 133, 0, 0.18);
+  --priority-none-bg:   rgba(137, 135, 129, 0.14);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--surface-page);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 20px 80px;
+}
+
+header.page-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+header.page-header h1 {
+  font-size: 22px;
+  font-weight: 650;
+  margin: 0;
+}
+
+.sync-status {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.sync-status.stale { color: var(--priority-low); }
+.sync-status.none { color: var(--text-muted); }
+
+/* ---- stat tiles ---- */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.stat-tile {
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.08s ease;
+}
+.stat-tile:hover { transform: translateY(-1px); }
+.stat-tile:focus-visible { outline: 2px solid var(--priority-medium); outline-offset: 2px; }
+
+.stat-tile .stat-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.stat-tile .stat-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  flex: none;
+}
+.dot-high   { background: var(--priority-high); }
+.dot-medium { background: var(--priority-medium); }
+.dot-low    { background: var(--priority-low); }
+.dot-none   { background: var(--priority-none); }
+
+.stat-tile .stat-value {
+  font-size: 26px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- priority group ---- */
+.group {
+  margin-bottom: 28px;
+}
+
+.group h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--gridline);
+  padding-bottom: 8px;
+  margin: 0 0 12px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+.badge-high   { color: var(--priority-high);   background: var(--priority-high-bg); }
+.badge-medium { color: var(--priority-medium); background: var(--priority-medium-bg); }
+.badge-low    { color: var(--priority-low);    background: var(--priority-low-bg); }
+.badge-none   { color: var(--priority-none);   background: var(--priority-none-bg); }
+
+/* ---- contact card ---- */
+.card {
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.card-name {
+  font-size: 15.5px;
+  font-weight: 650;
+}
+
+.card-business {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.card-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+.card-meta .meta-label {
+  color: var(--text-muted);
+  margin-right: 4px;
+}
+
+.card-action {
+  margin-top: 10px;
+  font-size: 13px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--gridline);
+}
+
+.card-action .meta-label { color: var(--text-muted); }
+
+.empty-state {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  padding: 30px 0;
+  text-align: center;
+}
+
+footer.page-footer {
+  margin-top: 40px;
+  font-size: 12px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--gridline);
+  padding-top: 14px;
+}
+
+a { color: var(--priority-medium); }
+
+@media (max-width: 640px) {
+  .stat-row { grid-template-columns: repeat(2, 1fr); }
+}
