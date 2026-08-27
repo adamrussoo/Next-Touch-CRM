@@ -3,82 +3,181 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Next Touch — Live Dashboard</title>
+<meta name="theme-color" content="#253047" />
+<title>Next Touch — Personal Command Center</title>
 <link rel="icon" href="data:," />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="wrap">
-    <header class="page-header">
-      <h1>Next Touch — Live Dashboard</h1>
-      <div class="sync-status" id="syncStatus">Loading…</div>
-    </header>
-
-    <div class="stat-row" id="statRow">
-      <button class="stat-tile" data-jump="group-high">
-        <span class="stat-label"><span class="stat-dot dot-high"></span>High priority</span>
-        <span class="stat-value" id="statHigh">–</span>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Workspace navigation">
+      <button class="brand-button" type="button" data-nav="Today" aria-label="Go to Today">
+        <span class="brand-icon" aria-hidden="true">⌁</span>
+        <span class="brand-copy">
+          <span class="brand-name">Next Touch</span>
+          <span class="brand-jp">次の一手 · THE NEXT MOVE</span>
+        </span>
       </button>
-      <button class="stat-tile" data-jump="group-medium">
-        <span class="stat-label"><span class="stat-dot dot-medium"></span>Medium priority</span>
-        <span class="stat-value" id="statMedium">–</span>
-      </button>
-      <button class="stat-tile" data-jump="group-low">
-        <span class="stat-label"><span class="stat-dot dot-low"></span>Low priority</span>
-        <span class="stat-value" id="statLow">–</span>
-      </button>
-      <button class="stat-tile" data-jump="group-none">
-        <span class="stat-label"><span class="stat-dot dot-none"></span>No action needed</span>
-        <span class="stat-value" id="statNone">–</span>
-      </button>
-    </div>
 
-    <section class="thisweek" id="thisweek"><!-- populated by app.js --></section>
+      <div class="nav-label">Workspace</div>
+      <nav class="workspace-nav">
+        <button class="nav-item is-active" type="button" data-nav="Today">
+          <span><span class="nav-icon" aria-hidden="true">✦</span>Today</span><span class="nav-count" id="todayNavCount">–</span>
+        </button>
+        <button class="nav-item" type="button" data-nav="Contacts">
+          <span><span class="nav-icon" aria-hidden="true">♧</span>Contacts</span>
+        </button>
+        <button class="nav-item" type="button" data-nav="Calendar">
+          <span><span class="nav-icon" aria-hidden="true">□</span>Calendar</span><span class="nav-count" id="calendarNavCount">–</span>
+        </button>
+        <button class="nav-item" type="button" data-nav="Campaigns">
+          <span><span class="nav-icon" aria-hidden="true">↗</span>Campaigns</span>
+        </button>
+      </nav>
 
-    <main id="groups"><!-- populated by app.js --></main>
+      <div class="sidebar-bottom">
+        <section class="focus-card" aria-labelledby="focusTitle">
+          <div class="focus-card-top"><span class="brand-jp">今日の焦点</span><span class="spark" aria-hidden="true">✧</span></div>
+          <h2 id="focusTitle">Your next right move.</h2>
+          <p id="focusCopy">Your focus queue will appear here after the first sync.</p>
+          <button class="text-link" id="focusAction" type="button">Open focus <span aria-hidden="true">↗</span></button>
+        </section>
+        <div class="profile-row">
+          <span class="profile-avatar" aria-hidden="true">NT</span>
+          <span><strong>Next Touch</strong><small>Personal sales command center</small></span>
+        </div>
+      </div>
+    </aside>
 
-    <footer class="page-footer">
-      Data is pushed here by Claude's hourly "Next Touch sync" scheduled task — this page never
-      reaches back into Claude, it only displays the latest snapshot it was sent.
-      <span id="footerSource"></span>
-    </footer>
+    <main class="main-content">
+      <header class="topbar">
+        <div class="breadcrumb"><span>Workspace</span><span aria-hidden="true">/</span><strong id="activeNavLabel">Today · personal command center</strong></div>
+        <div class="topbar-actions">
+          <label class="search-box">
+            <span aria-hidden="true">⌕</span>
+            <input id="contactSearch" type="search" autocomplete="off" placeholder="Search people or next actions…" aria-label="Search contacts or next actions" />
+          </label>
+          <div class="notification-wrap">
+            <button class="icon-button notification-button" id="notificationToggle" type="button" aria-label="Open notifications" aria-expanded="false">
+              <span aria-hidden="true">♢</span><span class="notification-dot" id="notificationDot" hidden></span>
+            </button>
+            <div class="notification-popover" id="notificationPopover" hidden>
+              <strong>One useful nudge</strong>
+              <p id="notificationCopy">No new signals yet. The next sync will surface them here.</p>
+            </div>
+          </div>
+          <button class="dark-button topbar-touch" id="topbarTouch" type="button">New touch <span aria-hidden="true">↗</span></button>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <section class="hero-panel" aria-labelledby="heroTitle">
+          <span class="hero-glyph" aria-hidden="true">今日</span>
+          <div class="hero-content">
+            <div class="eyebrow hero-eyebrow"><span id="heroDate">Today</span><span class="eyebrow-rule" aria-hidden="true"></span><span id="heroClock">Your local time</span></div>
+            <h1 id="heroTitle">A clear day<br /><em>starts with one good move.</em></h1>
+            <p id="heroLead">Your relationships are moving. We’ll surface the people who need your attention and the reason it matters.</p>
+            <div class="hero-actions">
+              <button class="gold-button" id="heroTouch" type="button">Start next touch <span aria-hidden="true">→</span></button>
+              <button class="outline-light-button" id="reviewDay" type="button">Review the day</button>
+            </div>
+          </div>
+          <div class="momentum-panel" aria-label="Pipeline focus">
+            <div class="momentum-heading"><div><span class="muted-eyebrow">Focus queue</span><strong id="focusCount">0</strong> <span id="focusLabel">active touches</span></div><span class="momentum-badge" id="focusBadge">Waiting for data</span></div>
+            <div class="progress-track"><span id="focusBar"></span></div>
+            <div class="momentum-foot"><span id="focusHint">Your next sync will bring the queue to life.</span><span id="focusSync">Ready</span></div>
+          </div>
+        </section>
+
+        <div class="stat-row" id="statRow">
+          <button class="stat-tile" type="button" data-jump="group-high">
+            <span class="stat-label"><span class="stat-dot dot-high"></span>High priority</span>
+            <span class="stat-value" id="statHigh">–</span>
+          </button>
+          <button class="stat-tile" type="button" data-jump="group-medium">
+            <span class="stat-label"><span class="stat-dot dot-medium"></span>Medium priority</span>
+            <span class="stat-value" id="statMedium">–</span>
+          </button>
+          <button class="stat-tile" type="button" data-jump="group-low">
+            <span class="stat-label"><span class="stat-dot dot-low"></span>Low priority</span>
+            <span class="stat-value" id="statLow">–</span>
+          </button>
+          <button class="stat-tile" type="button" data-jump="group-none">
+            <span class="stat-label"><span class="stat-dot dot-none"></span>No action needed</span>
+            <span class="stat-value" id="statNone">–</span>
+          </button>
+        </div>
+
+        <div class="dashboard-grid">
+          <section class="queue-section" aria-labelledby="queueTitle">
+            <div class="section-heading">
+              <div>
+                <div class="eyebrow accent-eyebrow"><span class="live-dot" aria-hidden="true"></span>Your attention queue</div>
+                <h2 id="queueTitle">The next right moves</h2>
+                <p><span id="queueCount">0</span> relationships in view · sorted by what matters now</p>
+              </div>
+              <div class="section-actions">
+                <button class="soft-button" id="focusToday" type="button"><span aria-hidden="true">◉</span> Focus today</button>
+                <button class="soft-button" id="refineQueue" type="button"><span aria-hidden="true">≡</span> Refine</button>
+              </div>
+            </div>
+            <div class="filter-row" id="filterRow" aria-label="Filter attention queue">
+              <button class="filter-pill is-active" type="button" data-filter="All">All contacts</button>
+              <button class="filter-pill" type="button" data-filter="High">High priority</button>
+              <button class="filter-pill" type="button" data-filter="Medium">Medium priority</button>
+              <button class="filter-pill" type="button" data-filter="Low">Low priority</button>
+              <button class="filter-pill" type="button" data-filter="None">No action</button>
+            </div>
+            <main id="groups"><!-- populated by app.js --></main>
+          </section>
+
+          <aside class="right-rail">
+            <section class="rail-card week-card" id="thisweek"><!-- populated by app.js --></section>
+            <section class="rail-card signal-card" aria-labelledby="signalTitle">
+              <div class="signal-heading"><div><div class="eyebrow gold-eyebrow"><span aria-hidden="true">✧</span> Signal, not noise</div><h2 id="signalTitle">A little context<br /><em>for your next move.</em></h2></div><span class="signal-zap" aria-hidden="true">ϟ</span></div>
+              <p id="signalCopy">When new activity arrives, this space will explain who to contact, why now, and what to accomplish.</p>
+              <div class="signal-meter"><div><span>Attention signal</span><strong id="signalValue">Waiting</strong></div><div class="signal-track"><span id="signalBar"></span></div></div>
+            </section>
+            <div class="systems-note"><span class="status-dot" aria-hidden="true"></span><span id="systemsNote">Waiting for the first sync</span></div>
+          </aside>
+        </div>
+
+        <footer class="page-footer">
+          Data is pushed here by Claude's hourly “Next Touch sync” scheduled task — this page never reaches back into Claude; it only displays the latest snapshot it was sent.
+          <span id="footerSource"></span>
+        </footer>
+      </div>
+    </main>
   </div>
 
-  <!-- Shared Contact Brief modal — one instance, populated per-contact by openBrief(slug).
-       Mirrors the modal on the live Next Touch Artifact: header, meta grid, three
-       collapsible sections (notes / next action / Call Coach), and a resources row
-       that links out to the live Claude Artifact pages (this dashboard doesn't host
-       those pages itself). -->
   <div class="modal-overlay" id="briefOverlay" hidden>
     <div class="modal" id="briefModal" role="dialog" aria-modal="true" aria-labelledby="briefName">
-      <button class="modal-close" id="briefClose" type="button" aria-label="Close">&times;</button>
-
+      <button class="modal-close" id="briefClose" type="button" aria-label="Close Contact Brief">&times;</button>
       <div class="modal-header">
         <span class="badge" id="briefPriorityBadge"></span>
         <h2 id="briefName"></h2>
         <div class="modal-sub" id="briefBusinessEmail"></div>
       </div>
-
       <div class="modal-meta" id="briefMeta"></div>
-
       <details class="modal-section" open>
         <summary>Conversation history &amp; notes</summary>
         <div class="modal-section-body" id="briefNotes"></div>
       </details>
-
       <details class="modal-section" open>
         <summary>Recommended next action</summary>
         <div class="modal-section-body" id="briefAction"></div>
       </details>
-
       <details class="modal-section" id="briefCoachSection" open>
         <summary>🎯 Call Coach</summary>
         <div class="modal-section-body" id="briefCoach"></div>
       </details>
-
       <div class="modal-resources" id="briefResources"></div>
     </div>
   </div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
   <script src="app.js"></script>
 </body>
