@@ -1,0 +1,23 @@
+I want to transform this into an **adaptive, interactive dashboard that serves as my personal CRM and daily sales assistant**.
+
+The goal is for Next Touch to become the central hub for managing my pipeline, client relationships, follow-ups, and daily priorities—while making the experience feel engaging, motivating, and enjoyable to use.
+
+This should be more than a collection of tasks, information, and data tools. It should feel like an intelligent, interactive workspace that brings my pipeline to life, helps me stay focused, and makes managing customer relationships feel rewarding rather than repetitive.
+
+It should actively support my day by providing:
+
+* **Daily tasks and priorities** based on each client/prospect and what needs to happen that day.
+* **Notifications and reminders** for important follow-ups, client responses, upcoming meetings, and time-sensitive opportunities.
+* A clear, visually engaging view of **what needs my attention today**, organized by priority.
+* A dynamic **weekly view** showing upcoming meetings, follow-ups, deadlines, and important client activity.
+* Client-specific tasks that reflect the **current status, history, and momentum of each relationship**.
+* Proactive recommendations on **who I should contact, why I should contact them, and what I should accomplish during that interaction**.
+* Interactive prompts, progress indicators, and visual cues that help me stay motivated and make progress throughout the day.
+* Positive reinforcement and a sense of momentum as tasks are completed, opportunities advance, and relationships move forward.
+* Continuous updates based on new emails, calls, meeting transcripts, calendar activity, and pipeline changes.
+
+The experience should feel less like a static CRM and more like a **personal sales assistant, coach, and command center** that actively helps me run my pipeline and manage customer relationships.
+
+The dashboard should adapt throughout the day as new information comes in, continuously surface the most important actions I should take next, and make it easy to understand both what needs to be done and why it matters.
+
+Above all, the product should be **fun, intuitive, and engaging**, encouraging consistent use without becoming distracting or gimmicky.
