@@ -17,6 +17,7 @@ const publicFiles = new Map([
   ["/app/styles.css", resolve("app/styles.css")],
   ["/app/app.js", resolve("app/app.js")],
   ["/data/contacts_data.json", resolve("data/contacts_data.json")],
+  ["/data/pipeline_data.json", resolve("data/pipeline_data.json")],
 ]);
 
 const server = createServer(async (request, response) => {

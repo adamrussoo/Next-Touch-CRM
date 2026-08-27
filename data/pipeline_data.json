@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "checkedAt": "2026-08-25T18:18:00Z",
+    "checkedAtLabel": "Aug 25, 2026, 12:18 PM MT",
+    "stale": true,
+    "staleAfterHours": 24,
+    "source": "Salesforce report “Adam Russo - Open Pipeline by Stage” + Adam-owned Leads list",
+    "sourceUrl": "https://benchaccounting.lightning.force.com/lightning/r/Report/00OOO000007Bo2H2AS/view",
+    "scope": {
+      "owner": "adam.rus",
+      "stages": [
+        "Assessing Needs",
+        "Demo/Evaluation",
+        "Trial",
+        "Awaiting Decision",
+        "Pending Payment"
+      ]
+    }
+  },
+  "leads": [
+    {"key": "Danilo Tauro|204079", "name": "Danilo Tauro", "company": "Advertising Expert Intelligence", "email": "danilo@go-aei.com", "status": "Converted", "source": "Calendly", "owner": "adam.rus", "created": "8/20/2026, 4:14 AM"},
+    {"key": "Chris Tugman", "name": "Chris Tugman", "company": "Stripe", "email": "ctugman@stripe.com", "status": "Lost", "source": "Calendly", "owner": "adam.rus", "created": "8/19/2026, 7:22 AM"},
+    {"key": "Laura Reyna", "name": "Laura Reyna", "company": "The Beauty Mark", "email": "thebeautymark.219@gmail.com", "status": "Missed Discovery Call", "source": "Calendly", "owner": "adam.rus", "created": "8/18/2026, 11:43 PM"},
+    {"key": "Abdel Ibrahimi", "name": "Abdel Ibrahimi", "company": "FTUK LLC", "email": "abdel@ftuk.com", "status": "Converted", "source": "Calendly", "owner": "adam.rus", "created": "8/18/2026, 7:25 AM"},
+    {"key": "Jean Wei Jian Yang", "name": "Jean Wei Jian Yang", "company": "JeanWeiYang", "email": "jean_yang54@yahoo.com", "status": "Missed Discovery Call", "source": "Calendly", "owner": "adam.rus", "created": "8/18/2026, 12:43 AM"},
+    {"key": "Dana Hansen|204072", "name": "Dana Hansen", "company": "SALON NUNA", "email": "danashansen@gmail.com", "status": "Converted", "source": "Calendly", "owner": "adam.rus", "created": "8/17/2026, 6:18 PM"},
+    {"key": "Jonathan Jackson|204073", "name": "Jonathan Jackson", "company": "Jackson, Landrith & Kulesz, PC", "email": "jonathan@jlkattorneys.com", "status": "Converted", "source": "Calendly", "owner": "adam.rus", "created": "8/17/2026, 7:13 AM"},
+    {"key": "Nathan Moser|204109", "name": "Nathan Moser", "company": "NPM Ventures 1 Inc", "email": "npmventures1@gmail.com", "status": "Converted", "source": "Calendly", "owner": "adam.rus", "created": "8/24/2026, 9:11 PM"},
+    {"key": "Stephan Cantin", "name": "Stephan Cantin", "company": "Le Canal LLC", "email": "sprcantin@gmail.com", "status": "Lost", "source": "Unassigned", "owner": "adam.rus", "created": "8/24/2026, 6:09 AM"},
+    {"key": "Gabrielle Hinahara", "name": "Gabrielle Hinahara", "company": "[not provided]", "email": "hinahara@gmail.com", "status": "INQ", "source": "Content", "owner": "adam.rus", "created": "11/21/2023, 8:06 PM"},
+    {"key": "DS Doble", "name": "DS Doble", "company": "[not provided]", "email": "dspracticeoperationsconsulting@gmail.com", "status": "INQ", "source": "Signup Flow", "owner": "adam.rus", "created": "11/21/2023, 6:30 AM"},
+    {"key": "Dino Reyes", "name": "Dino Reyes", "company": "AR Low Volt", "email": "dinoreyes@arlowvolt.com", "status": "INQ", "source": "Calendly", "owner": "adam.rus", "created": "9/14/2023, 5:11 PM"},
+    {"key": "Grace Gerson", "name": "Grace Gerson", "company": "[not provided]", "email": "heartandsoulfire@gmail.com", "status": "INQ", "source": "Content", "owner": "adam.rus", "created": "8/29/2023, 12:32 PM"}
+  ],
+  "opportunities": [
+    {"key": "28511", "name": "Crystal Care Home Health- Annual Bench Core (Gusto referred)", "account": "Crystal Care Home Health", "stage": "Awaiting Decision", "close_date": "6/30/2026", "owner": "adam.rus", "amount": 7188},
+    {"key": "119624", "name": "DWL Holdings Inc - Core BK", "account": "DWL Holdings Inc", "stage": "Awaiting Decision", "close_date": "8/31/2026", "owner": "adam.rus"},
+    {"key": "203707", "name": "BEACHVANA LLC-", "account": "BEACHVANA LLC", "stage": "Awaiting Decision", "close_date": "6/30/2026", "owner": "adam.rus"},
+    {"key": "203952", "name": "Bryan Yang MD, Inc-", "account": "Bryan Yang MD, Inc", "stage": "Awaiting Decision", "close_date": "9/30/2026", "owner": "adam.rus"},
+    {"key": "204070", "name": "FTUK LLC-", "account": "FTUK LLC", "stage": "Trial", "close_date": "9/30/2026", "owner": "adam.rus"},
+    {"key": "204072", "name": "SALON NUNA-", "account": "SALON NUNA", "stage": "Demo/Evaluation", "close_date": "9/30/2026", "owner": "adam.rus"},
+    {"key": "204073", "name": "Jackson, Landrith & Kulesz, PC-", "account": "Jackson, Landrith & Kulesz", "stage": "Trial", "close_date": "9/30/2026", "owner": "adam.rus"},
+    {"key": "204079", "name": "Advertising Expert Intelligence-", "account": "Advertising Expert Intelligence", "stage": "Trial", "close_date": "9/30/2026", "owner": "adam.rus"},
+    {"key": "acct:Sofia Espina Marketing, LLC", "name": "Sofia Espina Marketing, LLC- Annual Bench Grow + 2025/2026 CU", "account": "Sofia Espina Marketing, LLC", "stage": "Awaiting Decision", "close_date": "6/30/2026", "owner": "adam.rus", "amount": 2268},
+    {"key": "acct:Rustic West Realty", "name": "Rustic West Realty- Annual Bench Grow", "account": "Rustic West Realty", "stage": "Awaiting Decision", "close_date": "6/30/2026", "owner": "adam.rus", "amount": 2268},
+    {"key": "acct:Ventus Investments, LLC", "name": "Ventus Investments, LLC- Bench Core + 2023-2025 CU (maybe tax)", "account": "Ventus Investments, LLC", "stage": "Awaiting Decision", "close_date": "6/30/2026", "owner": "adam.rus", "amount": 7668},
+    {"key": "acct:Building Blocks For eCommerce, Inc.", "name": "Building Blocks For eCommerce, Inc.- Annual Bench Core + 2026 CU", "account": "Building Blocks For eCommerce, Inc.", "stage": "Awaiting Decision", "close_date": "6/30/2026", "owner": "adam.rus", "amount": 4275},
+    {"key": "acct:Tula Movement Arts", "name": "Tula Movement Arts-", "account": "Tula Movement Arts", "stage": "Awaiting Decision", "close_date": "6/30/2026", "owner": "adam.rus"},
+    {"key": "acct:Jezebel Jewels", "name": "Jezebel Jewels - Bench Core", "account": "Jezebel Jewels", "stage": "Awaiting Decision", "close_date": "7/23/2026", "owner": "adam.rus", "amount": 2268},
+    {"key": "acct:Elevate Marketing Solutions LLC", "name": "Elevate Marketing Solutions LLC - Annual Core + Jan 2026 - May 2026 CU", "account": "Elevate Marketing Solutions LLC", "stage": "Awaiting Decision", "close_date": "8/11/2026", "owner": "adam.rus"},
+    {"key": "acct:Good Shepherd Essentials LLC/DBA Happy Little Quilt Shop", "name": "DBA Happy Little Quilt Shop - Annual Core + 2025/2026 CU + 2025 tax filing", "account": "Good Shepherd Essentials LLC/DBA Happy Little Quilt Shop", "stage": "Awaiting Decision", "close_date": "10/6/2026", "owner": "adam.rus"},
+    {"key": "acct:Inspirational Dance DBA. CRZ Enterprises, Inc", "name": "Inspirations Dance Inc. - Reactivation", "account": "Inspirational Dance DBA. CRZ Enterprises, Inc", "stage": "Awaiting Decision", "close_date": "1/1/2050", "owner": "adam.rus"},
+    {"key": "acct:NPM Ventures 1 Inc", "name": "NPM Ventures 1 Inc-", "account": "NPM Ventures 1 Inc", "stage": "Demo/Evaluation", "close_date": "9/30/2026", "owner": "adam.rus", "amount": 3830}
+  ],
+  "changes": {
+    "newLeads": [],
+    "updatedOpportunities": []
+  },
+  "apollo": {
+    "checkedAtLabel": "Aug 25, 2026",
+    "source": "Apollo starred sequences",
+    "tiers": {
+      "A": {"sequence": "A-D", "meaning": "Awaiting Decisions — already spoken with, considering. Highest priority."},
+      "B": {"sequence": "<<October 2025", "meaning": "Warm prospects, spoken with, no decision yet, still engaged."},
+      "C": {"sequence": "Adam - Missed 2nd Call", "meaning": "Missed a scheduled follow-up meeting."},
+      "D": {"sequence": "Adam | Assessing Needs - Leads List / Call List", "meaning": "Untouched inbound leads (not yet spoken with)."},
+      "E": {"sequence": "New Missed Discovery Call", "meaning": "Missed first/discovery meeting."},
+      "F": {"sequence": "SAL / Trial / INQ", "meaning": "Sales-accepted, trial, or clicked an ad."}
+    },
+    "excluded": ["Adam | Nurture Leads List"],
+    "contactSignals": {
+      "abdel@ftuk.com": {"tier": "C", "sequence": "Adam - Missed 2nd Call", "status": "active"},
+      "danilo@go-aei.com": {"tier": "B", "sequence": "<<October 2025", "status": "active"}
+    }
+  }
+}
