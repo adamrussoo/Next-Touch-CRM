@@ -30,6 +30,7 @@ let latestData = {
   source: null,
   syncedAt: null,
   nextTouch: null,
+  thisWeek: null,
   pipelinePulse: null,
   _meta: { note: 'No data pushed yet. Waiting on the first sync from Claude.' },
 };
@@ -95,6 +96,7 @@ app.post('/api/sync', (req, res) => {
     syncedAt: body.syncedAt || receivedAt,
     receivedAt,
     nextTouch: body.nextTouch || null,
+    thisWeek: body.thisWeek || null,
     pipelinePulse: body.pipelinePulse || null,
     _meta: { note: 'Live data from the last successful sync.' },
   };

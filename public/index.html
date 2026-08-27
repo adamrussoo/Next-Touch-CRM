@@ -33,6 +33,8 @@
       </button>
     </div>
 
+    <section class="thisweek" id="thisweek"><!-- populated by app.js --></section>
+
     <main id="groups"><!-- populated by app.js --></main>
 
     <footer class="page-footer">
@@ -40,6 +42,42 @@
       reaches back into Claude, it only displays the latest snapshot it was sent.
       <span id="footerSource"></span>
     </footer>
+  </div>
+
+  <!-- Shared Contact Brief modal — one instance, populated per-contact by openBrief(slug).
+       Mirrors the modal on the live Next Touch Artifact: header, meta grid, three
+       collapsible sections (notes / next action / Call Coach), and a resources row
+       that links out to the live Claude Artifact pages (this dashboard doesn't host
+       those pages itself). -->
+  <div class="modal-overlay" id="briefOverlay" hidden>
+    <div class="modal" id="briefModal" role="dialog" aria-modal="true" aria-labelledby="briefName">
+      <button class="modal-close" id="briefClose" type="button" aria-label="Close">&times;</button>
+
+      <div class="modal-header">
+        <span class="badge" id="briefPriorityBadge"></span>
+        <h2 id="briefName"></h2>
+        <div class="modal-sub" id="briefBusinessEmail"></div>
+      </div>
+
+      <div class="modal-meta" id="briefMeta"></div>
+
+      <details class="modal-section" open>
+        <summary>Conversation history &amp; notes</summary>
+        <div class="modal-section-body" id="briefNotes"></div>
+      </details>
+
+      <details class="modal-section" open>
+        <summary>Recommended next action</summary>
+        <div class="modal-section-body" id="briefAction"></div>
+      </details>
+
+      <details class="modal-section" id="briefCoachSection" open>
+        <summary>🎯 Call Coach</summary>
+        <div class="modal-section-body" id="briefCoach"></div>
+      </details>
+
+      <div class="modal-resources" id="briefResources"></div>
+    </div>
   </div>
 
   <script src="app.js"></script>
