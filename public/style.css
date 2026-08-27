@@ -186,6 +186,11 @@ button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visibl
 }
 .breadcrumb { display: flex; align-items: center; gap: 9px; color: var(--muted-2); font-size: 11px; }
 .breadcrumb strong { color: var(--ink); font-weight: 700; }
+.sync-status { color: var(--muted); font-size: 10px; white-space: nowrap; }
+.sync-status::before { display: inline-block; width: 5px; height: 5px; margin: 0 5px 1px 2px; border-radius: 50%; background: var(--sage); content: ""; }
+.sync-status.stale { color: var(--low); }
+.sync-status.stale::before { background: var(--low); }
+.sync-status.none::before { background: var(--none); }
 .topbar-actions { display: flex; align-items: center; gap: 10px; }
 .search-box {
   display: flex;
