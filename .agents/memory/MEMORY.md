@@ -1,2 +1,3 @@
 - [Public asset boundary](public-asset-boundary.md) — imported CRM packages contain internal operational material; web runtimes must serve an explicit asset allowlist.
 - [Mockup preview recovery](mockup-preview-recovery.md) — an orphaned sandbox directory may need a fresh artifact and frame re-home before its preview workflow can run.
+- [GitHub connector publishing](github-connector-publishing.md) — when Git CLI auth is unavailable, publish through Git Data APIs and verify source parity by tree hash.
