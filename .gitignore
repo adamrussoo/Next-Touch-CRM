@@ -1,3 +1,4 @@
 node_modules/
 data/latest.json
+data/user_state.json
 .env

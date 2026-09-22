@@ -4,7 +4,8 @@
   "description": "Receives pushed Next Touch / Pipeline Pulse data from Claude and displays it as a live dashboard.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node --test tests/unified-server.test.cjs"
   },
   "dependencies": {
     "express": "^4.22.2"

@@ -1,0 +1,11 @@
+Treat this as a production-readiness stabilization pass for the Next Touch dashboard app — fix root causes, don't paper over symptoms. For each item, state what you checked, what you found, and what you changed.
+
+Root-cause and fix the data-persistence bug: data pushed via /api/sync/contact, /api/sync/batch, and /api/sync/section returns success but does not survive a restart/redeploy — GET /api/data resets to stale/near-empty state afterward. Check first whether this app is on an Autoscale deployment (ephemeral storage/state) versus a Reserved VM or a real persistent database — a prior audit already flagged "fix deployment target to Reserved VM" as an open item; verify whether that was completed, and if not, do it, or migrate to a proper persistent datastore if that's the better fix.
+Verify authentication works correctly for the existing workspace (current Basic Auth/DASHBOARD_PASSWORD or equivalent) and that Adam's existing data loads correctly under it.
+Since this app may need to support multiple users going forward, verify or implement workspace isolation: each user's synced data, sync secret, and dashboard state must be fully separated, with no cross-user data bleed.
+Validate the /api/sync endpoint contract exactly as documented (correct field names, correct status codes on both success and failure) and make sure failures return clear error responses instead of silent 200s.
+Confirm GET /api/data accurately reflects whatever was most recently pushed, for verification purposes.
+Confirm the GitHub-connected deployment (repo adamrussoo/Next-Touch-CRM) is actually building and deploying the latest code, with no drift between GitHub and what's live.
+Confirm all six pages/sections (Next Touch, Daily Priorities, Call Verbiage Field Guide, Reading the Tape, Client Briefs, sync bar) render correctly and no functionality has been lost.
+Review and report current resource usage (compute/storage) and flag anything running inefficiently or costing more than expected.
+End with a pass/fail checklist against all of the above, plus anything that needs Adam's input or access to resolve.

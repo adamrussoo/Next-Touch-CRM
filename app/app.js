@@ -1,4 +1,4 @@
-const state = { contacts: {}, pipeline: null, pipelineTab: "opps", completed: JSON.parse(localStorage.getItem("next-touch-completed") || "{}"), query: "", priority: "all", selected: null, returnFocus: null };
+const state = { contacts: {}, pipeline: null, sections: {}, user: { completed: {}, edits: {} }, csrfToken: "", pipelineTab: "opps", query: "", priority: "all", selected: null, returnFocus: null };
 const $ = (s) => document.querySelector(s);
 const esc = (v) => String(v ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;" }[c]));
 const iconCheck = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m3 8 3.1 3L13 4.5"/></svg>';
@@ -7,10 +7,20 @@ const stageRank = { "Pending Payment": 0, "Awaiting Decision": 1, Trial: 2, "Dem
 const apolloRank = { A: 0, B: 1, C: 2, D: 3, E: 4, F: 5 };
 const verbiageGuideUrl = "https://claude.ai/code/artifact/19d06ea7-3178-46ff-bf4d-13f1dca37906";
 
-function slugFor(c){ return Object.entries(state.contacts).find(([,v]) => v === c)?.[0] || ""; }
-function allContacts(){ return Object.entries(state.contacts).map(([id,c]) => ({...c,id})); }
-function isDone(id){ return !!state.completed[id]; }
-function saveState(){ localStorage.setItem("next-touch-completed", JSON.stringify(state.completed)); }
+function sourceContact(id){ return state.contacts[id] || null; }
+function userEditFor(id){ return state.user.edits?.[id] || null; }
+function contactFor(id){
+  const source=sourceContact(id); if(!source)return null;
+  const edit=userEditFor(id);
+  return {...source, ...(edit&&Object.prototype.hasOwnProperty.call(edit,"notes")?{notes:edit.notes}:{}), ...(edit&&Object.prototype.hasOwnProperty.call(edit,"action")?{action:edit.action}:{}), id};
+}
+function allContacts(){ return Object.keys(state.contacts).map(contactFor).filter(Boolean); }
+function isDone(id){ return !!state.user.completed?.[id]; }
+async function saveState(patch){
+  const response=await fetch("/api/user-state",{method:"PATCH",headers:{"Content-Type":"application/json","X-CSRF-Token":state.csrfToken},body:JSON.stringify(patch)});
+  if(!response.ok)throw new Error((await response.json().catch(()=>({}))).error||"Could not save workspace changes.");
+  const result=await response.json(); state.user=result.user; return result.user;
+}
 function showToast(msg){ const t=$("#toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(showToast.timer); showToast.timer=setTimeout(()=>t.classList.remove("show"),2200); }
 function normalizeBiz(value){ return String(value||"").toLowerCase().replace(/[^a-z0-9]/g,""); }
 function pipelineLeads(){ return state.pipeline?.leads || []; }
@@ -51,11 +61,17 @@ function pipelineExplanation(c){
   return parts.join(" · ")+(isPipelineStale()?" Snapshot is stale, so verify before acting.":"");
 }
 function sourceBadge(label,value,kind=""){ return `<span class="source-badge ${kind}">${esc(label)}: ${esc(value)}</span>`; }
-function toggleDone(id){
-  state.completed[id] = !state.completed[id];
-  if(!state.completed[id]) delete state.completed[id];
-  saveState(); render();
-  showToast(state.completed[id] ? "Next touch complete. Good work." : "Reopened for another pass.");
+async function toggleDone(id){
+  const wasDone=isDone(id), next=!wasDone;
+  if(next)state.user.completed[id]=true;else delete state.user.completed[id];
+  render();
+  try{
+    await saveState({completed:{[id]:next}});
+    showToast(next ? "Next touch saved as complete." : "Reopened and saved.");
+  }catch(error){
+    if(wasDone)state.user.completed[id]=true;else delete state.user.completed[id];
+    render(); showToast(error.message);
+  }
 }
 function filtered(){
   const q=state.query.toLowerCase();
@@ -63,15 +79,16 @@ function filtered(){
 }
 function card(c){
   const p=(c.priority||"unmatched").toLowerCase();
-  const { lead, opp }=pipelineFor(c), apollo=apolloFor(c);
+  const { lead, opp }=pipelineFor(c), apollo=apolloFor(c), edited=!!userEditFor(c.id);
   const sourceBadges=[
+    edited&&sourceBadge("Workspace","Manual edit","workspace"),
     opp&&sourceBadge("Salesforce",opp.stage,"salesforce"),
     lead&&sourceBadge("Lead",lead.status,"salesforce"),
     apollo&&sourceBadge("Apollo",`Tier ${apollo.tier}`,"apollo")
   ].filter(Boolean).join("");
   return `<article class="contact-card ${isDone(c.id)?"done":""}" id="c-${esc(c.id)}" data-id="${esc(c.id)}">
     <div class="card-top"><button class="check" data-action="toggle" aria-label="${isDone(c.id)?"Reopen":"Complete"} ${esc(c.name)}">${iconCheck}</button><div class="identity"><a class="contact-name" href="#c-${esc(c.id)}" data-action="open">${esc(c.name)}</a><div class="biz">${esc(c.business)}</div></div><span class="priority ${p}">${esc(c.priority||"Unmatched")}</span></div>
-    <p class="reason">${esc(c.action||"Review contact context and choose the next useful touch.")}</p>
+    <p class="reason">${edited?'<span class="user-edit-badge">Your edit</span>':""}${esc(c.action||"Review contact context and choose the next useful touch.")}</p>
     <div class="pipeline-reason"><span>WHY THE RANK</span>${esc(pipelineExplanation(c))}</div>
     <div class="card-footer"><span class="signal">${c.signal ? esc(c.signal) : "Imported from calendar only"}</span><span>${c.upcoming ? esc(c.upcoming) : "No upcoming date"}</span></div>
     <div class="source-badges">${sourceBadges||sourceBadge("Pipeline","No match captured","muted")}</div>
@@ -90,7 +107,7 @@ function updateProgress(){
   $("#completedCount").textContent=done; $("#progressPct").textContent=`${pct}%`;
   const circ=2*Math.PI*27; $("#progressFill").style.strokeDasharray=circ; $("#progressFill").style.strokeDashoffset=circ-(circ*pct/100);
   $("#progressTitle").textContent=pct===100?"Focus list cleared":"Your day is "+(pct?"moving":"open");
-  $("#progressCopy").textContent=pct===100?"You finished the high-signal work. Reopen a card if something changed.":`${focus.length-done} high-signal next touch${focus.length-done===1?"":"es"} remain. Local check-offs stay on this device.`;
+  $("#progressCopy").textContent=pct===100?"You finished the high-signal work. Reopen a card if something changed.":`${focus.length-done} high-signal next touch${focus.length-done===1?"":"es"} remain. Saved progress follows this workspace.`;
 }
 function renderFocus(){
   const first=allContacts().filter(c=>!isDone(c.id)).sort((a,b)=>priorityScore(a)-priorityScore(b))[0];
@@ -195,11 +212,43 @@ function renderWeek(){
 }
 function renderMomentum(){
   const cs=allContacts(), high=cs.filter(c=>c.priority==="High"&&!isDone(c.id)).length, upcoming=cs.filter(c=>c.upcoming&&!/none/i.test(c.upcoming)).length, closed=cs.filter(c=>isDone(c.id)).length;
-  $("#momentumNotes").innerHTML=`<div class="momentum"><i class="dot"></i><div><strong>${high} high-priority threads in view</strong><p>Keep the close-in work visible before dropping into the wider book.</p></div></div><div class="momentum"><i class="dot"></i><div><strong>${upcoming} dated activity records</strong><p>Dates shown only when they exist in the imported snapshot.</p></div></div><div class="momentum"><i class="dot"></i><div><strong>${closed} local check-off${closed===1?"":"s"} this pass</strong><p>Small completions create the signal to keep going.</p></div></div>`;
+  $("#momentumNotes").innerHTML=`<div class="momentum"><i class="dot"></i><div><strong>${high} high-priority threads in view</strong><p>Keep the close-in work visible before dropping into the wider book.</p></div></div><div class="momentum"><i class="dot"></i><div><strong>${upcoming} dated activity records</strong><p>Dates shown only when they exist in the imported snapshot.</p></div></div><div class="momentum"><i class="dot"></i><div><strong>${closed} saved check-off${closed===1?"":"s"} this pass</strong><p>Small completions create the signal to keep going.</p></div></div>`;
 }
-function render(){ renderList(); updateProgress(); renderFocus(); renderWeek(); renderMomentum(); renderPipeline(); }
+function sectionItems(value){
+  if(Array.isArray(value))return value;
+  if(!value||typeof value!=="object")return value===null||value===undefined?[]:[value];
+  for(const key of ["items","priorities","entries","resources","briefs","tapes"]){if(Array.isArray(value[key]))return value[key]}
+  return Object.entries(value).filter(([,item])=>item!==null&&item!==undefined&&typeof item!=="object").map(([label,detail])=>({label,detail}));
+}
+function resourceItem(item,index){
+  if(typeof item==="string"||typeof item==="number")return `<div class="resource-row"><strong>${esc(item)}</strong></div>`;
+  const title=item.title||item.name||item.label||item.contact||item.account||`Item ${index+1}`;
+  const detail=item.detail||item.description||item.reason||item.action||item.summary||item.value||"";
+  const url=item.url||item.href||item.link||item.briefUrl||item.readingTapeUrl;
+  return `<div class="resource-row"><span><strong>${esc(title)}</strong>${detail?`<small>${esc(detail)}</small>`:""}</span>${url?`<a target="_blank" rel="noopener" href="${esc(url)}">Open ↗</a>`:""}</div>`;
+}
+function renderResourceSections(){
+  const priorities=sectionItems(state.sections.dailyPriorities);
+  const derived=filtered().filter(c=>!isDone(c.id)).slice(0,3);
+  $("#dailyPrioritiesContent").innerHTML=priorities.length
+    ? priorities.map(resourceItem).join("")
+    : `<p class="resource-note">No separate priority section has been pushed. Showing the top of the current ranked queue.</p>${derived.map((c,index)=>resourceItem({title:c.name,detail:c.action||c.business},index)).join("")||'<p class="resource-note">No open priorities.</p>'}`;
+  const verbiage=sectionItems(state.sections.callVerbiage);
+  $("#callVerbiageContent").innerHTML=verbiage.length
+    ? verbiage.map(resourceItem).join("")
+    : `<p class="resource-note">The shared field guide remains the current source.</p><a class="resource-primary" target="_blank" rel="noopener" href="${esc(verbiageGuideUrl)}">Open Call Verbiage Field Guide ↗</a>`;
+  const pushedTapes=sectionItems(state.sections.readingTheTape);
+  const contactTapes=allContacts().filter(c=>c.readingTapeUrl).map(c=>({title:c.name,detail:c.business,url:c.readingTapeUrl}));
+  const tapes=pushedTapes.length?pushedTapes:contactTapes;
+  $("#readingTapeContent").innerHTML=tapes.length?tapes.map(resourceItem).join(""):'<p class="resource-note">No Reading the Tape resources have been pushed yet.</p>';
+  const pushedBriefs=sectionItems(state.sections.clientBriefs);
+  const contactBriefs=allContacts().filter(c=>c.briefUrl).map(c=>({title:c.name,detail:c.business,url:c.briefUrl}));
+  const briefs=pushedBriefs.length?pushedBriefs:contactBriefs;
+  $("#clientBriefsContent").innerHTML=briefs.length?briefs.map(resourceItem).join(""):'<p class="resource-note">No Client Briefs have been pushed yet.</p>';
+}
+function render(){ renderList(); updateProgress(); renderFocus(); renderWeek(); renderMomentum(); renderPipeline(); renderResourceSections(); }
 function openModal(id){
-  const c=state.contacts[id]; if(!c)return; state.selected=id;
+  const c=contactFor(id), source=sourceContact(id); if(!c||!source)return; state.selected=id;
   state.returnFocus=document.activeElement instanceof HTMLElement?document.activeElement:null;
   $("#modalPriority").textContent=(c.priority||"unmatched")+" contact"; $("#modalTitle").textContent=c.name; $("#modalBiz").textContent=c.business||"Business not recorded";
   $("#modalLast").textContent=c.lastContact||"Not recorded";$("#modalUpcoming").textContent=c.upcoming||"None scheduled";$("#modalAction").textContent=c.action||"No next action recorded.";
@@ -208,7 +257,13 @@ function openModal(id){
   if(relation.lead)pipelineFields.push(`<div><small>Salesforce lead</small><strong>${esc(relation.lead.status)}</strong><span>${esc(relation.lead.created)}</span></div>`);
   if(apollo)pipelineFields.push(`<div><small>Apollo priority</small><strong>Tier ${esc(apollo.tier)}</strong><span>${esc(apollo.sequence)}</span></div>`);
   $("#modalPipelineWrap").hidden=!state.pipeline;$("#modalPipeline").innerHTML=state.pipeline?`${pipelineFields.join("")||'<p class="missing-copy">No Salesforce or Apollo match was captured for this contact.</p>'}<p class="modal-source-note">${esc(pipelineExplanation(c))}</p>`:"";
-  $("#modalNotesWrap").hidden=!c.notes;$("#modalNotes").textContent=c.notes||"";
+  $("#modalNotesWrap").hidden=!source.notes;$("#modalNotes").textContent=source.notes||"";
+  $("#modalSourceAction").textContent=source.action||"No imported next action recorded.";
+  const edit=userEditFor(id);
+  $("#modalPersonalNote").value=Object.prototype.hasOwnProperty.call(edit||{},"notes")?edit.notes:(source.notes||"");
+  $("#modalPersonalAction").value=Object.prototype.hasOwnProperty.call(edit||{},"action")?edit.action:(source.action||"");
+  $("#modalEditStatus").textContent=edit?"Saved workspace edit":"Using imported source";
+  $("#modalEditStatus").className=`edit-status ${edit?"edited":""}`;
   $("#modalEmail").textContent=c.email||"No email recorded";
   const coach=c.coach,coachSkip=c.coachSkipNote; $("#coachWrap").hidden=!(coach||coachSkip);
   if(coach){$("#modalSituation").textContent=coach.situation||"";$("#coachLines").innerHTML=(coach.lines||[]).map(line=>`<div class="coach-line"><strong>${esc(line[0])}</strong><p>${esc(line[1])}</p></div>`).join("")}
@@ -232,10 +287,63 @@ function keepFocusInModal(event){
   if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus()}
   else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus()}
 }
+async function saveContactEdit(){
+  const id=state.selected;if(!id)return;
+  const button=$("#saveContactEdit"), notes=$("#modalPersonalNote").value, action=$("#modalPersonalAction").value;
+  const previous=state.user.edits[id] ? {...state.user.edits[id]} : undefined;
+  state.user.edits[id]={notes,action,updatedAt:new Date().toISOString()};
+  button.disabled=true; state.contacts[id]&&render();
+  try{
+    await saveState({edits:{[id]:{notes,action}}});
+    openModal(id); showToast("Your note and next action are saved.");
+  }catch(error){
+    if(previous)state.user.edits[id]=previous;else delete state.user.edits[id];
+    render(); openModal(id); showToast(error.message);
+  }finally{button.disabled=false}
+}
+async function resetContactEdit(){
+  const id=state.selected;if(!id)return;
+  const previous=state.user.edits[id] ? {...state.user.edits[id]} : undefined;
+  delete state.user.edits[id]; render();
+  try{
+    await saveState({edits:{[id]:null}});
+    openModal(id); showToast("Workspace edits removed; imported source restored.");
+  }catch(error){
+    if(previous)state.user.edits[id]=previous; render(); openModal(id); showToast(error.message);
+  }
+}
+function closeSyncPanel(){ $("#syncPanel").hidden=true; }
+function openSyncPanel(){ $("#syncPanel").hidden=false; $("#syncStatus").textContent=""; $("#syncCode").textContent=""; $("#syncGetCode").focus(); }
+async function createDeviceCode(){
+  const button=$("#syncGetCode");button.disabled=true;
+  try{
+    const response=await fetch("/api/device-code",{method:"POST",headers:{"X-CSRF-Token":state.csrfToken}});
+    const result=await response.json();if(!response.ok)throw new Error(result.error||"Could not create a device code.");
+    $("#syncCode").textContent=result.code;$("#syncStatus").textContent="This code works once and expires in 10 minutes.";
+  }catch(error){$("#syncStatus").textContent=error.message}
+  finally{button.disabled=false}
+}
+async function joinWorkspace(event){
+  event.preventDefault();const input=$("#syncCodeInput"),button=event.target.querySelector("button");button.disabled=true;
+  try{
+    const response=await fetch("/api/device-link",{method:"POST",headers:{"Content-Type":"application/json","X-CSRF-Token":state.csrfToken},body:JSON.stringify({code:input.value})});
+    const result=await response.json();if(!response.ok)throw new Error(result.error||"Could not join that workspace.");
+    $("#syncStatus").textContent="Workspace linked. Reloading your saved progress…";setTimeout(()=>location.reload(),350);
+  }catch(error){$("#syncStatus").textContent=error.message}
+  finally{button.disabled=false}
+}
 async function boot(){
-  const [contactsResult,pipelineResult]=await Promise.allSettled([fetch("/data/contacts_data.json"),fetch("/data/pipeline_data.json")]);
-  try{if(contactsResult.status!=="fulfilled"||!contactsResult.value.ok)throw new Error("contacts");state.contacts=await contactsResult.value.json();}catch(e){$("#contactList").innerHTML='<div class="empty"><strong>Could not load the imported snapshot.</strong>Check that /data/contacts_data.json is available, then refresh.</div>'}
-  try{if(pipelineResult.status!=="fulfilled"||!pipelineResult.value.ok)throw new Error("pipeline");state.pipeline=await pipelineResult.value.json();}catch(e){state.pipeline=null;}
+  let bootstrap;
+  try{
+    const response=await fetch("/api/bootstrap",{cache:"no-store"});if(!response.ok)throw new Error("Workspace could not be loaded.");
+    bootstrap=await response.json();state.contacts=bootstrap.contacts||{};state.pipeline=bootstrap.pipeline||null;state.sections=bootstrap.sections||{};state.user=bootstrap.user||{completed:{},edits:{}};state.csrfToken=bootstrap.csrfToken||"";
+  }catch(error){$("#contactList").innerHTML=`<div class="empty"><strong>Could not load your protected workspace.</strong>${esc(error.message)} Refresh and try again.</div>`;return}
+  let legacy={};try{legacy=JSON.parse(localStorage.getItem("next-touch-completed")||"{}")}catch{localStorage.removeItem("next-touch-completed")}
+  if(Object.keys(legacy).length && !Object.keys(state.user.completed||{}).length){
+    const migrated=Object.fromEntries(Object.entries(legacy).filter(([id,value])=>state.contacts[id]&&value));
+    if(Object.keys(migrated).length){state.user.completed={...state.user.completed,...migrated};try{await saveState({completed:migrated});localStorage.removeItem("next-touch-completed")}catch(error){showToast("Saved workspace is ready; browser check-offs were not migrated.")}}
+    else localStorage.removeItem("next-touch-completed");
+  }else if(Object.keys(legacy).length)localStorage.removeItem("next-touch-completed");
   render();
   $("#searchInput").addEventListener("input",e=>{state.query=e.target.value;renderList()});
   $("#priorityFilter").addEventListener("change",e=>{state.priority=e.target.value;renderList()});
@@ -243,7 +351,8 @@ async function boot(){
   $("#contactList").addEventListener("click",e=>{const card=e.target.closest("[data-id]");if(!card)return;const id=card.dataset.id;if(e.target.closest('[data-action="toggle"]'))toggleDone(id);else if(e.target.closest('[data-action="open"]')){e.preventDefault();history.replaceState(null,"",`#c-${id}`);openModal(id)}});
   $("#pipelineView").addEventListener("click",e=>{const button=e.target.closest("[data-contact]");if(button){history.replaceState(null,"",`#c-${button.dataset.contact}`);openModal(button.dataset.contact)}});
   $("#weekAgenda").addEventListener("click",e=>{const item=e.target.closest("[data-contact]");if(item)openModal(item.dataset.contact)});
-  $("#modalClose").addEventListener("click",closeModal);$("#modalWrap").addEventListener("click",e=>{if(e.target.id==="modalWrap")closeModal()});document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();keepFocusInModal(e)});
+  $("#modalClose").addEventListener("click",closeModal);$("#modalWrap").addEventListener("click",e=>{if(e.target.id==="modalWrap")closeModal()});$("#saveContactEdit").addEventListener("click",saveContactEdit);$("#resetContactEdit").addEventListener("click",resetContactEdit);document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeModal();closeSyncPanel()}keepFocusInModal(e)});
+  $("#syncButton").addEventListener("click",openSyncPanel);$("#syncNavButton").addEventListener("click",openSyncPanel);$("#syncClose").addEventListener("click",closeSyncPanel);$("#syncGetCode").addEventListener("click",createDeviceCode);$("#syncJoinForm").addEventListener("submit",joinWorkspace);
   const openHashContact=()=>{const match=location.hash.match(/^#c-([a-z0-9-]+)$/i);if(match&&state.contacts[match[1]])openModal(match[1])};
   window.addEventListener("hashchange",openHashContact);openHashContact();
 }

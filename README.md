@@ -4,6 +4,10 @@ Exported 2026-08-26 for Adam Russo (adam.russo@bench.co), Bench Accounting / Mai
 
 This is a complete snapshot of the live "Next Touch" sales relationship tracker and its companion "Pipeline Pulse" Salesforce tracker — everything needed to understand, edit, or continue developing the system in a fresh Claude session. It contains fresh copies of every live page, the current data model, both scheduled automations, and all governing documentation, as they existed at export time.
 
+> **Current Replit runtime:** The export notes below describe the system's historical source material. The production app now runs from `server.js` with the protected green frontend in `app/`. A Reserved VM is required because synced snapshots, personal workspace state, and the AI queue are file-backed.
+>
+> `DASHBOARD_PASSWORD`, `SYNC_SECRET`, and `SESSION_SECRET` configure the existing single workspace. For multiple isolated workspaces, set `NEXT_TOUCH_DEFAULT_WORKSPACE` and a secret `NEXT_TOUCH_WORKSPACES_JSON` object whose keys are workspace IDs and whose values contain `dashboardPassword`, `syncSecret`, and optional `syncSecretPrevious`. Dashboard Basic Auth uses the workspace ID as its username; automation requests send the same ID in `X-Workspace-Id`. Every non-default workspace receives separate snapshot/log files under `data/workspaces/<workspace-id>/` and does not inherit the default workspace's imported CRM data.
+
 ## 1. Architecture — read this first
 
 **There is no traditional codebase here.** Every page in this system is a self-contained HTML/CSS/JS document published directly as a Claude Artifact (a hosted page with its own URL, editable by fetch → edit → republish). There is no build step, no server, no framework, no package.json, no repo. The `.py` files in `build-scripts/` are **one-time historical transform scripts**, not a build pipeline — see section 4.

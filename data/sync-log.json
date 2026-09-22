@@ -1,0 +1,10 @@
+[
+  {
+    "at": "2026-09-11T04:42:37.854Z",
+    "type": "contact",
+    "slug": "test-contact",
+    "status": "updated",
+    "eventId": "manual-test-1",
+    "usedPreviousSecret": false
+  }
+]
